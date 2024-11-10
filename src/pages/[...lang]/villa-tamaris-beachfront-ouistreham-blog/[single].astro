@@ -12,7 +12,7 @@ export async function getStaticPaths() {
     supportedLang.map(async (lang) => {
       const posts = await getSinglePage(
         BLOG_FOLDER,
-        lang as keyof ContentEntryMap
+        lang as keyof ContentEntryMap,
       );
 
       return posts.map((post) => ({
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
           post,
         },
       }));
-    })
+    }),
   );
   return paths.flat();
 }

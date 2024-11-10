@@ -8,7 +8,7 @@ import Header from "@/partials/Header.astro";
 import "@/styles/main.scss";
 import { AstroFont } from "astro-font";
 import { ViewTransitions } from "astro:transitions";
-import SearchModal from "./helpers/SearchModal";
+
 import { getLangFromUrl } from "@/lib/utils/languageParser";
 
 // font families
@@ -177,7 +177,7 @@ const language = lang || getLangFromUrl(Astro.url);
   <body>
     <TwSizeIndicator />
     <Header />
-    <SearchModal lang={language} client:load />
+
     <main id="main-content">
       <slot />
     </main>

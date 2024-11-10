@@ -24,13 +24,13 @@ const { banner, features } = homepage[0].data;
 const testimonial = await getSinglePage(
   "sections",
   lang as keyof ContentEntryMap,
-  "testimonial"
+  "testimonial",
 );
 
 const call_to_action = await getSinglePage(
   "sections",
   lang as keyof ContentEntryMap,
-  "call-to-action"
+  "call-to-action",
 );
 ---
 
@@ -39,27 +39,7 @@ const call_to_action = await getSinglePage(
   <section class="section pt-14">
     <div class="container">
       <div class="row justify-center">
-        <div class="lg:col-7 md:col-9 mb-8 text-center">
-          <h1
-            set:html={markdownify(banner.title)}
-            class="mb-4 text-h3 lg:text-h1"
-          />
-          <p set:html={markdownify(banner.content)} class="mb-8" />
-          {
-            banner.button.enable && (
-              <a
-                class="btn btn-primary"
-                href={banner.button.link}
-                target={
-                  banner.button.link.startsWith("http") ? "_blank" : "_self"
-                }
-                rel="noopener"
-              >
-                {banner.button.label}
-              </a>
-            )
-          }
-        </div>
+        
         {
           banner.image && (
             <div class="col-12">
@@ -73,6 +53,14 @@ const call_to_action = await getSinglePage(
             </div>
           )
         }
+        <div class="lg:col-7 md:col-9 mb-8 text-center">
+          <h1
+            set:html={markdownify(banner.title)}
+            class="mb-4 text-h3 lg:text-h1"
+          />
+          <p set:html={markdownify(banner.content)} class="mb-8" />
+
+        </div>
       </div>
     </div>
   </section>
@@ -107,8 +95,11 @@ const call_to_action = await getSinglePage(
                 ))}
               </ul>
               {feature.button.enable && (
-                <a class="btn btn-primary mt-5" href={feature.button.link}>
-                  {feature.button.label}
+                <a class="btn btn-primary mt-5" 
+                href={feature.button.link}
+                target="_self"
+                >
+                {feature.button.label}
                 </a>
               )}
             </div>
@@ -117,8 +108,10 @@ const call_to_action = await getSinglePage(
       </section>
     ))
   }
-  <!-- /Features -->
+  <!-- /Features 
 
   <Testimonial testimonial={testimonial[0]} />
   <CallToAction call_to_action={call_to_action[0]} />
+-->
+
 </Base>

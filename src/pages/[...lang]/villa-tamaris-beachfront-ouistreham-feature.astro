@@ -14,10 +14,10 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const about = await getListPage("about", lang as keyof ContentEntryMap);
+const readcontent = await getListPage("feature", lang as keyof ContentEntryMap);
 
-const { Content } = await about[0].render();
-const { title, description, meta_title, image } = about[0].data;
+const { Content } = await readcontent[0].render();
+const { title, description, meta_title, image } = readcontent[0].data;
 ---
 
 <Base
@@ -29,20 +29,20 @@ const { title, description, meta_title, image } = about[0].data;
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
-        <div class="text-center md:col-10 lg:col-7">
+        <div class="text-left md:col-10 lg:col-7">
           {
             image && (
               <ImageMod
-                class="mx-auto mb-6 rounded-lg"
+                class="mx-auto col-12"
                 src={image}
-                width={200}
-                height={200}
+                width={380}
+                height={1200}
                 alt={title}
                 format="webp"
               />
             )
           }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
+          <h2 set:html={markdownify(title)} class="h2 mb-6" />
           <div class="content">
             <Content />
           </div>

@@ -1,0 +1,53 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import { supportedLang } from "@/lib/utils/languageParser";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { ContentEntryMap } from "astro:content";
+
+export function getStaticPaths() {
+  const paths = supportedLang.map((lang) => ({
+    params: { lang: lang || undefined },
+  }));
+  return paths;
+}
+
+const { lang } = Astro.params;
+const readcontent = await getListPage("booknow", lang as keyof ContentEntryMap);
+
+const { Content } = await readcontent[0].render();
+const { title, description, meta_title, image } = readcontent[0].data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-7 md:col-9 mb-8 text-left">
+          {
+            image && (
+              <ImageMod
+                class="mx-auto col-12"
+                src={image}
+                width={380}
+                height={1200}
+                alt={title}
+                format="webp"
+              />
+            )
+          }
+          <h2 set:html={markdownify(title)} class="h2 mb-6" />
+          <div class="content">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

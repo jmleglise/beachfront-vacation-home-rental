@@ -1,50 +1,49 @@
 {
   "site": {
-    "title": "Astroplate",
-    "base_url": "https://astroplate.netlify.app",
+    "title": "Exceptionnelle villa en front de mer à ouistreham",
+    "base_url": "https://location-maison-mer.fr",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "30",
-    "logo_text": "Astroplate"
+    "favicon": "/images/favicon32.png",
+    "logo": "/images/logo.jpg",
+    "logo_width": "90",
+    "logo_height": "90",
+    "logo_text": "Ceramique Camelia de la villa Tamaris Ouistreham"
   },
 
   "settings": {
-    "search": true,
+    "search": false,
     "sticky_header": true,
-    "theme_switcher": true,
+    "theme_switcher": false,
     "default_theme": "system",
     "pagination": 2,
     "summary_length": 200,
     "blog_folder": "blog",
-    "default_language": "en",
+    "default_language": "fr",
     "disable_languages": [],
     "default_language_in_subdir": false
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "Jean-Marc LEGLISE - <a href='https://astro.build' target='_blank' rel='noopener noreferrer'>  with Astro FrameWork & Astroplate template </a>"
   },
 
-  "navigation_button": {
+  "book_now_button": {
     "enable": true,
-    "label": "Get Started",
-    "link": "https://github.com/zeon-studio/astroplate"
+    "label": "Book Now",
+    "link": "villa-tamaris-beachfront-ouistreham-book-now"
   },
 
   "disqus": {
-    "enable": true,
+    "enable": false,
     "shortname": "themefisher-template",
     "settings": {}
   },
 
   "metadata": {
-    "meta_author": "zeon.studio",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind boilerplate"
+    "meta_author": "Jean-Marc LEGLISE",
+    "meta_image": "/images/villa_tamaris_ouistreham_vueFront.jpg",
+    "meta_description": "Location de vacances pour 10 personnes à Ouistreham, en front de mer."
   }
 }

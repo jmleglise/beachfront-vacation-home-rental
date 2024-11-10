@@ -11,14 +11,14 @@ import languages from "@/config/language.json";
 
 export const getSP = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined
+  lang: keyof ContentEntryMap | undefined,
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
   const selectedLanguageCode = lang || default_language;
 
   const language = languages.find(
-    (l: any) => l.languageCode === selectedLanguageCode
+    (l: any) => l.languageCode === selectedLanguageCode,
   );
 
   if (!language) {
@@ -31,7 +31,7 @@ export const getSP = async <C extends CollectionKey>(
     contentDir as any,
     ({ id }: any) => {
       return id.startsWith(collectionName) && !id.endsWith("-index.md");
-    }
+    },
   )) as CollectionEntry<C>[];
 
   // @ts-ignore
@@ -42,14 +42,14 @@ export const getSP = async <C extends CollectionKey>(
 
 export const getLP = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined
+  lang: keyof ContentEntryMap | undefined,
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
   const selectedLanguageCode = lang || default_language;
 
   const language = languages.find(
-    (l: any) => l.languageCode == selectedLanguageCode
+    (l: any) => l.languageCode == selectedLanguageCode,
   );
 
   if (!language) {
@@ -62,7 +62,7 @@ export const getLP = async <C extends CollectionKey>(
     contentDir as any,
     ({ id }: any) => {
       return id.startsWith(collectionName);
-    }
+    },
   )) as CollectionEntry<C>[];
 
   return pages;
@@ -71,14 +71,14 @@ export const getLP = async <C extends CollectionKey>(
 export const getSinglePage = async <C extends CollectionKey>(
   collectionName: C,
   lang: keyof ContentEntryMap | undefined,
-  subCollectionName?: string
+  subCollectionName?: string,
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
   const selectedLanguageCode = lang || default_language;
 
   const language = languages.find(
-    (l: any) => l.languageCode === selectedLanguageCode
+    (l: any) => l.languageCode === selectedLanguageCode,
   );
 
   if (!language) {
@@ -95,7 +95,7 @@ export const getSinglePage = async <C extends CollectionKey>(
     collectionName as any,
     ({ id }: any) => {
       return id.startsWith(path) && !id.endsWith("-index.md");
-    }
+    },
   )) as CollectionEntry<C>[];
 
   // @ts-ignore
@@ -106,14 +106,14 @@ export const getSinglePage = async <C extends CollectionKey>(
 
 export const getListPage = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined
+  lang: keyof ContentEntryMap | undefined,
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
   const selectedLanguageCode = lang || default_language;
 
   const language = languages.find(
-    (l: any) => l.languageCode == selectedLanguageCode
+    (l: any) => l.languageCode == selectedLanguageCode,
   );
 
   if (!language) {
@@ -126,7 +126,7 @@ export const getListPage = async <C extends CollectionKey>(
     collectionName as any,
     ({ id }: any) => {
       return id.startsWith(contentDir);
-    }
+    },
   )) as CollectionEntry<C>[];
 
   return pages;
