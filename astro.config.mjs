@@ -8,6 +8,7 @@ import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
 import languagesJSON from "./src/config/language.json";
+// import cloudflare from "@astrojs/cloudflare";
 const { default_language } = config.settings;
 
 const supportedLang = [...languagesJSON.map((lang) => lang.languageCode)];
@@ -20,16 +21,25 @@ const filteredSupportedLang = supportedLang.filter(
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
+  site: config.site.base_url ? config.site.base_url : "http://location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "ignore",
+
   i18n: {
     locales: filteredSupportedLang,
     defaultLocale: default_language,
   },
+
+// JML image: {
+//    service: squooshImageService(),
+//  },
+
   image: {
-    service: squooshImageService(),
+    service: {
+      entrypoint: 'astro/assets/services/noop'
+   }
   },
+
   integrations: [
     react(),
     sitemap(),
@@ -49,6 +59,7 @@ export default defineConfig({
     }),
     mdx(),
   ],
+
   markdown: {
     remarkPlugins: [
       remarkToc,
@@ -65,4 +76,8 @@ export default defineConfig({
     },
     extendDefaultPlugins: true,
   },
+
+  output: "static",
+  // JML output: "server",
+  // JML adapter: cloudflare(),
 });
