@@ -58,6 +58,35 @@ const call_to_action = await getSinglePage(
             set:html={markdownify(banner.title)}
             class="mb-4 text-h3 lg:text-h1"
           />
+
+ <!-- 4 blocs -->
+ <div class="flex justify-center space-x-8">
+  <!-- Bloc 1 -->
+  <div class="flex items-center space-x-2">
+    <img src="images/pax.svg" alt="10 Guests" class="w-10 h-10">
+    <span>10</span>
+  </div>
+  
+  <!-- Bloc 2 -->
+  <div class="flex items-center space-x-2">
+    <img src="images/room.svg" alt="5 rooms" class="w-10 h-10">
+    <span>5</span>
+  </div>
+  
+  <!-- Bloc 3 -->
+  <div class="flex items-center space-x-2">
+    <img src="images/logo.jpg" alt="XX" class="w-10 h-10">
+    <span>3</span>
+  </div>
+  
+  <!-- Bloc 4 -->
+  <div class="flex items-center space-x-2">
+    <img src="images/beach.svg" alt="beachfront" class="w-12 h-12">
+    <span></span>
+  </div>
+</div>
+
+
           <p set:html={markdownify(banner.content)} class="mb-8" />
 
         </div>
@@ -66,6 +95,10 @@ const call_to_action = await getSinglePage(
   </section>
   <!-- /Banner -->
 
+
+   
+
+ 
   <!-- Features -->
   {
     features.map((feature: Feature, index: number) => (
@@ -112,6 +145,6 @@ const call_to_action = await getSinglePage(
 
   <Testimonial testimonial={testimonial[0]} />
   <CallToAction call_to_action={call_to_action[0]} />
--->
-
+  -->
+  
 </Base>

@@ -3,7 +3,7 @@
     { "name": "The Villa", "url": "/" },
     { "name": "Features", "url": "/villa-tamaris-beachfront-ouistreham-feature" },
     { "name": "Location", "url": "/villa-tamaris-beachfront-ouistreham-location" },
-    { "name": "Explore", "url": "/villa-tamaris-beachfront-ouistreham-blog" }
+    { "name": "Explore", "url": "/blog" }
   
   ],
   "footer": [

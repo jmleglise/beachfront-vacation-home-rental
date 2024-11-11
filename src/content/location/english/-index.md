@@ -1,9 +1,49 @@
 ---
-title: "Hey, I am John Doe!"
-meta_title: "About"
-description: "this is meta description"
-image: "/images/avatar.png"
+title: "Location"
+meta_title: "Location"
+description: "Villa Les Tamaris, with an exceptional sea view in Ouistreham, enjoys an outstanding location. Peaceful and only 10 minutes from the vibrant heart of Ouistreham. 2 hours and 15 minutes from Paris via the Normandy motorway. All amenities immediately accessible."
+
+image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.
+At 117 Boulevard Aristide Briand 14150 Ouistreham.
+Opposite the Malo ramp.
+
+<h3> Access: </h3>
+
+- 2 hours and 15 minutes from Paris via the A13 Normandy motorway
+- 20 minutes from Caen
+- Caen SNCF train station
+- Ferry: 3 daily departures to Portsmouth, England, in 6 or 8 hours.
+
+<h3>Close to all amenities:</h3>
+
+- Bakery (700m)
+
+- Auchan (1 km) with Hairdresser, Florist, Shoemaker, Laundromat, Pizzeria...
+
+- Rue de la Mer (1.2 km - a lively, famous shopping street: newsstand, bookstore, restaurants, etc.)
+
+- An exceptional fish and seafood market every day (2.4 km). The fishermen of Ouistreham sell their night’s catch.
+
+- Two local farmers' markets.
+
+- Numerous restaurants and shops.
+
+<img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris by the sea" />
+
+<h3>Things to Do:</h3>
+
+- The beach right in front of the gate, with a boat launch, children’s playground, and pétanque courts (50m). You can enjoy a sunset stroll or sip a cocktail at the beach bar "La Paillotte" just 80m away.
+
+- Many walks (seawall, marshes, woods...) or by bike on the bike path along the seawall in front of the house, stretching 15km to Courseulles-sur-Mer on one side and along the Orne canal to Caen on the other side.
+
+- Sailing school and equipment rental 100m away: windsurfing, paddleboarding, jet-skiing, land sailing, kitesurfing.
+
+- Other activities within 1km: aquatic center/swimming pool, thalassotherapy center, arcade, cinema, Barrière casino, nightclub, equestrian center with beach rides, go-kart track, skatepark, tennis.
+
+- And in the region: a golf course 15 minutes away, mini-golf, amusement parks, zoos, museums, D-Day beaches, etc.
+
+- CAEN (20 min), BAYEUX (30 min), MONT-ST-MICHEL (1h30), CABOURG (28 min), DEAUVILLE (40 min), PONT L’EVEQUE (40 min).
+

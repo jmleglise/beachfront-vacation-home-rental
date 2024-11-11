@@ -1,22 +1,22 @@
 ---
 # Banner
 banner:
-  title: "Villa Les Tamaris"
-  content: "Ouistreham"
+  title: "Location de vacance - Ouistreham"
+  content: "Pour votre location de vacance à la mer, nous vous proposons notre maison en front de mer, avec tout le confort et l'équipement d'une véritable maison d'habitation. 
+  Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? 
+  Imaginez vos réveils avec une vue imprenable sur la mer, et la chance d'aller à la plage au bout du jardin. 
+  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil et de découvrir cette région riche en activités.
+  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end, d'une semaine ..."
   image: "/images/hp_banner.jpg"
-
-# Intro
-intro: "Idéalement située en front de mer, la maison dispose de tout le confort et l'équipement d'une véritable habitation."
-2ndline: "12 personnes, 5 chambres, 3 salles de douche."
 
 # Features
 features:
   - title: "La maison"
     image: "/images/hp_feature.jpg"
-    content: "Face à la mer, vous profitez d'une belle vue mer du salon et de 3 chambres. La maison a été totalement rénovée en 2024 et offre des prestations de haut niveau."
+    content: "Face à la mer, vous profitez d'une belle vue mer du salon et de 3 chambres. La maison a été totalement rénovée en 2024 et offre des prestations haut de gamme."
     bulletpoints:
       - "Chambre parentale ouverte sur sa terrasse exceptionnelle et sa salle d'eau en suite."
-      - "5 chambres, 3 Salles d'eau, 3 WC"
+      - "10 personnes, 5 chambres, 3 Salles d'eau, 3 WC"
       - "Séjour salon avec cuisine toute équipée."
       - "Bureau et Internet++ pour travailler dans un cadre exceptionnel."
       - "sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha."

@@ -1,53 +1,55 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Astro Project"
-  content: "Astroplate is a free starter template built with Astro and TailwindCSS, providing everything you need to jumpstart your Astro project and save valuable time."
-  image: "/images/banner.png"
-  button:
-    enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/astroplate"
+  title: "beachfront home rental - Ouistreham"
+  content: "For your vacation rental, we offer our beachfront house with all the comfort and equipment of a true home. 
+  Who hasn’t dreamed of staying in a beautiful villa by the sea, on the beach with the ocean as the only horizon?
+  Imagine waking up to breathtaking views of the sea and having the chance to reach the beach right at the end of the garden.
+  Enjoy the pleasures of swimming, barbecues in the garden, aperitifs at sunset, and discovering this region rich in activities.
+  True luxury is the privileged setting of your waterfront vacation home. Whether for a weekend, a week..."
+  image: "/images/hp_banner.jpg"
 
 # Features
 features:
-  - title: "What's Included in Astroplate"
-    image: "/images/service-1.png"
-    content: "Astroplate is a comprehensive starter template that includes everything you need to get started with your Astro project. What's Included in Astroplate"
+  - title: "The House"
+    image: "/images/hp_feature.jpg"
+    content: "Facing the sea, enjoy a beautiful sea view from the living room and 3 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Astro and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
-    button:
-      enable: false
-      label: "Get Started Now"
-      link: "#"
-
-  - title: "Discover the Key Features Of Astro"
-    image: "/images/service-2.png"
-    content: "Astro is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-    bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+      - "Master bedroom opens onto its exceptional terrace with an en-suite bathroom."
+      - "10 people, 5 bedrooms, 3 bathrooms, 3 WCs."
+      - "Living room with fully equipped kitchen."
+      - "Office and high-speed Internet for working in an exceptional setting."
+      - "On a 300m² plot, landscaped garden, barbecue, plancha."
+      - "All desired equipment included."
     button:
       enable: true
-      label: "Get Started Now"
-      link: "https://github.com/zeon-studio/astroplate"
+      label: "Discover the House"
+      link: "villa-tamaris-beachfront-ouistreham-feature"
 
-  - title: "The Top Reasons to Choose Astro for Your Next Project"
-    image: "/images/service-3.png"
-    content: "With Astro, you can build modern and content-focused websites without sacrificing performance or ease of use."
+# Location
+  - title: "Location"
+    image: "/images/hp_location_beachfront.png"
+    content: "An ideal location, this quiet house is just a 10-minute retreat from the vibrant heart of Ouistreham. Simply cross the street to be at Riva Bella, the finest beach on the Côte de Nacre with its 3 km of fine sand, perfect for evening strolls or enjoying a cocktail at the beach bar 'La Paillotte' just 50 meters."
     bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Astro a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
-      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
+      - "Ouistreham is a lively seaside town."
+      - "2 hours and 15 minutes from Paris via the Normandy motorway."
+      - "All amenities immediately accessible."
     button:
-      enable: false
-      label: ""
-      link: ""
+      enable: true
+      label: "Discover the Location"
+      link: "villa-tamaris-beachfront-ouistreham-location"
+
+# Explore
+  - title: "The Region and Activities"
+    image: "/images/hp_explore_post_card.png"
+    content: "Whether you seek contemplative relaxation with distant horizons, nautical & sports activities, or dives into a rich past, there's something for everyone:"
+    bulletpoints:
+      - "Gather with family."
+      - "Sports and nautical activities: sailing school, land sailing, kitesurfing... The coast offers favorable winds."
+      - "One of the 5 landing beaches."
+      - "The lively center of Ouistreham and surrounding areas, Cabourg, Caen..."
+    button:
+      enable: true
+      label: "Follow us to Discover the Region"
+      link: "villa-tamaris-beachfront-ouistreham-blog"
 ---

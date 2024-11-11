@@ -8,7 +8,7 @@
     "logo": "/images/logo.jpg",
     "logo_width": "90",
     "logo_height": "90",
-    "logo_text": "Ceramique Camelia de la villa Tamaris Ouistreham"
+    "logo_text": "Les céramiques de la villa Tamaris à Ouistreham sont de Martine Brossier Genevois"
   },
 
   "settings": {
@@ -32,7 +32,7 @@
   "book_now_button": {
     "enable": true,
     "label": "Book Now",
-    "link": "villa-tamaris-beachfront-ouistreham-book-now"
+    "link": "/villa-tamaris-beachfront-ouistreham-book-now"
   },
 
   "disqus": {
@@ -44,6 +44,6 @@
   "metadata": {
     "meta_author": "Jean-Marc LEGLISE",
     "meta_image": "/images/villa_tamaris_ouistreham_vueFront.jpg",
-    "meta_description": "Location de vacances pour 10 personnes à Ouistreham, en front de mer."
+    "meta_description": "Pour votre location de vacance à Ouistreham avec vue mer, la villa Tamaris est idéalement située en front de mer. Vous bénéficierez d'une maison avec tout le confort et l&#39;équipement d&#39;une véritable habitation. La maison accueille confortablement 10 personnes sur 5 chambres et 3 salles de douche."
   }
 }

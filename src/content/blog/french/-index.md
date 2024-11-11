@@ -1,5 +1,5 @@
 ---
-title: "Articles de blog"
-meta_title: ""
-description: "Ceci est une méta-description"
+title: "Suivez nous pour découvrir la région"
+meta_title: "Lors de votre location de notre maison de vacance, suivez nous pour découvrir la région et nos coups de coeur: restaurants, évènements, patrimoine, lieux ..."
+description: "Lors de votre location de notre maison de vacance, suivez nous pour découvrir la région et nos coups de coeur: restaurants, évènements, patrimoine, lieux ..."
 ---
