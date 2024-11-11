@@ -21,7 +21,7 @@ const filteredSupportedLang = supportedLang.filter(
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://location-maison-mer.fr",
+  site: config.site.base_url ? config.site.base_url : "https://location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "ignore",
 
@@ -30,15 +30,15 @@ export default defineConfig({
     defaultLocale: default_language,
   },
 
-// JML image: {
-//    service: squooshImageService(),
-//  },
-
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/noop'
-   }
+image: {
+    service: squooshImageService(),
   },
+
+//  image: {
+//    service: {
+//      entrypoint: 'astro/assets/services/noop'
+//   }
+//  },
 
   integrations: [
     react(),
