@@ -31,7 +31,7 @@ Opposite the Malo ramp.
 
 - Numerous restaurants and shops.
 
-<img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris by the sea" />
+<img src="images/villa_tamaris_ouistreham_map.jpg" alt="Villa Tamaris by the sea" />
 
 <h3>Things to Do:</h3>
 

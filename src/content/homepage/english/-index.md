@@ -41,7 +41,7 @@ features:
 
 # Explore
   - title: "The Region and Activities"
-    image: "/images/hp_explore_post_card.png"
+    image: "/images/hp_explore_post_card.jpg"
     content: "Whether you seek contemplative relaxation with distant horizons, nautical & sports activities, or dives into a rich past, there's something for everyone:"
     bulletpoints:
       - "Gather with family."

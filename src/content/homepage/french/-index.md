@@ -41,7 +41,7 @@ features:
 
 # Explore
   - title: "La région et les activités"
-    image: "/images/hp_explore_post_card.png"
+    image: "/images/hp_explore_post_card.jpg"
     content: "Repos contemplatifs d'horizon lointain, activités nautiques & sportives, plongées dans le passé chargé. Tout le monde trouvera son compte :"
     bulletpoints:
       - "Se retrouver en famille."
