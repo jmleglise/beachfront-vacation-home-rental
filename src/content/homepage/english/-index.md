@@ -28,7 +28,7 @@ features:
 
 # Location
   - title: "Location"
-    image: "/images/hp_location_beachfront.png"
+    image: "/images/hp_location_beachfront.jpg"
     content: "An ideal location, this quiet house is just a 10-minute retreat from the vibrant heart of Ouistreham. Simply cross the street to be at Riva Bella, the finest beach on the Côte de Nacre with its 3 km of fine sand, perfect for evening strolls or enjoying a cocktail at the beach bar 'La Paillotte' just 50 meters."
     bulletpoints:
       - "Ouistreham is a lively seaside town."
@@ -51,5 +51,5 @@ features:
     button:
       enable: true
       label: "Follow us to Discover the Region"
-      link: "villa-tamaris-beachfront-ouistreham-blog"
+      link: "blog"
 ---

@@ -28,7 +28,7 @@ features:
 
 # Location
   - title: "La localisation"
-    image: "/images/hp_location_beachfront.png"
+    image: "/images/hp_location_beachfront.jpg"
     content: "Situation idéale, pour cette maison au calme et en retrait de seulement 10 minutes du coeur vibrant et animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil ou siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
       - "Ouistreham est une ville balnéaire très vivante."
@@ -51,5 +51,5 @@ features:
     button:
       enable: true
       label: "Suivez nous pour découvrir la région"
-      link: "villa-tamaris-beachfront-ouistreham-blog"
+      link: "blog"
 ---

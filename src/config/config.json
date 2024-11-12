@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Exceptionnelle villa en front de mer à ouistreham",
+    "title": "Exceptionnelle villa en front de mer à Ouistreham",
     "base_url": "https://location-maison-mer.fr",
     "base_path": "/",
     "trailing_slash": false,
@@ -26,7 +26,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Jean-Marc LEGLISE - <a href='https://astro.build' target='_blank' rel='noopener noreferrer'>  with Astro FrameWork & Astroplate template </a>"
+    "copyright": "<i>Jean-Marc LEGLISE - <a href='https://astro.build' target='_blank' rel='noopener noreferrer'>  with Astro.js & Astroplate</a></i>"
   },
 
   "book_now_button": {
@@ -44,6 +44,6 @@
   "metadata": {
     "meta_author": "Jean-Marc LEGLISE",
     "meta_image": "/images/villa_tamaris_ouistreham_vueFront.jpg",
-    "meta_description": "Pour votre location de vacance à Ouistreham avec vue mer, la villa Tamaris est idéalement située en front de mer. Vous bénéficierez d'une maison avec tout le confort et l&#39;équipement d&#39;une véritable habitation. La maison accueille confortablement 10 personnes sur 5 chambres et 3 salles de douche."
+    "meta_description": "Grande location de vacance avec vue mer à Ouistreham, 2h de Paris. 5 chambres, 10 personnes. La villa Tamaris est idéalement située en front de mer et bénéficie de tout le confort et l&#39;équipement d&#39;une véritable habitation."
   }
 }
