@@ -21,24 +21,29 @@ const filteredSupportedLang = supportedLang.filter(
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "https://location-maison-mer.fr",
+  site: config.site.base_url ? config.site.base_url : "https://www.location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
-  trailingSlash: config.site.trailing_slash ? "always" : "ignore",
+ // trailingSlash: config.site.trailing_slash ? "always" : "ignore",
+  trailingSlash: 'always',
+  outDir: '/media/sf_SiteAstro/dist',
 
   i18n: {
     locales: filteredSupportedLang,
     defaultLocale: default_language,
   },
 
-image: {
+ image: {
     service: squooshImageService(),
   },
 
-//  image: {
-//    service: {
-//      entrypoint: 'astro/assets/services/noop'
-//   }
-//  },
+  // image: {
+  //   service: {
+  //     entrypoint: 'astro/assets/services/sharp',
+  //       config: {
+  //         limitInputPixels: false,
+  //       },
+  //  },
+  // },
 
   integrations: [
     react(),

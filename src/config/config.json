@@ -33,7 +33,7 @@
   "book_now_button": {
     "enable": true,
     "label": "Book Now",
-    "link": "/villa-tamaris-beachfront-ouistreham-book-now"
+    "link": "/villa-tamaris-beachfront-ouistreham-book-now/"
   },
 
   "disqus": {

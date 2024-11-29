@@ -33,7 +33,7 @@ En face de la rampe malo.
 
 
 
-<img src="images/villa_tamaris_ouistreham_map.jpg" alt="Villa Tamaris en bord de mer" />
+<img src="/images/villa_tamaris_ouistreham_map.jpg" alt="la localisation de Villa Tamaris en bord de mer" />
 
 <h3>A faire :</h3>
 
