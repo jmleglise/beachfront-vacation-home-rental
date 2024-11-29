@@ -2,7 +2,7 @@
 title: "The Famous Beach Cabins of the Côte de Nacre"
 meta_title: "Our Seaside Home Near the Beach Cabins"
 description: "The beach cabins in front of our seaside vacation rental."
-date: 2023-07-04T05:00:00Z
+date: 2024-07-04T05:00:00Z
 image: "/images/tourisme/cabane.jpg"
 categories: ["visit"]
 author: "JmL"

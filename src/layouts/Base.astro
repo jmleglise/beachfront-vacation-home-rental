@@ -29,6 +29,7 @@ if (theme.fonts.font_family.secondary) {
 
 // types for frontmatters
 export interface Props {
+  villa_title?: string;
   title?: string;
   meta_title?: string;
   description?: string;
@@ -39,10 +40,83 @@ export interface Props {
 }
 
 // distructure frontmatters
-const { title, meta_title, description, image, noindex, canonical, lang } =
-  Astro.props;
+const { villa_title, title, meta_title, description, image, noindex, canonical, lang } = Astro.props;
 
 const language = lang || getLangFromUrl(Astro.url);
+
+const vacationRentalJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "VacationRental",
+        "name": config.site.villa_title,
+        "description": "Superbe maison de vacances en front de mer à Ouistreham, pour 10 personnes, 5 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation. Idéale pour un séjour avec vue imprenable sur la mer et accès direct à la plage.",
+        "url": "https://www.location-maison-mer.fr/",
+        "image": "https://www.location-maison-mer.fr/images/villa-les-tamaris.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ouistreham",
+          "addressRegion": "Normandie",
+          "addressCountry": "France"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 49.29183,
+          "longitude": -0.27290
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Vue sur la mer",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Accès direct à la plage",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Terrasse privée",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Jardin fleuri",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Barbecue et plancha",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Internet haut débit",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Cuisine entièrement équipée",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Bureau pour télétravail",
+            "value": true
+          }
+        ],
+        "numberOfRooms": 5,
+        "numberOfBathroomsTotal": 3,
+        "maximumAttendeeCapacity": 10,
+        "petsAllowed": false,
+        "tourBookingPage": "https://www.location-maison-mer.fr/reservation",
+        "host": {
+          "@type": "Person",
+          "name": "Jean-Marc LEGLISE",
+          "url": "https://www.location-maison-mer.fr/a-propos"
+        }
+      }
+
+
 ---
 
 <!doctype html>
@@ -50,8 +124,7 @@ const language = lang || getLangFromUrl(Astro.url);
   <head>
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
-    <!-- theme meta -->
-    <meta name="theme-name" content="astroplate" />
+
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
@@ -173,6 +246,14 @@ const language = lang || getLangFromUrl(Astro.url);
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- JML add vacationrental here -->
+    <script 
+      type="application/ld+json"
+        set:html={JSON.stringify(vacationRentalJsonLd)}
+    />
+
+
   </head>
   <body>
     <TwSizeIndicator />

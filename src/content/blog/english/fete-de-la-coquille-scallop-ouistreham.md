@@ -2,7 +2,7 @@
 title: "The Scallop Festival in Ouistreham"
 meta_title: "The Scallop Festival in Ouistreham"
 description: "When renting our seaside vacation home in Ouistreham, don’t miss the Scallop Festival"
-date: 2023-10-22T05:00:00Z
+date: 2024-10-22T05:00:00Z
 image: "/images/tourisme/coquille.jpg"
 categories: ["event"]
 author: "jml"

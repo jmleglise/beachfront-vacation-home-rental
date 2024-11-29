@@ -52,4 +52,15 @@ features:
       enable: true
       label: "Follow us to Discover the Region"
       link: "blog"
+
+# Nous
+nous:
+  title: "Who we are"
+   # image: "/images/hp_explore_post_card.jpg"
+  content: "Nous sommes Isabelle, Justine, Marion et Jean-Marc et nous sommes heureux de vous accueillir dans notre maison.  Nous vous accueillons en confiance, et pour votre confort pendant vos vacances, nous vous laissons la plupart de nos équipements : Vélos, barbecue, livres, musique ...  Nous avons découvert la région récemment et avons décidé de nous y fixer après avoir nous même beaucoup loué des maisons de vacances, en Bretagne, dans le sud ... Nous apprécions tous les jours toujours plus cette région au contact des éléments , du grand air, et prenons plaisir également à découvrir les nombreuses activités environnantes. Nous vous faisons partager quelques unes de nos découvertes dans le blog. Cette maison est issue de plusieurs transformations. Initialement petite maison de pécheur, elle fut transformée une première fois en 2000 puis de nouveau totalement rénovée et transformée en 2024 lors de notre acquisition. Nous avons eu à coeur de conserver quelques traits architecturaux des maison Normandes et de la côte afin de perpétrer la tradition locale. Nous vous invitons d'ailleurs à découvrir la diversités de l'architecture locale où se cotoient villas huppées de la naissance du tourisme balnéaire de 1860, et maisonnettes des travailleurs de la mer."
+  button:
+    enable: true
+    label: "Suivez nous pour découvrir la région"
+    link: "blog"
+
 ---

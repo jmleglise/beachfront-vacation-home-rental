@@ -19,7 +19,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const homepage = await getListPage("homepage", lang as keyof ContentEntryMap);
-const { banner, features } = homepage[0].data;
+const { banner, features, nous } = homepage[0].data;
 
 const testimonial = await getSinglePage(
   "sections",
@@ -39,7 +39,29 @@ const call_to_action = await getSinglePage(
   <section class="section pt-14">
     <div class="container">
       <div class="row justify-center">
-        
+        <div class="relative">
+
+  
+    <!-- Image Section -->
+    <div class="col-12">
+      <ImageMod
+        src={banner.image}
+        height={380}
+        width={1200}
+        alt="banner"
+        format="webp"
+        class="w-full"
+      />
+    </div>
+  </div>
+   <!-- Title Section -->
+   <div class="absolute inset-0 flex items-center justify-center">
+    <h1
+      set:html={markdownify(banner.title)}
+      class="px-4 text-base sm:text-lg md:text-2xl lg:text-h1 text-white font-bold"
+    ></h1>
+  </div>
+        <!-- 
         {
           banner.image && (
             <div class="col-12">
@@ -53,35 +75,36 @@ const call_to_action = await getSinglePage(
             </div>
           )
         }
-        <div class="lg:col-7 md:col-9 mb-8 text-center">
+     
+        <div class="lg:col-10 md:col-9 mb-8 text-center">
           <h1
             set:html={markdownify(banner.title)}
             class="mb-4 text-h3 lg:text-h1"
           />
-
+     -->
  <!-- 4 blocs -->
  <div class="flex justify-center space-x-8">
   <!-- Bloc 1 -->
   <div class="flex items-center space-x-2">
-    <img src="images/pax.svg" alt="10 Guests" class="w-10 h-10">
+    <img src="/images/pax.svg" alt="10 Guests" class="w-10 h-10">
     <span>10</span>
   </div>
   
   <!-- Bloc 2 -->
   <div class="flex items-center space-x-2">
-    <img src="images/room.svg" alt="5 rooms" class="w-10 h-10">
+    <img src="/images/room.svg" alt="5 rooms" class="w-10 h-10">
     <span>5</span>
   </div>
   
   <!-- Bloc 3 -->
   <div class="flex items-center space-x-2">
-    <img src="images/logo.jpg" alt="XX" class="w-10 h-10">
+    <img src="/images/logo.jpg" alt="XX" class="w-10 h-10">
     <span>3</span>
   </div>
   
   <!-- Bloc 4 -->
   <div class="flex items-center space-x-2">
-    <img src="images/beach.svg" alt="beachfront" class="w-12 h-12">
+    <img src="/images/beach.svg" alt="beachfront" class="w-12 h-12">
     <span></span>
   </div>
 </div>
@@ -147,4 +170,40 @@ const call_to_action = await getSinglePage(
   <CallToAction call_to_action={call_to_action[0]} />
   -->
   
+<!-- Nous -->
+<section class="section pt-14">
+  <div class="container">
+    <div class="row justify-center">
+      
+ <!--      
+      {
+        nous.image && (
+          <div class="col-12">
+            <ImageMod
+              src={nous.image}
+              height={380}
+              width={1200}
+              alt="nous"
+              format="webp"
+            />
+          </div>
+        )
+      }
+-->
+
+      <div class="lg:col-10 md:col-9 mb-8 text-center">
+        <h1
+          set:html={markdownify(nous.title)}
+          class="mb-4 text-h3 lg:text-h1"
+        />
+
+        <p set:html={markdownify(nous.content)} class="mb-8" />
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Nous -->
+
+
 </Base>

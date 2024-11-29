@@ -2,7 +2,7 @@
 title: "Land Sailing on the Beaches of the Côte de Nacre"
 meta_title: "Land Sailing, an activity during your vacation rental in Ouistreham"
 description: "This is a meta description"
-date: 2023-07-04T05:00:00Z
+date: 2024-07-04T05:00:00Z
 image: "/images/tourisme/char.jpg"
 categories: ["sport"]
 author: "JmL"
