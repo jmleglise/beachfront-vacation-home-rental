@@ -27,11 +27,12 @@ const allTags = await getAllTaxonomy(langCollection, "tags");
 
 <Base title={"Tags"}>
   <PageHeader title={"Tags"} />
-  <section class="section">
+  <section class="section">  
     <div class="container text-center">
-      <ul>
+      <ul>     
         {
           tags.map((tag: any) => {
+      
             const count = allTags.filter((c) => c === tag).length;
             return (
               <li class="m-3 inline-block">
