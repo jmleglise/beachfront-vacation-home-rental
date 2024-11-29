@@ -66,35 +66,6 @@ const allCategories = await getAllTaxonomy(langCollection, "categories");
 const categories = await getTaxonomy(langCollection, "categories");
 const tags = await getTaxonomy(langCollection, "tags");
 ---
- <!-- 
-<Base title={tag}>
-  <PageHeader title={tag} />
-  <div class="section-sm pb-0">
-    <div class="container">
-      <div class="row gx-5">
-        
-        <div class="lg:col-8">
-          <div class="row">
-            {
-              sortedPosts.map((post) => (
-                <div class="mb-14 md:col-6 lg:col-4">
-                  <BlogCard data={post} />
-                </div>
-              ))
-            }
-          </div>
-     
-          <PostSidebar
-            categories={categories}
-            tags={tags}
-            allCategories={allCategories}
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</Base>
--->
 
 
 <Base title={tag}>
