@@ -55,25 +55,4 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply block py-1 font-semibold text-dark transition hover:text-primary;
 }
 
-//theme-switcher
-.theme-switcher {
-  @apply inline-flex;
 
-  label {
-    @apply relative inline-block h-4 w-6 cursor-pointer rounded-2xl bg-border lg:w-10;
-  }
-
-  input {
-    @apply absolute opacity-0;
-  }
-
-  span {
-    @apply absolute -top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-dark transition-all duration-300;
-  }
-
-  input:checked + label {
-    span {
-      @apply lg:left-4;
-    }
-  }
-}

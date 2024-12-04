@@ -32,24 +32,24 @@ const { seo_footer } = await getTranslations(lang as keyof ContentEntryMap);
       
         {seo_footer}
       
-      <!--
+     
         <ul>
           {
             footer.map((menu: any) => (
               <li class="m-3 inline-block">
-                <a href={slugSelector(menu.url, lang)}>{menu.name}</a>
+                <a href={menu.url}>{menu.name}</a>   <!-- ={slugSelector(menu.url, lang)}>{menu.name}</a> -->
               </li>
             ))
           }
         </ul>
-      </div>
+   
 
-
+ <!--
       <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
         <Social source={social.main} className="social-icons" />
       </div>
 -->
-    
+      </div>
 
     </div>
   </div>

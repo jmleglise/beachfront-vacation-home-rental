@@ -1,10 +1,10 @@
 {
   "site": {
-    "villa_title": "Villa les Tamaris",
+    "villa_title": "Villa Tamaris",
     "title": "Location de maison de vacances en front de mer à Ouistreham.",
     "base_url": "https://www.location-maison-mer.fr",
     "base_path": "/",
-    "trailing_slash": false,
+    "trailing_slash": true,
     "favicon": "/images/favicon32.png",
     "logo": "/images/logo.jpg",
     "logo_width": "90",
@@ -13,12 +13,10 @@
   },
 
   "settings": {
-    "search": false,
     "sticky_header": true,
-    "theme_switcher": false,
     "default_theme": "system",
-    "pagination": 2,
-    "summary_length": 200,
+    "pagination": 3,
+    "summary_length": 220,
     "blog_folder": "blog",
     "default_language": "fr",
     "disable_languages": [],
@@ -33,7 +31,7 @@
   "book_now_button": {
     "enable": true,
     "label": "Book Now",
-    "link": "/villa-tamaris-beachfront-ouistreham-book-now"
+    "link": "/villa-tamaris-beachfront-ouistreham-book-now/"
   },
 
   "disqus": {

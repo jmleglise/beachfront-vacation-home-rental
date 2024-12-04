@@ -1,7 +1,7 @@
 ---
-title: "Location"
-meta_title: "Location"
-description: "Villa Les Tamaris, with an exceptional sea view in Ouistreham, enjoys an outstanding location. Peaceful and only 10 minutes from the vibrant heart of Ouistreham. 2 hours and 15 minutes from Paris via the Normandy motorway. All amenities immediately accessible."
+title: "Location de la villa Tamaris"
+meta_title: "Location de la villa Tamaris in Ouistreham"
+description: "Villa Tamaris, with an exceptional sea view in Ouistreham, enjoys an outstanding location. Peaceful and only 10 minutes from the vibrant heart of Ouistreham. 2 hours and 15 minutes from Paris via the Normandy motorway. All amenities immediately accessible."
 
 image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
@@ -10,14 +10,14 @@ draft: false
 At 117 Boulevard Aristide Briand 14150 Ouistreham.
 Opposite the Malo ramp.
 
-<h3> Access: </h3>
+<h2> Access: </h2>
 
 - 2 hours and 15 minutes from Paris via the A13 Normandy motorway
 - 20 minutes from Caen
 - Caen SNCF train station
 - Ferry: 3 daily departures to Portsmouth, England, in 6 or 8 hours.
 
-<h3>Close to all amenities:</h3>
+<h2>Close to all amenities:</h2>
 
 - Bakery (700m)
 
@@ -33,7 +33,7 @@ Opposite the Malo ramp.
 
 <img src="/images/villa_tamaris_ouistreham_map.jpg" alt="Location Villa Tamaris by the sea" />
 
-<h3>Things to Do:</h3>
+<h2>Things to Do:</h2>
 
 - The beach right in front of the gate, with a boat launch, children’s playground, and pétanque courts (50m). You can enjoy a sunset stroll or sip a cocktail at the beach bar "La Paillotte" just 80m away.
 
@@ -45,5 +45,5 @@ Opposite the Malo ramp.
 
 - And in the region: a golf course 15 minutes away, mini-golf, amusement parks, zoos, museums, D-Day beaches, etc.
 
-- CAEN (20 min), BAYEUX (30 min), MONT-ST-MICHEL (1h30), CABOURG (28 min), DEAUVILLE (40 min), PONT L’EVEQUE (40 min).
+- CAEN (20 min), BAYEUX (30 min), MONT-ST-MICHEL (1h20), CABOURG (28 min), DEAUVILLE (40 min), PONT L’EVEQUE (40 min).
 

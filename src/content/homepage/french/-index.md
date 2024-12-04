@@ -24,7 +24,7 @@ features:
     button:
       enable: true
       label: "Découvrez la maison"
-      link: "villa-tamaris-beachfront-ouistreham-feature"
+      link: "villa-tamaris-beachfront-ouistreham-feature/"
 
 # Location
   - title: "La localisation"
@@ -37,7 +37,7 @@ features:
     button:
       enable: true
       label: "Découvrez la localisation"
-      link: "villa-tamaris-beachfront-ouistreham-location"
+      link: "villa-tamaris-beachfront-ouistreham-location/"
 
 # Explore
   - title: "La région et les activités"
@@ -52,7 +52,7 @@ features:
     button:
       enable: true
       label: "Suivez nous pour découvrir la région"
-      link: "blog"
+      link: "blog/"
 
 
 # Nous
@@ -63,7 +63,7 @@ nous:
   button:
     enable: true
     label: "Suivez nous pour découvrir la région"
-    link: "blog"
+    link: "blog/"
 ---
 
 ---

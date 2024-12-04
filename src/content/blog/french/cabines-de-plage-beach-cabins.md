@@ -1,17 +1,17 @@
 ---
 title: "Les fameuses cabines de plage de la côte de nacre"
-meta_title: "notre maison à la mer proche des cabines de plage"
-description: "Les cabines de plages devant notre location de vacance à la mer."
+meta_title: "Notre location de maison de vacances à la mer à Ouistreham proche des cabines de plage"
+description: "Découvrez les cabines de plage de Ouistreham lors de votre location de vacance en front de mer."
 date: 2023-07-04T05:00:00Z
 image: "/images/tourisme/cabane.jpg"
-categories: ["visite"]
+categories: ["Visite"]
 author: "JmL"
-tags: ["patrimoine", "mer"]
+tags: ["Patrimoine", "Mer"]
 draft: false
 ---
 
-Les célèbres et très photogéniques cabines de plage de Normandie, évoquent le charme d'antan et l'esprit de vacances familiales, un univers qui inspire également la location de maisons de vacances dans la région. Ces
-petites constructions blanches, alignées le long des plages de Cabourg, Ouistreham et Saint-Aubin-sur-Mer, semblent tout droit sorties d'une carte postale. Je savais que c’était une tradition dans la région, mais je n’avais pas mesuré à quel point ces cabines faisaient partie intégrante de l’histoire balnéaire normande.
+Les emblématiques et très photogéniques cabines de plage de Normandie, évoquent le charme d'antan et l'esprit de vacances familiales, un univers qui se poursuit aujourd'hui avec les locations de maisons de vacances dans la région. Ces
+petites constructions blanches, alignées le long des plages de la région et notemment à Cabourg, Ouistreham et Saint-Aubin-sur-Mer, semblent tout droit sorties d'une carte postale. Je savais que c’était une tradition dans la région, mais je n’avais pas mesuré à quel point ces cabines faisaient partie intégrante de l’histoire balnéaire normande.
 
 En me renseignant un peu, j'ai appris que les premières cabines de plage avaient été installées dès 1820, et répondaient au besoin de se baigner en toute discrétion, loin des regards au moment où les bains de mer se démocratisaient notemment par les riches familles parisiennes en quête de repos et d'air marin. Finalement en louant une maison de vacances à Ouistreham nous perpétuons cette tradition !
 

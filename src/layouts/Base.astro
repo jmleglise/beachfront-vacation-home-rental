@@ -50,20 +50,70 @@ const vacationRentalJsonLd = {
         "@context": "https://schema.org",
         "@type": "VacationRental",
         "name": config.site.villa_title,
-        "description": "Superbe maison de vacances en front de mer à Ouistreham, pour 10 personnes, 5 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation. Idéale pour un séjour avec vue imprenable sur la mer et accès direct à la plage.",
+        "description": "Superbe maison de vacances en front de mer à Ouistreham, offrant une belle vue sur la mer et un accès direct à la plage de Riva Bella. Pour 10 personnes, 5 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation.",
         "url": "https://www.location-maison-mer.fr/",
-        "image": "https://www.location-maison-mer.fr/images/villa-les-tamaris.jpg",
+        "identifier": "villa-tamaris-ouistreham",
+        "image": "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham_vueFront.jpg",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "117 Boulevard Aristide Briand",
           "addressLocality": "Ouistreham",
+          "postalCode": "14150",
           "addressRegion": "Normandie",
           "addressCountry": "France"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 49.29183,
-          "longitude": -0.27290
+          "latitude": 49.29152,
+          "longitude": -0.27283
         },
+        "containsPlace": [
+    {
+      "@type": "Room",
+      "name": "Chambre  1",
+      "description": "Chambre située au rez-de-chaussée. 1 grand lit."
+    },
+    {
+      "@type": "Room",
+      "name": "Chambre 2",
+      "description": "Chambre située au rez-de-chaussée. 1 grand lit."
+    },
+    {
+      "@type": "Room",
+      "name": "Chambre parentale",
+      "description": "Chambre parentale au 2e étage avec salle de douche et terrasse privatives. Formidable vue mer."
+    },
+    {
+      "@type": "Room",
+      "name": "Chambre 3",
+      "description": "Chambre située au 2e étage.Petite vue mer."
+    },
+    {
+      "@type": "Room",
+      "name": "Chambre 4",
+      "description": "Chambre située au 2e étage.Vue mer."
+    },
+    {
+      "@type": "Room",
+      "name": "Salon",
+      "description": "Salon spacieux au 1er étage avec vue sur la mer."
+    },
+    {
+      "@type": "Room",
+      "name": "Salle à manger",
+      "description": "Salle à manger adjacente au salon."
+    },
+    {
+      "@type": "Room",
+      "name": "Cuisine",
+      "description": "Cuisine entièrement équipée au 1er étage."
+    },
+    {
+      "@type": "Room",
+      "name": "Bureau",
+      "description": "Espace bureau avec connexion internet haut débit."
+    }
+  ],
         "amenityFeature": [
           {
             "@type": "LocationFeatureSpecification",

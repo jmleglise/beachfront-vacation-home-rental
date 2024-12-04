@@ -1,7 +1,7 @@
 ---
-title: "Localisation"
-meta_title: "Localisation"
-description: "La villa les Tamaris, vue mer exceptionnelle à Ouistreham, bénéficie d'une localisation exceptionnelle. au calme et à seulement 10 minutes du coeur vibrant et animé de Ouistreham. A 2h15 de Paris par l'autoroute de Normandie. Toutes commodités immédiatement accessibles."
+title: "Localisation de la villa Tamaris"
+meta_title: "Localisation de la villa Tamaris à Ouistreham"
+description: "La villa Tamaris, location saisonnière vue mer à Ouistreham, bénéficie d'une localisation exceptionnelle. Au calme et à seulement 10 minutes du coeur vibrant et animé de Ouistreham. A 2h15 de Paris par l'autoroute de Normandie. Toutes commodités immédiatement accessibles."
 image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
 ---
@@ -9,7 +9,7 @@ draft: false
 Au 117 Boulevard Aristide Briand 14150 Ouisteham. 
 En face de la rampe malo.
 
-<h3> Accès : </h3> 
+<h2>Accès : </h2> 
 
 - 2h15 de Paris par l'autoroute A13 de Normandie
 - 20 minutes de Caen
@@ -17,7 +17,7 @@ En face de la rampe malo.
 - Ferry : 3 départs quotidien pour Portsmouth, en Angleterre en 6h ou 8h.
 
 
-<h3>Proche de toutes commodités: </h3> 
+<h2>Proche de toutes commodités :</h2> 
 
 - Boulangerie (700m)
 
@@ -35,7 +35,7 @@ En face de la rampe malo.
 
 <img src="/images/villa_tamaris_ouistreham_map.jpg" alt="la localisation de Villa Tamaris en bord de mer" />
 
-<h3>A faire :</h3>
+<h2>A faire :</h2>
 
 - La plage devant le portail, avec cale de mise à l’eau pour bateau, jeux d'enfants, et terrains de pétanque (50m). Vous aimerez flâner au coucher du soleil ou siroter un cocktail au bar de la plage "la paillotte" à 80m.
 

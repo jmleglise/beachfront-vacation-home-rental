@@ -4,9 +4,9 @@ meta_title: "Le char à voile , une activité lors de votre location de vacance 
 description: "Ceci est une méta-description"
 date: 2023-07-04T05:00:00Z
 image: "/images/tourisme/char.jpg"
-categories: ["sport"]
+categories: ["Sport"]
 author: "JmL"
-tags: ["char à voile", "sport", "plage"]
+tags: ["Char à voile", "Sport", "Plage"]
 draft: false
 ---
 
