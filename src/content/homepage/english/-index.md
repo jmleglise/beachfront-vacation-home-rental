@@ -1,4 +1,7 @@
 ---
+meta_title: "Villa Tamaris - Your Seaside Vacation Rental in Ouistreham"
+description: "Stunning seaside villa in Ouistreham. 5 bedrooms, sleeps 10. Just 2 hours from Paris. All the comfort and amenities of a real home."
+
 # Banner
 banner:
   title: "beachfront home rental - Ouistreham"
@@ -57,10 +60,16 @@ features:
 nous:
   title: "Who we are"
    # image: "/images/hp_explore_post_card.jpg"
-  content: "Nous sommes Isabelle, Justine, Marion et Jean-Marc et nous sommes heureux de vous accueillir dans notre maison.  Nous vous accueillons en confiance, et pour votre confort pendant vos vacances, nous vous laissons la plupart de nos équipements : Vélos, barbecue, livres, musique ...  Nous avons découvert la région récemment et avons décidé de nous y fixer après avoir nous même beaucoup loué des maisons de vacances, en Bretagne, dans le sud ... Nous apprécions tous les jours toujours plus cette région au contact des éléments , du grand air, et prenons plaisir également à découvrir les nombreuses activités environnantes. Nous vous faisons partager quelques unes de nos découvertes dans le blog. Cette maison est issue de plusieurs transformations. Initialement petite maison de pécheur, elle fut transformée une première fois en 2000 puis de nouveau totalement rénovée et transformée en 2024 lors de notre acquisition. Nous avons eu à coeur de conserver quelques traits architecturaux des maison Normandes et de la côte afin de perpétrer la tradition locale. Nous vous invitons d'ailleurs à découvrir la diversités de l'architecture locale où se cotoient villas huppées de la naissance du tourisme balnéaire de 1860, et maisonnettes des travailleurs de la mer."
+content: "We are Isabelle, Justine, Marion, and Jean-Marc, and we are delighted to welcome you to our home. We welcome you with trust and, for your comfort during your vacation, we leave most of our equipment at your disposal: bikes, barbecue, books, music, and more.
+
+We recently discovered the region and decided to settle here after having rented many vacation homes ourselves, in Brittany, the South of France, and beyond. Every day, we appreciate this region more and more—embracing its elements, fresh air, and the joy of exploring the many nearby activities. We share some of our discoveries on our blog.
+
+This house has undergone several transformations. Originally a small fisherman's house, it was first renovated in 2000, then completely renovated and transformed again in 2024 when we acquired it. We have taken great care to preserve some architectural features of Norman coastal homes to honor the local tradition.
+
+We also invite you to discover the diversity of local architecture, where elegant villas from the birth of seaside tourism in the 1860s coexist with the quaint homes of sea workers."
   button:
     enable: true
-    label: "Suivez nous pour découvrir la région"
+    label: "Follow us to Discover the Region"
     link: "blog/"
-
 ---
+

@@ -19,7 +19,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const homepage = await getListPage("homepage", lang as keyof ContentEntryMap);
-const { banner, features, nous } = homepage[0].data;
+const { meta_title, description, banner, features, nous } = homepage[0].data;
 
 const testimonial = await getSinglePage(
   "sections",
@@ -32,9 +32,14 @@ const call_to_action = await getSinglePage(
   lang as keyof ContentEntryMap,
   "call-to-action",
 );
+
 ---
 
-<Base>
+<Base
+meta_title={meta_title}
+description={description}
+>
+
   <!-- Banner -->
   <section class="section pt-14">
     <div class="container">
