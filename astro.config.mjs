@@ -9,7 +9,9 @@ import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
 import languagesJSON from "./src/config/language.json";
 // import cloudflare from "@astrojs/cloudflare";
+
 const { default_language } = config.settings;
+const { default_language_in_subdir } = config.settings; 
 
 const supportedLang = [...languagesJSON.map((lang) => lang.languageCode)];
 const disabledLanguages = config.settings.disable_languages;
@@ -30,6 +32,9 @@ export default defineConfig({
   i18n: {
     locales: filteredSupportedLang,
     defaultLocale: default_language,
+    routing: {
+      prefixDefaultLocale: true //default_language_in_subdir
+    }
   },
 
  image: {
@@ -47,7 +52,13 @@ export default defineConfig({
 
   integrations: [
     react(),
-    sitemap(),
+  //  sitemap({
+  //    filter: (url) => {
+        // Inclure uniquement les fichiers sous /fr/ et /en/
+  //      return url.includes('/fr/') || url.includes('/en/');
+   //   },
+   // }),
+
     tailwind({
       applyBaseStyles: false,
     }),

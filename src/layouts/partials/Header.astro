@@ -65,12 +65,17 @@ if (disabledLanguages.includes(lang)) {
           <>
             {
               <li class="nav-item">
-                <a
-                  href={slugSelector(menu.url, lang)}
+                
+
+                <a href={slugSelector(menu.url, lang)}
                   class={`nav-link block ${
                     pathname === slugSelector(menu.url, lang) && "active"
                   }`}
                 >
+
+
+
+
                  {menu.name}
                 </a>
               </li>

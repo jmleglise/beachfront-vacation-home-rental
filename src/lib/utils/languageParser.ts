@@ -91,7 +91,11 @@ export const slugSelector = (url: string, lang: string) => {
   }
 
   // Add language path if necessary
-  if (lang === default_language && default_language_in_subdir) {
+  if (
+    lang === default_language &&
+    default_language_in_subdir &&
+    !constructedUrl.startsWith(`/${lang}`)
+  ) {
     constructedUrl = `/${lang}${constructedUrl}`;
   }
 
