@@ -23,12 +23,17 @@ const filteredSupportedLang = supportedLang.filter(
 
 // https://astro.build/config
 export default defineConfig({
+ /* vite: {
+    build: {
+      minify: false
+    }
+  },
+  */
   site: config.site.base_url ? config.site.base_url : "https://www.location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
  // trailingSlash: config.site.trailing_slash ? "always" : "ignore",
   trailingSlash: 'always',
   outDir: '/media/sf_SiteAstro/dist',
-
   i18n: {
     locales: filteredSupportedLang,
     defaultLocale: default_language,
@@ -36,7 +41,6 @@ export default defineConfig({
       prefixDefaultLocale: true //default_language_in_subdir
     }
   },
-
  image: {
     service: squooshImageService(),
   },
@@ -52,12 +56,12 @@ export default defineConfig({
 
   integrations: [
     react(),
-  //  sitemap({
-  //    filter: (url) => {
+    sitemap({
+      filter: (url) => {
         // Inclure uniquement les fichiers sous /fr/ et /en/
-  //      return url.includes('/fr/') || url.includes('/en/');
-   //   },
-   // }),
+        return url.includes('/fr/') || url.includes('/en/');
+      },
+    }),
 
     tailwind({
       applyBaseStyles: false,

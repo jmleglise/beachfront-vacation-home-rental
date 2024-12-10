@@ -46,7 +46,7 @@ const LanguageSwitcher = ({
           } else {
             newPath = `/${selectedLang}${removeTrailingSlash(pathname.replace(`/${lang}`, ""))}`;
           }
-
+          localStorage.setItem("userLangPreference", selectedLang);
           window.location.href = newPath;
         }}
         value={lang}

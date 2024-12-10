@@ -1,6 +1,76 @@
 ---
 meta_title: "Villa Tamaris - Votre location de vacances en front de mer à Ouistreham"
 description: "Superbe villa en front de mer à Ouistreham. 5 chambres, 10 personnes. à 2h de Paris. Tout le confort et l&#39;équipement d&#39;une véritable habitation."
+schemaVacationRental: |
+  {
+    "@context": "https://schema.org",
+    "@type": "VacationRental",
+    "@additionalType": "Villa",
+    "name": "Villa Tamaris",
+    "description": "Superbe maison de vacances en front de mer à Ouistreham, offrant une belle vue sur la mer et un accès direct à la plage de Riva Bella. Pour 10 personnes, 5 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation.",
+    "url": "https://www.location-maison-mer.fr/",
+    "identifier": "villa-tamaris-ouistreham",
+    "knowsLanguage": [
+      "en-US",
+      "fr-FR"
+    ],
+    "image": [
+      "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham_vueFront.jpg",
+      "https://www.location-maison-mer.fr/images/hp_feature.jpg",
+      "https://www.location-maison-mer.fr/images/hp_location_beachfront.jpg"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "117 Boulevard Aristide Briand",
+      "addressLocality": "Ouistreham",
+      "postalCode": "14150",
+      "addressRegion": "Normandie",
+      "addressCountry": "France"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.29152,
+      "longitude": -0.27283
+    },
+    "containsPlace": {
+      "@type": "Accommodation",
+      "additionalType": "EntirePlace",
+      "bed": [
+        {
+          "@type": "BedDetails",
+          "numberOfBeds": 10,
+          "typeOfBed": "Single"
+        }
+      ],
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "value": 10
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Vue sur la mer",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Accès direct à la plage",
+          "value": true
+        }
+      ],
+      "floorSize": {
+        "@type": "QuantitativeValue",
+        "value": 190,
+        "unitCode": "SQM"
+      },
+      "numberOfRooms": 10,
+      "numberOfBathroomsTotal": 3,
+      "numberOfBedrooms": 5,
+      "maximumAttendeeCapacity": 10,
+      "petsAllowed": false,
+      "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
+    }
+  }
 
 # Banner
 banner:

@@ -19,7 +19,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const homepage = await getListPage("homepage", lang as keyof ContentEntryMap);
-const { meta_title, description, banner, features, nous } = homepage[0].data;
+const { meta_title, description, schemaVacationRental, banner, features, nous } = homepage[0].data;
 
 const testimonial = await getSinglePage(
   "sections",
@@ -33,100 +33,96 @@ const call_to_action = await getSinglePage(
   "call-to-action",
 );
 
+const redirectionScript = `
+  <script>
+    const userLang = navigator.language || navigator.userLanguage;
+    const currentPath = window.location.pathname;
+    const userLangPreference = localStorage.getItem("userLangPreference");
+
+    // Si l'utilisateur a déjà choisi une langue, ne pas rediriger
+    if (!userLangPreference) {
+      if (!userLang.startsWith('fr') && !currentPath.startsWith('/en/')) {
+        localStorage.setItem("userLangPreference", "en");
+        window.location.href = "/en/";
+      } else if (userLang.startsWith('fr') && !currentPath.startsWith('/fr/')) {
+        localStorage.setItem("userLangPreference", "fr");
+        window.location.href = "/fr/";
+      }
+    }
+  </script>`;
+
 ---
 
-<Base
-meta_title={meta_title}
-description={description}
->
-
+<Base meta_title={meta_title} description={description}> 
+  <head set:html={redirectionScript}></head>
   <!-- Banner -->
   <section class="section pt-14">
     <div class="container">
       <div class="row justify-center">
         <div class="relative">
-
-  
-    <!-- Image Section -->
-    <div class="col-12">
-      <ImageMod
-        src={banner.image}
-        height={380}
-        width={1200}
-        alt="banner"
-        format="webp"
-        class="w-full"
-      />
-    </div>
-  </div>
-   <!-- Title Section -->
-   <div class="absolute inset-0 flex items-center justify-center">
-    <h1
-      set:html={markdownify(banner.title)}
-      class="px-4 text-base sm:text-lg md:text-2xl lg:text-h1 text-white font-bold"
-    ></h1>
-  </div>
-        <!-- 
-        {
-          banner.image && (
-            <div class="col-12">
-              <ImageMod
-                src={banner.image}
-                height={380}
-                width={1200}
-                alt="banner"
-                format="webp"
-              />
-            </div>
-          )
-        }
-     
-        <div class="lg:col-10 md:col-9 mb-8 text-center">
+          <!-- Image Section -->
+          <div class="col-12">
+            <ImageMod
+              src={banner.image}
+              height={380}
+              width={1200}
+              alt="banner"
+              format="webp"
+              class="w-full"
+            />
+          </div>
+        </div>
+        <!-- Title Section -->
+        <div class="absolute inset-0 flex items-center justify-center">
           <h1
             set:html={markdownify(banner.title)}
-            class="mb-4 text-h3 lg:text-h1"
+            class="px-4 text-base sm:text-lg md:text-2xl lg:text-h1 text-white font-bold"
           />
-     -->
- <!-- 4 blocs -->
- <div class="flex justify-center space-x-8">
-  <!-- Bloc 1 -->
-  <div class="flex items-center space-x-2">
-    <span>10</span><img src="/images/pax.svg" alt="10 Guests" class="w-10 h-10">
-  
-  </div>
-  
-  <!-- Bloc 2 -->
-  <div class="flex items-center space-x-2">
-    <span>5</span><img src="/images/room.svg" alt="5 rooms" class="w-10 h-10">
- 
-  </div>
-  
-  <!-- Bloc 3 -->
-  <div class="flex items-center space-x-2">
-    <span>3</span>  <img src="/images/shower.png" alt="3 shower" class="w-6 h-9">
-
-  </div>
-  
-  <!-- Bloc 4 -->
-  <div class="flex items-center space-x-2">
-    <span></span><img src="/images/beach.svg" alt="beachfront" class="w-12 h-14">
-    
-  </div>
-</div>
-
-
-          <p set:html={markdownify(banner.content)} class="mb-8" />
-
         </div>
+
+        <!-- 4 blocs -->
+        <div class="flex justify-center space-x-8">
+          <!-- Bloc 1 -->
+          <div class="flex items-center space-x-2">
+            <span>10</span><img
+              src="/images/pax.svg"
+              alt="10 Guests"
+              class="w-10 h-10"
+            />
+          </div>
+
+          <!-- Bloc 2 -->
+          <div class="flex items-center space-x-2">
+            <span>5</span><img
+              src="/images/room.svg"
+              alt="5 rooms"
+              class="w-10 h-10"
+            />
+          </div>
+
+          <!-- Bloc 3 -->
+          <div class="flex items-center space-x-2">
+            <span>3</span>
+            <img src="/images/shower.png" alt="3 shower" class="w-6 h-9" />
+          </div>
+
+          <!-- Bloc 4 -->
+          <div class="flex items-center space-x-2">
+            <span></span><img
+              src="/images/beach.svg"
+              alt="beachfront"
+              class="w-12 h-14"
+            />
+          </div>
+        </div>
+
+        <p set:html={markdownify(banner.content)} class="mb-8" />
       </div>
     </div>
   </section>
+
   <!-- /Banner -->
 
-
-   
-
- 
   <!-- Features -->
   {
     features.map((feature: Feature, index: number) => (
@@ -156,11 +152,12 @@ description={description}
                 ))}
               </ul>
               {feature.button.enable && (
-                <a class="btn btn-primary mt-5" 
-                href={feature.button.link}
-                target="_self"
+                <a
+                  class="btn btn-primary mt-5"
+                  href={feature.button.link}
+                  target="_self"
                 >
-                {feature.button.label}
+                  {feature.button.label}
                 </a>
               )}
             </div>
@@ -174,13 +171,12 @@ description={description}
   <Testimonial testimonial={testimonial[0]} />
   <CallToAction call_to_action={call_to_action[0]} />
   -->
-  
-<!-- Nous -->
-<section class="section pt-14">
-  <div class="container">
-    <div class="row justify-center">
-      
- <!--      
+
+  <!-- Nous -->
+  <section class="section pt-14">
+    <div class="container">
+      <div class="row justify-center">
+        <!--      
       {
         nous.image && (
           <div class="col-12">
@@ -196,19 +192,16 @@ description={description}
       }
 -->
 
-      <div class="lg:col-10 md:col-9 mb-8 text-center">
-        <h2
-          set:html={markdownify(nous.title)}
-          class="mb-4 text-h3 lg:text-h1"
-        />
+        <div class="lg:col-10 md:col-9 mb-8 text-center">
+          <h2
+            set:html={markdownify(nous.title)}
+            class="mb-4 text-h3 lg:text-h1"
+          />
 
-        <p set:html={markdownify(nous.content)} class="mb-8" />
-
+          <p set:html={markdownify(nous.content)} class="mb-8" />
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- /Nous -->
-
-
+  </section>
+  <!-- /Nous -->
 </Base>

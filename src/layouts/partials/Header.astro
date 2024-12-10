@@ -10,7 +10,6 @@ import {
 } from "@/lib/utils/languageParser";
 import type { ContentEntryMap } from "astro:content";
 
-
 let lang = getLangFromUrl(Astro.url);
 const menu = await getTranslations(lang as keyof ContentEntryMap);
 
@@ -30,13 +29,10 @@ if (disabledLanguages.includes(lang)) {
   <nav class="navbar container">
     {/* logo */}
     <div class="order-0">
-     <!--  <Logo />     -->
-     {header_title}
-    
+      <!--  <Logo />     -->
+      {header_title}
     </div>
 
-
-    
     {/* navbar toggler */}
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
@@ -65,18 +61,13 @@ if (disabledLanguages.includes(lang)) {
           <>
             {
               <li class="nav-item">
-                
-
-                <a href={slugSelector(menu.url, lang)}
+                <a
+                  href={slugSelector(menu.url, lang)}
                   class={`nav-link block ${
                     pathname === slugSelector(menu.url, lang) && "active"
                   }`}
                 >
-
-
-
-
-                 {menu.name}
+                  {menu.name}
                 </a>
               </li>
             }
@@ -84,7 +75,8 @@ if (disabledLanguages.includes(lang)) {
         ))
       }
       {/* Navigation button */}
-      {/*
+      {
+        /*
         book_now_button.enable && (
           <li class="mt-4 inline-block lg:hidden">
             <a
@@ -95,12 +87,11 @@ if (disabledLanguages.includes(lang)) {
             </a>
           </li>
         )
-      */}
+      */
+      }
     </ul>
 
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-
-
       {/* Language switcher */}
       <LanguageSwitcher client:load lang={lang} pathname={pathname} />
 

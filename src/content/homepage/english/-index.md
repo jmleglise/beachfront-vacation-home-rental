@@ -1,7 +1,108 @@
 ---
 meta_title: "Villa Tamaris - Your Seaside Vacation Rental in Ouistreham"
 description: "Stunning seaside villa in Ouistreham. 5 bedrooms, sleeps 10. Just 2 hours from Paris. All the comfort and amenities of a real home."
-
+schemaVacationRental: |  
+  <script>
+  type="application/ld+json"
+  {
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "@additionalType": "Villa",
+  "name": "Villa Tamaris",
+  "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea view and direct access to Riva Bella beach. For 10 people, 5 bedrooms, offering all the comfort and equipment of a real home.",
+  "url": "https://www.location-maison-mer.fr/",
+  "identifier": "villa-tamaris-ouistreham",
+  "knowsLanguage": [
+    "en-US",
+    "fr-FR"
+  ],
+  "image": [
+    "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham_vueFront.jpg",
+    "https://www.location-maison-mer.fr/images/hp_feature.jpg",
+    "https://www.location-maison-mer.fr/images/hp_location_beachfront.jpg"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "117 Boulevard Aristide Briand",
+    "addressLocality": "Ouistreham",
+    "postalCode": "14150",
+    "addressRegion": "Normandie",
+    "addressCountry": "France"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.29152,
+    "longitude": -0.27283
+  },
+  "containsPlace": {
+    "@type": "Accommodation",
+    "additionalType": "EntirePlace",
+    "bed": [
+      {
+        "@type": "BedDetails",
+        "numberOfBeds": 10,
+        "typeOfBed": "Single"
+      }
+    ],
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "value": 10
+    },
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Sea view",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Direct beach access",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Terrace",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Flower garden",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Barbecue and plancha",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "High-speed internet",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Fully equipped kitchen",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Home office",
+        "value": true
+      }
+    ],
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": 190,
+      "unitCode": "SQM"
+    },
+    "numberOfRooms": 10,
+    "numberOfBathroomsTotal": 3,
+    "numberOfBedrooms": 5,
+    "maximumAttendeeCapacity": 10,
+    "petsAllowed": false,
+    "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
+  }
+  }</script>
 # Banner
 banner:
   title: "beachfront home rental - Ouistreham"
