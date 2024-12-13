@@ -2,6 +2,7 @@
 meta_title: "Villa Tamaris - Votre location de vacances en front de mer à Ouistreham"
 description: "Superbe villa en front de mer à Ouistreham. 5 chambres, 10 personnes. à 2h de Paris. Tout le confort et l&#39;équipement d&#39;une véritable habitation."
 schemaVacationRental: |
+  <script type="application/ld+json"> 
   {
     "@context": "https://schema.org",
     "@type": "VacationRental",
@@ -70,7 +71,7 @@ schemaVacationRental: |
       "petsAllowed": false,
       "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
     }
-  }
+  } </script>
 
 # Banner
 banner:

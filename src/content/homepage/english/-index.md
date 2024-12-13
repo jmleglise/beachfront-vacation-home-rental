@@ -2,8 +2,7 @@
 meta_title: "Villa Tamaris - Your Seaside Vacation Rental in Ouistreham"
 description: "Stunning seaside villa in Ouistreham. 5 bedrooms, sleeps 10. Just 2 hours from Paris. All the comfort and amenities of a real home."
 schemaVacationRental: |  
-  <script>
-  type="application/ld+json"
+  <script type="application/ld+json"> 
   {
   "@context": "https://schema.org",
   "@type": "VacationRental",

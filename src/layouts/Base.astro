@@ -195,8 +195,8 @@ const defaultCanonicalUrl = `${config.site.base_url}${Astro.url.pathname}`;
     />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- JML add vacationrental here -->
-    <!-- {schemaVacationRental ? schemaVacationRental : ""}  -->
+    {schemaVacationRental && <Fragment set:html={schemaVacationRental} />}
+  
   </head>
   <body>
     <TwSizeIndicator />
