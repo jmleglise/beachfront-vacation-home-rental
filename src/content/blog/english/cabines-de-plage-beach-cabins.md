@@ -1,7 +1,7 @@
 ---
 title: "The Famous Beach Cabins of the Côte de Nacre"
 meta_title: "Our Seaside Home Near the Beach Cabins"
-description: "The beach cabins in front of our seaside vacation rental."
+description: "Normandy's iconic beach cabins, symbols of seaside charm and family vacations, inspire rentals in Cabourg, Ouistreham, and beyond. Experience the Côte de Nacre!."
 date: 2024-07-04T05:00:00Z
 image: "/images/tourisme/cabane.jpg"
 categories: ["visit"]

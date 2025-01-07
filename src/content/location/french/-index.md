@@ -1,7 +1,7 @@
 ---
 title: "Localisation de la villa Tamaris"
 meta_title: "Localisation de la villa Tamaris à Ouistreham"
-description: "La villa Tamaris, location saisonnière vue mer à Ouistreham, bénéficie d'une localisation exceptionnelle. Au calme et à seulement 10 minutes du coeur vibrant et animé de Ouistreham. A 2h15 de Paris par l'autoroute de Normandie. Toutes commodités immédiatement accessibles."
+description: "La villa Tamaris, vue mer exceptionnelle à Ouistreham, bénéficie d'une localisation parfaite, au calme et à seulement 10 minutes à pied du centre animé. A 2h15 de Paris."
 image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
 ---

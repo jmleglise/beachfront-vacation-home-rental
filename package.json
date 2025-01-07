@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "yarn generate-json && astro dev",
     "build": "yarn generate-json && astro build",
+    "cp" : "rm -rf /media/sf_SiteAstro/src/* ; cp -r /home/kali/astro/villa/src /media/sf_SiteAstro/",
     "preview": "astro preview",
     "format": "prettier -w ./src",
     "check": "astro check",

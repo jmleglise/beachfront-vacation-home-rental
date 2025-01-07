@@ -1,7 +1,7 @@
 ---
 title: "Land Sailing on the Beaches of the Côte de Nacre"
 meta_title: "Land Sailing, an activity during your vacation rental in Ouistreham"
-description: "This is a meta description"
+description: "Enjoy an exciting land sailing adventure near our seaside rental! Accessible from age 8, it's fun for all. Book ahead in Ouistreham or Luc-sur-Mer and feel the thrill!"
 date: 2024-07-04T05:00:00Z
 image: "/images/tourisme/char.jpg"
 categories: ["sport"]

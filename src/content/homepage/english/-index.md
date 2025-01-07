@@ -1,12 +1,12 @@
 ---
 meta_title: "Villa Tamaris - Your Seaside Vacation Rental in Ouistreham"
-description: "Stunning seaside villa in Ouistreham. 5 bedrooms, sleeps 10. Just 2 hours from Paris. All the comfort and amenities of a real home."
+description: "Stunning seaside villa in Ouistreham. 4 bedrooms, sleeps 8. Just 2 hours from Paris. All the comfort and amenities of a real home."
 schemaVacationRental: |  
   <script type="application/ld+json"> 
   {
   "@context": "https://schema.org",
   "@type": "VacationRental",
-  "@additionalType": "Villa",
+  "additionalType": "Villa",
   "name": "Villa Tamaris",
   "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea view and direct access to Riva Bella beach. For 10 people, 5 bedrooms, offering all the comfort and equipment of a real home.",
   "url": "https://www.location-maison-mer.fr/",
@@ -30,8 +30,8 @@ schemaVacationRental: |
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 49.29152,
-    "longitude": -0.27283
+    "latitude": "49.29152",
+    "longitude": "-0.27283"
   },
   "containsPlace": {
     "@type": "Accommodation",

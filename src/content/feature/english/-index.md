@@ -1,7 +1,7 @@
 ---
 title: "Description of Villa Tamaris"
 meta_title: "Description of Villa Tamaris vacation rental in Ouistreham"
-description: "For 10 people, 5 bedrooms, fully equipped, all comforts, high-end amenities."
+description: "For 8 people, 4 bedrooms, fully equipped, all comforts, high-end amenities."
 image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
 ---

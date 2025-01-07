@@ -1,12 +1,12 @@
 ---
 meta_title: "Villa Tamaris - Votre location de vacances en front de mer à Ouistreham"
-description: "Superbe villa en front de mer à Ouistreham. 5 chambres, 10 personnes. à 2h de Paris. Tout le confort et l&#39;équipement d&#39;une véritable habitation."
+description: "Superbe villa en front de mer à Ouistreham. 4 chambres, 8 personnes. à 2h de Paris. Tout le confort et l&#39;équipement d&#39;une véritable habitation."
 schemaVacationRental: |
   <script type="application/ld+json"> 
   {
     "@context": "https://schema.org",
     "@type": "VacationRental",
-    "@additionalType": "Villa",
+    "additionalType": "Villa",
     "name": "Villa Tamaris",
     "description": "Superbe maison de vacances en front de mer à Ouistreham, offrant une belle vue sur la mer et un accès direct à la plage de Riva Bella. Pour 10 personnes, 5 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation.",
     "url": "https://www.location-maison-mer.fr/",
@@ -30,8 +30,8 @@ schemaVacationRental: |
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 49.29152,
-      "longitude": -0.27283
+      "latitude": "49.29152",
+      "longitude": "-0.27283"
     },
     "containsPlace": {
       "@type": "Accommodation",
@@ -75,7 +75,7 @@ schemaVacationRental: |
 
 # Banner
 banner:
-  title: "Location de vacances - Ouistreham"
+  title: "Location de vacances - Ouistreham<br/> L'aménagement de la VillaTamaris se termine <br/> et ouvrira ses portes pour l'été 2025."
   content: "Pour votre location de vacances à la mer, nous vous proposons notre maison en front de mer, avec tout le confort et l'équipement d'une véritable maison d'habitation. 
   Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? 
   Imaginez vos réveils avec une vue imprenable sur la mer, et la chance d'aller à la plage au bout du jardin. 

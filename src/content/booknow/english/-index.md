@@ -1,7 +1,7 @@
 ---
 title: "Book"
 meta_title: "Book the Villa Tamaris in Ouistreham"
-description: "Book for a week or week-end, For 10 people, 5 bedrooms, fully equipped, all comforts, high-end amenities."
+description: "Book for a week or week-end, For 8 people, 4 bedrooms, fully equipped, all comforts, high-end amenities."
 image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
 ---

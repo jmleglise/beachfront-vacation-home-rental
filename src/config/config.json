@@ -15,7 +15,7 @@
   "settings": {
     "sticky_header": true,
     "default_theme": "system",
-    "pagination": 3,
+    "pagination": 5,
     "summary_length": 220,
     "blog_folder": "blog",
     "default_language": "fr",

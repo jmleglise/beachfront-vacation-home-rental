@@ -1,4 +1,5 @@
 ---
+import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
@@ -50,6 +51,12 @@ const redirectionScript = `
       }
     }
   </script>`;
+
+
+const BLOG_FOLDER = "blog";
+const posts = await getSinglePage(BLOG_FOLDER, lang as keyof ContentEntryMap);
+const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
+
 
 ---
 
@@ -204,4 +211,23 @@ const redirectionScript = `
     </div>
   </section>
   <!-- /Nous -->
+
+<!-- Blog Posts Aléatoires -->
+<section class="section">
+  <div class="container">
+    <div class="row gx-5">
+      <div class="lg:col-8 mx-auto">
+        <div class="row">
+          {shuffledPosts.map((post) => (
+            <div class="mb-14 md:col-6">
+              <BlogCard data={post} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 </Base>

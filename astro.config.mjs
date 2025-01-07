@@ -23,12 +23,12 @@ const filteredSupportedLang = supportedLang.filter(
 
 // https://astro.build/config
 export default defineConfig({
- /* vite: {
-    build: {
-      minify: false
-    }
-  },
-  */
+  //vite: {
+  //  build: {
+  //    minify: false,
+  //  },
+  //S},
+  
   site: config.site.base_url ? config.site.base_url : "https://www.location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
  // trailingSlash: config.site.trailing_slash ? "always" : "ignore",

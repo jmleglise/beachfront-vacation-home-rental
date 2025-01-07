@@ -1,7 +1,7 @@
 ---
 title: "The Fishermen's Pier in Luc-sur-Mer"
 meta_title: "The Fishermen's Pier in Luc-sur-Mer"
-description: "When renting our vacation home, visit Luc-sur-Mer"
+description: "Extend your seaside stay with a stroll on Luc-sur-Mer’s fishermen’s pier. Enjoy breathtaking views, the Whale Park, a scenic seawall, and rich local history!"
 date: 2024-04-04T05:00:00Z
 image: "/images/jeteelucsurmer.jpg"
 categories: ["visit"]
