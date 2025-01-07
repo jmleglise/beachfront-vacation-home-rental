@@ -1,4 +1,6 @@
 ---
+
+
 import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
@@ -7,9 +9,12 @@ import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
+import BannerSlider from "@/partials/BannerSlider.astro";
 import type { Feature } from "@/types";
 import type { ContentEntryMap } from "astro:content";
 import { FaCheck } from "react-icons/fa";
+
+
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -27,6 +32,14 @@ const testimonial = await getSinglePage(
   lang as keyof ContentEntryMap,
   "testimonial",
 );
+
+const banners = [
+  { src: "/images/hp_banner.jpg", alt: "Nature 1" },
+  { src: "/images/tourisme/dune.jpg", alt: "Nature 2" },
+  { src: "/images/tourisme/horizon.jpg", alt: "Nature 3" },
+  { src: "/images/tourisme/cabane.jpg", alt: "Nature 4" },
+];
+
 
 const call_to_action = await getSinglePage(
   "sections",
@@ -62,30 +75,24 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
 
 <Base meta_title={meta_title} description={description} schemaVacationRental={schemaVacationRental} set:html={redirectionScript}> 
 
+
+
   <!-- Banner -->
-  <section class="section pt-14">
+  <section class="section">
     <div class="container">
-      <div class="row justify-center">
-        <div class="relative">
-          <!-- Image Section -->
-          <div class="col-12">
-            <ImageMod
-              src={banner.image}
-              height={380}
-              width={1200}
-              alt="banner"
-              format="webp"
-              class="w-full"
-            />
-          </div>
-        </div>
-        <!-- Title Section -->
-        <div class="absolute inset-0 flex items-center justify-center">
+      <!-- Carrousel avec titre superposé -->
+      <div class="relative w-full">
+        <!-- Carrousel -->
+          <BannerSlider banners={banners} />
+
+        <!-- Titre superposé -->
+        <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
           <h1
             set:html={markdownify(banner.title)}
-            class="px-4 text-base sm:text-lg md:text-2xl lg:text-h1 text-white font-bold"
+            class="text-center text-white text-lg md:text-2xl lg:text-4xl font-bold bg-black/50 px-4 py-2 rounded-lg"
           />
         </div>
+      </div>
 
         <!-- 4 blocs -->
         <div class="flex justify-center space-x-8">
@@ -125,7 +132,7 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
 
         <p set:html={markdownify(banner.content)} class="mb-8" />
       </div>
-    </div>
+
   </section>
 
   <!-- /Banner -->
@@ -173,9 +180,11 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
       </section>
     ))
   }
-  <!-- /Features 
 
-  <Testimonial testimonial={testimonial[0]} />
+
+
+    <!-- /Features 
+    <Testimonial testimonial={testimonial[0]} />
   <CallToAction call_to_action={call_to_action[0]} />
   -->
 

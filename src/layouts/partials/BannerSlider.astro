@@ -1,0 +1,85 @@
+---
+const { banners } = Astro.props; // Liste des bannières avec src et alt
+---
+
+<section class="section banner-slider">
+  <div class="container">
+    <div class="swiper banner-slider-container">
+      <div class="swiper-wrapper">
+        {banners.map((banner, index) => (
+          <div class="swiper-slide" key={index}>
+            <img
+              src={banner.src}
+              alt={banner.alt || `Banner ${index + 1}`}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+      <!-- Pagination et navigation -->
+      <div class="banner-slider-pagination mt-4"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { Swiper } from "swiper";
+  import "swiper/css";
+  import "swiper/css/effect-fade";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+
+  // Initialisation du carrousel après le chargement de la page
+  document.addEventListener("astro:page-load", () => {
+    new Swiper(".banner-slider-container", {
+      modules: [Autoplay, EffectFade, Navigation, Pagination],
+      effect: "fade",
+      loop: true,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".banner-slider-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000, // 5 secondes
+        disableOnInteraction: false, // Continue après une interaction
+      },
+      lazy: {
+        loadPrevNext: true, // Charger les images adjacentes
+      },
+    });
+  });
+</script>
+
+<style>
+  .banner-slider {
+    width: 100%;
+    height: 100vh; /* Ajustez selon vos besoins */
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .banner-slider-pagination {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+</style>
