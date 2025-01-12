@@ -1,6 +1,8 @@
 ---
-meta_title: "Villa Tamaris - Your Seaside Vacation Rental in Ouistreham"
-description: "Stunning seaside villa in Ouistreham. 4 bedrooms, sleeps 8. Just 2 hours from Paris. All the comfort and amenities of a real home."
+meta_title: "Beachfront Villa Rental in Ouistreham - Sleeps 8, Stunning Views"
+description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. Sleeps 8, with stunning sea views and direct beach access. Perfect for families or seaside getaways!"
+
+
 schemaVacationRental: |  
   <script type="application/ld+json"> 
   {
@@ -8,7 +10,7 @@ schemaVacationRental: |
   "@type": "VacationRental",
   "additionalType": "Villa",
   "name": "Villa Tamaris",
-  "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea view and direct access to Riva Bella beach. For 10 people, 5 bedrooms, offering all the comfort and equipment of a real home.",
+  "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea views and direct  Riva Bella beach access. Sleeps 8, 4 bedrooms. Perfect for families or seaside getaways !",
   "url": "https://www.location-maison-mer.fr/",
   "identifier": "villa-tamaris-ouistreham",
   "knowsLanguage": [
@@ -16,9 +18,11 @@ schemaVacationRental: |
     "fr-FR"
   ],
   "image": [
-    "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham_vueFront.jpg",
-    "https://www.location-maison-mer.fr/images/hp_feature.jpg",
-    "https://www.location-maison-mer.fr/images/hp_location_beachfront.jpg"
+      "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham.jpg",
+      "https://www.location-maison-mer.fr/images/villa_front_close.jpg",
+      "https://www.location-maison-mer.fr/images/hp_location_beachfront.jpg"
+      "https://www.location-maison-mer.fr/images/hp_explore_post_card.jpg"
+      "https://www.location-maison-mer.fr/images/vuelitch5.jpg"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -39,13 +43,13 @@ schemaVacationRental: |
     "bed": [
       {
         "@type": "BedDetails",
-        "numberOfBeds": 10,
+        "numberOfBeds": 8,
         "typeOfBed": "Single"
       }
     ],
     "occupancy": {
       "@type": "QuantitativeValue",
-      "value": 10
+      "value": 8
     },
     "amenityFeature": [
       {
@@ -96,30 +100,41 @@ schemaVacationRental: |
     },
     "numberOfRooms": 10,
     "numberOfBathroomsTotal": 3,
-    "numberOfBedrooms": 5,
-    "maximumAttendeeCapacity": 10,
+    "numberOfBedrooms": 4,
+    "maximumAttendeeCapacity": 8,
     "petsAllowed": false,
     "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
   }
   }</script>
 # Banner
 banner:
-  title: "beachfront home rental - Ouistreham"
-  content: "For your vacation rental, we offer our beachfront house with all the comfort and equipment of a true home. 
+  title: "Beachfront Villa rental in Ouistreham Normandy"
+  content: "For your vacation rental, in Normandy, we offer our beachfront house with all the comfort and equipment of a true home. 
   Who hasn’t dreamed of staying in a beautiful villa by the sea, on the beach with the ocean as the only horizon?
   Imagine waking up to breathtaking views of the sea and having the chance to reach the beach right at the end of the garden.
   Enjoy the pleasures of swimming, barbecues in the garden, aperitifs at sunset, and discovering this region rich in activities.
-  True luxury is the privileged setting of your waterfront vacation home. Whether for a weekend, a week..."
-  image: "/images/hp_banner.jpg"
+  True luxury is the privileged setting of your waterfront vacation home. Whether for a weekend, a week...
+  The villa is perfect for a spacious stay for 8 people, whether with family or friends. Private parking is available to park 2 cars in the driveway."
+  images:
+    - src: "/images/villa_tamaris_ouistreham.jpg"
+      alt: "Villa Tamaris, a beachfront rental in Normandy with stunning sea views."
+    - src: "/images/vuelitch5.jpg"
+      alt: "Villa Tamaris - Stunning Sea View from parent bedroom"
+    - src: "/images/tourisme/dune.jpg"
+      alt: "The beach in front of the home rental"
+    - src: "/images/tourisme/horizon.jpg"
+      alt: "The beach near the Holidays house rental"
+    - src: "/images/tourisme/cabane.jpg"
+      alt: "Holidays rental in front of the Ouistreham beach cabins"
 
 # Features
 features:
-  - title: "The House"
-    image: "/images/hp_feature.jpg"
-    content: "Facing the sea, enjoy a beautiful sea view from the living room and 3 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
+  - title: "Luxury Accommodation"
+    image: "/images/villa_front_close.jpg"
+    content: "Facing the sea, enjoy a beautiful sea view from the living room and 2 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
       - "Master bedroom opens onto its exceptional terrace with an en-suite bathroom."
-      - "10 people, 5 bedrooms, 3 bathrooms, 3 WCs."
+      - "8 people, 4 bedrooms, 3 bathrooms, 3 WCs."
       - "Living room with fully equipped kitchen."
       - "Office and high-speed Internet for working in an exceptional setting."
       - "On a 300m² plot, landscaped garden, barbecue, plancha."
@@ -132,9 +147,10 @@ features:
 # Location
   - title: "Location"
     image: "/images/hp_location_beachfront.jpg"
-    content: "An ideal location, this quiet house is just a 10-minute retreat from the vibrant heart of Ouistreham. Simply cross the street to be at Riva Bella, the finest beach on the Côte de Nacre with its 3 km of fine sand, perfect for evening strolls or enjoying a cocktail at the beach bar 'La Paillotte' just 50 meters."
+    content: "An ideal location, this quiet rental house is just a 10-minute retreat from the vibrant heart of Ouistreham. Simply cross the street to be at Riva Bella, the finest beach on the Côte de Nacre with its 3 km of fine sand, perfect for evening strolls or enjoying a cocktail at the beach bar 'La Paillotte' just 50 meters."
     bulletpoints:
       - "Ouistreham is a lively seaside town."
+      - "luxury villa near D-Day beaches"
       - "2 hours and 15 minutes from Paris via the Normandy motorway."
       - "All amenities immediately accessible."
     button:
@@ -149,8 +165,9 @@ features:
     bulletpoints:
       - "Gather with family."
       - "Sports and nautical activities: sailing school, land sailing, kitesurfing... The coast offers favorable winds."
-      - "One of the 5 landing beaches."
+      - "One of the 5 D-Day landing beaches."
       - "The lively center of Ouistreham and surrounding areas, Cabourg, Caen..."
+      - "Perfect Villa rental to explore all of Normandy."
     button:
       enable: true
       label: "Follow us to Discover the Region"
@@ -171,5 +188,20 @@ nous:
     enable: true
     label: "Follow us to Discover the Region"
     link: "blog/"
+
+# FAQ
+faqContent:
+  - title: "Can the vacation home be rented for a weekend ?"
+    content: "Renting the house requires putting everything in order to make you feel at home. This takes a lot of effort! So during school holidays, we prefer weekly rentals from Sunday to Sunday. In the low season, a minimum of 3 nights is required."
+  - title: "Is parking available?"
+    content: "Yes, on the property, 2 vehicles can be parked one behind the other."
+  - title: "Does this vacation rental have a pool ?"
+    content: "No, the vacation home does not have a pool. The beach is at the end of the garden! The Aquabella aquatic complex in Ouistreham is just a 4-minute bike ride away. (70m water slide, splashpad, and a solarium to relax with your feet in the sand. Various aquatic activities are scheduled throughout the year: aquabike classes, aquafitness, baby swimming, etc. Around €6 per day per person.)"
+  - title: "Is the rental suitable for babies or people with reduced mobility ?"
+    content: "Unfortunately, neither. We do not have baby equipment. The stairs and windows are currently not secured. For people with reduced mobility, there are 2 bedrooms, a toilet, and a ground-floor shower room, but the kitchen and living room are upstairs."
+  - title: "What are the amenities of the house ?"
+    content: "The house is fully equipped, as it is our primary residence. Fully equipped kitchen, garden with gas barbecue and gas plancha, washing machine, dryer, dishwasher, Nespresso coffee maker, toaster... Feel free to ask us about any specific equipment you might need."
+  - title: "How far is the vacation home from the beach ?"
+    content: "Precisely 35m from the front door. However, depending on the tide coefficient, you might have to walk much further to reach the sea :-) The house is located on a frontline plot, with the gate opening directly onto Boulevard Aristide Briand along Riva Bella beach. The house is situated towards the back of the plot, providing slight protection, which is appreciated during strong winds."
 ---
 

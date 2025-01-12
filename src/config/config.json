@@ -6,7 +6,7 @@
     "base_path": "/",
     "trailing_slash": true,
     "favicon": "/images/favicon32.png",
-    "logo": "/images/logo.jpg",
+    "logo": "/images/camelia_cabochon_97.png",
     "logo_width": "90",
     "logo_height": "90",
     "logo_text": "Les céramiques de la villa Tamaris à Ouistreham sont de Martine Brossier Genevois"
@@ -25,7 +25,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "<i><a href='https://astro.build' target='_blank' rel='noopener noreferrer'>  with Astro.js & Astroplate</a></i>"
+    "copyright": "<i><a href='https://astro.build' target='_blank' rel='noopener noreferrer'>  made with Astro.js & Astroplate</a></i>"
   },
 
   "book_now_button": {
@@ -41,7 +41,7 @@
   },
   "metadata": {
     "meta_author": "Jean-Marc LEGLISE",
-    "meta_image": "/images/villa_tamaris_1200.jpg",
-    "meta_description": "Superbe villa en front de mer à Ouistreham. 5 chambres, 10 personnes. à 2h de Paris. Tout le confort et l&#39;équipement d&#39;une véritable habitation."
+    "meta_image": "/images/villa_tamaris_ouistreham.jpg",
+    "meta_description": "Superbe villa en front de mer à Ouistreham. 4 chambres, 8 personnes. à 2h de Paris. Tout le confort et l&#39;équipement d&#39;une véritable habitation."
   }
 }

@@ -48,3 +48,5 @@ draft: false
 Non fourni
 La linge de maison n'est pas fourni. 
 Pas de TV dans la maison.
+
+<a class="btn btn-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Découvrez la localisation de la location saisonnière à Ouistreham Calvados</a>

@@ -1,7 +1,7 @@
 ---
 title: "Localisation de la villa Tamaris"
-meta_title: "Localisation de la villa Tamaris à Ouistreham"
-description: "La villa Tamaris, vue mer exceptionnelle à Ouistreham, bénéficie d'une localisation parfaite, au calme et à seulement 10 minutes à pied du centre animé. A 2h15 de Paris."
+meta_title: "Localisation de la maison de vacances à Ouistreham"
+description: "A 2h de Paris, Maison de vacance à Ouistreham Calvados Normandie, 8 personnes. Vue  mer exceptionnelle."
 image: "/images/villa_tamaris_banner_location.jpg"
 draft: false
 ---
@@ -48,3 +48,5 @@ En face de la rampe malo.
 - Et dans la région : un golf à 15min, mini-golf, parcs d’attractions, zoos, musées, plages du débarquement, etc
 
 - CAEN (20 min), BAYEUX (30 min), le MONT-ST-MICHEL (1H30), CABOURG (28min), DEAUVILLE (40min), PONT LEVEQUE (40 min).
+
+<a class="btn btn-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-feature/" target="_self"> Découvrez les prestations haut de gamme de la maison de vacances</a>

@@ -1,10 +1,10 @@
 ---
-
-
 import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
+import Accordion from "@/layouts/shortcodes/Accordion";
 import Base from "@/layouts/Base.astro";
 import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+
 import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
@@ -13,8 +13,6 @@ import BannerSlider from "@/partials/BannerSlider.astro";
 import type { Feature } from "@/types";
 import type { ContentEntryMap } from "astro:content";
 import { FaCheck } from "react-icons/fa";
-
-
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -25,7 +23,15 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const homepage = await getListPage("homepage", lang as keyof ContentEntryMap);
-const { meta_title, description, schemaVacationRental, banner, features, nous } = homepage[0].data;
+const {
+  meta_title,
+  description,
+  schemaVacationRental,
+  banner,
+  features,
+  nous,
+  faqContent,
+} = homepage[0].data;
 
 const testimonial = await getSinglePage(
   "sections",
@@ -33,13 +39,7 @@ const testimonial = await getSinglePage(
   "testimonial",
 );
 
-const banners = [
-  { src: "/images/hp_banner.jpg", alt: "Nature 1" },
-  { src: "/images/tourisme/dune.jpg", alt: "Nature 2" },
-  { src: "/images/tourisme/horizon.jpg", alt: "Nature 3" },
-  { src: "/images/tourisme/cabane.jpg", alt: "Nature 4" },
-];
-
+const banners = banner.images;
 
 const call_to_action = await getSinglePage(
   "sections",
@@ -65,77 +65,50 @@ const redirectionScript = `
     }
   </script>`;
 
-
 const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER, lang as keyof ContentEntryMap);
 const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
-
-
 ---
-
-<Base meta_title={meta_title} description={description} schemaVacationRental={schemaVacationRental} set:html={redirectionScript}> 
-
-
-
+<Base
+  meta_title={meta_title}
+  description={description}
+  schemaVacationRental={schemaVacationRental}
+  set:html={redirectionScript}
+>
   <!-- Banner -->
-  <section class="section">
-    <div class="container">
-      <!-- Carrousel avec titre superposé -->
-      <div class="relative w-full">
-        <!-- Carrousel -->
-          <BannerSlider banners={banners} />
-
-        <!-- Titre superposé -->
-        <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-          <h1
-            set:html={markdownify(banner.title)}
-            class="text-center text-white text-lg md:text-2xl lg:text-4xl font-bold bg-black/50 px-4 py-2 rounded-lg"
-          />
-        </div>
+  <div class="container">
+    <!-- Carrousel avec titre superposé -->
+    <div class="relative w-full">
+      <BannerSlider banners={banners} />
+      <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+        <h1
+          set:html={markdownify(banner.title)}
+          class="text-center text-white text-lg md:text-2xl lg:text-4xl font-bold bg-black/50 px-4 py-2 rounded-lg"
+        />
       </div>
-
-        <!-- 4 blocs -->
-        <div class="flex justify-center space-x-8">
-          <!-- Bloc 1 -->
-          <div class="flex items-center space-x-2">
-            <span>10</span><img
-              src="/images/pax.svg"
-              alt="10 Guests"
-              class="w-10 h-10"
-            />
-          </div>
-
-          <!-- Bloc 2 -->
-          <div class="flex items-center space-x-2">
-            <span>5</span><img
-              src="/images/room.svg"
-              alt="5 rooms"
-              class="w-10 h-10"
-            />
-          </div>
-
-          <!-- Bloc 3 -->
-          <div class="flex items-center space-x-2">
-            <span>3</span>
-            <img src="/images/shower.png" alt="3 shower" class="w-6 h-9" />
-          </div>
-
-          <!-- Bloc 4 -->
-          <div class="flex items-center space-x-2">
-            <span></span><img
-              src="/images/beach.svg"
-              alt="beachfront"
-              class="w-12 h-14"
-            />
-          </div>
-        </div>
-
-        <p set:html={markdownify(banner.content)} class="mb-8" />
+    </div>
+    <!-- 4 blocs -->
+    <div class="flex justify-center space-x-8">
+      <!-- Bloc 1 -->
+      <div class="flex items-center space-x-2">
+        <span>8</span><img src="/images/pax.svg" alt="8 Guests" class="w-10 h-10" />
       </div>
+      <!-- Bloc 2 -->
+      <div class="flex items-center space-x-2">
+        <span>4</span><img src="/images/room.svg" alt="4 Bedrooms" class="w-10 h-10" />
+      </div>
+      <!-- Bloc 3 -->
+      <div class="flex items-center space-x-2">
+        <span>3</span><img src="/images/shower.png" alt="3 showers" class="w-6 h-9" />
+      </div>
+      <!-- Bloc 4 -->
+      <div class="flex items-center space-x-2">
+        <span></span><img src="/images/beach.svg" alt="beachfront sur la Plage" class="w-12 h-14" />
+      </div>
+    </div>
 
-  </section>
-
-  <!-- /Banner -->
+    <p set:html={markdownify(banner.content)} class="mb-8 text-justify" />
+  </div>
 
   <!-- Features -->
   {
@@ -156,7 +129,7 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
             </div>
             <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
               <h2 set:html={markdownify(feature.title)} class="mb-4" />
-              <p set:html={markdownify(feature.content)} class="mb-8 text-lg" />
+              <p set:html={markdownify(feature.content)} class="mb-8 text-lg text-justify" />
               <ul>
                 {feature.bulletpoints.map((bullet: string) => (
                   <li class="relative mb-4 pl-6">
@@ -181,62 +154,75 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
     ))
   }
 
-
-
-    <!-- /Features 
-    <Testimonial testimonial={testimonial[0]} />
+  <!--
+  <Testimonial testimonial={testimonial[0]} />
   <CallToAction call_to_action={call_to_action[0]} />
   -->
 
-  <!-- Nous -->
+
   <section class="section pt-14">
     <div class="container">
       <div class="row justify-center">
-        <!--      
-      {
-        nous.image && (
-          <div class="col-12">
-            <ImageMod
-              src={nous.image}
-              height={380}
-              width={1200}
-              alt="nous"
-              format="webp"
-            />
-          </div>
-        )
-      }
--->
 
-        <div class="lg:col-10 md:col-9 mb-8 text-center">
+      <!-- Nous -->    
+                <!--      
+                {
+                  nous.image && (
+                    <div class="col-12">
+                      <ImageMod
+                        src={nous.image}
+                        height={380}
+                        width={1200}
+                        alt="nous"
+                        format="webp"
+                      />
+                    </div>
+                  )
+                }
+                -->
+        <div class="lg:col-10 md:col-9 mb-8 ">
           <h2
             set:html={markdownify(nous.title)}
             class="mb-4 text-h3 lg:text-h1"
           />
 
-          <p set:html={markdownify(nous.content)} class="mb-8" />
+          <p set:html={markdownify(nous.content)} class="mb-8 text-justify" />
+        </div>
+
+
+  <!-- FAQ -->
+
+      <div class="lg:col-10 md:col-9 mb-8 ">
+
+        <h2 class="mb-4 text-h3 lg:text-h1" > FAQ </h2>
+        <div class="space-y-4">
+          {faqContent.map(({ title, content }) => (
+          <Accordion client:load title={title}>
+            <p>{content}</p>
+          </Accordion>
+        ))}
+        </div>
+      </div>
+      </div>
+    </div>  
+  </section>
+
+  <!-- Blog Posts Aléatoires -->
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="lg:col-8 mx-auto">
+          <div class="row">
+            {
+              shuffledPosts.map((post) => (
+                <div class="mb-14 md:col-6">
+                  <BlogCard data={post} />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- /Nous -->
-
-<!-- Blog Posts Aléatoires -->
-<section class="section">
-  <div class="container">
-    <div class="row gx-5">
-      <div class="lg:col-8 mx-auto">
-        <div class="row">
-          {shuffledPosts.map((post) => (
-            <div class="mb-14 md:col-6">
-              <BlogCard data={post} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 </Base>

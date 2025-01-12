@@ -16,7 +16,7 @@ Opposite the Malo ramp.
 - 20 minutes from Caen
 - Caen SNCF train station
 - Ferry: 3 daily departures to Portsmouth, England, in 6 or 8 hours.
-
+ 
 <h2>Close to all amenities:</h2>
 
 - Bakery (700m)
@@ -47,3 +47,4 @@ Opposite the Malo ramp.
 
 - CAEN (20 min), BAYEUX (30 min), MONT-ST-MICHEL (1h20), CABOURG (28 min), DEAUVILLE (40 min), PONT L’EVEQUE (40 min).
 
+<a class="btn btn-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-feature/" target="_self"> Discover the villa's premium amenities</a>

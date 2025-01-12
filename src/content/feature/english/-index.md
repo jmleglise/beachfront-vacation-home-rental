@@ -34,3 +34,5 @@ draft: false
 - 2 bedrooms
 - Shower room
 - WC
+
+<a class="btn btn-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Learn more about the villa’s amazing location </a>

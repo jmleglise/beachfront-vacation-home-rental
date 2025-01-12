@@ -1,6 +1,10 @@
 /   /fr/   301
 /authors/jml    /fr/   301
 /authors/jml/   /fr/   301
+
+/en/authors/jml    /en/   301
+/en/authors/jml/   /en/   301
+
 /blog    /fr/blog/   301
 /blog/   /fr/blog/   301
 /blog/les-cabines-de-plage    /fr/blog/cabines-de-plage-beach-cabins/   301
@@ -44,8 +48,7 @@
 /categories/sport/   /fr/categories/sport/   301
 /categories/visite    /fr/categories/visite/   301
 /categories/visite/   /fr/categories/visite/   301
-/en/authors/jml    /en/   301
-/en/authors/jml/   /en/   301
+
 /tags    /fr/tags/   301
 /tags/   /fr/tags/   301
 /tags/arrhes    /fr/tags/arrhes/   301
@@ -68,13 +71,13 @@
 /tags/restauration/   /fr/tags/restauration/   301
 /tags/sport    /fr/tags/sport/   301
 /tags/sport/   /fr/tags/sport/   301
-/tagsuis-de-mer    /fr/tags/fruis-de-mer/   301
-/tagsuis-de-mer/   /fr/tags/fruis-de-mer/   301
+/tags/fruis-de-mer    /fr/tags/fruis-de-mer/   301
+/tags/fruis-de-mer/   /fr/tags/fruis-de-mer/   301
 /villa-tamaris-beachfront-ouistreham-blog       /fr/blog/   301
 /villa-tamaris-beachfront-ouistreham-blog/      /fr/blog/   301
-/villa-tamaris-beachfront-ouistreham-book-now  /fr/villa-tamaris-beachfront-ouistreham-book-now/   301
-/villa-tamaris-beachfront-ouistreham-book-now/   /fr/villa-tamaris-beachfront-ouistreham-book-now/   301
-/villa-tamaris-beachfront-ouistreham-feature   /fr/villa-tamaris-beachfront-ouistreham-feature/   301
+/villa-tamaris-beachfront-ouistreham-book-now   /fr/villa-tamaris-beachfront-ouistreham-book-now/   301
+/villa-tamaris-beachfront-ouistreham-book-now/  /fr/villa-tamaris-beachfront-ouistreham-book-now/   301
+/villa-tamaris-beachfront-ouistreham-feature    /fr/villa-tamaris-beachfront-ouistreham-feature/   301
 /villa-tamaris-beachfront-ouistreham-feature/   /fr/villa-tamaris-beachfront-ouistreham-feature/   301
-/villa-tamaris-beachfront-ouistreham-location  /fr/villa-tamaris-beachfront-ouistreham-location/   301
-/villa-tamaris-beachfront-ouistreham-location/   /fr/villa-tamaris-beachfront-ouistreham-location/   301
+/villa-tamaris-beachfront-ouistreham-location   /fr/villa-tamaris-beachfront-ouistreham-location/   301
+/villa-tamaris-beachfront-ouistreham-location/  /fr/villa-tamaris-beachfront-ouistreham-location/   301
