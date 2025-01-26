@@ -9,7 +9,7 @@ schemaVacationRental: |
     "additionalType": "Villa",
     "name": "Villa Tamaris",
     "description": "Superbe maison de vacances en front de mer à Ouistreham, offrant une belle vue sur la mer et un accès direct à la plage de Riva Bella. Pour 8 personnes, 4 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation.",
-    "url": "https://www.location-maison-mer.fr/",
+    "url": "https://www.location-maison-mer.fr/fr/",
     "identifier": "villa-tamaris-ouistreham",
     "knowsLanguage": [
       "en-US",
@@ -18,8 +18,9 @@ schemaVacationRental: |
     "image": [
       "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham.jpg",
       "https://www.location-maison-mer.fr/images/villa_front_close.jpg",
-      "https://www.location-maison-mer.fr/images/hp_location_beachfront.jpg"
-      "https://www.location-maison-mer.fr/images/hp_explore_post_card.jpg"
+      "https://www.location-maison-mer.fr/images/tourisme/horizon.jpg",
+      "https://www.location-maison-mer.fr/images/post_card.jpg",
+      "https://www.location-maison-mer.fr/images/tourisme/cabane.jpg",
       "https://www.location-maison-mer.fr/images/vuelitch5.jpg"
     ],
     "address": {
@@ -67,7 +68,7 @@ schemaVacationRental: |
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "Jardin fleuri,
+        "name": "Jardin fleuri",
         "value": true
       },
       {
@@ -77,7 +78,7 @@ schemaVacationRental: |
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "internet fibre",
+        "name": "Internet fibre",
         "value": true
       },
       {
@@ -107,7 +108,7 @@ schemaVacationRental: |
 
 # Banner
 banner:
-  title: "Location de vacances en bord de mer à Ouistreham / Calvados <br/> L'aménagement de la Villa Tamaris se termine <br/> et ouvrira ses portes pour l'été 2025."
+  title: "Location de vacances en bord de mer à Ouistreham / Calvados <br/> La rénovation de la Villa Tamaris se termine <br/> et sera disponible pour l'été 2025."
   content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. 
   Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? 
   Imaginez vos réveils avec une vue imprenable sur la mer depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin. 
@@ -116,7 +117,7 @@ banner:
   La villa est adaptée pour un séjour spacieux de 8 personnes, en famille ou entre ami. Parking privée pour garer 2 voitures dans l'allée. "
   images:
     - src: "/images/villa_tamaris_ouistreham.jpg"
-      alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer ewceptionnelle"
+      alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer exceptionnelle"
     - src: "/images/vuelitch5.jpg"
       alt: "Location saisonnière vue mer exceptionnelle de la chambre parentale"
     - src: "/images/tourisme/dune.jpg"
@@ -146,13 +147,12 @@ features:
 
 # Location
   - title: "Localisation de Villa Tamaris à Ouistreham Calvados"
-    image: "/images/hp_location_beachfront.jpg"
+    image: "/images/view_scene.jpg"
     content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil ou siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
       - "Ouistreham est une station balnéaire très vivante offrant une grande diversité : son bourg médiéval et son église du 13e siècel, son port animé, sa vie maritime. Son phare,  unique dans le Calvados et sa grande roue offrent un point de vue exceptionnel et une vue imprenable sur les environs, idéale pour prendre de la hauteur lors de votre séjour en Normandie."
       - "A 2h15 de Paris par l'autoroute de Normandie."
       - "Toutes commodités immédiatement accessibles. Du petit commerce, le marché, jusqu'à la grande surface (à 3 min)."
-   
     button:
       enable: true
       label: "Découvrez la localisation"
@@ -160,7 +160,7 @@ features:
 
 # Explore
   - title: "La région et les activités"
-    image: "/images/hp_explore_post_card.jpg"
+    image: "/images/post_card.jpg"
     content: "Repos contemplatifs d'horizon lointain, activités nautiques & sportives, explorer le passé chargé. Tout le monde trouvera son compte lors de vorte séjour :"
     bulletpoints:
       - "Ouistreham est la ville cotière la plus animée de la région avec de nombreuses activités et animations : Thalassothérapie, Casino, nombreux commerces,  marché de poissons, nombreux restaurants ..."
@@ -172,7 +172,6 @@ features:
       enable: true
       label: "Suivez nous pour découvrir la région"
       link: "blog/"
-
 
 # Nous
 nous:

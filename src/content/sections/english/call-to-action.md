@@ -1,10 +1,10 @@
 ---
 enable: true
-title: "Ready to build your next project with Astro?"
-image: "/images/call-to-action.png"
-description: "Experience the future of web development with Astroplate and Astro. Build lightning-fast static sites with ease and flexibility."
+title: "Villa Tamaris"
+image: "/images/villa_front_close.jpg"
+description: "Luxury beachfront rental in Ouistreham. Sleeps 8, with stunning sea views and direct beach access. Perfect for families or seaside getaways!"
 button:
   enable: true
-  label: "Get Started Now"
-  link: "https://github.com/zeon-studio/astroplate"
+  label: "Learn more"
+  link: "https://www.location-maison-mer.fr/en/"
 ---

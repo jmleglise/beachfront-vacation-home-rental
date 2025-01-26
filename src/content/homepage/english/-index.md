@@ -11,7 +11,7 @@ schemaVacationRental: |
   "additionalType": "Villa",
   "name": "Villa Tamaris",
   "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea views and direct  Riva Bella beach access. Sleeps 8, 4 bedrooms. Perfect for families or seaside getaways !",
-  "url": "https://www.location-maison-mer.fr/",
+  "url": "https://www.location-maison-mer.fr/en/",
   "identifier": "villa-tamaris-ouistreham",
   "knowsLanguage": [
     "en-US",
@@ -20,8 +20,9 @@ schemaVacationRental: |
   "image": [
       "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham.jpg",
       "https://www.location-maison-mer.fr/images/villa_front_close.jpg",
-      "https://www.location-maison-mer.fr/images/hp_location_beachfront.jpg"
-      "https://www.location-maison-mer.fr/images/hp_explore_post_card.jpg"
+      "https://www.location-maison-mer.fr/images/tourisme/horizon.jpg",
+      "https://www.location-maison-mer.fr/images/post_card.jpg",
+      "https://www.location-maison-mer.fr/images/tourisme/cabane.jpg",
       "https://www.location-maison-mer.fr/images/vuelitch5.jpg"
   ],
   "address": {
@@ -146,7 +147,7 @@ features:
 
 # Location
   - title: "Location"
-    image: "/images/hp_location_beachfront.jpg"
+    image: "/images/view_scene.jpg"
     content: "An ideal location, this quiet rental house is just a 10-minute retreat from the vibrant heart of Ouistreham. Simply cross the street to be at Riva Bella, the finest beach on the Côte de Nacre with its 3 km of fine sand, perfect for evening strolls or enjoying a cocktail at the beach bar 'La Paillotte' just 50 meters."
     bulletpoints:
       - "Ouistreham is a lively seaside town."
@@ -160,7 +161,7 @@ features:
 
 # Explore
   - title: "The Region and Activities"
-    image: "/images/hp_explore_post_card.jpg"
+    image: "/images/post_card.jpg"
     content: "Whether you seek contemplative relaxation with distant horizons, nautical & sports activities, or dives into a rich past, there's something for everyone:"
     bulletpoints:
       - "Gather with family."

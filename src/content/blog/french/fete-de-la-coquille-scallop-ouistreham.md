@@ -1,5 +1,5 @@
 ---
-title: "La fête de la coquille à Ouistreham"
+title: "La fête de la coquille à Ouistreham."
 meta_title: "La fête de la coquille à Ouistreham"
 description: "En louant notre maison de vacance vue mer à Ouistreham, ne ratez pas La fête de la coquille"
 date: 2023-10-22T05:00:00Z

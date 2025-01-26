@@ -11,6 +11,9 @@ import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import type { ContentEntryMap } from "astro:content";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./components/ImageMod.astro";
+
+import CallToAction from "@/partials/CallToAction.astro";
+
 const { default_language } = config.settings;
 
 const COLLECTION_FOLDER = "blog";
@@ -28,6 +31,12 @@ const posts = await getSinglePage(
 const similarPosts = similarItems(post, posts);
 const { Content } = await post.render();
 const { title, description, author, categories, image, date, tags } = post.data;
+
+const call_to_action = await getSinglePage(
+  "sections",
+  lang as keyof ContentEntryMap,
+  "call-to-action",
+);
 ---
 
 <section class="section pt-7">
@@ -51,10 +60,8 @@ const { title, description, author, categories, image, date, tags } = post.data;
         <h1 set:html={markdownify(title)} class="h2 mb-4" />
         <ul class="mb-4">
           <li class="mr-4 inline-block">
-          
-              <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
-              {humanize(author)}
-         
+            <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+            {humanize(author)}
           </li>
           <li class="mr-4 inline-block">
             <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
@@ -74,9 +81,19 @@ const { title, description, author, categories, image, date, tags } = post.data;
             {dateFormat(date)}
           </li>
         </ul>
-        <div class="content mb-10">
+        <div class="content mb-10 ">
+          <!-- Contenu principal avec encart flottant -->
+
+          <!-- Encart flottant -->
+          <div
+            class="float-right w-60 p-3 bg-gray-100 rounded-lg shadow-md m-4 "
+          >
+            <CallToAction call_to_action={call_to_action[0]} />
+          </div>
+
           <Content />
         </div>
+
         <div class="row items-start justify-between">
           <div class="mb-10 flex items-center lg:col-5 lg:mb-0">
             <h5 class="mr-3">Tags :</h5>

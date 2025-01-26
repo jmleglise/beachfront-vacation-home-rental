@@ -7,7 +7,7 @@ import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
 
 import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
-import CallToAction from "@/partials/CallToAction.astro";
+
 import Testimonial from "@/partials/Testimonial.astro";
 import BannerSlider from "@/partials/BannerSlider.astro";
 import type { Feature } from "@/types";
@@ -41,11 +41,6 @@ const testimonial = await getSinglePage(
 
 const banners = banner.images;
 
-const call_to_action = await getSinglePage(
-  "sections",
-  lang as keyof ContentEntryMap,
-  "call-to-action",
-);
 
 const redirectionScript = `
   <script>
@@ -80,10 +75,11 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
     <!-- Carrousel avec titre superposé -->
     <div class="relative w-full">
       <BannerSlider banners={banners} />
-      <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+      <div class="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
         <h1
           set:html={markdownify(banner.title)}
-          class="text-center text-white text-lg md:text-2xl lg:text-4xl font-bold bg-black/50 px-4 py-2 rounded-lg"
+          class="text-center text-white text-lg md:text-2xl lg:text-4xl font-bold 
+          bg-black/50 px-4 py-2 rounded-lg transform translate-y-[-100px]"
         />
       </div>
     </div>
@@ -91,26 +87,26 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
     <div class="flex justify-center space-x-8">
       <!-- Bloc 1 -->
       <div class="flex items-center space-x-2">
-        <span>8</span><img src="/images/pax.svg" alt="8 Guests" class="w-10 h-10" />
+        <span>8</span><img src="/images/icon_pax.svg" alt="8 Guests" class="w-10 h-10" />
       </div>
       <!-- Bloc 2 -->
       <div class="flex items-center space-x-2">
-        <span>4</span><img src="/images/room.svg" alt="4 Bedrooms" class="w-10 h-10" />
+        <span>4</span><img src="/images/icon_room.svg" alt="4 Bedrooms" class="w-10 h-10" />
       </div>
       <!-- Bloc 3 -->
       <div class="flex items-center space-x-2">
-        <span>3</span><img src="/images/shower.png" alt="3 showers" class="w-6 h-9" />
+        <span>3</span><img src="/images/icon_shower.png" alt="3 showers" class="w-6 h-9" />
       </div>
       <!-- Bloc 4 -->
       <div class="flex items-center space-x-2">
-        <span></span><img src="/images/beach.svg" alt="beachfront sur la Plage" class="w-12 h-14" />
+        <span></span><img src="/images/icon_beach.svg" alt="beachfront sur la Plage" class="w-12 h-14" />
       </div>
     </div>
 
     <p set:html={markdownify(banner.content)} class="mb-8 text-justify" />
   </div>
 
-  <!-- Features -->
+  <!-- 3 PARTS -->
   {
     features.map((feature: Feature, index: number) => (
       <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
@@ -156,8 +152,8 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
 
   <!--
   <Testimonial testimonial={testimonial[0]} />
-  <CallToAction call_to_action={call_to_action[0]} />
   -->
+
 
 
   <section class="section pt-14">

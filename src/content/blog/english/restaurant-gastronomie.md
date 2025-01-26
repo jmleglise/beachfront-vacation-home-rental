@@ -3,7 +3,7 @@ title: "The Best Culinary Spots to Discover During Your Vacation Rental Stay in 
 meta_title: "Must-Try Restaurants and Dining Near Ouistreham | Gourmet Guide"
 description: "Explore Michelin-starred restaurants and top culinary experiences near Ouistreham. Your ultimate guide to elevating your vacation rental stay with exceptional dining in Normandy."
 date: 2024-11-30T05:00:00Z
-image: "/images/villa_tamaris_banner_location.jpg"
+image: "/images/tourisme/placeholder.jpg"
 categories: ["Gastronomy"]
 author: "jml"
 tags: ["restaurant", "seafood"]

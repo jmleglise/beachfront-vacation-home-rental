@@ -1,9 +1,9 @@
 ---
-title: "Que faire à Ouistreham et sa région lorsqu'il pleut ?."
+title: "Que faire à Ouistreham et sa région lorsqu'il pleut ?"
 meta_title: "Que faire à Ouistreham sous la pluie ? Activités et lieux à visiter"
 description: "Découvrez musées, châteaux, ateliers d’artisans, piscines et dégustations à Ouistreham. Profitez d'activités variées, même par temps pluvieux."
 date: 2024-12-24T05:00:00Z
-image: "/images/villa_tamaris_banner_location.jpg"
+image: "/images/tourisme/placeholder.jpg"
 categories: ["Visite"]
 author: "jml"
 tags: ["Pluie", "Patrimoine"]

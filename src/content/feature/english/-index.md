@@ -2,7 +2,7 @@
 title: "Description of Villa Tamaris"
 meta_title: "Description of Villa Tamaris vacation rental in Ouistreham"
 description: "For 8 people, 4 bedrooms, fully equipped, all comforts, high-end amenities."
-image: "/images/villa_tamaris_banner_location.jpg"
+image: "/images/tourisme/horizon.jpg"
 draft: false
 ---
 
@@ -35,4 +35,4 @@ draft: false
 - Shower room
 - WC
 
-<a class="btn btn-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Learn more about the villa’s amazing location </a>
+<a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Learn more about the villa’s amazing location </a>

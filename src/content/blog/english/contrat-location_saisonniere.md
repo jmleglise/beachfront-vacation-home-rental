@@ -3,7 +3,7 @@ title: "Legal Rules for Vacation Rentals: All You Need to Know."
 meta_title: "Vacation Rental Agreement: Obligations, Deposit, Down Payment, Insurance"
 description: "Learn the key rules for vacation rentals: mandatory agreement, deposit, down payment, insurance, and essential questions to ask before booking for a stress-free stay."
 date: 2024-12-07T05:00:00Z
-image: "/images/villa_tamaris_banner_location.jpg"
+image: "/images/tourisme/placeholder.jpg"
 categories: ["Rules"]
 author: "jml"
 tags: ["Contrat", "Arrhes", "Deposit"]

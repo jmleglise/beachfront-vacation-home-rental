@@ -26,17 +26,16 @@ const { title, description, meta_title, image } = readcontent[0].data;
   description={description}
   image={image}
 >
-  <section class="section-sm">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-7 md:col-9 mb-8 text-left">
+<div class="container">
+  <div class="row justify-center">
+    <div class="text-left md:col-10 lg:col-12">
           {
             image && (
               <ImageMod
                 class="x-auto col-12"
                 src={image}
-                width={380}
-                height={1200}
+                width={1200}
+                height={675}
                 alt={title}
                 format="webp"
               />
@@ -49,5 +48,5 @@ const { title, description, meta_title, image } = readcontent[0].data;
         </div>
       </div>
     </div>
-  </section>
+
 </Base>

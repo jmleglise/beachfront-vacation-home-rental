@@ -1,42 +1,71 @@
 ---
+import ImageMod from "@/components/ImageMod.astro";
 const { banners } = Astro.props; // Liste des bannières avec src et alt
 ---
 
-<section class="section banner-slider">
-  <div class="container">
-    <div class="swiper banner-slider-container">
+<style>
+.relative-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+.hp-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.hp-slider .swiper-wrapper{
+    align-items: center;
+}
+.hp-slider img {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div class="relative-container">
+    <div class="swiper hp-slider">
       <div class="swiper-wrapper">
         {banners.map((banner, index) => (
           <div class="swiper-slide" key={index}>
-            <img
-              src={banner.src}
+
+            <ImageMod
+              src={banner.src} class="swiper-lazy"
+              height={1600}
+              width={907}
               alt={banner.alt || `Banner ${index + 1}`}
               class="w-full h-full object-cover"
+              format="webp"
             />
+
+          <div class="swiper-lazy-preloader"></div>  
           </div>
         ))}
       </div>
       <!-- Pagination et navigation -->
-      <div class="banner-slider-pagination mt-4"></div>
+      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
-  </div>
-</section>
+
+  </div>  
 
 <script>
   import { Swiper } from "swiper";
   import "swiper/css";
   import "swiper/css/effect-fade";
-  import "swiper/css/navigation";
   import "swiper/css/pagination";
+  import "swiper/css/navigation";
+  import "swiper/css/autoplay";
   import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 
   // Initialisation du carrousel après le chargement de la page
   document.addEventListener("astro:page-load", () => {
-    new Swiper(".banner-slider-container", {
+    const swiper = new Swiper(".hp-slider", {
       modules: [Autoplay, EffectFade, Navigation, Pagination],
-      effect: "fade",
+      //effect: "fade",
+      lazy : true,
       loop: true,
       spaceBetween: 30,
       navigation: {
@@ -44,42 +73,15 @@ const { banners } = Astro.props; // Liste des bannières avec src et alt
         prevEl: ".swiper-button-prev",
       },
       pagination: {
-        el: ".banner-slider-pagination",
+        el: ".swiper-pagination",
         type: "bullets",
         clickable: true,
       },
       autoplay: {
         delay: 5000, // 5 secondes
         disableOnInteraction: false, // Continue après une interaction
-      },
-      lazy: {
-        loadPrevNext: true, // Charger les images adjacentes
-      },
+      }
     });
   });
 </script>
 
-<style>
-  .banner-slider {
-    width: 100%;
-    height: 100vh; /* Ajustez selon vos besoins */
-  }
-
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .banner-slider-pagination {
-    text-align: center;
-    margin-top: 16px;
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: white;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-</style>

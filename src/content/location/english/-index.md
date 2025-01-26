@@ -3,7 +3,7 @@ title: "Location of the Tamaris villa"
 meta_title: "Location of the Tamaris villa in Ouistreham"
 description: "Villa Tamaris in Ouistreham, with an exceptional sea view, enjoys an outstanding location. Peaceful and only 10 minutes from the vibrant heart of Ouistreham. 2 hours and 15 minutes from Paris."
 
-image: "/images/villa_tamaris_banner_location.jpg"
+image: "/images/tourisme/horizon.jpg"
 draft: false
 ---
 
@@ -31,7 +31,7 @@ Opposite the Malo ramp.
 
 - Numerous restaurants and shops.
 
-<img src="/images/villa_tamaris_ouistreham_map.jpg" alt="Location Villa Tamaris by the sea" />
+<img src="/images/ouistreham_map.jpg" alt="Location Villa Tamaris by the sea" />
 
 <h2>Things to Do:</h2>
 
@@ -47,4 +47,4 @@ Opposite the Malo ramp.
 
 - CAEN (20 min), BAYEUX (30 min), MONT-ST-MICHEL (1h20), CABOURG (28 min), DEAUVILLE (40 min), PONT L’EVEQUE (40 min).
 
-<a class="btn btn-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-feature/" target="_self"> Discover the villa's premium amenities</a>
+<a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-feature/" target="_self"> Discover the villa's premium amenities</a>

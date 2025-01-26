@@ -2,7 +2,7 @@
 title: "Descriptif de la villa Tamaris"
 meta_title: "Descriptif de la location saisonnière - villa Tamaris"
 description: "La Villa Tamaris offre des prestations haut de gamme. Pour 8 personnes, 4 Chambres, tout équipement, tout confort."
-image: "/images/villa_tamaris_banner_location.jpg"
+image: "/images/tourisme/horizon.jpg"
 draft: false
 ---
 
@@ -49,4 +49,4 @@ Non fourni
 La linge de maison n'est pas fourni. 
 Pas de TV dans la maison.
 
-<a class="btn btn-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Découvrez la localisation de la location saisonnière à Ouistreham Calvados</a>
+<a class="btn btn-outline-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Découvrez la localisation de la location saisonnière à Ouistreham Calvados</a>
