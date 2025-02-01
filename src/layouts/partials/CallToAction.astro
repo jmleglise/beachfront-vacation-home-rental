@@ -14,6 +14,9 @@ const { call_to_action } = Astro.props;
                 alt="Villa Tamaris"
                 format="webp"
               />
+                <a href={call_to_action.data.button.link}
+                class="block no-underline"
+                >
               <h2
                 set:html={markdownify(call_to_action.data.title)}
                 class="mb-2"
@@ -24,17 +27,15 @@ const { call_to_action } = Astro.props;
               />
 
               {call_to_action.data.button.enable && (
-            <div class="flex justify-center w-full">
+            <div class="flex justify-center w-full btn btn-primary">
 
-                <a
-                  class="btn btn-primary"
-                  href={call_to_action.data.button.link}
-                >
+              
                   {call_to_action.data.button.label}
-                </a>
+               
               </div>
 
               )}
+            </a>   
           </div>
 
   )

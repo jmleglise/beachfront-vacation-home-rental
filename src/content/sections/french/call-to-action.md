@@ -6,5 +6,5 @@ description: "Superbe villa en front de mer à Ouistreham. 4 chambres, 8 personn
 button:
   enable: true
   label: "Découvrir"
-  link: "https://www.location-maison-mer.fr/fr/"
+  link: "/fr/"
 ---

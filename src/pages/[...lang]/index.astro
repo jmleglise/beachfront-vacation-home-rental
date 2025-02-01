@@ -40,26 +40,6 @@ const testimonial = await getSinglePage(
 );
 
 const banners = banner.images;
-
-
-const redirectionScript = `
-  <script>
-    const userLang = navigator.language || navigator.userLanguage;
-    const currentPath = window.location.pathname;
-    const userLangPreference = localStorage.getItem("userLangPreference");
-
-    // Si l'utilisateur a déjà choisi une langue, ne pas rediriger
-    if (!userLangPreference) {
-      if (!userLang.startsWith('fr') && !currentPath.startsWith('/en/')) {
-        localStorage.setItem("userLangPreference", "en");
-        window.location.href = "/en/";
-      } else if (userLang.startsWith('fr') && !currentPath.startsWith('/fr/')) {
-        localStorage.setItem("userLangPreference", "fr");
-        window.location.href = "/fr/";
-      }
-    }
-  </script>`;
-
 const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER, lang as keyof ContentEntryMap);
 const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
@@ -68,7 +48,6 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
   meta_title={meta_title}
   description={description}
   schemaVacationRental={schemaVacationRental}
-  set:html={redirectionScript}
 >
   <!-- Banner -->
   <div class="container">
@@ -204,17 +183,21 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
   </section>
 
   <!-- Blog Posts Aléatoires -->
-  <section class="section">
-    <div class="container mx-auto">
-      <div class="grid grid-cols-12 gap-5">
-        {shuffledPosts.map((post) => (
-          <div class="mb-14 md:col-6 lg:col-8 mx-auto" key={post.id}>
-            <BlogCard data={post} />
+   <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="lg:col-8 mx-auto">
+          <div class="row">
+            {
+              shuffledPosts.map((post) => (
+                <div class="mb-14 md:col-6">
+                  <BlogCard data={post} />
+                </div>
+              ))
+            }
           </div>
-        ))}
+        </div>
       </div>
     </div>
-    
-    
   </section>
 </Base>

@@ -31,7 +31,7 @@ schemaVacationRental: |
     "addressLocality": "Ouistreham",
     "postalCode": "14150",
     "addressRegion": "Normandie",
-    "addressCountry": "France"
+    "addressCountry": "FR"
   },
   "geo": {
     "@type": "GeoCoordinates",

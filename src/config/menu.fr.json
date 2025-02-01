@@ -4,6 +4,9 @@
     { "name": "Descriptif", "url": "/villa-tamaris-beachfront-ouistreham-feature/" },
     { "name": "Localisation", "url": "/villa-tamaris-beachfront-ouistreham-location/" },
     { "name": "Découvertes", "url": "/blog/" }
+  ],  
+  "alternativeLang": [
+    { "url": "/en/", "alt": "Beachfront vacation home rental ouistreham calvados normandy", "urlFlag": "/images/en.gif" }
   ],
   "footer": [
     { "name": "English version", "url": "/en/" },

@@ -2,7 +2,7 @@
 import Logo from "@/components/Logo.astro";
 
 import config from "@/config/config.json";
-import LanguageSwitcher from "@/helpers/LanguageSwitcher";
+
 import {
   getLangFromUrl,
   getTranslations,
@@ -23,6 +23,7 @@ const disabledLanguages = config.settings.disable_languages as string[];
 if (disabledLanguages.includes(lang)) {
   lang = default_language;
 }
+
 ---
 
 <header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
@@ -30,7 +31,9 @@ if (disabledLanguages.includes(lang)) {
     {/* logo */}
     <div class="font-secondary font-bold leading-tight text-dark order-0 text-h2-sm md:text-h2">
       <!--  <Logo />     -->
-     {header_title}
+      <a href={menu.main[0].url}>
+      { header_title }
+      <a/>
     </div>
 
     {/* navbar toggler */}
@@ -87,15 +90,14 @@ if (disabledLanguages.includes(lang)) {
             </a>
           </li>
         )
+
+      <img src={imageFlag} alt={seo_gimmick} class="w-10 h-10 mx-10"/>
+
       */
       }
     </ul>
 
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-      {/* Language switcher */}
-      <LanguageSwitcher client:load lang={lang} pathname={pathname} />
-
-      {/* Navigation button */}
       {
         book_now_button.enable && (
           <a
@@ -106,6 +108,10 @@ if (disabledLanguages.includes(lang)) {
           </a>
         )
       }
+      <a href={menu.alternativeLang[0].url}>
+        <img src={menu.alternativeLang[0].urlFlag} alt={menu.alternativeLang[0].alt} class="h-10 w-auto mx-10" />
+      </a>
+
     </div>
   </nav>
 </header>

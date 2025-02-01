@@ -6,5 +6,5 @@ description: "Luxury beachfront rental in Ouistreham. Sleeps 8, with stunning se
 button:
   enable: true
   label: "Learn more"
-  link: "https://www.location-maison-mer.fr/en/"
+  link: "/en/"
 ---
