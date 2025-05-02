@@ -58,31 +58,30 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
         <h1
           set:html={markdownify(banner.title)}
           class="text-center text-white text-lg md:text-2xl lg:text-4xl font-bold 
-          bg-black/50 px-4 py-2 rounded-lg transform translate-y-[-100px]"
+          bg-black/50 px-4 py-2 rounded-lg transform translate-y-[-50px]"
         />
       </div>
     </div>
+
     <!-- 4 blocs -->
-    <div class="flex justify-center space-x-8">
-      <!-- Bloc 1 -->
+    <div class="flex justify-center space-x-14 text-h2-sm md:text-h2">
+    
       <div class="flex items-center space-x-2">
         <span>8</span><img src="/images/icon_pax.svg" alt="8 Guests" class="w-10 h-10" />
       </div>
-      <!-- Bloc 2 -->
       <div class="flex items-center space-x-2">
         <span>4</span><img src="/images/icon_room.svg" alt="4 Bedrooms" class="w-10 h-10" />
       </div>
-      <!-- Bloc 3 -->
       <div class="flex items-center space-x-2">
-        <span>3</span><img src="/images/icon_shower.png" alt="3 showers" class="w-6 h-9" />
+        <span>3</span><img src="/images/icon_shower.png" alt="3 Showers" class="w-6 h-9" />
       </div>
-      <!-- Bloc 4 -->
       <div class="flex items-center space-x-2">
         <span></span><img src="/images/icon_beach.svg" alt="beachfront sur la Plage" class="w-12 h-14" />
       </div>
+
     </div>
 
-    <p set:html={markdownify(banner.content)} class="mb-8 text-justify" />
+    <p set:html={markdownify(banner.content)} class="mb-8 text-lg text-justify" />
   </div>
 
   <!-- 3 PARTS -->
@@ -103,7 +102,7 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
               />
             </div>
             <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
-              <h2 set:html={markdownify(feature.title)} class="mb-4" />
+              <h2 set:html={markdownify(feature.title)} class="mb-4 text-h1-sm md:text-h1" />
               <p set:html={markdownify(feature.content)} class="mb-8 text-lg text-justify" />
               <ul>
                 {feature.bulletpoints.map((bullet: string) => (
@@ -158,10 +157,10 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
         <div class="lg:col-10 md:col-9 mb-8 ">
           <h2
             set:html={markdownify(nous.title)}
-            class="mb-4 text-h3 lg:text-h1"
+            class="mb-4 text-h1-sm md:text-h1"
           />
 
-          <p set:html={markdownify(nous.content)} class="mb-8 text-justify" />
+          <p set:html={markdownify(nous.content)} class="mb-8 text-lg text-justify" />
         </div>
 
 
@@ -169,7 +168,7 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
 
       <div class="lg:col-10 md:col-9 mb-8 ">
 
-        <h2 class="mb-4 text-h3 lg:text-h1" > FAQ </h2>
+        <h2 class="mb-4 text-h1-sm md:text-h1" > FAQ </h2>
         <div class="space-y-4">
           {faqContent.map(({ title, content }) => (
           <Accordion client:load title={title}>

@@ -1,0 +1,27 @@
+---
+// src/components/Gallery.astro
+import GalleryLightboxInit from '../../components/GalleryLightboxInit';
+
+const { images } = Astro.props;
+---
+
+<div class="gallery grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+  {images.map((img) => (
+    <a
+      href={img.full}
+      data-pswp-width="1200"
+      data-pswp-height="800"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img
+        src={img.thumb}
+        alt={img.alt}
+        class="w-full aspect-video object-cover rounded shadow hover:opacity-80 transition"
+        loading="lazy"
+      />
+    </a>
+  ))}
+</div>
+
+<GalleryLightboxInit client:load />

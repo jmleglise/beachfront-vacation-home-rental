@@ -110,7 +110,7 @@ schemaVacationRental: |
 # Banner
 banner:
   title: "Beachfront Villa rental in Ouistreham Normandy"
-  content: "For your vacation rental, in Normandy, we offer our beachfront house with all the comfort and equipment of a true home. 
+  content: "For your vacation rental, in Normandy, we offer our entire beachfront house with all the comfort and equipment of a true home. 
   Who hasn’t dreamed of staying in a beautiful villa by the sea, on the beach with the ocean as the only horizon?
   Imagine waking up to breathtaking views of the sea and having the chance to reach the beach right at the end of the garden.
   Enjoy the pleasures of swimming, barbecues in the garden, aperitifs at sunset, and discovering this region rich in activities.

@@ -7,7 +7,7 @@ let h5 = h6 * font_scale;
 let h4 = h5 * font_scale;
 let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
-let h1 = h2 * font_scale * 1.8 ;
+let h1 = h2 * font_scale * 1.2 ;
 
 let fontPrimaryType, fontSecondaryType;
 if (theme.fonts.font_family.primary) {

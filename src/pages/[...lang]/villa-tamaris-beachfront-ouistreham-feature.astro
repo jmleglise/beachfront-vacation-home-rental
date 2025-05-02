@@ -5,6 +5,8 @@ import { getListPage } from "@/lib/contentParser.astro";
 import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import type { ContentEntryMap } from "astro:content";
+import Gallery from "@/components/Gallery.astro";
+
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -46,8 +48,21 @@ const { title, description, meta_title, image } = readcontent[0].data;
           <div class="content">
             <Content />
           </div>
+
+          <Gallery 
+            images={[
+  { thumb: '/images/d_coinapero_small.jpg', full: '/images/d_coinapero.jpg', alt: 'Image 1' },
+  { thumb: '/images/d_cuisine_small.jpg', full: '/images/d_cuisine.jpg', alt: 'Image 2' },
+  { thumb: '/images/d_sallemanger_small.jpg', full: '/images/d_sallemanger.jpg', alt: 'Image 3' },
+  { thumb: '/images/d_salon_small.jpg', full: '/images/d_salon.jpg', alt: 'Image 4' },
+  { thumb: '/images/d_salon_small.jpg', full: '/images/d_salon.jpg', alt: 'Image 4' },
+  ]}
+          />
+
+
         </div>
       </div>
     </div>
- 
+
+
 </Base>

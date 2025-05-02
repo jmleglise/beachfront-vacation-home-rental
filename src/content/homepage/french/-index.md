@@ -108,7 +108,7 @@ schemaVacationRental: |
 
 # Banner
 banner:
-  title: "Location de vacances en bord de mer à Ouistreham / Calvados <br/> La rénovation de la Villa Tamaris se termine <br/> et sera disponible pour l'été 2025."
+  title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
   content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. 
   Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? 
   Imaginez vos réveils avec une vue imprenable sur la mer depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin. 

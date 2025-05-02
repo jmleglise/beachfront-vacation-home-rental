@@ -32,6 +32,7 @@
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^14.1.0",
+    "photoswipe": "^5.4.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "prop-types": "^15.8.1",
