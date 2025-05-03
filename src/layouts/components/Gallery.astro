@@ -1,27 +1,58 @@
 ---
 // src/components/Gallery.astro
-import GalleryLightboxInit from '../../components/GalleryLightboxInit';
+import ImageMod from "@/components/ImageMod.astro";
+import GalleryLightboxInit from "../../components/GalleryLightboxInit";
 
 const { images } = Astro.props;
 ---
 
+<style>
+  .pswp__custom-caption {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+  }
+
+  .hidden-caption-content {
+    display: none;
+  }
+</style>
+
 <div class="gallery grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-  {images.map((img) => (
-    <a
-      href={img.full}
-      data-pswp-width="1200"
-      data-pswp-height="800"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <img
-        src={img.thumb}
-        alt={img.alt}
-        class="w-full aspect-video object-cover rounded shadow hover:opacity-80 transition"
-        loading="lazy"
-      />
-    </a>
-  ))}
+  {
+    images.map((img) => (
+      <figure>
+        <a
+          href={img.full}
+          data-pswp-width="1200"
+          data-pswp-height="800"
+          target="_blank"
+          rel="noreferrer"
+        >
+        <ImageMod
+          class="w-full aspect-video object-cover rounded shadow hover:opacity-80 transition"
+          src={img.full}
+          width={575}
+          height={323}
+          alt={img.alt}
+          format="webp"
+          loading="lazy"
+        />
+
+        <span class="hidden-caption-content">{img.title}</span>
+        </a>
+        <figcaption class="mt-2 text-center text-sm text-gray-700">
+          {img.title}
+        </figcaption>
+      </figure>
+    ))
+  }
 </div>
 
 <GalleryLightboxInit client:load />

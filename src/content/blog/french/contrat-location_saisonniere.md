@@ -3,7 +3,7 @@ title: "Les obligations du contrat de location saisonnière."
 meta_title: "Contrat de location saisonnière : Arrhes, dépôt de garantie et assurance."
 description: "Découvrez les règles essentielles d'une location saisonnière : contrat obligatoire, dépôt de garantie, arrhes ou acompte, assurance et questions clés à poser avant de réserver."
 date: 2024-12-07T05:00:00Z
-image: "/images/tourisme/placeholder.jpg"
+image: "/images/placeholder.jpg"
 categories: ["Administratif"]
 author: "jml"
 tags: ["Contrat", "Arrhes", "Dépot de garantie"]

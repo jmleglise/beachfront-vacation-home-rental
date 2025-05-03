@@ -2,17 +2,14 @@
 title: "Réservation"
 meta_title: "Réservez la Villa Tamaris à ouistreham"
 description: "Pour 8 personnes, 4 Chambres, tout équipement, tout confort, prestation haut de gamme."
-image: "/images/tourisme/horizon.jpg"
+image: "/images/villa_rue.jpg"
 draft: false
 ---
 
-La maison est en rénovation complète pour une réouverture pour l'été 2025. Prenez contact pour en savoir plus. 
-
 <h2> Les conditions : </h2>
-La maison est louée pour 8 personnes maximum. Seulement à la semaine en HS et les vacances scolaires, du dimanche au dimanche.
+La maison est louée pour 8 personnes maximum. Seulement à la semaine en Haute Saison et les vacances scolaires, du dimanche au dimanche.
 
 - Haute Saison - Juin, Juillet, Août, Septembre : 2000€ TTC la semaine
-
 - Basse Saison - Les vacances scolaires : 1500€ TTC la semaine 
 - Basse Saison - Hors vacances scolaire :
     - 1000€ TTC la semaine
@@ -28,19 +25,13 @@ Le tarif inclut les lits faits pour votre arrivée, le ménage chaque fin de sem
 
 <h2>Les disponibilités : </h2> 
 
-Suite aux travaux de rénovation, la maison réouvre pour les vacances d'été 2025. Le réaménagement est en cours.
-N'hésitez pas à nous contacter pour en savoir plus.
+ Calendrier à partir de Septembre 2025
 
-<!-- 
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
--->
-
-
-
 
 <br/>
 <h2>Nous contacter  :</h2>
-
+N'hésitez pas à nous joindre pour étudier toutes les possibilités. Nous serons ravis de pouvoir répondre à vos attentes.
 <p>
   Par email, directement à : 
   <span class="text-lg md:text-xl font-semibold">

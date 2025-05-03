@@ -18,12 +18,20 @@ schemaVacationRental: |
     "fr-FR"
   ],
   "image": [
-      "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham.jpg",
-      "https://www.location-maison-mer.fr/images/villa_front_close.jpg",
-      "https://www.location-maison-mer.fr/images/tourisme/horizon.jpg",
-      "https://www.location-maison-mer.fr/images/post_card.jpg",
-      "https://www.location-maison-mer.fr/images/tourisme/cabane.jpg",
-      "https://www.location-maison-mer.fr/images/vuelitch5.jpg"
+      "https://www.location-maison-mer.fr/images/villa_front.jpg",
+      "https://www.location-maison-mer.fr/images/villa_rue.jpg",
+      "https://www.location-maison-mer.fr/images/d_ch5_vue.jpg",
+      "https://www.location-maison-mer.fr/images/cabane.jpg",
+      "https://www.location-maison-mer.fr/images/d_cuisine.jpg",
+      "https://www.location-maison-mer.fr/images/d_sallemanger.jpg",
+      "https://www.location-maison-mer.fr/images/d_salon.jpg",
+      "https://www.location-maison-mer.fr/images/d_coinapero.jpg",        
+      "https://www.location-maison-mer.fr/images/d_ch3.jpg",  
+      "https://www.location-maison-mer.fr/images/d_ch3_vue.jpg",  
+      "https://www.location-maison-mer.fr/images/d_ch4.jpg",
+      "https://www.location-maison-mer.fr/images/plage_barriere.jpg",
+      "https://www.location-maison-mer.fr/images/plage.jpg",
+      "https://www.location-maison-mer.fr/images/post_card.jpg", 
   ],
   "address": {
     "@type": "PostalAddress",
@@ -117,21 +125,28 @@ banner:
   True luxury is the privileged setting of your waterfront vacation home. Whether for a weekend, a week...
   The villa is perfect for a spacious stay for 8 people, whether with family or friends. Private parking is available to park 2 cars in the driveway."
   images:
-    - src: "/images/villa_tamaris_ouistreham.jpg"
+    - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, a beachfront rental in Normandy with stunning sea views."
-    - src: "/images/vuelitch5.jpg"
+    - src: "/images/d_sallemanger.jpg"
+      alt: "LivingRoom"
+    - src: "/images/d_cuisine.jpg"
+      alt: "Kitchen"        
+    - src: "/images/d_salon.jpg"
+      alt: "LivingRoom"
+    - src: "/images/d_ch5_vue.jpg"
       alt: "Villa Tamaris - Stunning Sea View from parent bedroom"
-    - src: "/images/tourisme/dune.jpg"
+    - src: "/images/dune.jpg"
       alt: "The beach in front of the home rental"
-    - src: "/images/tourisme/horizon.jpg"
+    - src: "/images/horizon.jpg"
       alt: "The beach near the Holidays house rental"
-    - src: "/images/tourisme/cabane.jpg"
+    - src: "/images/cabane.jpg"
       alt: "Holidays rental in front of the Ouistreham beach cabins"
+
 
 # Features
 features:
   - title: "Luxury Accommodation"
-    image: "/images/villa_front_close.jpg"
+    image: "/images/villa_front.jpg"
     content: "Facing the sea, enjoy a beautiful sea view from the living room and 2 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
       - "Master bedroom opens onto its exceptional terrace with an en-suite bathroom."

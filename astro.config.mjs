@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
@@ -11,7 +11,7 @@ import languagesJSON from "./src/config/language.json";
 // import cloudflare from "@astrojs/cloudflare";
 
 const { default_language } = config.settings;
-const { default_language_in_subdir } = config.settings; 
+const { default_language_in_subdir } = config.settings;
 
 const supportedLang = [...languagesJSON.map((lang) => lang.languageCode)];
 const disabledLanguages = config.settings.disable_languages;
@@ -23,15 +23,8 @@ const filteredSupportedLang = supportedLang.filter(
 
 // https://astro.build/config
 export default defineConfig({
-  //vite: {
-  //  build: {
-  //    minify: false,
-  //  },
-  //S},
-  
   site: config.site.base_url ? config.site.base_url : "https://www.location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
- // trailingSlash: config.site.trailing_slash ? "always" : "ignore",
   trailingSlash: 'always',
   outDir: '/media/sf_SiteAstro/dist',
   i18n: {
@@ -41,19 +34,15 @@ export default defineConfig({
       prefixDefaultLocale: true //default_language_in_subdir
     }
   },
- image: {
-    service: squooshImageService(),
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        // Vous pouvez ajouter des configurations spécifiques pour Sharp ici si nécessaire
+        limitInputPixels: false,
+      },
+    },
   },
-
-  // image: {
-  //   service: {
-  //     entrypoint: 'astro/assets/services/sharp',
-  //       config: {
-  //         limitInputPixels: false,
-  //       },
-  //  },
-  // },
-
   integrations: [
     react(),
     sitemap({
@@ -62,7 +51,6 @@ export default defineConfig({
         return url.includes('/fr/') || url.includes('/en/');
       },
     }),
-
     tailwind({
       applyBaseStyles: false,
     }),
@@ -79,7 +67,6 @@ export default defineConfig({
     }),
     mdx(),
   ],
-
   markdown: {
     remarkPlugins: [
       remarkToc,
@@ -96,8 +83,5 @@ export default defineConfig({
     },
     extendDefaultPlugins: true,
   },
-
   output: "static",
-  // JML output: "server",
-  // JML adapter: cloudflare(),
 });

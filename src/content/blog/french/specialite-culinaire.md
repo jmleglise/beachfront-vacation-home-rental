@@ -3,7 +3,7 @@ title: "Découvrez les spécialités du Calvados lors de votre location de vacan
 meta_title: "Location de Vacances Gourmande à Ouistreham - Les spécialités Culinaires"
 description: "Découvrez le Calvados, paradis des gourmets ! Notre maison de vacances et sa cuisine tout équipée, idéale pour profiter des spécialités normandes : fruits de mer, fromages, cidres, et douceurs locales."
 date: 2024-11-23T05:00:00Z
-image: "/images/tourisme/placeholder.jpg"
+image: "/images/placeholder.jpg"
 categories: ["Gastronomie"]
 author: "jml"
 tags: ["Restauration", "Fruis de mer"]

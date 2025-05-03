@@ -3,7 +3,7 @@ title: "Les fameuses cabines de plage de la côte de nacre."
 meta_title: "Les cabines de plage proche de notre location de vacances à Ouistreham."
 description: "Les emblématiques cabines de plage de Normandie, symboles de charme et traditions balnéaires, inspireront votre locations de vacances familiales à Ouistreham. Découvrez la Côte de Nacre !."
 date: 2023-07-04T05:00:00Z
-image: "/images/tourisme/cabane.jpg"
+image: "/images/cabane.jpg"
 categories: ["Visite"]
 author: "JmL"
 tags: ["Patrimoine", "Mer"]

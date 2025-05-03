@@ -3,7 +3,7 @@ title: "What to Do in Ouistreham and Its Region When It Rains?"
 meta_title: "What to Do in Ouistreham in the Rain? Activities and Places to Visit"
 description: "Discover museums, castles, artisan workshops, swimming pools, and tastings in Ouistreham. Enjoy various activities, even on rainy days."
 date: 2024-12-24T05:00:00Z
-image: "/images/tourisme/placeholder.jpg"
+image: "/images/placeholder.jpg"
 categories: ["Visit"]
 author: "jml"
 tags: ["Rain", "Heritage"]

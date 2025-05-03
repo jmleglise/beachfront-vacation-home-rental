@@ -2,16 +2,14 @@
 title: "Book"
 meta_title: "Book the Villa Tamaris in Ouistreham"
 description: "Book for a week or week-end, For 8 people, 4 bedrooms, fully equipped, all comforts, high-end amenities."
-image: "/images/tourisme/horizon.jpg"
+image: "/images/villa_rue.jpg"
 draft: false
 ---
-The house is undergoing a complete renovation, reopening for summer 2025. Contact us to learn more.
 
 <h2> Terms and Conditions: </h2>
 The house is rented for a maximum of 8 people. Weekly rentals only during HS and school holidays, from Sunday to Sunday.
 
 - High Season - June, July, August, September: €2000 including tax per week
-
 - Low Season - School holidays: €1500 including tax per week
 - Low Season - Outside school holidays:
     - €1000 including tax per week
@@ -27,11 +25,8 @@ The rate includes beds made upon arrival, weekly cleaning, charges for normal us
 
 <h2> Availability: </h2>
 
-Following the renovation work, the house will reopen for summer 2025. Rearrangement is in progress. Feel free to contact us for more information.
-
-<!-- 
+Availability from September 2025
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
--->
 
 <br/>
 <h2>Contact Us:</h2>

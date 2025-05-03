@@ -19,7 +19,7 @@ const { lang } = Astro.params;
 const readcontent = await getListPage("feature", lang as keyof ContentEntryMap);
 
 const { Content } = await readcontent[0].render();
-const { title, description, meta_title, image } = readcontent[0].data;
+const { title, description, meta_title, image, detail } = readcontent[0].data;
 ---
 
 <Base
@@ -45,19 +45,16 @@ const { title, description, meta_title, image } = readcontent[0].data;
             )
           }
           <h1 set:html={markdownify(title)} class="h1 mb-6" />
-          <div class="content">
-            <Content />
-          </div>
 
-          <Gallery 
-            images={[
-  { thumb: '/images/d_coinapero_small.jpg', full: '/images/d_coinapero.jpg', alt: 'Image 1' },
-  { thumb: '/images/d_cuisine_small.jpg', full: '/images/d_cuisine.jpg', alt: 'Image 2' },
-  { thumb: '/images/d_sallemanger_small.jpg', full: '/images/d_sallemanger.jpg', alt: 'Image 3' },
-  { thumb: '/images/d_salon_small.jpg', full: '/images/d_salon.jpg', alt: 'Image 4' },
-  { thumb: '/images/d_salon_small.jpg', full: '/images/d_salon.jpg', alt: 'Image 4' },
-  ]}
-          />
+          {detail.map((item) => (
+            <>
+              <h2 set:html={markdownify(item.level)} class="h2 mb-6" />
+              <div class="content" set:html={markdownify(item.content)} />
+              {item.images && item.images.length > 0 && (
+                <Gallery images={item.images} />
+              )}
+            </>
+          ))}
 
 
         </div>

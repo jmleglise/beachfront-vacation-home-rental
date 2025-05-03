@@ -16,12 +16,21 @@ schemaVacationRental: |
       "fr-FR"
     ],
     "image": [
-      "https://www.location-maison-mer.fr/images/villa_tamaris_ouistreham.jpg",
-      "https://www.location-maison-mer.fr/images/villa_front_close.jpg",
-      "https://www.location-maison-mer.fr/images/tourisme/horizon.jpg",
-      "https://www.location-maison-mer.fr/images/post_card.jpg",
-      "https://www.location-maison-mer.fr/images/tourisme/cabane.jpg",
-      "https://www.location-maison-mer.fr/images/vuelitch5.jpg"
+      "https://www.location-maison-mer.fr/images/villa_front.jpg",
+      "https://www.location-maison-mer.fr/images/villa_rue.jpg",
+      "https://www.location-maison-mer.fr/images/d_ch5_vue.jpg",
+      "https://www.location-maison-mer.fr/images/cabane.jpg",
+      "https://www.location-maison-mer.fr/images/d_cuisine.jpg",
+      "https://www.location-maison-mer.fr/images/d_sallemanger.jpg",
+      "https://www.location-maison-mer.fr/images/d_salon.jpg",
+      "https://www.location-maison-mer.fr/images/d_coinapero.jpg",        
+      "https://www.location-maison-mer.fr/images/d_ch3.jpg",  
+      "https://www.location-maison-mer.fr/images/d_ch3_vue.jpg",  
+      "https://www.location-maison-mer.fr/images/d_ch4.jpg",
+      "https://www.location-maison-mer.fr/images/plage_barriere.jpg",
+      "https://www.location-maison-mer.fr/images/plage.jpg",
+      "https://www.location-maison-mer.fr/images/post_card.jpg", 
+
     ],
     "address": {
       "@type": "PostalAddress",
@@ -109,29 +118,34 @@ schemaVacationRental: |
 # Banner
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
-  content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. 
-  Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? 
-  Imaginez vos réveils avec une vue imprenable sur la mer depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin. 
-  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin et du wifi dans toute la maison. Profitez en également pour découvrir cette région riche en activités.
-  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end, d'une semaine ...
+  content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
+  Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? <br>
+  Imaginez vos réveils avec une vue imprenable sur la mer depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin et du wifi dans toute la maison. Profitez en également pour découvrir cette région riche en activités.<br>
+  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end, d'une semaine ...<br>
   La villa est adaptée pour un séjour spacieux de 8 personnes, en famille ou entre ami. Parking privée pour garer 2 voitures dans l'allée. "
   images:
-    - src: "/images/villa_tamaris_ouistreham.jpg"
+    - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer exceptionnelle"
-    - src: "/images/vuelitch5.jpg"
+    - src: "/images/d_sallemanger.jpg"
+      alt: "La salle à manger"
+    - src: "/images/d_cuisine.jpg"
+      alt: "La cuisine"        
+    - src: "/images/d_salon.jpg"
+      alt: "Le salon"
+    - src: "/images/d_ch5_vue.jpg"
       alt: "Location saisonnière vue mer exceptionnelle de la chambre parentale"
-    - src: "/images/tourisme/dune.jpg"
+    - src: "/images/dune.jpg"
       alt: "Les dunes de sable de Ouistreham proche de la location saisonnière"
-    - src: "/images/tourisme/horizon.jpg"
+    - src: "/images/horizon.jpg"
       alt: "La plage devant la maison de vacances"
-    - src: "/images/tourisme/cabane.jpg"
+    - src: "/images/cabane.jpg"
       alt: "Maison de vacances les pieds dans l'eau devant les cabanes de Ouistreham"
   
 
 # Features
 features:
   - title: "Villa Tamaris - Prestation haut de gamme"
-    image: "/images/villa_front_close.jpg"
+    image: "/images/villa_front.jpg"
     content: "Face à la mer, vous profitez d'une belle vue sur la plage depuis le salon, la salle à manger et de 2 chambres. La maison dispose d'un jardin privé et à l'abrit des regards, d'un parking privé, d'une terrasse avec une vue plongeante exceptionnelle sur le front de mer. Totalement rénovée en 2024, cette maisson offre des prestations haut de gamme, décoration néonormande, tout équipée et modernes."
     bulletpoints:
       - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
@@ -150,8 +164,8 @@ features:
     image: "/images/view_scene.jpg"
     content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil ou siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
-      - "Ouistreham est une station balnéaire très vivante offrant une grande diversité : son bourg médiéval et son église du 13e siècel, son port animé, sa vie maritime. Son phare,  unique dans le Calvados et sa grande roue offrent un point de vue exceptionnel et une vue imprenable sur les environs, idéale pour prendre de la hauteur lors de votre séjour en Normandie."
-      - "A 2h15 de Paris par l'autoroute de Normandie."
+      - "Ouistreham est une station balnéaire très vivante offrant une grande diversité : son bourg médiéval et son église du 13e siècel, son port animé, sa vie maritime. Son phare, unique dans le Calvados et sa grande roue offrent un point de vue exceptionnel sur les environs."
+      - "A 2h15 de Paris par l'autoroute de Normandie. C'est aussi un point de chute pour rayonner sur la Normandie"
       - "Toutes commodités immédiatement accessibles. Du petit commerce, le marché, jusqu'à la grande surface (à 3 min)."
     button:
       enable: true
@@ -177,7 +191,8 @@ features:
 nous:
   title: "Qui nous sommes"
   # image: "/images/hp_explore_post_card.jpg"
-  content: "Nous sommes Isabelle, Justine, Marion et Jean-Marc et nous sommes heureux de vous accueillir dans notre maison de vacances à Ouistreham.  Nous vous accueillons en confiance, et pour votre confort pendant votre séjour, nous vous laissons la plupart de nos équipements : Vélos, barbecue, livres, musique ...  Nous avons découvert la région récemment et avons décidé de nous y fixer après avoir nous même beaucoup loué des maisons de vacances, en Bretagne, en Charente-Maritime, dans le sud ... Nous apprécions chaque jour davantage cette région au contact des éléments et du grand air. Nous prenons plaisir également à découvrir les nombreuses activités environnantes. Nous vous faisons partager quelques unes de nos découvertes dans le blog. Cette maison est issue de plusieurs transformations. Initialement petite maison de pécheur, elle fut transformée une première fois en 2000 puis de nouveau totalement rénovée et transformée en 2024 lors de notre acquisition. Nous avons eu à coeur de conserver quelques traits architecturaux des maison normandes et de la côte afin de perpétuer la tradition locale. Nous vous invitons d'ailleurs à découvrir la diversités de l'architecture locale où se cotoient villas huppées de la naissance du tourisme balnéaire de 1860, et maisonnettes des travailleurs de la mer."
+  content: "Nous sommes Isabelle, Justine, Marion et Jean-Marc et nous sommes heureux de vous accueillir dans notre maison de vacances à Ouistreham.  Nous vous accueillons en confiance, et pour votre confort pendant votre séjour, nous vous laissons la plupart de nos équipements : Vélos, barbecue, livres, musique ...  Nous avons découvert la région récemment et avons décidé de nous y fixer après avoir nous même beaucoup loué des maisons de vacances, en Bretagne, en Charente-Maritime, dans le sud ... Nous apprécions chaque jour davantage cette région au contact des éléments et du grand air. Nous prenons plaisir également à découvrir les nombreuses activités environnantes. Nous vous faisons partager quelques unes de nos découvertes dans le blog. <br>
+  Cette maison est issue de plusieurs transformations. Initialement petite maison de pécheur, elle fut transformée une première fois en 2000 puis de nouveau totalement rénovée et transformée en 2024 lors de notre acquisition. Nous avons eu à coeur de conserver quelques traits architecturaux des maison normandes et de la côte afin de perpétuer la tradition locale. Nous vous invitons d'ailleurs à découvrir la diversités de l'architecture locale où se cotoient villas huppées de la naissance du tourisme balnéaire de 1860, et maisonnettes des travailleurs de la mer."
   button:
     enable: true
     label: "Suivez nous pour découvrir la région"
