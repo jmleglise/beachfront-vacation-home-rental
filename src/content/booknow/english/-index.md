@@ -25,12 +25,12 @@ The rate includes beds made upon arrival, weekly cleaning, charges for normal us
 
 <h2> Availability: </h2>
 
-Availability from September 2025
+Availability from September 2025 : 
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 <br/>
 <h2>Contact Us:</h2>
-
+Feel free to contact us for any special arrangement. 
 <p>
   By email, directly at: 
   <span class="text-lg md:text-xl font-semibold">

@@ -13,9 +13,6 @@ detail:
 - Une terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
 - Une allée sécurisée par un portail accueille une ou deux voitures en enfilade."
     images:
-      - full: "/images/villa_front.jpg"
-        alt: "La villa"
-        title: "La villa"
       - full: "/images/villa_rue.jpg"
         alt: "La villa"
         title: "La villa"        
