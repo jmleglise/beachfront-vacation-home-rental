@@ -31,18 +31,19 @@ Availability from September 2025 :
 <br/>
 <h2>Contact Us:</h2>
 Feel free to contact us for any special arrangement. 
-<p>
+
+<br/>
   By email, directly at: 
-  <span class="text-lg md:text-xl font-semibold">
-    <span style=" margin-right: -0.1em;">villatamaris</span>   <!-- vertical-align: 0.1em; -->
+  <span class="text-lg md:text-xl font-semibold" style="display: inline-block; white-space: nowrap;">
+    <span style="margin-right: -0.1em;">villatamaris</span>
     <img
       src="/images/contact.png"
-      alt="contact us"
+      alt="contactez-nous"
       class="inline align-middle w-auto h-6"
       style="margin-left: -0.1em;"
     />
   </span>
-</p>
+
 
 <br/>or via this form: 
 <!-- 

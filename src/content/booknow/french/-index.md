@@ -32,10 +32,10 @@ Le tarif inclut les lits faits pour votre arrivée, le ménage chaque fin de sem
 <br/>
 <h2>Nous contacter  :</h2>
 N'hésitez pas à nous joindre pour étudier toutes les possibilités. Nous serons ravis de pouvoir répondre à vos attentes.
-<p>
+<br/>
   Par email, directement à : 
-  <span class="text-lg md:text-xl font-semibold">
-    <span style=" margin-right: -0.1em;">villatamaris</span>   <!-- vertical-align: 0.1em; -->
+  <span class="text-lg md:text-xl font-semibold" style="display: inline-block; white-space: nowrap;">
+    <span style="margin-right: -0.1em;">villatamaris</span>
     <img
       src="/images/contact.png"
       alt="contactez-nous"
@@ -43,8 +43,6 @@ N'hésitez pas à nous joindre pour étudier toutes les possibilités. Nous sero
       style="margin-left: -0.1em;"
     />
   </span>
-</p>
-
 
 
 <br/>ou grâce à ce formulaire : 
