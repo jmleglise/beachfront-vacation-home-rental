@@ -54,29 +54,38 @@ if (disabledLanguages.includes(lang)) {
     </label>
 
     <ul
-      id="nav-menu"
-      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 xl:text-xl"
-    >
-      {
-        menu?.main.map((menu: any) => (
-          <>
-            {
-              <li class="nav-item">
-                <a
-                  href={slugSelector(menu.url, lang)}
-                  class={`nav-link block ${
-                    pathname === slugSelector(menu.url, lang) && "active"
-                  }`}
-                >
-                  {menu.name}
-                </a>
-              </li>
-            }
-          </>
-        ))
-      }
-
-    </ul>
+    id="nav-menu"
+    class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 xl:text-xl"
+  >
+    {
+      menu?.main.map((menu: any) => (
+        <li class="nav-item">
+          <a
+            href={slugSelector(menu.url, lang)}
+            class={`nav-link block ${
+              pathname === slugSelector(menu.url, lang) && "active"
+            }`}
+          >
+            {menu.name}
+          </a>
+        </li>
+      ))
+    }
+  
+    {/* ✅ AJOUT : bouton Book_now visible uniquement en mobile */}
+    {
+      book_now_button.enable && (
+        <li class="block lg:hidden mt-4">
+          <a
+            href={slugSelector(book_now_button.link, lang)}
+            class="btn btn-outline-primary btn-sm w-full text-center"
+          >
+            {book_now}
+          </a>
+        </li>
+      )
+    }
+  </ul>
   {/* Les boutons à droites */}
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       {
