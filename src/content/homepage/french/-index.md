@@ -118,10 +118,8 @@ schemaVacationRental: |
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
   content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
-  Qui n'a jamais rêvé de séjourner dans une belle villa au bord de la mer, en bord de plage avec la mer pour seul horizon ? <br>
-  Imaginez vos réveils avec une vue imprenable sur la mer depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin et du wifi dans toute la maison. Profitez en également pour découvrir cette région riche en activités.<br>
-  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end, d'une semaine ...<br>
-  La villa est adaptée pour un séjour spacieux de 8 personnes, en famille ou entre ami. Parking privée pour garer 2 voitures dans l'allée. "
+  Imaginez vos réveils avec une vue imprenable sur le bord de mer, depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin et du wifi dans toute la maison. Profitez-en également pour découvrir cette région riche en activités.<br>
+  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end ou d'une semaine ...<br>"
   images:
     - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer exceptionnelle"
