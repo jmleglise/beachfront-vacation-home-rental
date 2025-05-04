@@ -29,8 +29,7 @@ schemaVacationRental: |
       "https://www.location-maison-mer.fr/images/d_ch4.jpg",
       "https://www.location-maison-mer.fr/images/plage_barriere.jpg",
       "https://www.location-maison-mer.fr/images/plage.jpg",
-      "https://www.location-maison-mer.fr/images/post_card.jpg", 
-
+      "https://www.location-maison-mer.fr/images/post_card.jpg"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -149,8 +148,8 @@ features:
     content: "Face à la mer, vous profitez d'une belle vue sur la plage depuis le salon, la salle à manger et de 2 chambres. La maison dispose d'un jardin privé et à l'abrit des regards, d'un parking privé, d'une terrasse avec une vue plongeante exceptionnelle sur le front de mer. Totalement rénovée en 2024, cette maisson offre des prestations haut de gamme, décoration néonormande, tout équipée et modernes."
     bulletpoints:
       - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
-      - "Chambre parentale ouverte sur sa terrasse avec vue exceptionnelle et sa salle d'eau en suite."
-      - "Grand plateau à vivre, cuisine toute équipée ouverte sur la salle à manger devant le bowwindow. Et coin salon."
+      - "Suite parentale avec sa grande salle de bain privative, et sa terrasse avec vue exceptionnelle."
+      - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger devant le bowwindow."
       - "Bureau et Internet++ pour travailler dans un cadre exceptionnel."
       - "sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha."
       - "Tout l'équipement souhaitable."
@@ -207,7 +206,7 @@ faqContent:
   - title: "Cette location saisonnière dispose-t-elle d'une piscine ? "
     content: "Non, la maison de vacance n'a pas de piscine. La plage est au bout du jardin ! Et le complexe aquatique Aquabella de Ouistreham est à 4 minutes de vélo. (Toboggan de 70m, splashpad et un solarium pour se relaxer les pieds dans le sable. Diverses activités aquatiques sont programmées toute l'année : cours d'aquabike, d'aquafitness, bébés nageurs, etc. Env 6€ la journée par pers.)"
   - title: "Est-ce que la location est adaptée aux bébés ou aux personnes à mobilité réduite ?"
-    content: "Malheusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers et les fenêtres ne sont pas actuellement sécurisés. Et pour les personnes à mobilité réduite, Il y a 2 chambres, WC  et salle de douche de plein pied, mais la cuisine et le salon sont à l'étage."
+    content: "Malheusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers et les fenêtres ne sont pas actuellement sécurisés. Et pour les personnes à mobilité réduite, Il y a 2 chambres, WC  et salle de douche de plain pied, mais la cuisine et le salon sont à l'étage."
   - title: "Quels sont les équipements de la maison ?"
     content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine complète, dans le jardin barbecue gaz et plancha gaz, Lave linge, sèche linge, lave vaisselle, cafetière nespresso, grille pain ... Demandez nous pour connaitre la présence d'un équipement particulier." 
   - title: "A quelle distance de la plage est la maison de vacances ? "

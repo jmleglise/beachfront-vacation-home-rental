@@ -31,7 +31,7 @@ schemaVacationRental: |
       "https://www.location-maison-mer.fr/images/d_ch4.jpg",
       "https://www.location-maison-mer.fr/images/plage_barriere.jpg",
       "https://www.location-maison-mer.fr/images/plage.jpg",
-      "https://www.location-maison-mer.fr/images/post_card.jpg", 
+      "https://www.location-maison-mer.fr/images/post_card.jpg" 
   ],
   "address": {
     "@type": "PostalAddress",
