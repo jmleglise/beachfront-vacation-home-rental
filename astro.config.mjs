@@ -26,7 +26,7 @@ export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "https://www.location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: 'always',
-  outDir: '/media/sf_SiteAstro/dist',
+  outDir: './dist',
   i18n: {
     locales: filteredSupportedLang,
     defaultLocale: default_language,
