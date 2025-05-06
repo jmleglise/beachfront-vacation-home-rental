@@ -9,16 +9,17 @@ draft: false
 <h2> Les conditions : </h2>
 La maison est louée pour 8 personnes maximum. Seulement à la semaine en Haute Saison et les vacances scolaires, du dimanche au dimanche.
 
-- Haute Saison - Juin, Juillet, Août, Septembre : 2000€ TTC la semaine
-- Basse Saison - Les vacances scolaires : 1500€ TTC la semaine 
+- Haute Saison - Juin, Juillet, Août, Septembre : 1500€ TTC la semaine
+- Basse Saison - Les vacances scolaires : 1300€ TTC la semaine 
 - Basse Saison - Hors vacances scolaire :
     - 1000€ TTC la semaine
     - 700€ TTC le forfait 4 nuits (ou moins).
 
-Le tarif inclut les lits faits pour votre arrivée, le ménage chaque fin de semaine,  les charges pour un usage normal, toutes les taxes. 
+Le tarif inclut les charges pour un usage normal, toutes les taxes.
+Ménage 150€ chaque semaine
+Linge de maison 150€ chaque semaine (Lit faits à votre arrivée, serviette de toilette).
 
 - Arrhes : 30% à la réservation puis 100% à j-20 
-
 - Caution : 1000€ par chèque à la remise des clefs. 
 
 - La Maison est non-fumeur/vapoteur. Les animaux ne sont pas admis et les grandes fêtes bruyantes non plus. En respect de tous les vacanciers et nos sympathiques voisins. 

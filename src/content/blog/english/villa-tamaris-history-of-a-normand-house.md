@@ -3,7 +3,7 @@ title: "The Villa Tamaris: History of a Norman House."
 meta_title: "Renovation of Villa Tamaris: History of a Norman House."
 description: "Discover the transformation of Villa Tamaris, from its humble origins to a renovation inspired by Norman seaside architecture."
 date: 2025-05-04T05:00:00Z
-image: "/images/vila_rue.jpg"
+image: "/public/images/vila_rue.jpg"
 categories: ["Visite"]
 author: "JmL"
 tags: ["Patrimoine"]
@@ -22,7 +22,7 @@ The name "Villa Tamaris" appears in a 1965 notarial document. Indeed, a tamarisk
 
 <h2> 1999: A Surprising Transformation </h2> 
 
-<img src="images/triptique2000.png" alt="Villa Tamaris House 1999" style="display: block; margin: auto;">
+<img src="/images/triptique2000.png" alt="Villa Tamaris House 1999" style="display: block; margin: auto;">
 
 1999 marked a turning point. Villa Tamaris underwent a major transformation, and the building permit from that time provides some interesting information: The owner explored several architectural projects, initially intending to create a beautiful west-facing Norman-style house with a cap-style roof overhang on the west gable. After several rejections from the town hall, a more sober yet surprising project finally saw the light of day. The house was then raised by two stories on the east side only, with a roof slope descending to the ground floor on the west side. With this strikingly unusual roof in the local landscape, the house possessed an understated charm. Was it a desire to protect against the elements? A compromise imposed by municipal constraints? In any case, this singularity gives it a particular charm for a vacation home, simple and unpretentious. However, with this transformation, no Norman architectural elements were present apart from a nod to the old half-timbered wood. A sample was preserved and affixed to an exterior wall.
 
@@ -30,7 +30,7 @@ Unfortunately, shortly afterward, the house in front was raised and partly obscu
 
 <h2> 2022: Our Acquisition </h2> 
 
-<img src="images/triptique2025.png" alt="Villa Tamaris House in 2025" style="display: block; margin: auto;">
+<img src="/images/triptique2025.png" alt="Villa Tamaris House in 2025" style="display: block; margin: auto;">
 
 In 2022, we acquired Villa Tamaris with the project of restoring the house's unobstructed sea view and opening it more to the outside. Inspired by the original style of the 1950s and the seaside architecture of the beautiful residences of Ouistreham, so well documented in the book "Villas et architecture de bord de mer - Ouistreham" by Florent Herouard, we wanted to reconnect with some codes of the regional seaside architecture from the early 18th century. This time, the town hall accepted the project to build on the west side. We created a terrace on the second floor to break up the facade and avoid ending up with a massive house. The main bedroom now opens onto this terrace with a fantastic view of the seafront through a bay window topped by a dormer. On the first floor, a bow window adds relief to the facade while flooding the dining room with light and positioning it with a front-row view of the sea. The bow window is topped with a tile cap, a typical architectural element of the Norman region, adapted to this humid area.
 

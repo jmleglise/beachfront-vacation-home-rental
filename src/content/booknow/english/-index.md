@@ -9,13 +9,16 @@ draft: false
 <h2> Terms and Conditions: </h2>
 The house is rented for a maximum of 8 people. Weekly rentals only during HS and school holidays, from Sunday to Sunday.
 
-- High Season - June, July, August, September: €2000 including tax per week
-- Low Season - School holidays: €1500 including tax per week
-- Low Season - Outside school holidays:
+- High Season - June, July, August, September: €1500 including tax per week
+- Low Season - French School holidays: €1300 including tax per week
+- Low Season - Outside French school holidays:
     - €1000 including tax per week
     - €700 including tax for a 4-night stay (or less).
 
-The rate includes beds made upon arrival, weekly cleaning, charges for normal usage, and all taxes.
+The rate includes charges for normal usage, and all taxes.
+
+Cleaning fee: €150. each week.
+Linen package: €200 each week. for sheets, towels, and kitchen towels. 
 
 - Deposit: 30% at booking, then 100% 20 days before arrival.
 

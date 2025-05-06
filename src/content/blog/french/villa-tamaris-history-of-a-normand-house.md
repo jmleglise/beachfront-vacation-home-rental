@@ -23,7 +23,7 @@ Le nom de  "Villa Tamaris" apparait dans un document notarial de 1965. Et effect
 
 <h2> 1999 : Une Transformation étonnante</h2>
 
-   <img src="images/triptique2000.png" alt="Maison Villa Tamaris 1999" style="display: block; margin: auto;">
+   <img src="/images/triptique2000.png" alt="Maison Villa Tamaris 1999" style="display: block; margin: auto;">
 
 1999 marque un tournant. la Villa Tamaris subit une transformation majeure et le permis de construire de l'époque donne quelques informations intéressantes :  Le propriétaire étudia plusieurs projets architecturaux, avec une intention initiale de créer une belle maison normande orientée Ouest, avec une avancée de toit type pan casquette sur le pignon ouest. Après plusieurs refus de la mairie, c'est un projet plus sobre mais surprenant qui finalement vue le jour. La maison s'éleva alors de deux étages côté Est seulement, avec une pente de toit plongeant jusqu'au rez-de-chaussée côté ouest. Avec ce toit résolument détonnant dans le paysage local, cette maison possédait un charme non ostentatoire. Etait-ce une volonté de se protéger des intempéries ? Un compromis des contraintes imposée par la mairie ? Quoi qu'il en soit, cette singularité lui confère un charme particulier pour une maison devenue de vacances, simple et sans prétention. Par contre, avec cette transformation aucun élément d'architecture normande n'était présent mis à part un clin d'œil aux anciens bois de colombage. Un échantillon fut conservé et apposé sur un mur extérieur.
 
@@ -31,7 +31,7 @@ Malheureusement, peu de temps après, la maison devant fut surélevée et occult
 
 <h2>2022 : Notre acquisition</h2>
 
-   <img src="images/triptique2025.png" alt="Maison Villa Tamaris en 2025" style="display: block; margin: auto;">
+   <img src="/images/triptique2025.png" alt="Maison Villa Tamaris en 2025" style="display: block; margin: auto;">
 
 En 2022, nous avons acquis la Villa Tamaris avec le projet de redonner à la maison sa vue mer imprenable et de l'ouvrir davantage vers l'extérieur. Inspiré par le style d'origine des années 1950 et l'architecture balnéaire des belles demeures de Ouistreham, si bien documentées dans le livre  "Villas et architecture de bord de mer - Ouistreham" de Florent Herouard, nous avons voulu renouer avec certains codes de l'architecture balnéaire régionale du début du 18eme siècle. 
 Cette fois la mairie accepta le projet de monter côté Ouest. Nous avons créé une terrasse au deuxième étage pour découper la façade et ne pas se retrouver avec une maison massive. La chambre principale s'ouvre désormais sur cette terrasse avec une vue formidable sur le front de mer par une baie vitrée surplombée d'un chien-assis. Au premier étage, un bow-window apporte du relief à la façade, tout en inondant la salle à manger de lumière et en la positionnant aussi aux premières loges sur la mer. Le bow-window est surplombé d'une casquette de tuiles, élément architectural typique de la région normande et adaptée à cette région humide. 
