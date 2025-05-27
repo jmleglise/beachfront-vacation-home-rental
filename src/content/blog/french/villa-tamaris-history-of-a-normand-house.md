@@ -3,7 +3,7 @@ title: "La Villa Tamaris : Histoire d'une Maison Normande."
 meta_title: "Rénovation de la Villa Tamaris : Histoire d'une Maison Normande"
 description: "Découvrez la transformation de la Villa Tamaris, de ses origines modestes à sa rénovation inspirée par l'architecture balnéaire normande."
 date: 2025-05-04T05:00:00Z
-image: "/images/vila_rue.jpg"
+image: "/images/villa_rue.jpg"
 categories: ["Visite"]
 author: "JmL"
 tags: ["Patrimoine"]

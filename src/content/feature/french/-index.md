@@ -8,9 +8,11 @@ draft: false
 
 # DETAIL
 detail:
+  - level: ""
+    content: "La villa dispose de 5 chambres mais fréquemment seulement 3 ou 4 sont accessibles selon le temps dont nous disposons pour préparer la maison pour la location. Rentrez en contact et faites nous part de votre projet !<br><br>"
   - level: "Extérieur"
     content: "La villa est située sur un terrain de 300m2, clôt, sécurisé et fleuri.<br>
-- Une terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
+- Une cours/terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
 - Une allée sécurisée par un portail accueille une ou deux voitures en enfilade."
     images:
       - full: "/images/villa_rue.jpg"
@@ -27,7 +29,9 @@ detail:
         title: "La plage devant la maison"              
 
   - level: "Au Rez de Chaussée:"
-    content: "- 2 chambres, 1 Salle de douche, 1 WC<br>"
+    content: "- 2 chambres, avec chacune 2 lits en 80 pouvant être réunis.<br>
+    -1 Salle de douche, <br>
+    -1 WC<br>"
     images:
       - full: "/images/plan_r0.jpg"
         alt: "Le plan du Rdc"
@@ -35,9 +39,11 @@ detail:
 
   - level: "Au 1er étage :"
     content: "Un grand plateau, triple exposition et belle vue mer. <br>
-    La cuisine toute équipée (lave vaisselle, induction, four et micro-onde) est directement ouverte sur la salle à manger. Son bar et tabourets de bar haut permettent de tenir compagnie au/la cuisinier.e. <br>
-- Salle à manger avec table extensible pour 10 personnes, Salon, WC,<br>
-- Un Bureau fermé pour travailler dans de bonne condition."
+    - La cuisine toute équipée (lave vaisselle, induction, four et micro-onde) est directement ouverte sur la salle à manger. Son bar et tabourets de bar hauts permettent de tenir compagnie au/la cuisinier.e. <br>
+- Salle à manger avec table extensible pour 10 personnes,<br>
+- Salon,<br>
+- Un Bureau fermé pour travailler au calme,<br>
+- WC<br>"
     images:
       - full: "/images/plan_r1.jpg"
         alt: "Le plan du R+1"
@@ -56,8 +62,8 @@ detail:
         title: "Un coin Apéro"
 
   - level: "Au 2ème étage :"
-    content: "- Chambre parentale avec sa Salle de douche<br>
-- 2 chambres<br>
+    content: "- Chambre parentale avec 2 lits en 80, sa Salle de douche et sa terrasse privative. Vue exceptionnelle du lit.<br>
+- 2 chambres avec chacune 2 lits en 80 pouvant être réunis. Vue mer.<br>
 - Salle de douche<br>
 - WC"
     images:

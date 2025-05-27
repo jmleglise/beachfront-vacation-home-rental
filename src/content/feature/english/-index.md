@@ -1,96 +1,109 @@
 ---
 title: "Description of Villa Tamaris"
-meta_title: "Description of Villa Tamaris vacation rental in Ouistreham"
-description: "For 8 people, 4 bedrooms, fully equipped, all comforts, high-end amenities."
+meta_title: "Vacation Rental Description - Villa Tamaris"
+description: "Villa Tamaris offers high-end amenities. For 8 guests, 4 bedrooms, fully equipped, maximum comfort."
 image: "/images/villa_rue.jpg"
 draft: false
 
-
 # DETAIL
 detail:
-  - level: "Extérieur"
-    content: "La villa est située sur un terrain de 300m2, clôt, sécurisé et fleuri.<br>
-- Une terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
-- Une allée sécurisée par un portail accueille une ou deux voitures en enfilade."
+  - level: ""
+    content: "The villa has 5 bedrooms, but frequently only 3 or 4 are accessible depending on the time we have to prepare the house for rental. Get in touch and tell us about your plans!<br><br>"
+  - level: "Exterior"
+    content: "The villa is located on a 300m2 plot, fenced, secure, and landscaped.<br>
+- A 70m2 private courtyard/terrace allows you to enjoy 3 sun loungers, a gas barbecue, an outdoor table and 6 chairs.<br>
+- A driveway secured by a gate can accommodate one or two cars in a row."
     images:
       - full: "/images/villa_rue.jpg"
-        alt: "La villa"
-        title: "La villa"        
+        alt: "The villa"
+        title: "The villa"        
       - full: "/images/d_terrasse.jpg"
-        alt: "La terrasse abritée"
-        title: "La terrasse abritée"
+        alt: "The sheltered terrace"
+        title: "The sheltered terrace"
       - full: "/images/plage.jpg"
-        alt: "La plage devant la maison"
-        title: "La plage devant la maison"
+        alt: "The beach in front of the house"
+        title: "The beach in front of the house"
       - full: "/images/horizon.jpg"
-        alt: "La plage devant la maison"
-        title: "La plage devant la maison"              
+        alt: "The beach in front of the house"
+        title: "The beach in front of the house"              
 
-  - level: "Au Rez de Chaussée:"
-    content: "- 2 chambres, 1 Salle de douche, 1 WC<br>"
+  - level: "Ground Floor:"
+    content: "- 2 bedrooms, each with two 80cm beds that can be joined together.<br>
+    -1 Shower room,<br>
+    -1 WC<br>"
     images:
       - full: "/images/plan_r0.jpg"
-        alt: "Le plan du Rdc"
-        title: "Le plan du Rdc"
+        alt: "Ground floor layout"
+        title: "Ground floor layout"
 
-  - level: "Au 1er étage :"
-    content: "Un grand plateau, triple exposition et belle vue mer. <br>
-    La cuisine toute équipée (lave vaisselle, induction, four et micro-onde) est directement ouverte sur la salle à manger. Son bar et tabourets de bar haut permettent de tenir compagnie au/la cuisinier.e. <br>
-- Salle à manger avec table extensible pour 10 personnes, Salon, WC,<br>
-- Un Bureau fermé pour travailler dans de bonne condition."
+  - level: "First Floor:"
+    content: "A large open space, triple exposure and beautiful sea view. <br>
+    - The fully equipped kitchen (dishwasher, induction stove, oven and microwave) opens directly onto the dining area. Its bar and high stools allow you to keep the cook company. <br>
+- Dining room with extendable table for 10 people,<br>
+- Living room,<br>
+- A private office to work in peace,<br>
+- WC<br>"
     images:
       - full: "/images/plan_r1.jpg"
-        alt: "Le plan du R+1"
-        title: "Le plan du R+1"
+        alt: "First floor layout"
+        title: "First floor layout"
       - full: "/images/d_cuisine.jpg"
-        alt: "La cuisine"
-        title: "La cuisine"
+        alt: "The kitchen"
+        title: "The kitchen"
       - full: "/images/d_sallemanger.jpg"
-        alt: "La salle à Manger - Table extensible 10 personnes"
-        title: "La salle à Manger - Table extensible 10 personnes"
+        alt: "Dining room - Extendable table for 10"
+        title: "Dining room - Extendable table for 10"
       - full: "/images/d_salon.jpg"
-        alt: "Le salon"
-        title: "Le salon"
+        alt: "The living room"
+        title: "The living room"
       - full: "/images/d_coinapero.jpg"
-        alt: "Un coin Apéro"
-        title: "Un coin Apéro"
+        alt: "A cocktail corner"
+        title: "A cocktail corner"
 
-  - level: "Au 2ème étage :"
-    content: "- Chambre parentale avec sa Salle de douche<br>
-- 2 chambres<br>
-- Salle de douche<br>
+  - level: "Second Floor:"
+    content: "- Master bedroom with two 80cm beds, its own shower room and private terrace. Exceptional view from the bed.<br>
+- 2 bedrooms, each with two 80cm beds that can be joined together. Sea view.<br>
+- Shower room<br>
 - WC"
     images:
       - full: "/images/plan_r2.jpg"
-        alt: "Le plan du R+2"
-        title: "Le plan du R+2"
+        alt: "Second floor layout"
+        title: "Second floor layout"
 
       - full: "/images/d_ch3.jpg"
-        alt: "La chambre 3"
-        title: "La chambre 3"
+        alt: "Bedroom 3"
+        title: "Bedroom 3"
 
       - full: "/images/d_ch3_vue.jpg"
-        alt: "La vue de la chambre 3"
-        title: "La vue de la chambre 3"   
+        alt: "View from bedroom 3"
+        title: "View from bedroom 3"   
 
       - full: "/images/d_ch4.jpg"
-        alt: "La chambre 4"
-        title: "La chambre 4"
+        alt: "Bedroom 4"
+        title: "Bedroom 4"
 
       - full: "/images/d_ch4_vue.jpg"
-        alt: "La vue de la chambre 4"
-        title: "La vue de la chambre 4"
+        alt: "View from bedroom 4"
+        title: "View from bedroom 4"
 
       - full: "/images/d_ch5_vue.jpg"
-        alt: "La vue de la chambre 5"
-        title: "La vue de la chambre 5"   
+        alt: "View from bedroom 5"
+        title: "View from bedroom 5"   
 ---
-
-
-
-
-<!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris en bord de mer" />
+<!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris by the sea" />
 -->
 
+<h2>Equipment</h2>
+- High-speed fiber internet & Wi-Fi.  
+- 4 bicycles: 2 adult, 1 small adult/teen, 1 child (6 years old).  
+- All bedding is brand new.  
+- A few beach games.  
+- BUT NO TV, which we happily replace with a few books and board games.  
+- A smoke detector, a fire extinguisher.  
 
-<a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Learn more about the villa’s amazing location </a>
+Not provided  
+Household linen is not provided.  
+No TV in the house.
+
+<a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" 
+target="_self"> Learn more about the villa’s amazing location </a>
