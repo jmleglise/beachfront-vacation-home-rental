@@ -8,8 +8,12 @@ export function getStaticPaths() {
   return paths;
 }
 
-const botToken = import.meta.env.PUBLIC_BOT_TOKEN;
-const chatId = import.meta.env.PUBLIC_CHAT_ID;
+
+//const botToken_from_secret = import.meta.env.PUBLIC_BOT_TOKEN;
+//const chatId_from_secret = import.meta.env.PUBLIC_CHAT_ID;
+
+const botToken_from_secret = "766:AAhRJAEgLOm6iznF8k8";
+const chatId_from_secret = "1690";
 ---
 
 <!DOCTYPE html>
@@ -137,8 +141,7 @@ const chatId = import.meta.env.PUBLIC_CHAT_ID;
   <div id="message"></div>
 
   <script>
-    const botToken = `${botToken}`;
-    const chatId = `${chatId}`;
+
 
     const stars = document.querySelectorAll('.stars');
     const form = document.getElementById('form');
@@ -181,6 +184,9 @@ const chatId = import.meta.env.PUBLIC_CHAT_ID;
         month: document.getElementById('month').value,
         year: document.getElementById('year').value
       };
+
+      const botToken = botToken_from_secret;
+      const chatId = chatId_from_secret;
 
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
