@@ -8,212 +8,192 @@ export function getStaticPaths() {
   return paths;
 }
 
-
-//const botToken_from_secret = import.meta.env.PUBLIC_BOT_TOKEN;
-//const chatId_from_secret = import.meta.env.PUBLIC_CHAT_ID;
-
-const botToken_from_secret = "766:AAhRJAEgLOm6iznF8k8";
-const chatId_from_secret = "1690";
+const botToken = import.meta.env.PUBLIC_BOT_TOKEN;
+const chatId = import.meta.env.PUBLIC_CHAT_ID;
 ---
 
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Villa Tamaris</title>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 2rem 1rem;
-      background: #fff;
-      color: #333;
-    }
-
-    h1 {
-      font-weight: 300;
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-
-    #stars-container {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .stars {
-      font-size: 2.5rem;
-      cursor: pointer;
-      color: transparent;
-      -webkit-text-stroke: 1px #999;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .stars.hovered,
-    .stars.selected {
-      color: gold;
-      -webkit-text-stroke: 1px gold;
-    }
-
-    #form {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 2rem;
-      align-items: center;
-    }
-
-    textarea {
-      width: 90%;
-      max-width: 400px;
-      height: 100px;
-      font-size: 1rem;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      resize: vertical;
-    }
-
-    select {
-      font-size: 1rem;
-      padding: 0.5rem;
-      margin: 0 0.25rem;
-    }
-
-    #submit {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      background-color: #eef2ff;
-      color: #888;
-      border-radius: 5px;
-      cursor: not-allowed;
-    }
-
-    #submit.enabled {
-      background-color: #4f46e5;
-      color: white;
-      cursor: pointer;
-    }
-
-    #message {
-      font-size: 1.2rem;
-      margin-top: 2rem;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Villa Tamaris</h1>
-
-  <div id="stars-container">
-    <span class="stars" data-value="1">&#9733;</span>
-    <span class="stars" data-value="2">&#9733;</span>
-    <span class="stars" data-value="3">&#9733;</span>
-    <span class="stars" data-value="4">&#9733;</span>
-    <span class="stars" data-value="5">&#9733;</span>
-  </div>
-
-  <form id="form">
-    <textarea placeholder="Partagez votre expérience concernant ce lieu" id="reviewText" required></textarea>
-    <div>
-      <label for="month">Date de la visite</label><br />
-      <select id="month">
-        <option>Janvier</option><option>Février</option><option>Mars</option><option>Avril</option>
-        <option>Mai</option><option>Juin</option><option selected>Juillet</option>
-        <option>Août</option><option>Septembre</option><option>Octobre</option>
-        <option>Novembre</option><option>Décembre</option>
-      </select>
-      <select id="year">
-        <option>2024</option>
-        <option selected>2025</option>
-        <option>2026</option>
-      </select>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Villa Tamaris</title>
+    <style>
+      body {
+        font-family: 'Helvetica Neue', sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 2rem 1rem;
+        background: #fff;
+        color: #333;
+      }
+      h1 {
+        font-weight: 300;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+      }
+      #stars-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .stars {
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: transparent;
+        -webkit-text-stroke: 1px #999;
+        transition: all 0.2s ease-in-out;
+      }
+      .stars.hovered,
+      .stars.selected {
+        color: gold;
+        -webkit-text-stroke: 1px gold;
+      }
+      #form {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+        align-items: center;
+      }
+      textarea {
+        width: 90%;
+        max-width: 400px;
+        height: 100px;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+      }
+      select {
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin: 0 0.25rem;
+      }
+      #submit {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        background-color: #eef2ff;
+        color: #888;
+        border-radius: 5px;
+        cursor: not-allowed;
+      }
+      #submit.enabled {
+        background-color: #4f46e5;
+        color: white;
+        cursor: pointer;
+      }
+      #message {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Villa Tamaris</h1>
+    <div id="stars-container">
+      <span class="stars" data-value="1">&#9733;</span>
+      <span class="stars" data-value="2">&#9733;</span>
+      <span class="stars" data-value="3">&#9733;</span>
+      <span class="stars" data-value="4">&#9733;</span>
+      <span class="stars" data-value="5">&#9733;</span>
     </div>
-    <button type="submit" id="submit">Publier</button>
-  </form>
 
-  <div id="message"></div>
+    <form id="form">
+      <textarea id="reviewText" placeholder="Partagez votre expérience" required></textarea>
+      <div>
+        <label for="month">Date de la visite</label><br />
+        <select id="month">
+          <option>Janvier</option><option>Février</option><option>Mars</option>
+          <option>Avril</option><option>Mai</option><option>Juin</option>
+          <option selected>Juillet</option><option>Août</option>
+          <option>Septembre</option><option>Octobre</option>
+          <option>Novembre</option><option>Décembre</option>
+        </select>
+        <select id="year">
+          <option>2024</option>
+          <option selected>2025</option>
+          <option>2026</option>
+        </select>
+      </div>
+      <button type="submit" id="submit">Publier</button>
+    </form>
 
-  <script>
+    <div id="message"></div>
 
+    <script>
+      const botToken = "${botToken}";
+      const chatId = "${chatId}";
+      const redirectUrl = "https://g.page/r/CTOZ9gJDprgQEAE/review";
 
-    const stars = document.querySelectorAll('.stars');
-    const form = document.getElementById('form');
-    const submit = document.getElementById('submit');
-    const messageDiv = document.getElementById('message');
-    const starsContainer = document.getElementById('stars-container');
-    let selected = 0;
+      document.addEventListener("astro:page-load", () => {
+  const stars = document.querySelectorAll(".stars");
+  const form = document.getElementById("form");
+  const submitBtn = document.getElementById("submit");
+  const message = document.getElementById("message");
+  let selectedRating = 0;
 
-    stars.forEach((star, idx) => {
-      star.addEventListener('mouseover', () => highlightStars(idx + 1));
-      star.addEventListener('mouseout', () => highlightStars(selected));
-      star.addEventListener('click', () => {
-        selected = idx + 1;
-        highlightStars(selected);
-        if (selected === 5) {
-          window.location.href = "https://g.page/r/CTOZ9gJDprgQEAE/review";
-        } else {
-          form.style.display = 'flex';
-        }
-      });
+  stars.forEach((star, index) => {
+    star.addEventListener("mouseenter", () => {
+      highlightStars(index + 1);
     });
 
-    function highlightStars(count) {
-      stars.forEach((star, i) => {
-        star.classList.toggle('hovered', i < count);
-        star.classList.toggle('selected', i < count);
-      });
-    }
-
-    form.addEventListener('input', () => {
-      submit.classList.add('enabled');
-      submit.disabled = false;
+    star.addEventListener("mouseleave", () => {
+      highlightStars(selectedRating);
     });
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = {
-        stars: selected,
-        message: document.getElementById('reviewText').value,
-        month: document.getElementById('month').value,
-        year: document.getElementById('year').value
-      };
+    star.addEventListener("click", () => {
+      selectedRating = index + 1;
+      highlightStars(selectedRating);
+      if (selectedRating === 5) {
+        window.location.href = "https://g.page/r/CTOZ9gJDprgQEAE/review";
+      } else {
+        form.style.display = "flex";
+        submitBtn.classList.add("enabled");
+        submitBtn.disabled = false;
+      }
+    });
+  });
 
-      const botToken = botToken_from_secret;
-      const chatId = chatId_from_secret;
+  function highlightStars(count) {
+    stars.forEach((s, i) => {
+      s.classList.toggle("hovered", i < count);
+    });
+  }
 
-      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = document.getElementById("reviewText").value;
+    const month = document.getElementById("month").value;
+    const year = document.getElementById("year").value;
+
+    const msg = `⭐ ${selectedRating}/5\nDate: ${month} ${year}\n\n${text}`;
+
+    const botToken = import.meta.env.PUBLIC_BOT_TOKEN;
+    const chatId = import.meta.env.PUBLIC_CHAT_ID;
+
+    try {
+      const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: `⭐ ${data.stars} étoiles\n🗓 Visite : ${data.month} ${data.year}\n💬 ${data.message}`
-        })
-      })
-      .then(response => {
-        starsContainer.style.display = 'none';
-        form.style.display = 'none';
-        if (response.ok) {
-          messageDiv.textContent = "Merci pour votre avis !";
-        } else {
-          messageDiv.textContent = "Erreur d'envoi. Veuillez vérifier votre connexion.";
-        }
-        messageDiv.style.display = 'block';
-      })
-      .catch(() => {
-        starsContainer.style.display = 'none';
-        form.style.display = 'none';
-        messageDiv.textContent = "Erreur d'envoi. Veuillez vérifier votre connexion.";
-        messageDiv.style.display = 'block';
+        body: JSON.stringify({ chat_id: chatId, text: msg }),
       });
-    });
-  </script>
 
-</body>
+      form.remove();
+      document.getElementById("stars-container").remove();
+      message.textContent = res.ok ? "Merci pour votre avis !" : "Erreur d'envoi. Veuillez vérifier votre connexion.";
+      message.style.display = "block";
+    } catch {
+      form.remove();
+      document.getElementById("stars-container").remove();
+      message.textContent = "Erreur d'envoi. Veuillez vérifier votre connexion.";
+      message.style.display = "block";
+    }
+  });
+});
+    </script>
+  </body>
 </html>
