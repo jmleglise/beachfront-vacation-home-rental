@@ -1,6 +1,13 @@
 ---
 import Base from "@/layouts/Base.astro";
 
+export function getStaticPaths() {
+  const paths = supportedLang.map((lang) => ({
+    params: { lang: lang || undefined },
+  }));
+  return paths;
+}
+
 const botToken = import.meta.env.PUBLIC_BOT_TOKEN;
 const chatId = import.meta.env.PUBLIC_CHAT_ID;
 ---

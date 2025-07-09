@@ -7,26 +7,29 @@
 
 /blog    /fr/blog/   301
 /blog/   /fr/blog/   301
-/blog/les-cabines-de-plage    /fr/blog/cabines-de-plage-beach-cabins/   301
+/blog/les-cabines-de-plage     /fr/blog/cabines-de-plage-beach-cabins/   301
+/blog/les-cabines-de-plage/    /fr/blog/cabines-de-plage-beach-cabins/   301
 /blog/cabines-de-plage-beach-cabins    /fr/blog/cabines-de-plage-beach-cabins/   301
 /blog/cabines-de-plage-beach-cabins/   /fr/blog/cabines-de-plage-beach-cabins/   301
-/blog/le-char-a-voile/             /fr/blog/char-a-voile-land-sailing/   301
-/blog/le-char-a-voile              /fr/blog/char-a-voile-land-sailing/   301
-/blog/char-a-voile-land-sailing    /fr/blog/char-a-voile-land-sailing/   301
-/blog/char-a-voile-land-sailing/   /fr/blog/char-a-voile-land-sailing/   301
-/blog/contrat-location_saisonniere    /fr/blog/contrat-location_saisonniere/   301
-/blog/contrat-location_saisonniere/   /fr/blog/contrat-location_saisonniere/   301
-/blog/fete-de-la-coquille-scallop-ouistreham    /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
-/blog/fete-de-la-coquille-scallop-ouistreham/   /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
 
-/blog/fête-de-la-coquille-ouistreham       /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
-/blog/fête-de-la-coquille-ouistreham/      /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
-/blog/la-jetee-de-luc-sur-mer/             /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
-/blog/la-jetee-de-luc-sur-mer              /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
-/blog/la-jetee-the-pier-de-luc-sur-mer     /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
-/blog/la-jetee-the-pier-de-luc-sur-mer/    /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
 /blog/le-char-a-voile      /fr/blog/char-a-voile-land-sailing/   301
 /blog/le-char-a-voile/     /fr/blog/char-a-voile-land-sailing/   301
+/blog/char-a-voile-land-sailing    /fr/blog/char-a-voile-land-sailing/   301
+/blog/char-a-voile-land-sailing/   /fr/blog/char-a-voile-land-sailing/   301
+
+/blog/contrat-location_saisonniere    /fr/blog/contrat-location_saisonniere/   301
+/blog/contrat-location_saisonniere/   /fr/blog/contrat-location_saisonniere/   301
+
+/blog/fete-de-la-coquille-scallop-ouistreham    /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
+/blog/fete-de-la-coquille-scallop-ouistreham/   /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
+/blog/fête-de-la-coquille-ouistreham       /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
+/blog/fête-de-la-coquille-ouistreham/      /fr/blog/fete-de-la-coquille-scallop-ouistreham/   301
+
+/blog/la-jetee-de-luc-sur-mer              /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
+/blog/la-jetee-de-luc-sur-mer/             /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
+/blog/la-jetee-the-pier-de-luc-sur-mer     /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
+/blog/la-jetee-the-pier-de-luc-sur-mer/    /fr/blog/la-jetee-the-pier-de-luc-sur-mer/   301
+
 /blog/page/2    /fr/blog/page/2/   301
 /blog/page/2/   /fr/blog/page/2/   301
 /blog/page/3    /fr/blog/page/3/   301
