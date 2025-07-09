@@ -94,6 +94,7 @@ detail:
 -->
 
 <h2>Equipment</h2>
+
 - High-speed fiber internet & Wi-Fi.  
 - 4 bicycles: 2 adult, 1 small adult/teen, 1 child (6 years old).  
 - All bedding is brand new.  
@@ -101,7 +102,8 @@ detail:
 - BUT NO TV, which we happily replace with a few books and board games.  
 - A smoke detector, a fire extinguisher.  
 
-Not provided  
+Not provided :
+
 Household linen is not provided.  
 No TV in the house.
 

@@ -5,7 +5,6 @@ description: "La Villa Tamaris offre des prestations haut de gamme. Pour 8 perso
 image: "/images/villa_rue.jpg"
 draft: false
 
-
 # DETAIL
 detail:
   - level: ""
@@ -91,24 +90,24 @@ detail:
         alt: "La vue de la chambre 5"
         title: "La vue de la chambre 5"   
 ---
-
-
-
-
 <!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris en bord de mer" />
 -->
-
-
 <h2>Equipement</h2>
-- Internet haut débit fibre & Wifi. 
+
+- Internet haut débit fibre & Wifi.
+
 - 4 vélos : 2 adultes, 1 adulte petite taille/ado, 1 enfant 6 ans. 
+
 - Toute la literie est neuve. 
+
 - Quelques jeux de plage. 
 - Mais PAS DE TV que nous remplaçons avantageusement par quelques livres et jeux de sociétés. 
 - Un détecteur de fumées, un extincteur. 
 
-Non fourni
-La linge de maison n'est pas fourni. 
+Non fourni :
+
+La linge de maison n'est pas fourni.
+
 Pas de TV dans la maison.
 
 <a class="btn btn-outline-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Découvrez la localisation de la location saisonnière à Ouistreham Calvados</a>

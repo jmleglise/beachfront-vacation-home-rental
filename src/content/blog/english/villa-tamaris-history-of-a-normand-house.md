@@ -3,7 +3,7 @@ title: "The Villa Tamaris: History of a Norman House."
 meta_title: "Renovation of Villa Tamaris: History of a Norman House."
 description: "Discover the transformation of Villa Tamaris, from its humble origins to a renovation inspired by Norman seaside architecture."
 date: 2025-05-04T05:00:00Z
-image: "/public/images/villa_rue.jpg"
+image: "/images/villa_rue.jpg"
 categories: ["Visite"]
 author: "JmL"
 tags: ["Patrimoine"]
