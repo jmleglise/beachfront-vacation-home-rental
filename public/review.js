@@ -32,6 +32,7 @@ stars.forEach((star, index) => {
     stars.forEach((s, i) => s.classList.toggle("hovered", i < selectedRating));
   });
 
+  if (index <4) {
   star.addEventListener("click", () => {
     selectedRating = index + 1;
     stars.forEach((s, i) => s.classList.toggle("hovered", i < selectedRating));
@@ -49,6 +50,7 @@ stars.forEach((star, index) => {
       }
     }
   });
+  }
 });
 
 form.addEventListener("submit", async (e) => {
