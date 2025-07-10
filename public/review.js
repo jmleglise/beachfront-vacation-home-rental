@@ -36,7 +36,7 @@ stars.forEach((star, index) => {
     selectedRating = index + 1;
     stars.forEach((s, i) => s.classList.toggle("hovered", i < selectedRating));
     if (selectedRating === 5) {
-      window.location.href = "https://g.page/r/CTOZ9gJDprgQEAE/review";
+      window.top.location.href = "https://g.page/r/CTOZ9gJDprgQEAE/review";
     } else {
       form.style.display = "flex";
       // On remet à jour l'état du bouton selon textarea
