@@ -29,7 +29,7 @@ const { banners } = Astro.props; // Liste des bannières avec src et alt
       <div class="swiper-wrapper">
         {banners.map((banner, index) => (
           <div class="swiper-slide" key={index}>
-
+ <!--
             <ImageMod
               src={banner.src} class="swiper-lazy"
               height={1200}
@@ -38,8 +38,15 @@ const { banners } = Astro.props; // Liste des bannières avec src et alt
               class="w-full h-full object-cover"
               format="webp"
             />
+-->            
+            <img src={banner.src} class="swiper-lazy"
+              alt={banner.alt || `Banner ${index + 1}`}
+              height="1200"
+              width="675"
+              class="w-full h-full object-cover"
+            />
 
-          <div class="swiper-lazy-preloader"></div>  
+<!--     <div class="swiper-lazy-preloader"></div>  c'est l'affichage du loader spinner  -->
           </div>
         ))}
       </div>
