@@ -14,16 +14,19 @@ detail:
 - A 70m2 private courtyard/terrace allows you to enjoy 3 sun loungers, a gas barbecue, an outdoor table and 6 chairs.<br>
 - A driveway secured by a gate can accommodate one or two cars in a row."
     images:
-      - full: "/images/villa_rue.jpg"
+      - full: "/images/villa_vue_portail.jpg"
         alt: "The villa"
         title: "The villa"        
-      - full: "/images/d_terrasse.jpg"
-        alt: "The sheltered terrace"
-        title: "The sheltered terrace"
+      - full: "/images/terrasse_panoramique.jpg"
+        alt: "The terrace"
+        title: "The terrace"
+      - full: "/images/d_cour.jpg"
+        alt: "The sheltered courtyard"
+        title: "The sheltered courtyard"          
       - full: "/images/plage.jpg"
         alt: "The beach in front of the house"
         title: "The beach in front of the house"
-      - full: "/images/horizon.jpg"
+      - full: "/images/zodiac.jpg"
         alt: "The beach in front of the house"
         title: "The beach in front of the house"              
 
@@ -53,12 +56,18 @@ detail:
       - full: "/images/d_sallemanger.jpg"
         alt: "Dining room - Extendable table for 10"
         title: "Dining room - Extendable table for 10"
-      - full: "/images/d_salon.jpg"
-        alt: "The living room"
-        title: "The living room"
       - full: "/images/d_coinapero.jpg"
         alt: "A cocktail corner"
         title: "A cocktail corner"
+      - full: "/images/d_salon.jpg"
+        alt: "The living room"
+        title: "The living room"
+      - full: "/images/d_salon2.jpg"
+        alt: "The living room"
+        title: "The living room"
+      - full: "/images/d_bureau2.jpg"
+        alt: "Office"
+        title: "Office"
 
   - level: "Second Floor:"
     content: "- Master bedroom with two 80cm beds, its own shower room and private terrace. Exceptional view from the bed.<br>
@@ -70,25 +79,40 @@ detail:
         alt: "Second floor layout"
         title: "Second floor layout"
 
+      - full: "/images/d_ch5.jpg"
+        alt: "La suite parental"
+        title: "La suite parentale" 
+      - full: "/images/d_ch5_vue.jpg"
+        alt: "View from bedroom 5"
+        title: "View from bedroom 5"
+      - full: "/images/d_terrasse.jpg"
+        alt: "La terrasse"
+        title: "La terrasse"
+      - full: "/images/d_sde2.jpg"
+        alt: "Shower of the master bedroom"
+        title: "Shower of the master bedroom"
+
       - full: "/images/d_ch3.jpg"
         alt: "Bedroom 3"
         title: "Bedroom 3"
-
       - full: "/images/d_ch3_vue.jpg"
+        alt: "View from bedroom 3"
+        title: "View from bedroom 3"   
+      - full: "/images/d_ch3_vue1.jpg"
         alt: "View from bedroom 3"
         title: "View from bedroom 3"   
 
       - full: "/images/d_ch4.jpg"
         alt: "Bedroom 4"
         title: "Bedroom 4"
-
       - full: "/images/d_ch4_vue.jpg"
         alt: "View from bedroom 4"
         title: "View from bedroom 4"
 
-      - full: "/images/d_ch5_vue.jpg"
-        alt: "View from bedroom 5"
-        title: "View from bedroom 5"   
+      - full: "/images/d_sde1.jpg"
+        alt: "Independant Shower "
+        title: "Independant Shower"
+
 ---
 <!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris by the sea" />
 -->

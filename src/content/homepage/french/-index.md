@@ -33,7 +33,7 @@ schemaVacationRental: |
       "https://www.location-maison-mer.fr/images/d_sde1.jpg", 
       "https://www.location-maison-mer.fr/images/d_sde2.jpg",           
       "https://www.location-maison-mer.fr/images/d_terrasse.jpg",  
-      "https://www.location-maison-mer.fr/images/d_cours.jpg",          
+      "https://www.location-maison-mer.fr/images/d_cour.jpg",          
       "https://www.location-maison-mer.fr/images/plage.jpg",
       "https://www.location-maison-mer.fr/images/dune.jpg",
       "https://www.location-maison-mer.fr/images/post_card.jpg"
@@ -125,11 +125,13 @@ schemaVacationRental: |
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
   content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
-  Imaginez vos réveils avec une vue imprenable sur le bord de mer, depuis votre lit, depuis la terrasse ou encore le salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin et du wifi dans toute la maison. Profitez-en également pour découvrir cette région riche en activités.<br>
+  Imaginez vos réveils avec une vue imprenable sur le bord de mer, depuis votre lit, depuis la terrasse ou encore du salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin. La maison est également parfaitement équipée pour le télétravail. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br>
   Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end ou d'une semaine ...<br>"
   images:
     - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer exceptionnelle"
+    - src: "/images/villa_rue.jpg"
+      alt: "La villa tamaris face à la mer"      
     - src: "/images/d_sallemanger.jpg"
       alt: "La salle à manger"
     - src: "/images/d_cuisine.jpg"
@@ -138,26 +140,29 @@ banner:
       alt: "Le salon"
     - src: "/images/d_ch5_vue.jpg"
       alt: "Location saisonnière vue mer exceptionnelle de la chambre parentale"
+    - src: "/images/d_terrasse.jpg"
+      alt: "La terrasse de la suite parentale"
+    - src: "/images/d_cour.jpg"
+      alt: "La cours à l'abrit"   
     - src: "/images/dune.jpg"
       alt: "Les dunes de sable de Ouistreham proche de la location saisonnière"
-    - src: "/images/horizon.jpg"
-      alt: "La plage devant la maison de vacances"
-    - src: "/images/cabane.jpg"
-      alt: "Maison de vacances les pieds dans l'eau devant les cabanes de Ouistreham"
+    - src: "/images/char.jpg"
+      alt: "Activité sportive. Essayez le char à voile !"
+
   
 
 # Features
 features:
   - title: "Villa Tamaris - Prestation haut de gamme"
     image: "/images/villa_front.jpg"
-    content: "Face à la mer, vous profitez d'une belle vue sur la plage depuis le salon, la salle à manger et de 2 chambres. La maison dispose d'un jardin privé et à l'abrit des regards, d'un parking privé, d'une terrasse avec une vue plongeante exceptionnelle sur le front de mer. Totalement rénovée en 2024, cette maisson offre des prestations haut de gamme, décoration néonormande, tout équipée et modernes."
+    content: "Face à la mer, vous profitez d'une belle vue sur la plage depuis le salon, la salle à manger et de 3 chambres. La maison dispose d'un jardin privé et à l'abrit des regards, d'un parking privé, d'une terrasse avec une vue plongeante exceptionnelle sur le front de mer. Totalement rénovée en 2024, cette maisson offre des prestations haut de gamme, décoration néonormande, tout équipée et moderne."
     bulletpoints:
       - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
       - "Suite parentale avec sa grande salle de bain privative, et sa terrasse avec vue exceptionnelle."
       - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger devant le bowwindow."
       - "Bureau et Internet++ pour travailler dans un cadre exceptionnel."
       - "sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha."
-      - "Tout l'équipement souhaitable."
+      - "Tout l'équipement souhaitable dont plusieurs vélos."
     button:
       enable: true
       label: "Découvrez la maison"

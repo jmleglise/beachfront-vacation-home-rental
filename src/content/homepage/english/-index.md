@@ -35,7 +35,7 @@ schemaVacationRental: |
       "https://www.location-maison-mer.fr/images/d_sde1.jpg", 
       "https://www.location-maison-mer.fr/images/d_sde2.jpg",           
       "https://www.location-maison-mer.fr/images/d_terrasse.jpg",  
-      "https://www.location-maison-mer.fr/images/d_cours.jpg",          
+      "https://www.location-maison-mer.fr/images/d_cour.jpg",          
       "https://www.location-maison-mer.fr/images/plage.jpg",
       "https://www.location-maison-mer.fr/images/dune.jpg",
       "https://www.location-maison-mer.fr/images/post_card.jpg"
@@ -134,6 +134,8 @@ banner:
   images:
     - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, a beachfront rental in Normandy with stunning sea views."
+    - src: "/images/villa_rue.jpg"
+      alt: "La villa tamaris on beachfront"         
     - src: "/images/d_sallemanger.jpg"
       alt: "LivingRoom"
     - src: "/images/d_cuisine.jpg"
@@ -142,12 +144,14 @@ banner:
       alt: "LivingRoom"
     - src: "/images/d_ch5_vue.jpg"
       alt: "Villa Tamaris - Stunning Sea View from parent bedroom"
+    - src: "/images/d_terrasse.jpg"
+      alt: "The master suite terrace"
+    - src: "/images/d_cour.jpg"
+      alt: "The sheltered courtyard"        
     - src: "/images/dune.jpg"
       alt: "The beach in front of the home rental"
-    - src: "/images/horizon.jpg"
-      alt: "The beach near the Holidays house rental"
-    - src: "/images/cabane.jpg"
-      alt: "Holidays rental in front of the Ouistreham beach cabins"
+    - src: "/images/char.jpg"
+      alt: "Sport activity. Try land sailing!"
 
 
 # Features

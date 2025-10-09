@@ -14,16 +14,19 @@ detail:
 - Une cours/terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
 - Une allée sécurisée par un portail accueille une ou deux voitures en enfilade."
     images:
-      - full: "/images/villa_rue.jpg"
+      - full: "/images/villa_vue_portail.jpg"
         alt: "La villa"
         title: "La villa"        
-      - full: "/images/d_terrasse.jpg"
-        alt: "La terrasse abritée"
-        title: "La terrasse abritée"
+      - full: "/images/terrasse_panoramique.jpg"
+        alt: "La terrasse"
+        title: "La terrasse"
+      - full: "/images/d_cour.jpg"
+        alt: "La cour abritée"
+        title: "La terrasse abritée"        
       - full: "/images/plage.jpg"
         alt: "La plage devant la maison"
         title: "La plage devant la maison"
-      - full: "/images/horizon.jpg"
+      - full: "/images/zodiac.jpg"
         alt: "La plage devant la maison"
         title: "La plage devant la maison"              
 
@@ -53,12 +56,19 @@ detail:
       - full: "/images/d_sallemanger.jpg"
         alt: "La salle à Manger - Table extensible 10 personnes"
         title: "La salle à Manger - Table extensible 10 personnes"
-      - full: "/images/d_salon.jpg"
-        alt: "Le salon"
-        title: "Le salon"
+
       - full: "/images/d_coinapero.jpg"
         alt: "Un coin Apéro"
         title: "Un coin Apéro"
+      - full: "/images/d_salon.jpg"
+        alt: "Le salon"
+        title: "Le salon"
+      - full: "/images/d_salon2.jpg"
+        alt: "Le salon"
+        title: "Le salon"
+      - full: "/images/d_bureau2.jpg"
+        alt: "Le bureau"
+        title: "Le bureau"
 
   - level: "Au 2ème étage :"
     content: "- Chambre parentale avec 2 lits en 80, sa Salle de douche et sa terrasse privative. Vue exceptionnelle du lit.<br>
@@ -70,25 +80,40 @@ detail:
         alt: "Le plan du R+2"
         title: "Le plan du R+2"
 
+      - full: "/images/d_ch5.jpg"
+        alt: "La suite parental"
+        title: "La suite parentale"
+      - full: "/images/d_ch5_vue.jpg"
+        alt: "La vue du lit de la suite"
+        title: "La vue du lit de la suite"          
+      - full: "/images/d_terrasse.jpg"
+        alt: "La terrasse de la suite"
+        title: "La terrasse de la suite"
+      - full: "/images/d_sde2.jpg"
+        alt: "La salle de douche de la suite"
+        title: "La salle de douche de la suite"
+
       - full: "/images/d_ch3.jpg"
         alt: "La chambre 3"
         title: "La chambre 3"
-
       - full: "/images/d_ch3_vue.jpg"
         alt: "La vue de la chambre 3"
-        title: "La vue de la chambre 3"   
+        title: "La vue de la chambre 3"
+      - full: "/images/d_ch3_vue1.jpg"
+        alt: "La vue de la chambre 3"
+        title: "La vue de la chambre 3"
 
       - full: "/images/d_ch4.jpg"
         alt: "La chambre 4"
         title: "La chambre 4"
-
       - full: "/images/d_ch4_vue.jpg"
         alt: "La vue de la chambre 4"
         title: "La vue de la chambre 4"
 
-      - full: "/images/d_ch5_vue.jpg"
-        alt: "La vue de la chambre 5"
-        title: "La vue de la chambre 5"   
+      - full: "/images/d_sde1.jpg"
+        alt: "Salle de douche indépendante"
+        title: "Salle de douche indépendante"
+
 ---
 <!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris en bord de mer" />
 -->

@@ -23,7 +23,7 @@ const { banners } = Astro.props; // Liste des bannières avec src et alt
     height: 100%;
 }
 </style>
-
+ 
 <div class="relative-container">
     <div class="swiper hp-slider">
       <div class="swiper-wrapper">
@@ -32,8 +32,8 @@ const { banners } = Astro.props; // Liste des bannières avec src et alt
 
             <ImageMod
               src={banner.src} class="swiper-lazy"
-              height={1600}
-              width={907}
+              height={1200}
+              width={675}
               alt={banner.alt || `Banner ${index + 1}`}
               class="w-full h-full object-cover"
               format="webp"

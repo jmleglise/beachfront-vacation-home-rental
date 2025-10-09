@@ -23,7 +23,7 @@ const { images } = Astro.props;
     display: none;
   }
 </style>
-
+ 
 <div class="gallery grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
   {
     images.map((img) => (
@@ -31,7 +31,7 @@ const { images } = Astro.props;
         <a
           href={img.full}
           data-pswp-width="1200"
-          data-pswp-height="800"
+          data-pswp-height="700"
           target="_blank"
           rel="noreferrer"
         >
@@ -39,7 +39,7 @@ const { images } = Astro.props;
           class="w-full aspect-video object-cover rounded shadow hover:opacity-80 transition"
           src={img.full}
           width={575}
-          height={323}
+          height={335}
           alt={img.alt}
           format="webp"
           loading="lazy"
