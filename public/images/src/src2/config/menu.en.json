@@ -1,0 +1,15 @@
+{
+  "main": [
+    { "name": "The Villa", "url": "/" },
+    { "name": "Features", "url": "/villa-tamaris-beachfront-ouistreham-feature/" },
+    { "name": "Location", "url": "/villa-tamaris-beachfront-ouistreham-location/" },
+    { "name": "Explore", "url": "/blog/" }  
+  ],
+  "alternativeLang": [
+    { "url": "/fr/", "alt": "location de vacances vue mer à Ouistreham Calvados Normandie", "urlFlag": "/images/fr.gif" }
+  ],
+  "footer": [
+    { "name": "Version française", "url": "/fr/" , "urlFlag": "/images/fr.gif" ,  "alt": "location de vacances vue mer à Ouistreham Calvados Normandie" },
+    { "name": "Book", "url": "/en/villa-tamaris-beachfront-ouistreham-book-now/" }
+  ]
+}

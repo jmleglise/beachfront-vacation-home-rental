@@ -1,0 +1,94 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+const { banners } = Astro.props; // Liste des bannières avec src et alt
+---
+
+<style>
+.relative-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+.hp-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.hp-slider .swiper-wrapper{
+    align-items: center;
+}
+.hp-slider img {
+    width: 100%;
+    height: 100%;
+}
+</style>
+ 
+<div class="relative-container">
+    <div class="swiper hp-slider">
+      <div class="swiper-wrapper">
+        {banners.map((banner, index) => (
+          <div class="swiper-slide" key={index}>
+ <!--
+            <ImageMod
+              src={banner.src} class="swiper-lazy"
+              height={1200}
+              width={675}
+              alt={banner.alt || `Banner ${index + 1}`}
+              class="w-full h-full object-cover"
+              format="webp"
+            />
+-->            
+            <img src={banner.src} class="swiper-lazy"
+              alt={banner.alt || `Banner ${index + 1}`}
+              height="1200"
+              width="675"
+              class="w-full h-full object-cover"
+            />
+
+<!--     <div class="swiper-lazy-preloader"></div>  c'est l'affichage du loader spinner  -->
+          </div>
+        ))}
+      </div>
+      <!-- Pagination et navigation -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+  </div>  
+
+<script>
+  import { Swiper } from "swiper";
+  import "swiper/css";
+  import "swiper/css/effect-fade";
+  import "swiper/css/pagination";
+  import "swiper/css/navigation";
+  import "swiper/css/autoplay";
+  import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+
+  // Initialisation du carrousel après le chargement de la page
+  document.addEventListener("astro:page-load", () => {
+    const swiper = new Swiper(".hp-slider", {
+      modules: [Autoplay, EffectFade, Navigation, Pagination],
+      //effect: "fade",
+      lazy : true,
+      loop: true,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000, // 5 secondes
+        disableOnInteraction: false, // Continue après une interaction
+      }
+    });
+  });
+</script>
+
