@@ -2,41 +2,45 @@
 import ImageMod from "@/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 const { call_to_action } = Astro.props;
+
+
+// Fonction pour obtenir un keyword aléatoire
+const getRandomKeyword = (keywords: string[]) => {
+  const randomIndex = Math.floor(Math.random() * keywords.length);
+  return keywords[randomIndex];
+};
+
+const randomKeyword = getRandomKeyword(call_to_action.data.keywords);
 ---
 
 {
   call_to_action.data.enable && (
-          <div class="row items-center justify-between ">
-            <ImageMod
-                src={call_to_action.data.image}
-                width={250}
-                height={350}
-                alt="Villa Tamaris"
-                format="webp"
-              />
-                <a href={call_to_action.data.button.link}
-                class="block no-underline"
-                >
-              <h2
-                set:html={markdownify(call_to_action.data.title)}
-                class="mb-2"
-              />
-              <p
-                set:html={markdownify(call_to_action.data.description)}
-                class="mb-6"
-              />
+    <div class="row items-center justify-between ">
+      <a href={call_to_action.data.button.link} class="block no-underline">
+        <ImageMod
+          src={call_to_action.data.image}
+          width={250}
+          height={350}
+          alt="Villa Tamaris"
+          format="webp"
+        />
+      </a>
 
-              {call_to_action.data.button.enable && (
-            <div class="flex justify-center w-full btn btn-primary">
+      <h2 set:html={markdownify(call_to_action.data.title)} class="mb-2" />
+      <p class="mb-6">
+        <a href={call_to_action.data.button.link} class="no-underline">
+          {randomKeyword}
+        </a>
+        {call_to_action.data.description}
+      </p>
 
-              
-                  {call_to_action.data.button.label}
-               
-              </div>
-
-              )}
-            </a>   
+      <a href={call_to_action.data.button.link} class="no-underline">
+        {call_to_action.data.button.enable && (
+          <div class="flex justify-center w-full btn btn-primary">
+            {call_to_action.data.button.label}
           </div>
-
+        )}
+      </a>
+    </div>
   )
 }
