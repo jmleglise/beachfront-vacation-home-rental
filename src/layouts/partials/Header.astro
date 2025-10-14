@@ -25,18 +25,36 @@ if (disabledLanguages.includes(lang)) {
 }
 
 ---
-
 <header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
-  <nav class="navbar container flex items-center justify-between relative">
-    {/* Titre (à gauche) */}
-    <div class="font-secondary font-bold leading-tight text-dark text-h1-sm md:text-h1">
-      <a href={menu.main[0].url}>{header_title}</a>
+  <nav class="navbar container">
+    {/* Titre */}
+    <div class="font-secondary font-bold leading-tight text-dark order-0 text-h1-sm md:text-h1">
+      <a href={menu.main[0].url}>
+        { header_title }
+      </a>
     </div>
-
-    {/* Menu principal (centré en desktop) */}
+    
+    {/* navbar toggler */}
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark ml-4"
+    >
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Menu Open</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Menu Close</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
     <ul
       id="nav-menu"
-      class="navbar-nav hidden lg:flex absolute left-1/2 -translate-x-1/2 space-x-6 xl:space-x-8 xl:text-xl"
+      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 xl:text-xl"
     >
       {
         menu?.main.map((menu: any) => (
@@ -52,43 +70,36 @@ if (disabledLanguages.includes(lang)) {
           </li>
         ))
       }
+      {/* ✅ AJOUT : bouton Book_now visible uniquement en mobile */}
+      {
+        book_now_button.enable && (
+          <li class="block lg:hidden mt-4">
+            <a
+              href={slugSelector(book_now_button.link, lang)}
+              class="btn btn-outline-primary btn-sm w-full text-center"
+            >
+              {book_now}
+            </a>
+          </li>
+        )
+      }
     </ul>
-
-    {/* Bouton + drapeau + burger */}
-    <div class="flex items-center space-x-4 ml-auto">
-      {book_now_button.enable && (
-        <a
-          class="btn btn-outline-primary btn-sm hidden lg:inline-block"
-          href={slugSelector(book_now_button.link, lang)}
-        >
-          {book_now}
-        </a>
-      )}
+    
+    {/* Les boutons à droites */}
+    <div class="order-1 ml-auto flex items-center gap-4 md:order-2 lg:ml-0">
+      {
+        book_now_button.enable && (
+          <a
+            class="btn btn-outline-primary btn-sm hidden lg:inline-block"
+            href={slugSelector(book_now_button.link, lang)}
+          >
+            {book_now}
+          </a>
+        )
+      }
       <a href={menu.alternativeLang[0].url}>
-        <img
-          src={menu.alternativeLang[0].urlFlag}
-          alt={menu.alternativeLang[0].alt}
-          class="h-10 w-auto"
-        />
+        <img src={menu.alternativeLang[0].urlFlag} alt={menu.alternativeLang[0].alt} class="h-10 w-auto" />
       </a>
-
-      {/* Burger : visible seulement en mobile */}
-      <div class="flex lg:hidden items-center">
-        <input id="nav-toggle" type="checkbox" class="hidden" />
-        <label for="nav-toggle" class="cursor-pointer flex items-center text-dark">
-          <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
-            <title>Menu Open</title>
-            <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-          </svg>
-          <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
-            <title>Menu Close</title>
-            <polygon
-              points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-              transform="rotate(45 10 10)"
-            ></polygon>
-          </svg>
-        </label>
-      </div>
     </div>
   </nav>
 </header>
