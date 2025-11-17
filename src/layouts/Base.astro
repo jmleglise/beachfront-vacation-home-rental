@@ -89,6 +89,11 @@ const hreflangLinks = !isExcludedPath
     <meta name="author" content={config.metadata.meta_author} />    <meta name="generator" content={Astro.generator} />
 
     <!-- favicon --><link rel="shortcut icon" href={config.site.favicon} />
+    <link rel="icon" type="image/png" sizes="32x32" href={config.site.favicon32}>
+    <link rel="icon" type="image/png" sizes="96x96" href={config.site.favicon96}>
+    
+
+
      <!-- --><!-- canonical url -->
     {
       //canonical && <link rel="canonical" href={canonical} item-prop="url" />}
