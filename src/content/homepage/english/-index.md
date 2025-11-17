@@ -223,12 +223,12 @@ faqContent:
   - title: "Is parking available?"
     content: "Yes, on the property, 2 vehicles can be parked one behind the other."
   - title: "Does this vacation rental have a pool ?"
-    content: "No, the vacation home does not have a pool. The beach is at the end of the garden! The Aquabella aquatic complex in Ouistreham is just a 4-minute bike ride away. (70m water slide, splashpad, and a solarium to relax with your feet in the sand. Various aquatic activities are scheduled throughout the year: aquabike classes, aquafitness, baby swimming, etc. Around €6 per day per person.)"
+    content: "The beach is in front of the garden! And the Aquabella aquatic complex in Ouistreham is just a 4-minute bike ride away. (70m water slide, splashpad, and a solarium to relax with your feet in the sand. Various aquatic activities are scheduled throughout the year: aquabike classes, aquafitness, baby swimming, etc. Around €6 per day per person.)"
   - title: "Is the rental suitable for babies or people with reduced mobility ?"
-    content: "Unfortunately, neither. We do not have baby equipment. The stairs and windows are currently not secured. For people with reduced mobility, there are 2 bedrooms, a toilet, and a ground-floor shower room, but the kitchen and living room are upstairs."
+    content: "Unfortunately, neither. We do not have baby equipment. The stairs are currently not secured. For people with reduced mobility, there are 2 bedrooms, a toilet, and shower room at ground-floor, but the kitchen and living room are upstairs."
   - title: "What are the amenities of the house ?"
-    content: "The house is fully equipped, as it is our primary residence. Fully equipped kitchen, garden with gas barbecue and gas plancha, washing machine, dryer, dishwasher, Nespresso coffee maker, toaster... Feel free to ask us about any specific equipment you might need."
+    content: "The house is fully equipped, as it is our primary residence. Fully equipped kitchen, garden with gas barbecue and gas plancha, washing machine, dryer, dishwasher, Nespresso coffee maker, toaster... powerfull Internet, But no TV."
   - title: "How far is the vacation home from the beach ?"
-    content: "Precisely 35m from the front door. However, depending on the tide coefficient, you might have to walk much further to reach the sea :-) The house is located on a frontline plot, with the gate opening directly onto Boulevard Aristide Briand along Riva Bella beach. The house is situated towards the back of the plot, providing slight protection, which is appreciated during strong winds."
+    content: "Precisely 25m from the front door. However, depending on the tide coefficient, you might have to walk much further to reach the sea :-) The house is located on a frontline plot, with the gate opening directly onto Riva Bella beach. The house is situated towards the back of the plot, providing slight protection, which is appreciated during strong winds."
 ---
 

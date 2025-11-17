@@ -1,6 +1,6 @@
 ---
-meta_title: "Location de vacances en front de mer Ouistreham / Calvados | 8pers"
-description: "Superbe villa en front de mer à Ouistreham. 4 chambres, 8 personnes. à 2h de Paris. Pour votre location en famille ou escapade d'un wk."
+meta_title: "Maison de vacances bord de mer à Ouistreham / Normandie Calvados | 8pers"
+description: "Location saisonnière en Normandie : superbe maison de vacances à Ouistreham, en front de mer, avec vue mer. Séjournez dans le Calvados, les pieds dans l’eau. 4 chambres, 8 personnes. à 2h de Paris. Pour votre location en famille ou escapade d'un wk."
 schemaVacationRental: |
   <script type="application/ld+json"> 
   {
@@ -153,9 +153,10 @@ banner:
 
 # Features
 features:
-  - title: "Villa Tamaris - Prestation haut de gamme"
+  - title: "Maison de vacances d'exception"
     image: "/images/villa_front.jpg"
-    content: "Face à la mer, vous profitez d'une belle vue sur la plage depuis le salon, la salle à manger et de 3 chambres. La maison dispose d'un jardin privé et à l'abrit des regards, d'un parking privé, d'une terrasse avec une vue plongeante exceptionnelle sur le front de mer. Totalement rénovée en 2024, cette maisson offre des prestations haut de gamme, décoration néonormande, tout équipée et moderne."
+    content: "Face à l’océan, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
+    Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
       - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
       - "Suite parentale avec sa grande salle de bain privative, et sa terrasse avec vue exceptionnelle."
@@ -169,7 +170,7 @@ features:
       link: "villa-tamaris-beachfront-ouistreham-feature/"
 
 # Location
-  - title: "Localisation de Villa Tamaris à Ouistreham Calvados"
+  - title: "Localisation de la maison de vacance à Ouistreham Calvados"
     image: "/images/view_scene.jpg"
     content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil ou siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
@@ -182,9 +183,9 @@ features:
       link: "villa-tamaris-beachfront-ouistreham-location/"
 
 # Explore
-  - title: "La région et les activités"
+  - title: "De nombreuses activités à Ouistreham"
     image: "/images/post_card.jpg"
-    content: "Repos contemplatifs d'horizon lointain, activités nautiques & sportives, explorer le passé chargé. Tout le monde trouvera son compte lors de vorte séjour :"
+    content: "Repos contemplatif d'horizon lointain, activités nautiques & sportives, explorer le passé chargé. Tout le monde trouvera son compte lors de votre séjour :"
     bulletpoints:
       - "Ouistreham est la ville cotière la plus animée de la région avec de nombreuses activités et animations : Thalassothérapie, Casino, nombreux commerces,  marché de poissons, nombreux restaurants ..."
       - "Des activités nautiques : Ecole de voile, char à voile, kitesurf, pêche en mer ... La côte offre un vent favorable."
@@ -210,17 +211,17 @@ nous:
 # FAQ
 faqContent:
   - title: "La maison de vacance peut-elle être louée pour un week-end ?"
-    content: "Louer la maison nécessite de tout mettre en ordre pour que vous vous sentiez chez vous. Cela demande beaucoup de travail ! Donc pendant les vacances scolaires, nous privilégions les locations d'une semaine minimum du dimanche au dimanche. Et en basse saison, un minimum de 3 nuits."
+    content: "Louer la maison nécessite de tout mettre en ordre pour que vous vous sentiez chez vous. Cela demande beaucoup de travail ! Donc pendant les vacances scolaires, nous privilégions les séjours d'une semaine minimum du dimanche au dimanche. Et en basse saison, un minimum de 3 nuits."
   - title: "Un parking est disponible ?"
     content: "Oui, sur la propriété, 2 véhicules peuvent être garés en enfilade."
   - title: "Cette location saisonnière dispose-t-elle d'une piscine ? "
-    content: "Non, la maison de vacance n'a pas de piscine. La plage est au bout du jardin ! Et le complexe aquatique Aquabella de Ouistreham est à 4 minutes de vélo. (Toboggan de 70m, splashpad et un solarium pour se relaxer les pieds dans le sable. Diverses activités aquatiques sont programmées toute l'année : cours d'aquabike, d'aquafitness, bébés nageurs, etc. Env 6€ la journée par pers.)"
+    content: "La plage est au bout du jardin ! Et le complexe aquatique Aquabella de Ouistreham est à 4 minutes de vélo. (Toboggan de 70m, splashpad et un solarium pour se relaxer les pieds dans le sable. Diverses activités aquatiques sont programmées toute l'année : cours d'aquabike, d'aquafitness, bébés nageurs, etc. Env 6€ la journée par pers.)"
   - title: "Est-ce que la location est adaptée aux bébés ou aux personnes à mobilité réduite ?"
-    content: "Malheusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers et les fenêtres ne sont pas actuellement sécurisés. Et pour les personnes à mobilité réduite, Il y a 2 chambres, WC  et salle de douche de plain pied, mais la cuisine et le salon sont à l'étage."
+    content: "Malheusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres, WC  et salle de douche au rez de chaussé, mais la cuisine et le salon sont à l'étage."
   - title: "Quels sont les équipements de la maison ?"
-    content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine complète, dans le jardin barbecue gaz et plancha gaz, Lave linge, sèche linge, lave vaisselle, cafetière nespresso, grille pain ... Demandez nous pour connaitre la présence d'un équipement particulier." 
+    content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine très équipée (lave vaisselle, cafetière nespresso, grille pain, four, microonde...), Internet, barbecue gaz et plancha gaz dans le jardin, vélos, Lave linge, sèche linge,  ...  MAIS pas de TV." 
   - title: "A quelle distance de la plage est la maison de vacances ? "
-    content: "35m très précisément de la porte d'entrée. Par contre selon le coefficient de marée, il faudra peut-être aller chercher la mer beaucoup plus loin :-) La maison est située sur une parcelle en première ligne, dont le portail donne directement sur le bld Aristide Briand longeant la plage Riva Bella. La maison est plutôt à l'arrière de la parcelle ce qui lui confère une légère protection appréciable lors des grands coup de vent."   
+    content: "25m très précisément de la porte d'entrée. Par contre selon le coefficient de marée, il faudra peut-être aller chercher la mer un peu plus loin :-) La maison est située sur une parcelle en première ligne, dont le portail donne directement sur la plage Riva Bella. La maison est plutôt à l'arrière de la parcelle ce qui lui confère une légère protection appréciable lors des grands coup de vent."   
 
 ---
 

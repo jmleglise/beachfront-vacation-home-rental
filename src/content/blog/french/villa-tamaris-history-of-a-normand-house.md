@@ -16,7 +16,7 @@ En acquérant la Villa Tamaris, notre maison de vacances à Ouistreham en bord d
 <h2> Les Origines Modestes </h2>
 
 La Villa Tamaris était à l'origine une dépendance ou un petit garage de la demeure voisine, bâtie sur une grande parcelle aujourd'hui divisée. Dans les années 1950, cette habitation de plain-pied était très modeste, mais possédait déjà un joli charme avec une loggia ouverte supportée par des bois de colombages. Certains murs intérieurs et extérieurs en pierres apparentes démontraient une certaine qualité de construction pour ce bâtiment annexe. Des photographies de l'époque montrent que l'agencement intérieur des cloisons a été revu plusieurs fois, reflètant les besoins changeants de ses occupants et l'adaptabilité de la structure. Il est dit qu'elle était à cette époque une maison de pêcheur.
-
+   <img src="/images/triptique1960.png" alt="Maison Villa Tamaris 1960" style="display: block; margin: auto;">
 <h2> 1965 : La Villa Tamaris</h2>
 
 Le nom "Villa Tamaris" apparait dans un acte notarial de 1965. Et effectivement un tamaris est encore présent sur le terrain.
