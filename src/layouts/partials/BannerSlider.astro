@@ -1,94 +1,119 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
-const { banners } = Astro.props; // Liste des bannières avec src et alt
+const { banners } = Astro.props;
 ---
-
+<!-- import ImageMod from "@/components/ImageMod.astro"; -->
 <style>
 .relative-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
-
-.hp-slider {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
-.hp-slider .swiper-wrapper{
-    align-items: center;
+.hp-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.hp-slider .swiper-wrapper {
+  align-items: center;
 }
 .hp-slider img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hp-slider img.loaded {
+  opacity: 1;
 }
 </style>
- 
 <div class="relative-container">
-    <div class="swiper hp-slider">
-      <div class="swiper-wrapper">
-        {banners.map((banner, index) => (
-          <div class="swiper-slide" key={index}>
- <!--
-            <ImageMod
-              src={banner.src} class="swiper-lazy"
-              height={1200}
-              width={675}
+  <div class="swiper hp-slider">
+    <div class="swiper-wrapper">
+      {banners.map((banner, index) => (
+        <div class="swiper-slide" key={index}>
+<!-- <ImageMod src={banner.src} class="swiper-lazy" height={1200} width={675} alt={banner.alt || Banner ${index + 1}} class="w-full h-full object-cover" format="webp" /> -->
+
+
+          {index === 0 ? (
+            <img 
+              src={banner.src}
               alt={banner.alt || `Banner ${index + 1}`}
-              class="w-full h-full object-cover"
-              format="webp"
+              height="1200"
+              width="675"
+              class="w-full h-full object-cover loaded"
             />
--->            
-            <img src={banner.src} class="swiper-lazy"
+          ) : (
+            <img 
+              data-src={banner.src}
               alt={banner.alt || `Banner ${index + 1}`}
               height="1200"
               width="675"
               class="w-full h-full object-cover"
             />
-
-<!--     <div class="swiper-lazy-preloader"></div>  c'est l'affichage du loader spinner  -->
-          </div>
-        ))}
-      </div>
-      <!-- Pagination et navigation -->
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+          )}
+        </div>
+      ))}
     </div>
-
-  </div>  
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>  
 
 <script>
-  import { Swiper } from "swiper";
-  import "swiper/css";
-  import "swiper/css/effect-fade";
-  import "swiper/css/pagination";
-  import "swiper/css/navigation";
-  import "swiper/css/autoplay";
-  import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+import Swiper from "swiper";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 
-  // Initialisation du carrousel après le chargement de la page
-  document.addEventListener("astro:page-load", () => {
-    const swiper = new Swiper(".hp-slider", {
-      modules: [Autoplay, EffectFade, Navigation, Pagination],
-      //effect: "fade",
-      lazy : true,
-      loop: true,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 5000, // 5 secondes
-        disableOnInteraction: false, // Continue après une interaction
+document.addEventListener("astro:page-load", () => {
+  const swiper = new Swiper(".hp-slider", {
+    modules: [Autoplay, EffectFade, Navigation, Pagination],
+    effect: "fade",
+    loop: false, // ne pas utiliser le loop car swiper clone les slide et crée pleins de problème de chargement d'image. Le carrousel boucle quand même !
+    spaceBetween: 30,
+    
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+    
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    
+    on: {
+      slideChange: function() {
+        // Charger l'image active
+        const activeSlide = this.slides[this.activeIndex];
+        const activeImg = activeSlide?.querySelector('img[data-src]');
+        if (activeImg && !activeImg.src) {
+          activeImg.src = activeImg.dataset.src;
+          activeImg.onload = () => activeImg.classList.add('loaded');
+          activeImg.removeAttribute('data-src');
+        }
+        
+        // Précharger la suivante après 800ms
+        setTimeout(() => {
+          const nextSlide = this.slides[this.activeIndex + 1];
+          const nextImg = nextSlide?.querySelector('img[data-src]');
+          if (nextImg && !nextImg.src) {
+            nextImg.src = nextImg.dataset.src;
+            nextImg.onload = () => nextImg.classList.add('loaded');
+            nextImg.removeAttribute('data-src');
+          }
+        }, 800);
       }
-    });
+    }
   });
+});
 </script>
-
