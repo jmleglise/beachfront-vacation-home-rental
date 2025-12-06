@@ -125,7 +125,8 @@ schemaVacationRental: |
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
   content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
-  Imaginez vos réveils avec une vue imprenable sur le bord de mer, depuis votre lit, depuis la terrasse ou encore du salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil, du jardin. La maison est également parfaitement équipée pour le télétravail. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br>
+  Imaginez vos réveils devant une vue mer imprenable, depuis votre lit, depuis la terrasse ou encore du salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br> 
+  La maison est également parfaitement équipée pour le télétravail.<br>
   Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end ou d'une semaine ...<br>"
   images:
     - src: "/images/compo_accueil.jpg"
@@ -159,7 +160,7 @@ features:
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
       - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
-      - "Suite parentale avec sa grande salle de bain privative, et sa terrasse avec vue exceptionnelle."
+      - "Suite parentale avec sa grande salle de douche privative et sa terrasse avec vue exceptionnelle."
       - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger devant le bowwindow."
       - "Bureau et Internet++ pour travailler dans un cadre exceptionnel."
       - "sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha."
