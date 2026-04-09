@@ -124,10 +124,10 @@ schemaVacationRental: |
 # Banner
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
-  content: "Pour votre location de vacances à la mer, en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer à Ouistreham dans le Calvados, avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
-  Imaginez vos réveils devant une vue mer imprenable, depuis votre lit, depuis la terrasse ou encore du salon, et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br> 
+  content: "Pour votre location de vacances à Ouistreham en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
+  Imaginez votre réveil avec une vue mer imprenable depuis votre lit et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br> 
   La maison est également parfaitement équipée pour le télétravail.<br>
-  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau. Le temps d'un week-end ou d'une semaine ...<br>"
+  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau, le temps d'un week-end ou d'une semaine.<br>"
   images:
     - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer exceptionnelle"
@@ -156,14 +156,14 @@ banner:
 features:
   - title: "Maison de vacances d'exception"
     image: "/images/villa_front.jpg"
-    content: "Face à l’océan, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
+    content: "Face à la mer, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
       - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
-      - "Suite parentale avec sa grande salle de douche privative et sa terrasse avec vue exceptionnelle."
-      - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger devant le bowwindow."
-      - "Bureau et Internet++ pour travailler dans un cadre exceptionnel."
-      - "sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha."
+      - "Suite parentale, vue mer exceptionnelle, avec sa grande salle de douche et sa terrasse privative."
+      - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger et le bowwindow devant la mer."
+      - "Bureau isolé et Internet++ pour travailler dans un cadre exceptionnel."
+      - "Sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha et transats à l'abri."
       - "Tout l'équipement souhaitable dont plusieurs vélos."
     button:
       enable: true
@@ -173,11 +173,11 @@ features:
 # Location
   - title: "Localisation de la maison de vacance à Ouistreham Calvados"
     image: "/images/view_scene.jpg"
-    content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil ou siroter un cocktail au bar de plage 'la paillotte' à 50m."
+    content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil et siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
       - "Ouistreham est une station balnéaire très vivante offrant une grande diversité : son bourg médiéval et son église du 13e siècel, son port animé, sa vie maritime. Son phare, unique dans le Calvados et sa grande roue offrent un point de vue exceptionnel sur les environs."
-      - "A 2h15 de Paris par l'autoroute de Normandie. C'est aussi un point de chute pour rayonner sur la Normandie"
-      - "Toutes commodités immédiatement accessibles. Du petit commerce, le marché, jusqu'à la grande surface (à 3 min)."
+      - "A 2h15 de Paris par l'autoroute. C'est aussi un point de chute pour rayonner sur la Normandie"
+      - "Toutes commodités immédiatement accessibles. Du petit commerce jusqu'à la grande surface (à 3 min) en passant par les marchés."
     button:
       enable: true
       label: "Découvrez la localisation"
@@ -212,7 +212,7 @@ nous:
 # FAQ
 faqContent:
   - title: "La maison de vacance peut-elle être louée pour un week-end ?"
-    content: "Louer la maison nécessite de tout mettre en ordre pour que vous vous sentiez chez vous. Cela demande beaucoup de travail ! Donc pendant les vacances scolaires, nous privilégions les séjours d'une semaine minimum du dimanche au dimanche. Et en basse saison, un minimum de 3 nuits."
+    content: "Louer la maison nécessite de tout mettre en ordre pour que vous vous sentiez chez vous. Cela demande beaucoup de travail ! Donc pendant les vacances scolaires, nous privilégions les séjours d'une semaine et en basse saison, un forfait de 3 nuits."
   - title: "Un parking est disponible ?"
     content: "Oui, sur la propriété, 2 véhicules peuvent être garés en enfilade."
   - title: "Cette location saisonnière dispose-t-elle d'une piscine ? "
@@ -220,9 +220,9 @@ faqContent:
   - title: "Est-ce que la location est adaptée aux bébés ou aux personnes à mobilité réduite ?"
     content: "Malheusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres, WC  et salle de douche au rez de chaussé, mais la cuisine et le salon sont à l'étage."
   - title: "Quels sont les équipements de la maison ?"
-    content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine très équipée (lave vaisselle, cafetière nespresso, grille pain, four, microonde...), Internet, barbecue gaz et plancha gaz dans le jardin, vélos, Lave linge, sèche linge,  ...  MAIS pas de TV." 
+    content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine très équipée (lave vaisselle, cafetière nespresso, grille pain, four, microonde...), Internet - Wifi, barbecue gaz et plancha gaz dans le jardin, vélos, Lave linge, sèche linge,  ...  MAIS pas de TV." 
   - title: "A quelle distance de la plage est la maison de vacances ? "
-    content: "25m très précisément de la porte d'entrée. Par contre selon le coefficient de marée, il faudra peut-être aller chercher la mer un peu plus loin :-) La maison est située sur une parcelle en première ligne, dont le portail donne directement sur la plage Riva Bella. La maison est plutôt à l'arrière de la parcelle ce qui lui confère une légère protection appréciable lors des grands coup de vent."   
+    content: "10m très précisément du portail. Par contre selon le coefficient de marée, il faudra peut-être aller chercher la mer un peu plus loin :-) La maison est située sur une parcelle en première ligne donnant directement sur la plage Riva Bella. La maison est plutôt à l'arrière de la parcelle ce qui lui confère une légère protection appréciable lors de grands coups de vent."   
 
 ---
 

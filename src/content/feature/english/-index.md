@@ -128,7 +128,7 @@ detail:
 
 Not provided :
 
-Household linen is not provided.  
+Household linen is optional and available at an extra cost.  
 No TV in the house.
 
 <a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" 

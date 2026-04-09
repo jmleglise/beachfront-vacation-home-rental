@@ -6,21 +6,20 @@ image: "/images/villa_rue.jpg"
 draft: false
 ---
 Feel free to contact us for any special arrangement. 
-<h2> Price </h2>
-The house is rented for a maximum of 8 people. 
+<h2> Price all Tax included</h2>
 
-- High Season - June, July, August, September: €2400 including tax per week
-- Low Season - French School holidays: €1800 including tax per week
-- Low Season - Outside French school holidays:
-    - €1000 including tax per week
-    - €600 including tax for a 4-night stay (or less).
+- High Season - May, June, July, August, September: <br/>
+    - €1600 per week including cleaning fee<br/>
+    - €260 per night plus 120€ for Cleaning fee<br/>
+- Low Season - October to April :<br/>
+    - €1100 per week including cleaning fee<br/>
+    - €160 per night plus 120€ for Cleaning fee<br/>
 
-Cleaning fee: €120.
-Linen package on demand. 
-The rate includes charges for normal usage, and all taxes.
+Linen package not included, and on demand. 
+The rate includes charges for normal usage, and all equipment ( barbecue gaz, bycicle...).
 
 <h2> Terms and Conditions: </h2>
-
+- The house is rented for a maximum of 8 people. 
 - Deposit: 30% at booking, then 100% 20 days before arrival.
 - Security deposit: €1000 upon key handover.
 - The house is non-smoking/vaping. Pets and loud parties are not allowed to ensure respect for all guests and our friendly neighbors.

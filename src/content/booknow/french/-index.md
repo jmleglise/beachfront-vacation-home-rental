@@ -6,24 +6,25 @@ image: "/images/villa_rue.jpg"
 draft: false
 ---
 N'hésitez pas à nous joindre pour discuter de votre projet. Nous serons ravis de pouvoir répondre à vos attentes.
-<h2> Tarif</h2>
-La maison est louée pour 8 personnes maximum.
+<h2> Tarif TTC</h2>
+Le prix inclut toutes les taxes, les charges courantes et l'usage du matériel mis à disposition (Barbecue Gaz, Velo...).
 
-- Haute Saison - Juin, Juillet, Août, Septembre : 2400€ TTC la semaine
-- Basse Saison - Les vacances scolaires : 1800€ TTC la semaine 
-- Basse Saison - Hors vacances scolaire :
-    - 1000€ TTC la semaine
-    - 600€ TTC le forfait 4 nuits (ou moins).
-
-Ménage 120€<br/>
-Linge de maison en option sur demande.<br/>
-Le prix inclue toutes les taxes, les charges courantes et le matériel mis à disposition.
+- Haute Saison  Mai, Juin, Juillet, Août, Septembre : <br/>
+    - 1600€ la semaine incluant le ménage de fin de séjour. <br/>
+    - 260€ la nuité + 120€ le ménage.
+- Basse Saison de Octobre à Avril  : <br/>
+    - 1100€ la semaine incluant le ménage de fin de séjour.<br/>
+    - 160€ la nuité + 120€ le ménage.
+<br/>
+Le linge de maison est en option supplémentaire. Tarif au plus juste selon votre configuration.<br/>
+<br/>
 
 <h2> Les conditions : </h2>
+La maison est louée pour 8 personnes maximum.<br/>
 Arrhes : 30% à la réservation puis 100% à j-30 <br/>
 Caution : 1000€ par chèque à la remise des clefs. <br/>
 La maison est non-fumeur/vapoteur. Les animaux ne sont pas admis et les grandes fêtes bruyantes non plus en respect de tous les vacanciers et nos sympathiques voisins. <br/>
-
+Signature de notre contrat de location. Checkin checkOut avec notre conciergerie.<br/>
 <h2>Les disponibilités : </h2> 
 
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

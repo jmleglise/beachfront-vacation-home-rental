@@ -8,7 +8,7 @@ draft: false
 # DETAIL
 detail:
   - level: ""
-    content: "La villa dispose de 5 chambres mais fréquemment seulement 3 ou 4 sont accessibles selon le temps dont nous disposons pour préparer la maison pour la location. Rentrez en contact et faites nous part de votre projet !<br><br>"
+    content: "La villa dispose de 5 chambres mais fréquemment seules 3 ou 4 sont accessibles selon le temps dont nous disposons pour préparer la maison pour la location. Rentrez en contact et faites nous part de votre projet !<br><br>"
   - level: "Extérieur"
     content: "La villa est située sur un terrain de 300m2, clôt, sécurisé et fleuri.<br>
 - Une cours/terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
@@ -131,7 +131,7 @@ detail:
 
 Non fourni :
 
-La linge de maison n'est pas fourni.
+Le linge de maison est en option.
 
 Pas de TV dans la maison.
 
