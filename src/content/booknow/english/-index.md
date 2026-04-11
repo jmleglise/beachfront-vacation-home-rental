@@ -9,10 +9,10 @@ Feel free to contact us for any special arrangement.
 <h2> Price all Tax included</h2>
 
 - High Season - May, June, July, August, September: <br/>
-    - €1600 per week including cleaning fee<br/>
+    - €1700 per week including cleaning fee<br/>
     - €260 per night plus 120€ for Cleaning fee<br/>
 - Low Season - October to April :<br/>
-    - €1100 per week including cleaning fee<br/>
+    - €1120 per week including cleaning fee<br/>
     - €160 per night plus 120€ for Cleaning fee<br/>
 
 Linen package not included, and on demand. 

@@ -10,10 +10,10 @@ N'hésitez pas à nous joindre pour discuter de votre projet. Nous serons ravis 
 Le prix inclut toutes les taxes, les charges courantes et l'usage du matériel mis à disposition (Barbecue Gaz, Velo...).
 
 - Haute Saison  Mai, Juin, Juillet, Août, Septembre : <br/>
-    - 1600€ la semaine incluant le ménage de fin de séjour. <br/>
+    - 1700€ la semaine incluant le ménage de fin de séjour. <br/>
     - 260€ la nuité + 120€ le ménage.
 - Basse Saison de Octobre à Avril  : <br/>
-    - 1100€ la semaine incluant le ménage de fin de séjour.<br/>
+    - 1120€ la semaine incluant le ménage de fin de séjour.<br/>
     - 160€ la nuité + 120€ le ménage.
 <br/>
 Le linge de maison est en option supplémentaire. Tarif au plus juste selon votre configuration.<br/>

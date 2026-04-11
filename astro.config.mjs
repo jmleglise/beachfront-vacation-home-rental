@@ -1,6 +1,6 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import sitemap from "@astrojs/sitemap";
+import customSitemap from "./scripts/custom-sitemap.js";
 import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
@@ -26,7 +26,7 @@ export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "https://www.location-maison-mer.fr",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: 'always',
-  outDir: './dist',
+  outDir: 'dist',
   i18n: {
     locales: filteredSupportedLang,
     defaultLocale: default_language,
@@ -45,12 +45,7 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    sitemap({
-      filter: (url) => {
-        // Inclure uniquement les fichiers sous /fr/ et /en/
-        return url.includes('/fr/') || url.includes('/en/');
-      },
-    }),
+    customSitemap(),
     tailwind({
       applyBaseStyles: false,
     }),
