@@ -5,7 +5,7 @@ description: "Book for a week or week-end, For 8 people, 4 bedrooms, fully equip
 image: "/images/villa_rue.jpg"
 draft: false
 ---
-Feel free to contact us for any special arrangement. 
+Feel free t220145o contact us for any special arrangement. 
 <h2> Price all Tax included</h2>
 
 - High Season - May, June, July, August, September: <br/>
@@ -19,10 +19,10 @@ Linen package not included, and on demand.
 The rate includes charges for normal usage, and all equipment ( barbecue gaz, bycicle...).
 
 <h2> Terms and Conditions: </h2>
-- The house is rented for a maximum of 8 people. 
-- Deposit: 30% at booking, then 100% 20 days before arrival.
-- Security deposit: €1000 upon key handover.
-- The house is non-smoking/vaping. Pets and loud parties are not allowed to ensure respect for all guests and our friendly neighbors.
+- The house is rented for a maximum of 8 people. <br/>
+- Deposit: 30% at booking, then 100% 20 days before arrival.<br/>
+- Security deposit: €1000 upon key handover.<br/>
+- The house is non-smoking/vaping. Pets and loud parties are not allowed to ensure respect for all guests and our friendly neighbors.<br/>
 
 <h2> Availability: </h2>
 
