@@ -52,6 +52,7 @@ const { title, description, meta_title, image } = readcontent[0].data;
           lang={lang || "fr"}
           apiKey={import.meta.env.PUBLIC_GGCALENDAR_API_KEY}
           calendarId={import.meta.env.PUBLIC_GGCALENDAR_ID}
+          turnstileSiteKey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
         />
         </div>
       </div>
