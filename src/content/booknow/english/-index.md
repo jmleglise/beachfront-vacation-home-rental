@@ -5,7 +5,7 @@ description: "Book for a week or week-end, For 8 people, 4 bedrooms, fully equip
 image: "/images/villa_rue.jpg"
 draft: false
 ---
-Feel free t220145o contact us for any special arrangement. 
+Feel free to contact us for any special arrangement. 
 <h2> Price all Tax included</h2>
 
 - High Season - May, June, July, August, September: <br/>

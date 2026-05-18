@@ -5,6 +5,7 @@ import { getListPage } from "@/lib/contentParser.astro";
 import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import type { ContentEntryMap } from "astro:content";
+import BookingConfigurator from "@/components/BookingConfigurator";
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -46,6 +47,12 @@ const { title, description, meta_title, image } = readcontent[0].data;
           <div class="content">
             <Content />
           </div>
+          <BookingConfigurator
+          client:load
+          lang={lang || "fr"}
+          apiKey={import.meta.env.PUBLIC_GGCALENDAR_API_KEY}
+          calendarId={import.meta.env.PUBLIC_GGCALENDAR_ID}
+        />
         </div>
       </div>
     </div>
