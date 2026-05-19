@@ -44,11 +44,15 @@ The rate includes charges for normal usage, and all equipment ( barbecue gaz, by
     />
   </span>
 
-
-<br/>or via this form: 
 <!-- 
+<br/>or via this form: 
+
 <script src="https://static.elfsight.com/platform/platform.js" async></script>
 <div class="elfsight-app-af01e587-b07e-4113-bfb9-298c937d72b2 text-center" data-elfsight-app-lazy></div>
--->
+
 
 <div style="width:100%;height:500px;" data-fillout-id="1s56dizCvrus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
+-->
+
+<br/>
+<h2>Book Now and pay later :</h2>

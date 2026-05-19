@@ -9,34 +9,30 @@ type Props = {
   lang: string; 
   apiKey?: string; 
   calendarId?: string;
-  turnstileSiteKey?: string; // Clé du site Cloudflare Turnstile
+  turnstileSiteKey?: string;
 };
 
-// --- CONFIGURATION DES TARIFS FACILE À MODIFIER ---
+// --- CONFIGURATION DES TARIFS ---
 const CLEANING_FEE = 120;
-const DOUBLE_BED_RATE = 20;
-const SINGLE_BED_RATE = 10;
-const TOWEL_RATE = 10;
+const DOUBLE_BED_RATE = 25;
+const SINGLE_BED_RATE = 15;
+const TOWEL_RATE = 8;
 const MIN_NIGHTS = 2;
 const LEAD_DAYS = 2;
 const MAX_TRAVELERS = 8;
 
 const SEASON_PRICING = {
-  // Mai, Juin, Juillet, Août, Septembre
-  HIGH_SEASON_MONTHS: [4, 5, 6, 7, 8], // Index JavaScript (0 = Janvier, 4 = Mai...)
-  HIGH_SHORT_RATE: 260, // < 7 nuits
-  HIGH_LONG_RATE: 225,  // >= 7 nuits
-
-  // Octobre à Avril
-  LOW_SHORT_RATE: 160,  // < 7 nuits
-  LOW_LONG_RATE: 142,   // >= 7 nuits
+  HIGH_SEASON_MONTHS: [4, 5, 6, 7, 8], // Mai à Septembre (Index JS : 4 à 8)
+  HIGH_SHORT_RATE: 260,
+  HIGH_LONG_RATE: 225,
+  LOW_SHORT_RATE: 160,
+  LOW_LONG_RATE: 142,
 };
 
 const copy = {
   fr: {
-    title: "Configurer votre séjour",
     dates: "Dates du séjour",
-    datesPlaceholder: "Sélectionnez vos dates",
+    datesPlaceholder: "(2 nuits minimum, arrivée à partir de J+2)",
     chooseDates: "Choisir vos dates",
     clear: "Effacer",
     travelers: "Voyageurs",
@@ -65,18 +61,15 @@ const copy = {
     reserveDisabled: "Sélectionnez une plage valide, remplissez vos informations et validez le captcha.",
     loading: "Chargement des disponibilités…",
     apiError: "Impossible de récupérer les disponibilités en temps réel.",
-    apiErrorDetails: "Code HTTP",
-    minNights: "Séjour minimum : 2 nuits",
-    leadTime: "Réservation possible à partir de J+2",
     blockedRangeError: "La date de départ doit être avant la prochaine date déjà réservée.",
     weekDiscount: "séjour d'une semaine et plus",
+    disclaimer: "Le prix inclut toutes les taxes, les charges pour un usage normal, et l'usage du matériel mis à disposition (Barbecue Gaz, Velo...). La haute Saison court de Mai à Septembre. La basse saison de Octobre à Avril. Tarif préférentiel pour 7 nuits et plus.",
     successMessage: "Nous vous remercions pour votre réservation. Je bloque les dates et vous recevrez les instructions de paiement sous 12h.",
     errorMessage: "Une erreur technique est survenue. La réservation n'a pas été enregistrée. Essayez de contacter le propriétaire par email à jmleglise@gmail.com."
   },
   en: {
-    title: "Configure your stay",
     dates: "Stay dates",
-    datesPlaceholder: "Select your dates",
+    datesPlaceholder: "(2-night minimum, arrival from D+2)",
     chooseDates: "Choose your dates",
     clear: "Clear",
     travelers: "Travelers",
@@ -105,11 +98,9 @@ const copy = {
     reserveDisabled: "Select a valid range, fill your details and complete the captcha.",
     loading: "Loading availability…",
     apiError: "Could not load real-time availability.",
-    apiErrorDetails: "HTTP status",
-    minNights: "Minimum stay: 2 nights",
-    leadTime: "Booking starts from D+2",
     blockedRangeError: "Checkout must be before the next already-booked date.",
     weekDiscount: "stay of a week or more",
+    disclaimer: "The price includes all taxes, utilities for normal use, and use of equipment provided (Gas BBQ, Bikes...).High season runs from May to September. Low season from October to April.Preferential rate for 7 nights or more.",
     successMessage: "Thank you for your booking. I am blocking the dates and you will receive payment instructions within 12 hours.",
     errorMessage: "A technical error occurred. The booking could not be saved. Please try contacting the owner by email at jmleglise@gmail.com."
   },
@@ -124,28 +115,27 @@ const addDays = (d: Date, n: number) => {
 };
 const toDayKey = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-const formatDate = (d: Date, lang: string) =>
-  new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", {
+
+const formatDate = (d: Date, lang: string) => {
+  // On extrait l'année, le mois et le jour manuellement pour éviter tout décalage
+  const year = d.getFullYear();
+  const month = d.getMonth();
+  const day = d.getDate();
+  
+  // On crée une date "fixe" à midi pour éviter le décalage UTC
+  const fixedDate = new Date(year, month, day, 12, 0, 0);
+  
+  return new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", {
     weekday: "long",
-    day: "2-digit",
-    month: "2-digit",
+    day: "numeric",
+    month: "long",
     year: "numeric",
-    timeZone: "Europe/Paris",
-  }).format(d);
+  }).format(fixedDate);
+};
 
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (container: string | HTMLElement, options: Record<string, any>) => string;
-      reset: (widgetId?: string) => void;
-    };
-  }
-}
-
-export default function BookingConfigurator({ lang, apiKey, calendarId, turnstileSiteKey = "1x00000000000000000000AA" }: Props) {
+export default function BookingConfigurator({ lang, apiKey, calendarId, turnstileSiteKey }: Props) {
   const t = txtFor(lang);
   
-  // États de base du formulaire
   const [date, setDate] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(1);
   const [doubleBeds, setDoubleBeds] = useState(1);
@@ -153,27 +143,22 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const [linens, setLinens] = useState(false);
   const [towels, setTowels] = useState(false);
   
-  // Nouveaux états (Infos personnelles & Message)
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  // États Captcha & Statut d'envoi
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  // États Calendrier Google API
   const [bookedDates, setBookedDates] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [calendarError, setCalendarError] = useState<string | null>(null);
-  const [calendarErrorDetails, setCalendarErrorDetails] = useState<string | null>(null);
 
-  // Chargement du Captcha Cloudflare Turnstile
   useEffect(() => {
     const container = document.getElementById("turnstile-container");
-    if (!container) return;
+    if (!container || !turnstileSiteKey) return;
 
     const loadTurnstile = () => {
       if (window.turnstile) {
@@ -196,20 +181,15 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     }
   }, [turnstileSiteKey]);
 
-  // Récupération du calendrier Google
   useEffect(() => {
     const load = async () => {
-      if (!apiKey || !calendarId) {
-        setCalendarError("missing");
-        setCalendarErrorDetails("Missing PUBLIC_GGCALENDAR_API_KEY or PUBLIC_GGCALENDAR_ID");
-        return;
-      }
+      if (!apiKey || !calendarId) { setCalendarError("missing"); return; }
       setLoading(true);
       try {
         const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?singleEvents=true&orderBy=startTime&timeMin=${encodeURIComponent(new Date().toISOString())}&key=${encodeURIComponent(apiKey)}`;
         const response = await fetch(url);
         const data = await response.json();
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (!response.ok) throw new Error();
         
         const blocked: string[] = [];
         for (const evt of data.items ?? []) {
@@ -221,10 +201,9 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
           }
         }
         setBookedDates(blocked);
-      } catch (error) {
+      } catch {
         setCalendarError("api");
-        setCalendarErrorDetails(error instanceof Error ? error.message : String(error));
-      } finally {
+      } {
         setLoading(false);
       }
     };
@@ -236,45 +215,33 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const toDate = date?.to ? startOfDay(date.to) : undefined;
   const nights = fromDate && toDate ? Math.max(0, Math.round((toDate.getTime() - fromDate.getTime()) / 86400000)) : 0;
 
-  // --- NOUVEAU SYSTÈME DE CALCUL DU PRIX DES NUITÉES (SAISONNALITÉ) ---
-  const { nightsPrice, baseNightsPrice, sampleRate, sampleBaseRate } = useMemo(() => {
-    let total = 0;
-    let totalBase = 0;
-    let lastRate = 0;
-    let lastBaseRate = 0;
+  // --- CALCUL DÉTAILLÉ DE LA SAISONNALITÉ ---
+  const pricingDetail = useMemo(() => {
+    let highNights = 0;
+    let lowNights = 0;
 
     if (fromDate && toDate && nights > 0) {
-      const isLongStay = nights >= 7;
-      
       for (let i = 0; i < nights; i++) {
         const currentNight = addDays(fromDate, i);
-        const month = currentNight.getMonth();
-        const isHighSeason = SEASON_PRICING.HIGH_SEASON_MONTHS.includes(month);
-
-        const shortRate = isHighSeason ? SEASON_PRICING.HIGH_SHORT_RATE : SEASON_PRICING.LOW_SHORT_RATE;
-        const longRate = isHighSeason ? SEASON_PRICING.HIGH_LONG_RATE : SEASON_PRICING.LOW_LONG_RATE;
-        
-        const finalRate = isLongStay ? longRate : shortRate;
-
-        total += finalRate;
-        totalBase += shortRate;
-        lastRate = finalRate;
-        lastBaseRate = shortRate;
+        const isHigh = SEASON_PRICING.HIGH_SEASON_MONTHS.includes(currentNight.getMonth());
+        if (isHigh) highNights++; else lowNights++;
       }
     }
 
-    return { 
-      nightsPrice: total, 
-      baseNightsPrice: totalBase, 
-      sampleRate: lastRate, 
-      sampleBaseRate: lastBaseRate 
-    };
+    const isLong = nights >= 7;
+    const hRate = isLong ? SEASON_PRICING.HIGH_LONG_RATE : SEASON_PRICING.HIGH_SHORT_RATE;
+    const lRate = isLong ? SEASON_PRICING.LOW_LONG_RATE : SEASON_PRICING.LOW_SHORT_RATE;
+    const hBase = SEASON_PRICING.HIGH_SHORT_RATE;
+    const lBase = SEASON_PRICING.LOW_SHORT_RATE;
+
+    const totalNightsPrice = (highNights * hRate) + (lowNights * lRate);
+
+    return { highNights, lowNights, hRate, lRate, hBase, lBase, totalNightsPrice };
   }, [fromDate, toDate, nights]);
 
-  // Logique Lit : Uniquement calculée si la case "linens" est cochée
   const beddingPrice = linens ? (doubleBeds * DOUBLE_BED_RATE + singleBeds * SINGLE_BED_RATE) : 0;
   const towelsPrice = towels ? guests * TOWEL_RATE : 0;
-  const total = nightsPrice + CLEANING_FEE + beddingPrice + towelsPrice;
+  const total = pricingDetail.totalNightsPrice + CLEANING_FEE + beddingPrice + towelsPrice;
 
   const nextBlockedDate = useMemo(() => {
     if (!fromDate) return undefined;
@@ -302,11 +269,9 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     fromDate && toDate && nights >= MIN_NIGHTS && fromDate >= minArrival && !rangeHasBlockedNights && !exceedsNextBlockedDate
   );
   
-  // Validation globale pour activer le bouton de réservation
   const isFormValid = Boolean(firstName && lastName && email && phone && turnstileToken);
   const canReserve = hasValidRange && !calendarError && isFormValid && submitStatus !== "submitting";
 
-  // Gestion de la soumission du formulaire vers Cloudflare Pages Functions
   const handleBookingSubmit = async () => {
     if (!canReserve) return;
     setSubmitStatus("submitting");
@@ -316,30 +281,17 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phone,
-          message,
+          firstName, lastName, email, phone, message,
           fromDate: fromDate?.toISOString(),
           toDate: toDate?.toISOString(),
-          nights,
-          guests,
-          doubleBeds,
-          singleBeds,
-          linens,
-          towels,
+          nights, guests, doubleBeds, singleBeds, linens, towels,
           totalPrice: total,
           turnstileToken
         }),
       });
 
-      if (response.ok) {
-        setSubmitStatus("success");
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (err) {
+      if (response.ok) { setSubmitStatus("success"); } else { setSubmitStatus("error"); }
+    } catch {
       setSubmitStatus("error");
     }
   };
@@ -349,32 +301,19 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
 
   return (
     <section className="mt-10 mx-auto max-w-3xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900 mb-6">{t.title}</h2>
 
-      {submitStatus === "success" && (
-        <div className="mb-6 rounded-lg bg-green-50 p-4 text-sm text-green-800 border border-green-200">
-          {t.successMessage}
-        </div>
-      )}
 
-      {submitStatus === "error" && (
-        <div className="mb-6 rounded-lg bg-red-50 p-4 text-sm text-red-800 border border-red-200">
-          {t.errorMessage}
-        </div>
-      )}
-
-      {/* BLOC 1: STAY DATES */}
       <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
+      {/* BLOC DATES */}
+      
+      <div className="mb-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-1">
             <h3 className="text-lg font-semibold text-gray-900 m-0">{t.dates}</h3>
             <p className="m-0 text-sm text-gray-500">
-              {fromDate && toDate
-                ? `Du ${formatDate(fromDate, lang)} au ${formatDate(toDate, lang)} (${nights} nuits)`
-                : t.datesPlaceholder}
+              {fromDate && toDate ? `Du ${formatDate(fromDate, lang)} au ${formatDate(toDate, lang)} (${nights} nuits)` : t.datesPlaceholder}
             </p>
           </div>
-          
           <div className="flex flex-col items-start sm:items-end gap-2">
             <Popover.Root>
               <Popover.Trigger asChild>
@@ -387,52 +326,35 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content className="z-50 w-auto rounded-lg border bg-white p-2 shadow-xl" align="end">
-                  <DayPicker
-                    mode="range"
-                    selected={date}
-                    onSelect={setDate}
-                    defaultMonth={date?.from}
-                    numberOfMonths={2}
-                    disabled={disabledDates}
-                    min={MIN_NIGHTS}
-                  />
+                  <DayPicker mode="range" selected={date} onSelect={setDate} defaultMonth={date?.from} numberOfMonths={2} disabled={disabledDates} min={MIN_NIGHTS} />
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
             
-            {fromDate && (
-              <button className="text-xs text-gray-500 underline hover:text-black transition-colors px-1" type="button" onClick={() => setDate(undefined)}>
-                {t.clear}
-              </button>
-            )}
+            {fromDate && <button className="text-xs text-gray-500 underline hover:text-black transition-colors px-1" type="button" onClick={() => setDate(undefined)}>{t.clear}</button>}
           </div>
         </div>
-        
-        <small className="mt-4 block text-xs text-gray-400 border-t border-gray-100 pt-3">
-          {t.minNights} • {t.leadTime}
-        </small>
+       
         {loading && <p className="mt-2 text-sm text-gray-500">{t.loading}</p>}
         {calendarError && <p className="mt-2 text-sm text-red-600">{t.apiError}</p>}
         {exceedsNextBlockedDate && <p className="mt-2 text-sm text-red-600">{t.blockedRangeError}</p>}
       </div>
-
-      {/* BLOC 2: TRAVELERS */}
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
+        
+      {/* BLOC VOYAGEURS */}
+      <div className="mb-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
             <h3 className="text-lg font-semibold text-gray-900 m-0">{t.travelers}</h3>
             <span className="block text-sm text-gray-500">{t.travelersHint}</span>
           </div>
           <select className={controlStyles} value={guests} onChange={(e) => setGuests(Number(e.target.value))}>
-            {Array.from({ length: MAX_TRAVELERS }, (_, i) => i + 1).map((n) => (
-              <option key={n} value={n}>{n} {t.people}</option>
-            ))}
+            {Array.from({ length: MAX_TRAVELERS }, (_, i) => i + 1).map((n) => <option key={n} value={n}>{n} {t.people}</option>)}
           </select>
         </div>
       </div>
 
-      {/* BLOC 3: BED CONFIGURATION */}
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
+      {/* CONFIGURATION LITS */}
+      <div className="mb-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">{t.bedding}</h3>
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-4">
@@ -450,8 +372,8 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         </div>
       </div>
 
-      {/* BLOC 4: OPTIONS */}
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
+      {/* OPTIONS */}
+      
         <h3 className="text-lg font-semibold text-gray-900 mb-3">{t.options}</h3>
         <div className="space-y-3">
           <label className="flex items-center gap-3 text-sm text-gray-700 cursor-pointer">
@@ -465,7 +387,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         </div>
       </div>
 
-      {/* NOUVEAU BLOC 5: INFORMATIONS PERSONNELLES */}
+      {/* INFORMATIONS PERSONNELLES */}
       <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">{t.personalInfo}</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -488,42 +410,53 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         </div>
       </div>
 
-      {/* NOUVEAU BLOC 6: MESSAGE */}
+      {/* MESSAGE */}
       <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
         <h3 className="text-lg font-semibold text-gray-900 mb-3">{t.messageTitle}</h3>
         <textarea 
           className="w-full min-h-[100px] rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors placeholder:text-gray-400" 
-          placeholder={t.messagePlaceholder}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          placeholder={t.messagePlaceholder} value={message} onChange={(e) => setMessage(e.target.value)}
         />
       </div>
 
-      {/* BLOC 7: PRICE SUMMARY (RÉORDONNÉ ET MIS À JOUR) */}
+      {/* RÉSUMÉ DU PRIX */}
       <div className="rounded-lg border border-gray-100 bg-gray-50/50 p-5 mb-5">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">{t.price}</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm text-gray-600">
             <tbody>
-              {/* Nuitées */}
+              {/* Nuitées (Avec décomposition unitaire si à cheval) */}
               <tr className="border-b border-gray-100">
                 <td className="py-2.5">{t.nightsLine}</td>
                 <td className="py-2.5 text-gray-400">
                   {nights > 0 ? (
-                    <>
-                      {nights} x {Math.round(nightsPrice / nights)}€
+                    <div className="flex flex-col gap-0.5">
+                      {pricingDetail.highNights > 0 && pricingDetail.lowNights > 0 ? (
+                        <span>{pricingDetail.highNights} x {pricingDetail.hRate}€ + {pricingDetail.lowNights} x {pricingDetail.lRate}€</span>
+                      ) : pricingDetail.highNights > 0 ? (
+                        <span>{nights} x {pricingDetail.hRate}€</span>
+                      ) : (
+                        <span>{nights} x {pricingDetail.lRate}€</span>
+                      )}
+                      
+                      {/* Ligne des tarifs de base barrés si >= 7 nuits */}
                       {nights >= 7 && (
-                        <span className="ml-2 text-xs font-normal">
-                          [<span className="line-through">{Math.round(baseNightsPrice / nights)}€</span>] ({t.weekDiscount})
+                        <span className="text-xs font-normal text-gray-400">
+                          [<span className="line-through">
+                            {pricingDetail.highNights > 0 && pricingDetail.lowNights > 0 
+                              ? `${pricingDetail.highNights}x${pricingDetail.hBase}€ + ${pricingDetail.lowNights}x${pricingDetail.lBase}€`
+                              : pricingDetail.highNights > 0 ? `${pricingDetail.hBase}€` : `${pricingDetail.lBase}€`
+                            }
+                          </span>] ({t.weekDiscount})
                         </span>
                       )}
-                    </>
+                    </div>
                   ) : "-"}
                 </td>
-                <td className="py-2.5 text-right font-medium text-gray-900">{nightsPrice}€</td>
+                <td className="py-2.5 text-right font-medium text-gray-900">{pricingDetail.totalNightsPrice}€</td>
               </tr>
               
-              {/* Ménage (Arrive juste après les nuitées) */}
+              {/* Ménage */}
               <tr className="border-b border-gray-100">
                 <td className="py-2.5">{t.cleaningLine}</td>
                 <td className="py-2.5 text-gray-400">{t.cleaningIncluded}</td>
@@ -534,7 +467,12 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
               <tr className="border-b border-gray-100">
                 <td className="py-2.5">Lits</td>
                 <td className="py-2.5 text-gray-400">
-                  {linens ? `${doubleBeds} x ${DOUBLE_BED_RATE}€ + ${singleBeds} x ${SINGLE_BED_RATE}€` : "-"}
+                  {linens ? (
+                    <div className="flex flex-col">
+                      <span>{doubleBeds} x {DOUBLE_BED_RATE}€ + {singleBeds} x {SINGLE_BED_RATE}€</span>
+                      <span className="text-xs text-gray-400 mt-0.5">(tapis de sol Sdb et torchons inclus)</span>
+                    </div>
+                  ) : "-"}
                 </td>
                 <td className="py-2.5 text-right font-medium text-gray-900">{beddingPrice}€</td>
               </tr>
@@ -555,6 +493,11 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
             </tbody>
           </table>
         </div>
+
+        {/* Bloc mentions légales sous le total avec le bon style */}
+        <p className="mt-5 text-xs text-gray-400 border-t border-gray-100 pt-3 whitespace-pre-line leading-relaxed">
+          {t.disclaimer}
+        </p>
       </div>
 
       {/* CLOUDFLARE TURNSTILE CAPTCHA */}
@@ -565,13 +508,23 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
       {/* BOUTON DE RÉSERVATION */}
       <button 
         className="w-full sm:w-auto inline-flex h-11 items-center justify-center rounded-md bg-black px-8 text-sm font-medium text-white shadow transition-colors hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-40" 
-        type="button" 
-        disabled={!canReserve} 
-        onClick={handleBookingSubmit}
-        title={!canReserve ? t.reserveDisabled : ""}
+        type="button" disabled={!canReserve} onClick={handleBookingSubmit} title={!canReserve ? t.reserveDisabled : ""}
       >
         {submitStatus === "submitting" ? "Envoi en cours..." : t.reserve}
       </button>
+
+      {/* BLOCS DE CONFIRMATION ET D'ERREUR (DÉPLACÉS SOUS LE BOUTON) */}
+      {submitStatus === "success" && (
+        <div className="mt-4 rounded-lg bg-green-50 p-4 text-sm text-green-800 border border-green-200">
+          {t.successMessage}
+        </div>
+      )}
+
+      {submitStatus === "error" && (
+        <div className="mt-4 rounded-lg bg-red-50 p-4 text-sm text-red-800 border border-red-200">
+          {t.errorMessage}
+        </div>
+      )}
     </section>
   );
 }

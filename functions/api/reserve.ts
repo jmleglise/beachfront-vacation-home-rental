@@ -20,39 +20,98 @@ export const onRequestPost: PagesFunction<{
       return new Response(JSON.stringify({ error: "Invalid captcha response" }), { status: 400 });
     }
 
-    // 2. Construction du mail au format HTML (Plus lisible sur Gmail)
-    const emailHtml = `
-      <div style="font-family: sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
-        <h2 style="color: #000; border-bottom: 2px solid #eee; padding-bottom: 10px;">Nouvelle demande de réservation</h2>
-        
-        <h3 style="color: #555;">👤 Informations Client</h3>
-        <p><strong>Nom complet :</strong> ${data.firstName} ${data.lastName}</p>
-        <p><strong>Email :</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-        <p><strong>Téléphone :</strong> ${data.phone}</p>
-        
-        <h3 style="color: #555;">📅 Détails Séjour</h3>
-        <p><strong>Arrivée :</strong> ${data.fromDate ? new Date(data.fromDate).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '-'}</p>
-        <p><strong>Départ :</strong> ${data.toDate ? new Date(data.toDate).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '-'}</p>
-        <p><strong>Nombre de nuits :</strong> ${data.nights}</p>
-        <p><strong>Nombre de voyageurs :</strong> ${data.guests}</p>
-        
-        <h3 style="color: #555;">🛏️ Configuration & Options</h3>
-        <p><strong>Lits doubles :</strong> ${data.doubleBeds} | <strong>Lits simples :</strong> ${data.singleBeds}</p>
-        <p><strong>Option draps / lits faits :</strong> ${data.linens ? "✅ Oui" : "❌ Non"}</p>
-        <p><strong>Option serviettes :</strong> ${data.towels ? "✅ Oui" : "❌ Non"}</p>
-        
-        <h3 style="color: #555;">💬 Message du client</h3>
-        <blockquote style="background: #f9f9f9; border-left: 4px solid #ccc; margin: 10px 0; padding: 10px 20px; font-style: italic;">
-          ${data.message ? data.message.replace(/\n/g, '<br>') : "Aucun message fourni."}
-        </blockquote>
-        
-        <div style="margin-top: 30px; padding: 15px; background: #f5f5f5; border-radius: 6px; text-align: right;">
-          <span style="font-size: 16px; font-weight: bold; color: #000;">TOTAL À RÉGLER : ${data.totalPrice} €</span>
-        </div>
-      </div>
-    `;
+    // --- LOGIQUE BACKEND : DÉCOMPOSITION ET CORRECTION DES DATES ---
+    const HIGH_SEASON_MONTHS = [4, 5, 6, 7, 8];
+    const HIGH_SHORT_RATE = 260;
+    const HIGH_LONG_RATE = 225;
+    const LOW_SHORT_RATE = 160;
+    const LOW_LONG_RATE = 142;
 
-    // 3. Envoi du mail via l'API de Resend
+    let highNightsCount = 0;
+    let lowNightsCount = 0;
+    const nightsCount = data.nights || 0;
+    const isLongStay = nightsCount >= 7;
+
+    if (data.fromDate && data.toDate && nightsCount > 0) {
+      const start = new Date(data.fromDate);
+      for (let i = 0; i < nightsCount; i++) {
+        const d = new Date(start);
+        d.setDate(start.getDate() + i);
+        if (HIGH_SEASON_MONTHS.includes(d.getMonth())) {
+          highNightsCount++;
+        } else {
+          lowNightsCount++;
+        }
+      }
+    }
+
+    const currentHRate = isLongStay ? HIGH_LONG_RATE : HIGH_SHORT_RATE;
+    const currentLRate = isLongStay ? LOW_LONG_RATE : LOW_SHORT_RATE;
+
+    let nightsBreakdownText = "";
+    if (highNightsCount > 0 && lowNightsCount > 0) {
+      nightsBreakdownText = `${highNightsCount} x ${currentHRate}€ (Haute Saison) + ${lowNightsCount} x ${currentLRate}€ (Basse Saison)`;
+    } else if (highNightsCount > 0) {
+      nightsBreakdownText = `${nightsCount} x ${currentHRate}€ (Haute Saison)`;
+    } else {
+      nightsBreakdownText = `${nightsCount} x ${currentLRate}€ (Basse Saison)`;
+    }
+
+    // Formatage des dates forcé sur le fuseau de Paris pour éliminer le bug du décalage d'1 jour
+    const dateFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' } as const;
+    const arrivalFormatted = data.fromDate ? new Date(data.fromDate).toLocaleDateString('fr-FR', dateFormatOptions) : '-';
+    const departureFormatted = data.toDate ? new Date(data.toDate).toLocaleDateString('fr-FR', dateFormatOptions) : '-';
+
+    // 2. Construction du mail HTML
+    // Remplace la partie emailHtml dans reserve.ts par ceci :
+const emailHtml = `
+<div style="font-family: sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <h2 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Nouvelle Réservation</h2>
+  
+  <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <thead>
+      <tr style="background: #f9f9f9; text-align: left;">
+        <th style="padding: 10px; border-bottom: 2px solid #eee;">Désignation</th>
+        <th style="padding: 10px; border-bottom: 2px solid #eee; text-align: right;">Détail</th>
+        <th style="padding: 10px; border-bottom: 2px solid #eee; text-align: right;">Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #eee;">Nuitées (${data.nights} nuits)</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666; font-size: 0.9em;">${nightsBreakdownText}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${pricingDetail.totalNightsPrice}€</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #eee;">Ménage</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">Inclus</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">120€</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #eee;">Lits (${data.doubleBeds}xDB + ${data.singleBeds}xSB)</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666; font-size: 0.8em;">(Tapis Sdb/Torchons inclus)</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${data.linens ? (data.doubleBeds * 20 + data.singleBeds * 10) : 0}€</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #eee;">Serviettes</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">${data.towels ? data.guests + " x 10€" : "-"}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${data.towels ? data.guests * 10 : 0}€</td>
+      </tr>
+      <tr style="font-weight: bold; font-size: 1.1em;">
+        <td colspan="2" style="padding: 10px;">TOTAL</td>
+        <td style="padding: 10px; text-align: right;">${data.totalPrice}€</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 0.8em; color: #888; border-top: 1px solid #eee; pt: 10px;">
+    Le prix inclut toutes les taxes, les charges pour un usage normal, et l'usage du matériel (Barbecue Gaz, Velo...).<br>
+    Haute Saison: Mai à Septembre. Basse saison: Octobre à Avril.
+  </p>
+</div>
+`;
+
+    // 3. Envoi via Resend
     const sendEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -60,16 +119,14 @@ export const onRequestPost: PagesFunction<{
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "onboarding@resend.dev", // Domaine de test gratuit (Zéro configuration DNS requise)
-        to: "jmleglise@gmail.com",     // Ton adresse de réception
+        from: "onboarding@resend.dev",
+        to: "jmleglise@gmail.com",
         subject: `✨ Nouvelle Réservation - ${data.firstName} ${data.lastName}`,
         html: emailHtml,
       }),
     });
 
     if (!sendEmailResponse.ok) {
-      const errText = await sendEmailResponse.text();
-      console.error("Resend API Error:", errText);
       throw new Error("Failed to dispatch email via Resend");
     }
 
