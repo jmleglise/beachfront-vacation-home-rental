@@ -5,14 +5,14 @@ schemaVacationRental: |
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
-  "@type": "VacationRental",
-  "additionalType": "https://schema.org/House",
+  "@type": ["VacationRental", "House"],
   "name": "Villa Tamaris",
   "description": "Maison de vacances en front de mer à Ouistreham, avec vue mer, accès direct à la plage, terrasse, jardin et barbecue. 3 chambres, jusqu'à 6 personnes.",
   "url": "https://www.location-maison-mer.fr/fr/",
   "identifier": "villa-tamaris-ouistreham",
   "availableLanguage": ["fr-FR", "en-US"],
-  "image": [ 
+
+  "image": [
     "https://www.location-maison-mer.fr/images/villa_front.jpg",
     "https://www.location-maison-mer.fr/images/villa_rue.jpg",
     "https://www.location-maison-mer.fr/images/d_ch5_vue.jpg",
@@ -32,6 +32,7 @@ schemaVacationRental: |
     "https://www.location-maison-mer.fr/images/plage.jpg",
     "https://www.location-maison-mer.fr/images/dune.jpg"
   ],
+
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "117 Boulevard Aristide Briand",
@@ -40,26 +41,54 @@ schemaVacationRental: |
     "addressRegion": "Normandie",
     "addressCountry": "FR"
   },
+
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 49.29152,
     "longitude": -0.27283
   },
+
   "checkinTime": "16:00",
   "checkoutTime": "11:00",
+
   "numberOfBedrooms": 3,
   "numberOfBathroomsTotal": 3,
   "numberOfRooms": 10,
+
   "petsAllowed": false,
+
   "occupancy": {
     "@type": "QuantitativeValue",
     "value": 6
   },
+
   "floorSize": {
     "@type": "QuantitativeValue",
     "value": 190,
     "unitCode": "SQM"
   },
+
+  "containsPlace": {
+    "@type": "Accommodation",
+    "numberOfRooms": 10,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "maxValue": 6
+    },
+    "bed": [
+      {
+        "@type": "BedDetails",
+        "typeOfBed": "Double",
+        "numberOfBeds": 1
+      },
+      {
+        "@type": "BedDetails",
+        "typeOfBed": "Single",
+        "numberOfBeds": 4
+      }
+    ]
+  },
+
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Vue sur la mer", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Accès direct à la plage", "value": true },
@@ -69,6 +98,7 @@ schemaVacationRental: |
     { "@type": "LocationFeatureSpecification", "name": "Cuisine tout équipée", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Internet fibre", "value": true }
   ],
+
   "bed": [
     {
       "@type": "BedDetails",
@@ -89,18 +119,70 @@ schemaVacationRental: |
       "description": "Chambre 3 : 2 lits simples pouvant être assemblés en lit double"
     }
   ],
+
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "8"
+  },
+
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Hervé Noras"
+      },
+      "datePublished": "2025-10",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "Maison idéalement située face à la mer, superbe rénovation, spacieuse et parfaitement équipée."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Katja Kohler-Golly"
+      },
+      "datePublished": "2026-04",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "Tolles Haus, wunderschöne Lage. Sehr netter Vermieter. Traumhafter Blick aufs Meer. Man kann zu Fuß am Strand entlang zu zwei sehr leckeren Bäckereien spazieren. Wir verbrachten eine wunderbare Woche hier und kommen ganz sicher wieder."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Rachel Boitelet"
+      },
+      "datePublished": "2026-05",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "Excellent séjour entre amis. Maison spacieuse, rénovation récente et emplacement idéal proche de la plage et des restaurants."
+    }
+  ],
+
   "offers": {
     "@type": "Offer",
     "price": "142",
     "priceCurrency": "EUR",
+
     "priceSpecification": {
       "@type": "PriceSpecification",
       "minPrice": 142,
       "maxPrice": 260,
       "priceCurrency": "EUR"
     },
+
     "availability": "https://schema.org/InStock",
     "businessFunction": "https://schema.org/LeaseOut",
+
     "url": "https://www.location-maison-mer.fr/fr/villa-tamaris-beachfront-ouistreham-book-now/"
   }
   }
