@@ -71,7 +71,7 @@ detail:
         title: "Le bureau"
 
   - level: "Au 2ème étage :"
-    content: "- Chambre parentale avec 2 lits en 80, sa Salle de douche et sa terrasse privative. Vue exceptionnelle du lit.<br>
+    content: "- Chambre parentale avec 1 lit en 160, sa Salle de douche et sa terrasse privative. Vue exceptionnelle du lit.<br>
 - 2 chambres avec chacune 2 lits en 80 pouvant être réunis. Vue mer.<br>
 - Salle de douche<br>
 - WC"
@@ -120,19 +120,11 @@ detail:
 <h2>Equipement</h2>
 
 - Internet haut débit fibre & Wifi.
-
-- 4 vélos : 2 adultes, 1 adulte petite taille/ado, 1 enfant 6 ans. 
-
+- 5 vélos : 3 adultes, 1 ado, 1 enfant 6 ans. 
 - Toute la literie est neuve. 
-
 - Quelques jeux de plage. 
-- Mais PAS DE TV que nous remplaçons avantageusement par quelques livres et jeux de sociétés. 
 - Un détecteur de fumées, un extincteur. 
 
-Non fourni :
-
-Le linge de maison est en option.
-
-Pas de TV dans la maison.
+- Mais PAS DE TV que nous remplaçons avantageusement par quelques livres et jeux de sociétés. 
 
 <a class="btn btn-outline-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Découvrez la localisation de la location saisonnière à Ouistreham Calvados</a>

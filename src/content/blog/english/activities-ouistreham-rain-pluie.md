@@ -6,7 +6,7 @@ date: 2024-12-24T05:00:00Z
 image: "/images/placeholder.jpg"
 categories: ["Visit"]
 author: "jml"
-tags: ["Rain", "Heritage"]
+tags: ["Rain", "Heritage", "game"]
 draft: false
 ---
 

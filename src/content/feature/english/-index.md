@@ -70,7 +70,7 @@ detail:
         title: "Office"
 
   - level: "Second Floor:"
-    content: "- Master bedroom with two 80cm beds, its own shower room and private terrace. Exceptional view from the bed.<br>
+    content: "- Master bedroom with a 160cm doublebed, its own shower room and private terrace. Exceptional view from the bed.<br>
 - 2 bedrooms, each with two 80cm beds that can be joined together. Sea view.<br>
 - Shower room<br>
 - WC"
@@ -120,16 +120,12 @@ detail:
 <h2>Equipment</h2>
 
 - High-speed fiber internet & Wi-Fi.  
-- 4 bicycles: 2 adult, 1 small adult/teen, 1 child (6 years old).  
+- 5 bicycles: 3 adult, 1 small adult/teen, 1 child (6 years old).  
 - All bedding is brand new.  
 - A few beach games.  
-- BUT NO TV, which we happily replace with a few books and board games.  
 - A smoke detector, a fire extinguisher.  
 
-Not provided :
-
-Household linen is optional and available at an extra cost.  
-No TV in the house.
+- BUT NO TV, which we happily replace with a few books and board games.  
 
 <a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" 
 target="_self"> Learn more about the villa’s amazing location </a>

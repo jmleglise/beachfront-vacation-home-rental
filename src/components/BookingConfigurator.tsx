@@ -19,7 +19,7 @@ const SINGLE_BED_RATE = 15;
 const TOWEL_RATE = 8;
 const MIN_NIGHTS = 2;
 const LEAD_DAYS = 2;
-const MAX_TRAVELERS = 8;
+const MAX_TRAVELERS = 6;
 
 const SEASON_PRICING = {
   HIGH_SEASON_MONTHS: [4, 5, 6, 7, 8], // Mai à Septembre (Index JS : 4 à 8)

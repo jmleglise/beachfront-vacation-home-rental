@@ -6,7 +6,7 @@ date: 2023-10-22T05:00:00Z
 image: "/images/coquille.jpg"
 categories: ["Evènement"]
 author: "jml"
-tags: ["Restauration", "Fruis de mer"]
+tags: ["Restaurant", "Fruis de mer"]
 draft: false
 ---
 

@@ -1,6 +1,6 @@
 ---
 meta_title: "Beachfront Villa Rental in Ouistreham - Sleeps 8, Stunning Views"
-description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. Sleeps 8, with stunning sea views and direct beach access. Perfect for families or seaside getaways!"
+description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. Sleeps 6, with stunning sea views and direct beach access. Perfect for families or seaside getaways!"
 
 
 schemaVacationRental: |  
@@ -10,7 +10,7 @@ schemaVacationRental: |
   "@type": "VacationRental",
   "additionalType": "Villa",
   "name": "Villa Tamaris",
-  "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea views and direct  Riva Bella beach access. Sleeps 8, 4 bedrooms. Perfect for families or seaside getaways !",
+  "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea views and direct  Riva Bella beach access. Sleeps 6, 3 bedrooms. Perfect for families or seaside getaways !",
   "url": "https://www.location-maison-mer.fr/en/",
   "identifier": "villa-tamaris-ouistreham",
   "knowsLanguage": [
@@ -59,13 +59,13 @@ schemaVacationRental: |
     "bed": [
       {
         "@type": "BedDetails",
-        "numberOfBeds": 8,
+        "numberOfBeds": 5,
         "typeOfBed": "Single"
       }
     ],
     "occupancy": {
       "@type": "QuantitativeValue",
-      "value": 8
+      "value": 6
     },
     "amenityFeature": [
       {
@@ -117,7 +117,7 @@ schemaVacationRental: |
     "numberOfRooms": 10,
     "numberOfBathroomsTotal": 3,
     "numberOfBedrooms": 4,
-    "maximumAttendeeCapacity": 8,
+    "maximumAttendeeCapacity": 6,
     "petsAllowed": false,
     "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
   }
@@ -130,7 +130,7 @@ banner:
   Imagine waking up to breathtaking views of the sea and having the chance to reach the beach right at the end of the garden.
   Enjoy the pleasures of swimming, barbecues in the garden, aperitifs at sunset, and discovering this region rich in activities.
   True luxury is the privileged setting of your waterfront vacation home. Whether for a weekend, a week...
-  The villa is perfect for a spacious stay for 8 people, whether with family or friends. Private parking is available to park 2 cars in the driveway."
+  The villa is perfect for a spacious stay for 6 people, whether with family or friends. Private parking is available to park 2 cars in the driveway."
   images:
     - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, a beachfront rental in Normandy with stunning sea views."
@@ -161,7 +161,7 @@ features:
     content: "Facing the sea, enjoy a beautiful sea view from the living room and 2 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
       - "Master bedroom opens onto its exceptional terrace with an en-suite bathroom."
-      - "8 people, 4 bedrooms, 3 bathrooms, 3 WCs."
+      - "6 people, 3 bedrooms, 3 bathrooms, 3 WCs."
       - "Living room with fully equipped kitchen."
       - "Office and high-speed Internet for working in an exceptional setting."
       - "On a 300m² plot, landscaped garden, barbecue, plancha."

@@ -21,11 +21,11 @@ Le linge de maison est en option supplémentaire. Tarif au plus juste selon votr
 <br/>
 -->
 <h2> Les conditions : </h2>
-La maison est non-fumeur/vapoteur. Les animaux ne sont pas admis et les grandes fêtes bruyantes non plus. <br/>
-Arrhes : 30% à la réservation puis 100% à j-30 <br/>
-Caution : 1000€ par chèque à la remise des clefs. <br/>
-Signature de notre contrat de location. <br/>
-Checkin/checkOut avec notre conciergerie.<br/>
+- La maison est non-fumeur/vapoteur. Les animaux et les grandes fêtes bruyantes ne sont pas autorisées. <br/>
+- Arrhes : 30% à la réservation puis 100% à j-30 <br/>
+- Caution : 1000€ par chèque à la remise des clefs. <br/>
+- Signature de notre contrat de location. <br/>
+- Checkin/checkOut avec notre conciergerie.<br/>
 <h2>Les disponibilités : </h2> 
 
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

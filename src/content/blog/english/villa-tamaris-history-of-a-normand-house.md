@@ -4,40 +4,70 @@ meta_title: "Renovation of Villa Tamaris: History of a Norman House."
 description: "Discover the transformation of Villa Tamaris, from its humble origins to a renovation inspired by Norman seaside architecture."
 date: 2025-05-04T05:00:00Z
 image: "/images/villa_rue.jpg"
-categories: ["Visite"]
+categories: ["visit"]
 author: "JmL"
 tags: ["Patrimoine"]
 draft: false
 ---
 
-By acquiring Villa Tamaris and embarking on our renovation project, we delved into the origins of this house and the regional architecture.
+By acquiring Villa Tamaris, our seaside holiday home in Ouistreham, we wanted to understand the history of the property before undertaking its renovation. This journey into the past also introduced us to the typical seaside architecture of the Côte de Nacre and the evolution of seaside holiday homes in Normandy.
 
-<h2> Humble Origins </h2>
+<h2> The Humble Origins of Villa Tamaris </h2>
 
-Villa Tamaris originated as an annex or garage of the neighboring house, historically located on a large plot that was once divided into three separate properties. In the 1950s, this modest single-story structure already had a certain charm, with a simple ground floor enhanced by an open loggia supported by half-timbered wood. Some interior and exterior walls are made of exposed stone, demonstrating a certain quality of construction for this annex building. Photographs from the era show that the interior layout was revised several times, with successive partitioning and removal of partitions. These transformations reflect the changing needs of its occupants and the adaptability of the structure. It is said that at that time, it was a fisherman's house.
+Originally, Villa Tamaris was merely an outbuilding — probably a small garage — attached to a larger property that has since been divided. In the 1950s, this modest single-storey house remained very simple, yet it already possessed a unique charm.
 
-<h2> 1965: Villa Tamaris </h2>
+An open loggia supported by timber framing, a few exposed stone walls, and an orientation facing the sea already gave it the spirit of traditional Norman seaside holiday homes. Old photographs also show that the interior was modified several times over the decades, adapting to the changing needs of its occupants and the flexibility of the structure itself. It is said that, at the time, it served as a fisherman’s house.
 
-The name "Villa Tamaris" appears in a 1965 notarial document. Indeed, a tamarisk tree is present on the property.
+<img src="/images/triptique1960.png" alt="Villa Tamaris House 1960" style="display: block; margin: auto;">
 
-<h2> 1999: A Surprising Transformation </h2> 
+<h2> 1965 : Villa Tamaris</h2>
+
+The name "Villa Tamaris" appears in a notarial deed dating from 1965. And indeed, a tamarisk tree is still present on the property today.
+
+<h2> 1999 : A Radical Transformation </h2>
 
 <img src="/images/triptique2000.png" alt="Villa Tamaris House 1999" style="display: block; margin: auto;">
 
-1999 marked a turning point. Villa Tamaris underwent a major transformation, and the building permit from that time provides some interesting information: The owner explored several architectural projects, initially intending to create a beautiful west-facing Norman-style house with a cap-style roof overhang on the west gable. After several rejections from the town hall, a more sober yet surprising project finally saw the light of day. The house was then raised by two stories on the east side only, with a roof slope descending to the ground floor on the west side. With this strikingly unusual roof in the local landscape, the house possessed an understated charm. Was it a desire to protect against the elements? A compromise imposed by municipal constraints? In any case, this singularity gives it a particular charm for a vacation home, simple and unpretentious. However, with this transformation, no Norman architectural elements were present apart from a nod to the old half-timbered wood. A sample was preserved and affixed to an exterior wall.
+In 1999, Villa Tamaris underwent a complete metamorphosis and became a contemporary three-storey holiday home. The building permits that were rejected at the time reveal some interesting details: the owner explored several architectural projects inspired by Norman style, featuring a west-facing orientation and a typically Norman extended roofline. But after several refusals from the local authorities, it was ultimately a surprising design that came to life.
 
-Unfortunately, shortly afterward, the house in front was raised and partly obscured the interest of the 1999 elevation.
+The building remained north-facing and was extended upward by two storeys only on the east side, with a steeply sloping roof descending to the ground floor on the west side. The result stood apart from the surrounding villas, appearing closer to a contemporary chalet than a traditional seaside home. Was this an attempt to protect the house from harsh weather conditions, or more likely a compromise to satisfy the constraints imposed by the local council?
 
-<h2> 2022: Our Acquisition </h2> 
+With this transformation, most elements of Norman architecture disappeared, except for a fragment of timber framing preserved as a discreet reminder of the past.
+
+A few years later, the neighbouring house was also raised in height, unfortunately reducing part of the sea view that had motivated the 1999 renovation.
+
+<h2>2022 : Our Acquisition</h2>
 
 <img src="/images/triptique2025.png" alt="Villa Tamaris House in 2025" style="display: block; margin: auto;">
 
-In 2022, we acquired Villa Tamaris with the project of restoring the house's unobstructed sea view and opening it more to the outside. Inspired by the original style of the 1950s and the seaside architecture of the beautiful residences of Ouistreham, so well documented in the book "Villas et architecture de bord de mer - Ouistreham" by Florent Herouard, we wanted to reconnect with some codes of the regional seaside architecture from the early 18th century. This time, the town hall accepted the project to build on the west side. We created a terrace on the second floor to break up the facade and avoid ending up with a massive house. The main bedroom now opens onto this terrace with a fantastic view of the seafront through a bay window topped by a dormer. On the first floor, a bow window adds relief to the facade while flooding the dining room with light and positioning it with a front-row view of the sea. The bow window is topped with a tile cap, a typical architectural element of the Norman region, adapted to this humid area.
+In 2022, we acquired Villa Tamaris with the ambition of restoring its stunning sea view, reconnecting with the spirit of 18th-century Norman seaside villas, and occasionally offering it as a holiday rental home.
 
-To reinforce the Norman style, a blue half-timbered design (Weber shade) is added, but only on the second floor to avoid overloading the facade, thus continuing the half-timbered wood of the loggia, even if the original house probably never had real half-timbering.
+We drew inspiration both from its 1950s style and from the grand seaside residences of Ouistreham, notably documented in Florent Herouard’s book "Villas et architecture de bord de mer - Ouistreham".
 
-Finally, we had architectural ceramics made to adorn the facade, perpetuating a tradition of the Norman coast, particularly in Deauville and Trouville, where Belle Époque villas and hotels abundantly use ceramics to embellish their facades. Many can be seen in Ouistreham and Cabourg. We drew inspiration and the necessary designs from the house's flower garden: arums and camellias. Four friezes based on the white arum flower motif adorn the lintels of the bow window's windows, while four cabochons in the shape of red camellia flowers add a touch of color and elegance. As for the tamarisk, we thought long and hard but found it very difficult to represent in ceramic. The ceramics were created by the artist Jane-Martine Brossier-Genevois from Lyon.
+Our renovation project aimed to recreate a bright holiday home in Ouistreham, open to the horizon and designed to fully embrace the sea. This time, the west-side extension project was approved. We therefore created a panoramic terrace on the second floor extending from the main bedroom, offering uninterrupted sea views directly from the bed. On the first floor, a bow window now captures the light and opens the dining room widely toward the beach.
 
-<h2>Conclusion</h2>
+To reconnect with regional architecture, several elements inspired by Norman villas were reintroduced:
+* a bow window topped with a tiled canopy
+* a two-sided dormer window (known as a Jacobin dormer), echoing the typically Norman half-hipped roof on the eastern side
+* decorative deep blue timber framing
+* ornamental ceramics
 
-This is how Villa Tamaris continues its story, enriched by a new transformation that, I hope, respects its past and illustrates the social evolution of the Norman coast, from a modest fisherman's house to a residence open to the horizon. Each generation has contributed to the Norman seaside heritage, balancing tradition and contemporary reinterpretation. Today, it stands proudly, and we hope to have harmoniously blended tradition and modernity. We are proud to have contributed our modest touch to the history of this building and to have passionately experienced this small architectural adventure.
+These ceramic ornaments are emblematic of the grand Belle Époque seaside villas and hotels, which remain highly visible in Ouistreham, Cabourg, Deauville, and Trouville-sur-Mer.
+
+The selected motifs were directly inspired by the arums and camellias growing in the garden. Four decorative friezes now adorn the bow window lintels, while several camellia-shaped cabochons add touches of colour to the façade.
+
+These creations were specially designed for the house by Jane-Martine Brossier-Genevois, an artist from Lyon.
+
+As for the tamarisk tree, we reflected on it for a long time, but it proved very difficult to represent in ceramic form.
+
+Finally, as a last touch added in 2025, after a storm damaged the historic metal weather vane, we took the opportunity to urgently install a roof finial from the famous Bavent pottery workshops, another iconic institution of the region!
+
+<h2>A Seaside Holiday Home That Continues Its Story</h2>
+
+And so Villa Tamaris continues its story, enriched by a new transformation that, I hope, respects its past while illustrating the social evolution of the Norman coast — from a modest fisherman’s house to a restored sea-view holiday home once again open to the horizon.
+
+Each generation has added its own contribution to the building, helping shape Normandy’s seaside architectural heritage between preservation and contemporary reinterpretation.
+
+Today, the villa stands proudly, and we hope we have succeeded in harmoniously blending tradition and modernity. We are proud to have added our modest contribution to the history of this house and to have passionately lived through this architectural adventure.
+
+And because a holiday home truly comes alive when it is inhabited and shared, we occasionally offer this seaside holiday home in Ouistreham as a vacation rental.

@@ -4,9 +4,9 @@ meta_title: "Que faire à Ouistreham sous la pluie ? Activités et lieux à visi
 description: "Découvrez musées, châteaux, ateliers d’artisans, piscines et dégustations à Ouistreham. Profitez d'activités variées, même par temps pluvieux."
 date: 2024-12-24T05:00:00Z
 image: "/images/placeholder.jpg"
-categories: ["Visite"]
+categories: ["Guide"]
 author: "jml"
-tags: ["Pluie", "Patrimoine"]
+tags: ["Pluie", "château", "jeux"]
 draft: false
 ---
 

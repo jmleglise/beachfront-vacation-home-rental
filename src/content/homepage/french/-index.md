@@ -1,6 +1,6 @@
 ---
 meta_title: "Maison de vacances bord de mer à Ouistreham / Normandie Calvados | 8pers"
-description: "Location saisonnière en Normandie : superbe maison de vacances à Ouistreham, en front de mer, avec vue mer. Séjournez dans le Calvados, les pieds dans l’eau. 4 chambres, 8 personnes. à 2h de Paris. Pour votre location en famille ou escapade d'un wk."
+description: "Location saisonnière en Normandie : superbe maison de vacances à Ouistreham, en front de mer, avec vue mer. Séjournez dans le Calvados, les pieds dans l’eau. 3 chambres, 6 personnes. à 2h de Paris. Pour votre location en famille ou escapade d'un wk."
 schemaVacationRental: |
   <script type="application/ld+json"> 
   {
@@ -8,7 +8,7 @@ schemaVacationRental: |
     "@type": "VacationRental",
     "additionalType": "Villa",
     "name": "Villa Tamaris",
-    "description": "Superbe maison de vacances en front de mer à Ouistreham, offrant une belle vue sur la mer et un accès direct à la plage de Riva Bella. Pour 8 personnes, 4 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation.",
+    "description": "Superbe maison de vacances en front de mer à Ouistreham, offrant une belle vue sur la mer et un accès direct à la plage de Riva Bella. Pour 6 personnes, 3 chambres, offrant tout le confort et l'équipement d'une véritable maison d'habitation.",
     "url": "https://www.location-maison-mer.fr/fr/",
     "identifier": "villa-tamaris-ouistreham",
     "knowsLanguage": [
@@ -57,13 +57,13 @@ schemaVacationRental: |
       "bed": [
         {
           "@type": "BedDetails",
-          "numberOfBeds": 8,
+          "numberOfBeds": 5,
           "typeOfBed": "Single"
         }
       ],
       "occupancy": {
         "@type": "QuantitativeValue",
-        "value": 8
+        "value": 6
       },
       "amenityFeature": [
         {
@@ -115,7 +115,7 @@ schemaVacationRental: |
       "numberOfRooms": 10,
       "numberOfBathroomsTotal": 3,
       "numberOfBedrooms": 4,
-      "maximumAttendeeCapacity": 8,
+      "maximumAttendeeCapacity": 6,
       "petsAllowed": false,
       "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
     }
@@ -124,7 +124,7 @@ schemaVacationRental: |
 # Banner
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
-  content: "Pour votre location de vacances à Ouistreham en normandie, nous vous proposons notre charmante maison pour 8 personnes, en front de mer avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
+  content: "Pour votre location de vacances à Ouistreham en normandie, nous vous proposons notre charmante maison pour 6 personnes, en front de mer avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
   Imaginez votre réveil avec une vue mer imprenable depuis votre lit et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br> 
   La maison est également parfaitement équipée pour le télétravail.<br>
   Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau, le temps d'un week-end ou d'une semaine.<br>"
@@ -159,7 +159,7 @@ features:
     content: "Face à la mer, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
-      - "8 personnes, 4 chambres spatieuses dont 3 avec lits séparables, 3 Salles de douche, 3 WC séparés."
+      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 3 Salles de douche, 3 WC séparés."
       - "Suite parentale, vue mer exceptionnelle, avec sa grande salle de douche et sa terrasse privative."
       - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger et le bowwindow devant la mer."
       - "Bureau isolé et Internet++ pour travailler dans un cadre exceptionnel."

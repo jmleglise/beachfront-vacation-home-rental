@@ -6,7 +6,7 @@ date: 2024-12-07T05:00:00Z
 image: "/images/placeholder.jpg"
 categories: ["Administratif"]
 author: "jml"
-tags: ["Contrat", "Arrhes", "Dépot de garantie"]
+tags: ["Contrat"]
 draft: false
 ---
 

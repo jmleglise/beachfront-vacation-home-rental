@@ -4,9 +4,9 @@ meta_title: "Visitez la jetée des pécheurs de Luc-sur-mer lors d'un séjour à
 description: "En louant notre maison de vacances à Ouistreham, profitez en pour découvrir la jetée des pécheurs de Luc sur mer"
 date: 2024-04-04T05:00:00Z
 image: "/images/jeteelucsurmer.jpg"
-categories: ["Visite"]
+categories: ["Guide"]
 author: "jml"
-tags: ["Patrimoine", "Mer"]
+tags: ["Patrimoine", "Plage"]
 draft: false
 ---
 

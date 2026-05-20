@@ -6,6 +6,7 @@ image: "/images/villa_rue.jpg"
 draft: false
 ---
 Feel free to contact us for any special arrangement. 
+<!-- 
 <h2> Price all Tax included</h2>
 
 - High Season - May, June, July, August, September: <br/>
@@ -17,12 +18,14 @@ Feel free to contact us for any special arrangement.
 
 Linen package not included, and on demand. 
 The rate includes charges for normal usage, and all equipment ( barbecue gaz, bycicle...).
-
+-->
 <h2> Terms and Conditions: </h2>
-- The house is rented for a maximum of 8 people. <br/>
-- Deposit: 30% at booking, then 100% 20 days before arrival.<br/>
+- The house is non-smoking/vaping. Pets and loud parties are not allowed to ensure respect for our friendly neighbors.<br/>
+- Signature of our rental agreement. <br/>
+- Deposit: 30% at booking, then 100% 30 days before arrival.<br/>
 - Security deposit: €1000 upon key handover.<br/>
-- The house is non-smoking/vaping. Pets and loud parties are not allowed to ensure respect for all guests and our friendly neighbors.<br/>
+- Check‑in / Check‑out with our concierge service. <br/>
+
 
 <h2> Availability: </h2>
 
