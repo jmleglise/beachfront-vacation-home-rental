@@ -4,42 +4,37 @@ description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. S
 
 
 schemaVacationRental: |  
-  <script type="application/ld+json"> 
+  <script type="application/ld+json">
   {
   "@context": "https://schema.org",
   "@type": "VacationRental",
-  "additionalType": "Villa",
+  "additionalType": "https://schema.org/House",
   "name": "Villa Tamaris",
-  "description": "Beautiful beachfront vacation home in Ouistreham, offering a stunning sea views and direct  Riva Bella beach access. Sleeps 6, 3 bedrooms. Perfect for families or seaside getaways !",
+  "description": "Beachfront holiday home in Ouistreham with sea view, direct access to the beach, terrace, garden and barbecue. 3 bedrooms, up to 6 guests.",
   "url": "https://www.location-maison-mer.fr/en/",
   "identifier": "villa-tamaris-ouistreham",
-  "knowsLanguage": [
-    "en-US",
-    "fr-FR"
-  ],
+  "availableLanguage": ["fr-FR", "en-US"],
   "image": [
-      "https://www.location-maison-mer.fr/images/villa_front.jpg",
-      "https://www.location-maison-mer.fr/images/villa_rue.jpg",
-      "https://www.location-maison-mer.fr/images/d_ch5_vue.jpg",
-      "https://www.location-maison-mer.fr/images/d_ch5.jpg",      
-      "https://www.location-maison-mer.fr/images/d_cuisine.jpg",
-      "https://www.location-maison-mer.fr/images/d_sallemanger.jpg",
-      "https://www.location-maison-mer.fr/images/d_salon.jpg",
-      "https://www.location-maison-mer.fr/images/d_salon2.jpg",      
-      "https://www.location-maison-mer.fr/images/d_coinapero.jpg",  
-      "https://www.location-maison-mer.fr/images/d_bureau.jpg",            
-      "https://www.location-maison-mer.fr/images/d_bureau2.jpg",    
-      "https://www.location-maison-mer.fr/images/d_ch3.jpg",  
-      "https://www.location-maison-mer.fr/images/d_ch3_vue.jpg",  
-      "https://www.location-maison-mer.fr/images/d_ch4.jpg",
-      "https://www.location-maison-mer.fr/images/d_sde1.jpg", 
-      "https://www.location-maison-mer.fr/images/d_sde2.jpg",           
-      "https://www.location-maison-mer.fr/images/d_terrasse.jpg",  
-      "https://www.location-maison-mer.fr/images/d_cour.jpg",          
-      "https://www.location-maison-mer.fr/images/plage.jpg",
-      "https://www.location-maison-mer.fr/images/dune.jpg",
-      "https://www.location-maison-mer.fr/images/post_card.jpg"
+    "https://www.location-maison-mer.fr/images/villa_front.jpg",
+    "https://www.location-maison-mer.fr/images/villa_rue.jpg",
+    "https://www.location-maison-mer.fr/images/d_ch5_vue.jpg",
+    "https://www.location-maison-mer.fr/images/d_ch5.jpg",
+    "https://www.location-maison-mer.fr/images/d_cuisine.jpg",
+    "https://www.location-maison-mer.fr/images/d_sallemanger.jpg",
+    "https://www.location-maison-mer.fr/images/d_salon.jpg",
+    "https://www.location-maison-mer.fr/images/d_salon2.jpg",
+    "https://www.location-maison-mer.fr/images/d_bureau.jpg",
+    "https://www.location-maison-mer.fr/images/d_bureau2.jpg",
+    "https://www.location-maison-mer.fr/images/d_ch3.jpg",
+    "https://www.location-maison-mer.fr/images/d_ch3_vue.jpg",
+    "https://www.location-maison-mer.fr/images/d_ch4.jpg",
+    "https://www.location-maison-mer.fr/images/d_sde1.jpg",
+    "https://www.location-maison-mer.fr/images/d_sde2.jpg",
+    "https://www.location-maison-mer.fr/images/d_terrasse.jpg",
+    "https://www.location-maison-mer.fr/images/plage.jpg",
+    "https://www.location-maison-mer.fr/images/dune.jpg"
   ],
+
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "117 Boulevard Aristide Briand",
@@ -48,80 +43,80 @@ schemaVacationRental: |
     "addressRegion": "Normandie",
     "addressCountry": "FR"
   },
+
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "49.29152",
-    "longitude": "-0.27283"
+    "latitude": 49.29152,
+    "longitude": -0.27283
   },
-  "containsPlace": {
-    "@type": "Accommodation",
-    "additionalType": "EntirePlace",
-    "bed": [
-      {
-        "@type": "BedDetails",
-        "numberOfBeds": 5,
-        "typeOfBed": "Single"
-      }
-    ],
-    "occupancy": {
-      "@type": "QuantitativeValue",
-      "value": 6
+
+  "checkinTime": "16:00",
+  "checkoutTime": "11:00",
+
+  "numberOfBedrooms": 3,
+  "numberOfBathroomsTotal": 3,
+  "numberOfRooms": 10,
+  "petsAllowed": false,
+
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "value": 6
+  },
+
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": 190,
+    "unitCode": "SQM"
+  },
+
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Sea view", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Direct beach access", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Terrace", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Garden", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Barbecue", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Fully equipped kitchen", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Fiber internet", "value": true }
+  ],
+
+  "bed": [
+    {
+      "@type": "BedDetails",
+      "typeOfBed": "Double",
+      "numberOfBeds": 1,
+      "description": "Bedroom 1: one double bed"
     },
-    "amenityFeature": [
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Sea view",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Direct beach access",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Terrace",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Flower garden",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Barbecue and plancha",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "High-speed internet",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Fully equipped kitchen",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
-        "name": "Home office",
-        "value": true
-      }
-    ],
-    "floorSize": {
-      "@type": "QuantitativeValue",
-      "value": 190,
-      "unitCode": "SQM"
+    {
+      "@type": "BedDetails",
+      "typeOfBed": "Single",
+      "numberOfBeds": 2,
+      "description": "Bedroom 2: two single beds that can be combined into a double bed"
     },
-    "numberOfRooms": 10,
-    "numberOfBathroomsTotal": 3,
-    "numberOfBedrooms": 4,
-    "maximumAttendeeCapacity": 6,
-    "petsAllowed": false,
-    "tourBookingPage": "https://www.location-maison-mer.fr/villa-tamaris-beachfront-ouistreham-book-now/"
+    {
+      "@type": "BedDetails",
+      "typeOfBed": "Single",
+      "numberOfBeds": 2,
+      "description": "Bedroom 3: two single beds that can be combined into a double bed"
+    }
+  ],
+
+  "offers": {
+    "@type": "Offer",
+    "price": "142",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": 142,
+      "maxPrice": 260,
+      "priceCurrency": "EUR"
+    },
+    "availability": "https://schema.org/InStock",
+    "businessFunction": "https://schema.org/LeaseOut",
+    "url": "https://www.location-maison-mer.fr/en/villa-tamaris-beachfront-ouistreham-book-now/"
   }
-  }</script>
+  }
+  </script>
+
 # Banner
 banner:
   title: "Beachfront Villa rental in Ouistreham Normandy"

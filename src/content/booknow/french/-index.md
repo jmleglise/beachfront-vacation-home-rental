@@ -26,7 +26,7 @@ Le linge de maison est en option supplémentaire. Tarif au plus juste selon votr
 - Caution : 1000€ par chèque à la remise des clefs. <br/>
 - Signature de notre contrat de location. <br/>
 - Checkin/checkOut avec notre conciergerie.<br/>
-<h2>Les disponibilités : </h2> 
+<h2>Planning des réservations : </h2> 
 
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
