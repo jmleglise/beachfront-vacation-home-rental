@@ -5,7 +5,7 @@ description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. S
 
 schemaVacationRental: |  
   <script type="application/ld+json">
-{
+  {
   "@context": "https://schema.org",
   "@type": ["VacationRental", "House"],
   "name": "Villa Tamaris",
