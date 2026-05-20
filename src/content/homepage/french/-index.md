@@ -50,75 +50,53 @@ schemaVacationRental: |
 
   "checkinTime": "16:00",
   "checkoutTime": "11:00",
-
-  "numberOfBedrooms": 3,
-  "numberOfBathroomsTotal": 3,
-  "numberOfRooms": 10,
-
   "petsAllowed": false,
-
-  "occupancy": {
-    "@type": "QuantitativeValue",
-    "value": 6
-  },
-
-  "floorSize": {
-    "@type": "QuantitativeValue",
-    "value": 190,
-    "unitCode": "SQM"
-  },
 
   "containsPlace": {
     "@type": "Accommodation",
+    "additionalType": "EntirePlace", 
     "numberOfRooms": 10,
+    "numberOfBedrooms": 3,
+    "numberOfBathroomsTotal": 3,
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": 190,
+      "unitCode": "SQM"
+    },
     "occupancy": {
       "@type": "QuantitativeValue",
-      "maxValue": 6
+      "value": 6 
     },
     "bed": [
       {
         "@type": "BedDetails",
         "typeOfBed": "Double",
-        "numberOfBeds": 1
+        "numberOfBeds": 1,
+        "description": "Chambre 1 : lit double"
       },
       {
         "@type": "BedDetails",
         "typeOfBed": "Single",
-        "numberOfBeds": 4
+        "numberOfBeds": 2,
+        "description": "Chambre 2 : 2 lits simples pouvant être assemblés en lit double"
+      },
+      {
+        "@type": "BedDetails",
+        "typeOfBed": "Single",
+        "numberOfBeds": 2,
+        "description": "Chambre 3 : 2 lits simples pouvant être assemblés en lit double"
       }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Vue sur la mer", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Accès direct à la plage", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Terrasse", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Jardin", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Barbecue", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Cuisine tout équipée", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Internet fibre", "value": true }
     ]
   },
-
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Vue sur la mer", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Accès direct à la plage", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Terrasse", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Jardin", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Barbecue", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Cuisine tout équipée", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Internet fibre", "value": true }
-  ],
-
-  "bed": [
-    {
-      "@type": "BedDetails",
-      "typeOfBed": "Double",
-      "numberOfBeds": 1,
-      "description": "Chambre 1 : lit double"
-    },
-    {
-      "@type": "BedDetails",
-      "typeOfBed": "Single",
-      "numberOfBeds": 2,
-      "description": "Chambre 2 : 2 lits simples pouvant être assemblés en lit double"
-    },
-    {
-      "@type": "BedDetails",
-      "typeOfBed": "Single",
-      "numberOfBeds": 2,
-      "description": "Chambre 3 : 2 lits simples pouvant être assemblés en lit double"
-    }
-  ],
 
   "aggregateRating": {
     "@type": "AggregateRating",
