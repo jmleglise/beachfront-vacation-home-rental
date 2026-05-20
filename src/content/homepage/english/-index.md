@@ -5,15 +5,16 @@ description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. S
 
 schemaVacationRental: |  
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
-  "@type": "VacationRental",
-  "additionalType": "https://schema.org/House",
+  "@type": ["VacationRental", "House"],
   "name": "Villa Tamaris",
-  "description": "Beachfront holiday home in Ouistreham with sea view, direct access to the beach, terrace, garden and barbecue. 3 bedrooms, up to 6 guests.",
+  "description": "Beachfront holiday home in Ouistreham, featuring sea views, direct beach access, terrace, garden, and barbecue. 3 bedrooms, accommodates up to 6 guests.",
   "url": "https://www.location-maison-mer.fr/en/",
   "identifier": "villa-tamaris-ouistreham",
-  "availableLanguage": ["fr-FR", "en-US"],
+  "availableLanguage": ["en-US", "fr-FR"],
+  "priceRange": "€142 - €260",
+
   "image": [
     "https://www.location-maison-mer.fr/images/villa_front.jpg",
     "https://www.location-maison-mer.fr/images/villa_rue.jpg",
@@ -52,51 +53,99 @@ schemaVacationRental: |
 
   "checkinTime": "16:00",
   "checkoutTime": "11:00",
-
-  "numberOfBedrooms": 3,
-  "numberOfBathroomsTotal": 3,
-  "numberOfRooms": 10,
   "petsAllowed": false,
 
-  "occupancy": {
-    "@type": "QuantitativeValue",
-    "value": 6
+  "containsPlace": {
+    "@type": "Accommodation",
+    "additionalType": "EntirePlace", 
+    "numberOfRooms": 10,
+    "numberOfBedrooms": 3,
+    "numberOfBathroomsTotal": 3,
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": 190,
+      "unitCode": "SQM"
+    },
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "value": 6 
+    },
+    "bed": [
+      {
+        "@type": "BedDetails",
+        "typeOfBed": "Double",
+        "numberOfBeds": 1,
+        "description": "Bedroom 1: double bed"
+      },
+      {
+        "@type": "BedDetails",
+        "typeOfBed": "Single",
+        "numberOfBeds": 2,
+        "description": "Bedroom 2: 2 single beds that can be combined into a double bed"
+      },
+      {
+        "@type": "BedDetails",
+        "typeOfBed": "Single",
+        "numberOfBeds": 2,
+        "description": "Bedroom 3: 2 single beds that can be combined into a double bed"
+      }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Sea view", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Direct beach access", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Terrace", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Garden", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Barbecue", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Fully equipped kitchen", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Fibre internet", "value": true }
+    ]
   },
 
-  "floorSize": {
-    "@type": "QuantitativeValue",
-    "value": 190,
-    "unitCode": "SQM"
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "8"
   },
 
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Sea view", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Direct beach access", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Terrace", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Garden", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Barbecue", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Fully equipped kitchen", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Fiber internet", "value": true }
-  ],
-
-  "bed": [
+  "review": [
     {
-      "@type": "BedDetails",
-      "typeOfBed": "Double",
-      "numberOfBeds": 1,
-      "description": "Bedroom 1: one double bed"
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Hervé Noras"
+      },
+      "datePublished": "2025-10",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "Ideally located house facing the sea, beautifully renovated, spacious, and perfectly equipped."
     },
     {
-      "@type": "BedDetails",
-      "typeOfBed": "Single",
-      "numberOfBeds": 2,
-      "description": "Bedroom 2: two single beds that can be combined into a double bed"
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Katja Kohler-Golly"
+      },
+      "datePublished": "2026-04",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "Great house, wonderful location. Very nice host. Dreamlike view of the sea. You can walk along the beach to two very delicious bakeries. We spent a wonderful week here and will definitely come back."
     },
     {
-      "@type": "BedDetails",
-      "typeOfBed": "Single",
-      "numberOfBeds": 2,
-      "description": "Bedroom 3: two single beds that can be combined into a double bed"
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Rachel Boitelet"
+      },
+      "datePublished": "2026-05",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "reviewBody": "Excellent stay with friends. Spacious house, recent renovation, and ideal location close to the beach and restaurants."
     }
   ],
 
@@ -104,14 +153,17 @@ schemaVacationRental: |
     "@type": "Offer",
     "price": "142",
     "priceCurrency": "EUR",
+
     "priceSpecification": {
       "@type": "PriceSpecification",
       "minPrice": 142,
       "maxPrice": 260,
       "priceCurrency": "EUR"
     },
+
     "availability": "https://schema.org/InStock",
     "businessFunction": "https://schema.org/LeaseOut",
+
     "url": "https://www.location-maison-mer.fr/en/villa-tamaris-beachfront-ouistreham-book-now/"
   }
   }
