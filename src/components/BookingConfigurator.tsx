@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
+import ReactDOM from "react-dom";
 import { Calendar as CalendarIcon } from "lucide-react";
 import * as Popover from "@radix-ui/react-popover";
 import { DayPicker } from "react-day-picker";
@@ -127,7 +128,6 @@ const formatDate = (d: Date, lang: string) => {
   const month = d.getMonth();
   const day = d.getDate();
   const fixedDate = new Date(year, month, day, 12, 0, 0);
-
   return new Intl.DateTimeFormat(lang === "fr" ? "fr-FR" : "en-US", {
     weekday: "long",
     day: "numeric",
@@ -135,6 +135,43 @@ const formatDate = (d: Date, lang: string) => {
     year: "numeric",
   }).format(fixedDate);
 };
+
+// Tooltip global rendu dans le body via portail, positionné en fixed
+function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | null }) {
+  const [style, setStyle] = useState<React.CSSProperties>({ display: "none" });
+
+  useEffect(() => {
+    if (!anchorEl || !text) {
+      setStyle({ display: "none" });
+      return;
+    }
+    const rect = anchorEl.getBoundingClientRect();
+    setStyle({
+      display: "block",
+      position: "fixed",
+      top: rect.top - 6,
+      left: rect.left + rect.width / 2,
+      transform: "translate(-50%, -100%)",
+      backgroundColor: "rgba(55, 55, 55, 0.93)",
+      color: "#fff",
+      border: "1px solid rgba(180,180,180,0.4)",
+      borderRadius: "6px",
+      padding: "4px 10px",
+      fontSize: "11px",
+      lineHeight: "1.5",
+      whiteSpace: "nowrap",
+      pointerEvents: "none",
+      zIndex: 99999,
+      boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+    });
+  }, [anchorEl, text]);
+
+  if (typeof document === "undefined") return null;
+  return ReactDOM.createPortal(
+    <div style={style}>{text}</div>,
+    document.body
+  );
+}
 
 export default function BookingConfigurator({ lang, apiKey, calendarId, turnstileSiteKey }: Props) {
   const t = txtFor(lang);
@@ -161,12 +198,14 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const [loading, setLoading] = useState(false);
   const [calendarError, setCalendarError] = useState<string | null>(null);
   const [hoveredDay, setHoveredDay] = useState<Date | undefined>();
-  const [hoverHint, setHoverHint] = useState<string>("");
+
+  // Tooltip state : l'élément DOM survolé + le texte à afficher
+  const [tooltipAnchor, setTooltipAnchor] = useState<Element | null>(null);
+  const [tooltipText, setTooltipText] = useState("");
 
   useEffect(() => {
     const container = document.getElementById("turnstile-container");
     if (!container || !turnstileSiteKey) return;
-
     const loadTurnstile = () => {
       if ((window as any).turnstile) {
         (window as any).turnstile.render("#turnstile-container", {
@@ -175,7 +214,6 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         });
       }
     };
-
     if (!(window as any).turnstile) {
       const script = document.createElement("script");
       script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
@@ -190,17 +228,13 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
 
   useEffect(() => {
     const load = async () => {
-      if (!apiKey || !calendarId) {
-        setCalendarError("missing");
-        return;
-      }
+      if (!apiKey || !calendarId) { setCalendarError("missing"); return; }
       setLoading(true);
       try {
         const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?singleEvents=true&orderBy=startTime&timeMin=${encodeURIComponent(new Date().toISOString())}&key=${encodeURIComponent(apiKey)}`;
         const response = await fetch(url);
         const data = await response.json();
         if (!response.ok) throw new Error();
-
         const blocked: string[] = [];
         for (const evt of data.items ?? []) {
           const start = evt?.start?.date || evt?.start?.dateTime;
@@ -225,14 +259,8 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const toDate = date?.to ? startOfDay(date.to) : undefined;
   const nights = fromDate && toDate ? Math.max(0, Math.round((toDate.getTime() - fromDate.getTime()) / 86400000)) : 0;
 
-
   const bedConfig = useMemo(() => {
-    const map = {
-      none: { doubleBeds: 0, singleBeds: 0 },
-      double: { doubleBeds: 1, singleBeds: 0 },
-      single: { doubleBeds: 0, singleBeds: 1 },
-      single2: { doubleBeds: 0, singleBeds: 2 },
-    } as const;
+    const map = { none: { doubleBeds: 0, singleBeds: 0 }, double: { doubleBeds: 1, singleBeds: 0 }, single: { doubleBeds: 0, singleBeds: 1 }, single2: { doubleBeds: 0, singleBeds: 2 } } as const;
     const suite = map[suiteBed as keyof typeof map];
     const r2 = map[room2Bed as keyof typeof map];
     const r3 = map[room3Bed as keyof typeof map];
@@ -242,29 +270,21 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const doubleBeds = bedConfig.doubleBeds;
   const singleBeds = bedConfig.singleBeds;
 
-  // --- CALCUL DÉTAILLÉ DE LA SAISONNALITÉ ---
   const pricingDetail = useMemo(() => {
-    let highNights = 0;
-    let lowNights = 0;
-
+    let highNights = 0, lowNights = 0;
     if (fromDate && toDate && nights > 0) {
       for (let i = 0; i < nights; i++) {
         const currentNight = addDays(fromDate, i);
-        const isHigh = SEASON_PRICING.HIGH_SEASON_MONTHS.includes(currentNight.getMonth());
-        if (isHigh) highNights++;
+        if (SEASON_PRICING.HIGH_SEASON_MONTHS.includes(currentNight.getMonth())) highNights++;
         else lowNights++;
       }
     }
-
     const isLong = nights >= 7;
     const hRate = isLong ? SEASON_PRICING.HIGH_LONG_RATE : SEASON_PRICING.HIGH_SHORT_RATE;
     const lRate = isLong ? SEASON_PRICING.LOW_LONG_RATE : SEASON_PRICING.LOW_SHORT_RATE;
     const hBase = SEASON_PRICING.HIGH_SHORT_RATE;
     const lBase = SEASON_PRICING.LOW_SHORT_RATE;
-
-    const totalNightsPrice = highNights * hRate + lowNights * lRate;
-
-    return { highNights, lowNights, hRate, lRate, hBase, lBase, totalNightsPrice };
+    return { highNights, lowNights, hRate, lRate, hBase, lBase, totalNightsPrice: highNights * hRate + lowNights * lRate };
   }, [fromDate, toDate, nights]);
 
   const beddingPrice = linens ? doubleBeds * DOUBLE_BED_RATE + singleBeds * SINGLE_BED_RATE : 0;
@@ -277,21 +297,16 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     () => bookedDateObjects.filter((d) => !bookedDateSet.has(toDayKey(addDays(d, -1)))),
     [bookedDateObjects, bookedDateSet],
   );
-
   const blockedBeforeBookedDates = useMemo(() => {
     const preBlocked: Date[] = [];
-    for (const blockedDay of bookedDateObjects) {
+    for (const blockedDay of bookedDateObjects)
       for (let i = 1; i <= MIN_NIGHTS - 1; i++) preBlocked.push(addDays(blockedDay, -i));
-    }
     return preBlocked;
   }, [bookedDateObjects]);
 
   const nextBlockedDate = useMemo(() => {
     if (!fromDate) return undefined;
-    return bookedDates
-      .map((d) => startOfDay(new Date(d)))
-      .filter((d) => d > fromDate)
-      .sort((a, b) => a.getTime() - b.getTime())[0];
+    return bookedDates.map((d) => startOfDay(new Date(d))).filter((d) => d > fromDate).sort((a, b) => a.getTime() - b.getTime())[0];
   }, [fromDate, bookedDates]);
 
   const requiredMinStayDays = useMemo(() => {
@@ -299,63 +314,38 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     return Array.from({ length: Math.max(0, MIN_NIGHTS - 1) }, (_, i) => addDays(fromDate, i + 1));
   }, [fromDate]);
 
-  // Modifié pour dissocier proprement le comportement Phase 1 vs Phase 2
+  const reservationStartDaysSet = useMemo(() => new Set(reservationStartDays.map((d) => toDayKey(d))), [reservationStartDays]);
+  const blockedBeforeSet = useMemo(() => new Set(blockedBeforeBookedDates.map((d) => toDayKey(d))), [blockedBeforeBookedDates]);
+
   const disabledDates = useMemo(
     () => (day: Date) => {
       const normalizedDay = startOfDay(day);
       const key = toDayKey(normalizedDay);
-
-      // Règle commune invariable : Moins que minArrival est toujours désactivé nativement
       if (normalizedDay < minArrival) return true;
-
       if (!fromDate) {
-        // PHASE 1 : Choix de la date d'arrivée
-        // On ne bloque nativement que les jours pleins déjà réservés (hors premier jour de résa).
-        // On laisse "libres" les jours de départ seuls et de marge minimale afin qu'ils reçoivent l'événement Hover.
         const isReservationStart = reservationStartDays.some((d) => toDayKey(d) === key);
-        if (bookedDateSet.has(key) && !isReservationStart) {
-          return true;
-        }
+        if (bookedDateSet.has(key) && !isReservationStart) return true;
         return false;
       } else {
-        // PHASE 2 : Choix de la date de départ (toDate)
-        // Bloquer les nuits minimales obligatoires
         if (requiredMinStayDays.some((d) => toDayKey(d) === key)) return true;
-        
-        // Bloquer tout ce qui dépasse strictement la prochaine période réservée
         if (nextBlockedDate && normalizedDay > nextBlockedDate) return true;
-
-        // Bloquer les jours réservés, SAUF si c'est précisément le premier jour de la réservation suivante
         if (bookedDateSet.has(key)) {
           if (nextBlockedDate && toDayKey(nextBlockedDate) === key) return false;
           return true;
         }
-
         return false;
       }
     },
     [minArrival, fromDate, reservationStartDays, bookedDateSet, requiredMinStayDays, nextBlockedDate],
   );
 
-  // Fonction de sécurité exécutée au clic réel
   const handleSelect = (range: DateRange | undefined) => {
-    if (!range) {
-      setDate(undefined);
-      return;
-    }
-
-    // Si on est en train de choisir la date d'arrivée (Phase 1)
+    if (!range) { setDate(undefined); return; }
     if (range.from && !date?.from) {
       const startKey = toDayKey(startOfDay(range.from));
-      const isDepOnly = reservationStartDays.some((d) => toDayKey(d) === startKey);
-      const isBlockedBefore = blockedBeforeBookedDates.some((d) => toDayKey(d) === startKey);
-      
-      // Sécurité métier : si la date cliquée fait partie des zones d'exclusion d'arrivée, on rejette le clic
-      if (isDepOnly || isBlockedBefore) {
-        return;
-      }
+      if (reservationStartDays.some((d) => toDayKey(d) === startKey)) return;
+      if (blockedBeforeBookedDates.some((d) => toDayKey(d) === startKey)) return;
     }
-
     setDate(range);
   };
 
@@ -369,68 +359,64 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const rangeHasBlockedNights = useMemo(() => {
     if (!fromDate || !toDate) return false;
     const blocked = new Set(bookedDates);
-    for (let d = new Date(fromDate); d < toDate; d = addDays(d, 1)) {
+    for (let d = new Date(fromDate); d < toDate; d = addDays(d, 1))
       if (blocked.has(toDayKey(d))) return true;
-    }
     return false;
   }, [fromDate, toDate, bookedDates]);
 
   const exceedsNextBlockedDate = Boolean(fromDate && toDate && nextBlockedDate && toDate > nextBlockedDate);
-  const hasValidRange = Boolean(
-    fromDate && toDate && nights >= MIN_NIGHTS && fromDate >= minArrival && !rangeHasBlockedNights && !exceedsNextBlockedDate,
-  );
-
+  const hasValidRange = Boolean(fromDate && toDate && nights >= MIN_NIGHTS && fromDate >= minArrival && !rangeHasBlockedNights && !exceedsNextBlockedDate);
   const isFormValid = Boolean(firstName && lastName && email && phone && turnstileToken);
   const canReserve = hasValidRange && !calendarError && isFormValid && submitStatus !== "submitting";
 
   const handleBookingSubmit = async () => {
     if (!canReserve) return;
     setSubmitStatus("submitting");
-
     try {
       const response = await fetch("/api/reserve", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phone,
-          message,
-          postalAddress,
-          fromDate: fromDate?.toISOString(),
-          toDate: toDate?.toISOString(),
-          nights,
-          guests,
-          doubleBeds,
-          singleBeds,
-          suiteBed,
-          room2Bed,
-          room3Bed,
-          linens,
-          towels,
-          totalPrice: total,
-          turnstileToken,
-        }),
+        body: JSON.stringify({ firstName, lastName, email, phone, message, postalAddress, fromDate: fromDate?.toISOString(), toDate: toDate?.toISOString(), nights, guests, doubleBeds, singleBeds, suiteBed, room2Bed, room3Bed, linens, towels, totalPrice: total, turnstileToken }),
       });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-      } else {
-        setSubmitStatus("error");
-      }
+      if (response.ok) setSubmitStatus("success");
+      else setSubmitStatus("error");
     } catch {
       setSubmitStatus("error");
     }
   };
 
-  const controlStyles =
-    "h-10 w-full max-w-xs sm:w-48 inline-flex items-center justify-between gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors";
-  const inputStyles =
-    "h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors placeholder:text-gray-400";
+  // Gestionnaire onDayMouseEnter : récupère le <button> du jour via l'event natif
+  const handleDayMouseEnter = (day: Date, _modifiers: any, e: React.MouseEvent<Element>) => {
+    setHoveredDay(day);
+    if (fromDate) { setTooltipText(""); setTooltipAnchor(null); return; }
+    const key = toDayKey(startOfDay(day));
+    let hint = "";
+    if (reservationStartDaysSet.has(key)) hint = t.departureOnlyHint;
+    else if (blockedBeforeSet.has(key)) hint = t.blockedBeforeHint;
+    if (hint) {
+      // e.currentTarget est le <button> du jour — pas de problème d'overflow ici
+      setTooltipText(hint);
+      setTooltipAnchor(e.currentTarget);
+    } else {
+      setTooltipText("");
+      setTooltipAnchor(null);
+    }
+  };
+
+  const handleDayMouseLeave = () => {
+    setHoveredDay(undefined);
+    setTooltipText("");
+    setTooltipAnchor(null);
+  };
+
+  const controlStyles = "h-10 w-full max-w-xs sm:w-48 inline-flex items-center justify-between gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors";
+  const inputStyles = "h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors placeholder:text-gray-400";
 
   return (
     <section className="mt-10 mx-auto max-w-3xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      {/* Tooltip global — rendu dans document.body via portail */}
+      <GlobalTooltip text={tooltipText} anchorEl={tooltipAnchor} />
+
       <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
         {/* BLOC DATES */}
         <div className="mb-6">
@@ -466,42 +452,17 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                       modifiersClassNames={{
                         booked: "line-through text-gray-400",
                         departureOnly: "text-gray-400",
-                        ruleBlocked: "text-gray-400", // CORRIGÉ : Aucun background gris ici
+                        ruleBlocked: "text-gray-400",
                         preview: "bg-blue-100 text-blue-900",
                       }}
                       modifiers={{
                         booked: bookedDateObjects.filter((d) => !reservationStartDays.some((s) => toDayKey(s) === toDayKey(d))),
-                        // CORRIGÉ : On bascule en texte noir (normal) dès que fromDate est sélectionné
                         departureOnly: fromDate ? [] : reservationStartDays,
                         ruleBlocked: fromDate ? [] : blockedBeforeBookedDates,
                         preview: [...requiredMinStayDays, ...previewRange].filter(Boolean) as Date[],
                       }}
-                      onDayMouseEnter={(day) => {
-                        setHoveredDay(day);
-                        const key = toDayKey(day);
-                        if (!fromDate) {
-                          if (reservationStartDays.some((d) => toDayKey(d) === key)) {
-                            setHoverHint(t.departureOnlyHint);
-                          } else if (blockedBeforeBookedDates.some((d) => toDayKey(d) === key)) {
-                            setHoverHint(t.blockedBeforeHint);
-                          } else {
-                            setHoverHint("");
-                          }
-                        } else {
-                          setHoverHint("");
-                        }
-                      }}
-                      components={{
-                        DayContent: (props: DayContentProps) => {
-                          const key = toDayKey(props.date);
-                          const hint = !fromDate && reservationStartDays.some((d) => toDayKey(d) === key) ? t.departureOnlyHint : (!fromDate && blockedBeforeBookedDates.some((d) => toDayKey(d) === key) ? t.blockedBeforeHint : "");
-                          return (<div className="group relative"><span>{props.date.getDate()}</span>{hint ? <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1 hidden w-max -translate-x-1/2 rounded-md border border-gray-400 bg-gray-500/70 px-2 py-1 text-[11px] text-white group-hover:block">{hint}</span> : null}</div>);
-                        },
-                      }}
-                      onDayMouseLeave={() => {
-                        setHoveredDay(undefined);
-                        setHoverHint("");
-                      }}
+                      onDayMouseEnter={handleDayMouseEnter}
+                      onDayMouseLeave={handleDayMouseLeave}
                     />
                     <div className="px-2 pb-2 pt-1">
                       <button
@@ -517,7 +478,6 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
               </Popover.Root>
             </div>
           </div>
-
           {loading && <p className="mt-2 text-sm text-gray-500">{t.loading}</p>}
           {calendarError && <p className="mt-2 text-sm text-red-600">{t.apiError}</p>}
           {exceedsNextBlockedDate && <p className="mt-2 text-sm text-red-600">{t.blockedRangeError}</p>}
@@ -532,9 +492,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
             </div>
             <select className={controlStyles} value={guests} onChange={(e) => setGuests(Number(e.target.value))}>
               {Array.from({ length: MAX_TRAVELERS }, (_, i) => i + 1).map((n) => (
-                <option key={n} value={n}>
-                  {n} {t.people}
-                </option>
+                <option key={n} value={n}>{n} {t.people}</option>
               ))}
             </select>
           </div>
@@ -554,21 +512,11 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         <h3 className="mb-3 text-lg font-semibold text-gray-900">{t.options}</h3>
         <div className="space-y-3">
           <label className="flex cursor-pointer items-center gap-3 text-sm text-gray-700">
-            <input
-              type="checkbox"
-              className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
-              checked={linens}
-              onChange={(e) => setLinens(e.target.checked)}
-            />
+            <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black" checked={linens} onChange={(e) => setLinens(e.target.checked)} />
             <span>{t.linens}</span>
           </label>
           <label className="flex cursor-pointer items-center gap-3 text-sm text-gray-700">
-            <input
-              type="checkbox"
-              className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
-              checked={towels}
-              onChange={(e) => setTowels(e.target.checked)}
-            />
+            <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black" checked={towels} onChange={(e) => setTowels(e.target.checked)} />
             <span>{t.towels}</span>
           </label>
         </div>
@@ -586,69 +534,48 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                   {nights > 0 ? (
                     <div className="flex flex-col gap-0.5">
                       {pricingDetail.highNights > 0 && pricingDetail.lowNights > 0 ? (
-                        <span>
-                          {pricingDetail.highNights} x {pricingDetail.hRate}€ + {pricingDetail.lowNights} x {pricingDetail.lRate}€
-                        </span>
+                        <span>{pricingDetail.highNights} x {pricingDetail.hRate}€ + {pricingDetail.lowNights} x {pricingDetail.lRate}€</span>
                       ) : pricingDetail.highNights > 0 ? (
-                        <span>
-                          {nights} x {pricingDetail.hRate}€
-                        </span>
+                        <span>{nights} x {pricingDetail.hRate}€</span>
                       ) : (
-                        <span>
-                          {nights} x {pricingDetail.lRate}€
-                        </span>
+                        <span>{nights} x {pricingDetail.lRate}€</span>
                       )}
-
                       {nights >= 7 && (
                         <span className="text-xs font-normal text-gray-400">
-                          [
-                          <span className="line-through">
+                          [<span className="line-through">
                             {pricingDetail.highNights > 0 && pricingDetail.lowNights > 0
                               ? `${pricingDetail.highNights}x${pricingDetail.hBase}€ + ${pricingDetail.lowNights}x${pricingDetail.lBase}€`
-                              : pricingDetail.highNights > 0
-                                ? `${pricingDetail.hBase}€`
-                                : `${pricingDetail.lBase}€`}
-                          </span>
-                          ] ({t.weekDiscount})
+                              : pricingDetail.highNights > 0 ? `${pricingDetail.hBase}€` : `${pricingDetail.lBase}€`}
+                          </span>] ({t.weekDiscount})
                         </span>
                       )}
                     </div>
-                  ) : (
-                    "-"
-                  )}
+                  ) : "-"}
                 </td>
                 <td className="py-2.5 text-right font-medium text-gray-900">{pricingDetail.totalNightsPrice}€</td>
               </tr>
-
               <tr className="border-b border-gray-100">
                 <td className="py-2.5">{t.cleaningLine}</td>
                 <td className="py-2.5 text-gray-400">{t.cleaningIncluded}</td>
                 <td className="py-2.5 text-right font-medium text-gray-900">{CLEANING_FEE}€</td>
               </tr>
-
               <tr className="border-b border-gray-100">
                 <td className="py-2.5">Lits</td>
                 <td className="py-2.5 text-gray-400">
                   {linens ? (
                     <div className="flex flex-col">
-                      <span>
-                        {doubleBeds} x {DOUBLE_BED_RATE}€ + {singleBeds} x {SINGLE_BED_RATE}€
-                      </span>
+                      <span>{doubleBeds} x {DOUBLE_BED_RATE}€ + {singleBeds} x {SINGLE_BED_RATE}€</span>
                       <span className="mt-0.5 text-xs text-gray-400">(tapis de sol Sdb et torchons inclus)</span>
                     </div>
-                  ) : (
-                    "-"
-                  )}
+                  ) : "-"}
                 </td>
                 <td className="py-2.5 text-right font-medium text-gray-900">{beddingPrice}€</td>
               </tr>
-
               <tr className="border-b border-gray-200">
                 <td className="py-2.5">{t.towelsLine}</td>
                 <td className="py-2.5 text-gray-400">{towels ? `${guests} x ${TOWEL_RATE}€` : "-"}</td>
                 <td className="py-2.5 text-right font-medium text-gray-900">{towelsPrice}€</td>
               </tr>
-
               <tr className="text-base font-semibold text-gray-900">
                 <td className="pt-4">{t.total}</td>
                 <td className="pt-4"></td>
@@ -657,10 +584,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
             </tbody>
           </table>
         </div>
-
-        <p className="mt-5 whitespace-pre-line border-t border-gray-100 pt-3 text-xs leading-relaxed text-gray-400">
-          {t.disclaimer}
-        </p>
+        <p className="mt-5 whitespace-pre-line border-t border-gray-100 pt-3 text-xs leading-relaxed text-gray-400">{t.disclaimer}</p>
       </div>
 
       {/* INFORMATIONS PERSONNELLES */}
@@ -717,11 +641,9 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         {submitStatus === "submitting" ? "Envoi en cours..." : t.reserve}
       </button>
 
-      {/* BLOCS DE CONFIRMATION ET D'ERREUR */}
       {submitStatus === "success" && (
         <div className="mt-4 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800">{t.successMessage}</div>
       )}
-
       {submitStatus === "error" && (
         <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">{t.errorMessage}</div>
       )}
