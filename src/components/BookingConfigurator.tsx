@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ReactDOM from "react-dom";
 import { Calendar as CalendarIcon } from "lucide-react";
 import * as Popover from "@radix-ui/react-popover";
 import { DayPicker } from "react-day-picker";
-import type { DateRange, DayContentProps } from "react-day-picker";
+import type { DateRange } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { CLEANING_FEE, DOUBLE_BED_RATE, LEAD_DAYS, MAX_TRAVELERS, MIN_NIGHTS, SEASON_PRICING, SINGLE_BED_RATE, TOWEL_RATE } from "../config/bookingConstants";
 
@@ -27,7 +27,7 @@ const copy = {
     suite: "Suite",
     room2: "Chambre 2",
     room3: "Chambre 3",
-    noBed: "non",
+    noBed: "Aucun",
     oneDoubleBed: "1 lit double",
     oneSingleBed: "1 lit simple",
     twoSingleBeds: "2 lits simples",
@@ -41,6 +41,7 @@ const copy = {
     phone: "Téléphone",
     messageTitle: "Message",
     postalAddress: "Adresse Postale",
+    postalAddressPlaceholder: "nécessaire pour l'inscrire dans le contrat",
     messagePlaceholder: "Un commentaire, une question ou une demande particulière ?",
     price: "Détail du prix",
     nightsLine: "Nuitées",
@@ -89,6 +90,7 @@ const copy = {
     phone: "Phone number",
     messageTitle: "Message",
     postalAddress: "Postal address",
+    postalAddressPlaceholder: "required for the rental contract",
     messagePlaceholder: "Any comments, questions or special requests?",
     price: "Price summary",
     nightsLine: "Nights",
@@ -114,12 +116,15 @@ const copy = {
 } as const;
 
 const txtFor = (lang: string) => (lang === "fr" ? copy.fr : copy.en);
+
 const startOfDay = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
 const addDays = (d: Date, n: number) => {
   const x = new Date(d);
   x.setDate(x.getDate() + n);
   return x;
 };
+
 const toDayKey = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
@@ -167,6 +172,7 @@ function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | n
   }, [anchorEl, text]);
 
   if (typeof document === "undefined") return null;
+
   return ReactDOM.createPortal(
     <div style={style}>{text}</div>,
     document.body
@@ -178,30 +184,37 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
 
   const [date, setDate] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(1);
-  const [suiteBed, setSuiteBed] = useState("double");
-  const [room2Bed, setRoom2Bed] = useState("single");
-  const [room3Bed, setRoom3Bed] = useState("single");
+  const [suiteBed, setSuiteBed] = useState("none");
+  const [room2Bed, setRoom2Bed] = useState("none");
+  const [room3Bed, setRoom3Bed] = useState("none");
   const [linens, setLinens] = useState(false);
   const [towels, setTowels] = useState(false);
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [postalAddress, setPostalAddress] = useState("");
-
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
   const [bookedDates, setBookedDates] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [calendarError, setCalendarError] = useState<string | null>(null);
   const [hoveredDay, setHoveredDay] = useState<Date | undefined>();
 
-  // Tooltip state : l'élément DOM survolé + le texte à afficher
   const [tooltipAnchor, setTooltipAnchor] = useState<Element | null>(null);
   const [tooltipText, setTooltipText] = useState("");
+
+  // Mobile drawer state
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 580);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const container = document.getElementById("turnstile-container");
@@ -255,6 +268,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   }, [apiKey, calendarId]);
 
   const minArrival = useMemo(() => startOfDay(addDays(new Date(), LEAD_DAYS)), []);
+
   const fromDate = date?.from ? startOfDay(date.from) : undefined;
   const toDate = date?.to ? startOfDay(date.to) : undefined;
   const nights = fromDate && toDate ? Math.max(0, Math.round((toDate.getTime() - fromDate.getTime()) / 86400000)) : 0;
@@ -293,10 +307,12 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
 
   const bookedDateObjects = useMemo(() => bookedDates.map((d) => startOfDay(new Date(d))), [bookedDates]);
   const bookedDateSet = useMemo(() => new Set(bookedDateObjects.map((d) => toDayKey(d))), [bookedDateObjects]);
+
   const reservationStartDays = useMemo(
     () => bookedDateObjects.filter((d) => !bookedDateSet.has(toDayKey(addDays(d, -1)))),
     [bookedDateObjects, bookedDateSet],
   );
+
   const blockedBeforeBookedDates = useMemo(() => {
     const preBlocked: Date[] = [];
     for (const blockedDay of bookedDateObjects)
@@ -385,7 +401,6 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     }
   };
 
-  // Gestionnaire onDayMouseEnter : récupère le <button> du jour via l'event natif
   const handleDayMouseEnter = (day: Date, _modifiers: any, e: React.MouseEvent<Element>) => {
     setHoveredDay(day);
     if (fromDate) { setTooltipText(""); setTooltipAnchor(null); return; }
@@ -394,7 +409,6 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     if (reservationStartDaysSet.has(key)) hint = t.departureOnlyHint;
     else if (blockedBeforeSet.has(key)) hint = t.blockedBeforeHint;
     if (hint) {
-      // e.currentTarget est le <button> du jour — pas de problème d'overflow ici
       setTooltipText(hint);
       setTooltipAnchor(e.currentTarget);
     } else {
@@ -412,9 +426,43 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const controlStyles = "h-10 w-full max-w-xs sm:w-48 inline-flex items-center justify-between gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors";
   const inputStyles = "h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors placeholder:text-gray-400";
 
+  // DayPicker props partagés desktop et mobile
+  const dayPickerProps = {
+    mode: "range" as const,
+    selected: date,
+    onSelect: handleSelect,
+    defaultMonth: date?.from,
+    numberOfMonths: 2,
+    disabled: disabledDates,
+    min: MIN_NIGHTS,
+    modifiersClassNames: {
+      booked: "line-through text-gray-400",
+      departureOnly: "text-gray-400",
+      ruleBlocked: "text-gray-400",
+      preview: "bg-blue-100 text-blue-900",
+    },
+    modifiers: {
+      booked: bookedDateObjects.filter((d) => !reservationStartDays.some((s) => toDayKey(s) === toDayKey(d))),
+      departureOnly: fromDate ? [] : reservationStartDays,
+      ruleBlocked: fromDate ? [] : blockedBeforeBookedDates,
+      preview: [...requiredMinStayDays, ...previewRange].filter(Boolean) as Date[],
+    },
+    onDayMouseEnter: handleDayMouseEnter,
+    onDayMouseLeave: handleDayMouseLeave,
+  };
+
+  const clearBtn = (
+    <button
+      className="text-xs text-gray-500 underline transition-colors hover:text-black"
+      type="button"
+      onClick={() => setDate(undefined)}
+    >
+      {t.clear} les dates
+    </button>
+  );
+
   return (
     <section className="mt-10 mx-auto max-w-3xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-      {/* Tooltip global — rendu dans document.body via portail */}
       <GlobalTooltip text={tooltipText} anchorEl={tooltipAnchor} />
 
       <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
@@ -430,52 +478,74 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
               </p>
             </div>
             <div className="flex flex-col items-start gap-2 sm:items-end">
-              <Popover.Root>
-                <Popover.Trigger asChild>
-                  <button type="button" className={controlStyles}>
+
+              {/* DESKTOP : Radix Popover — rendu dans document.body, aucune contrainte de largeur parente */}
+              {!isMobile && (
+                <Popover.Root>
+                  <Popover.Trigger asChild>
+                    <button type="button" className={controlStyles}>
+                      <span className="flex items-center gap-2 text-gray-700">
+                        <CalendarIcon className="h-4 w-4 text-gray-400" />
+                        {t.chooseDates}
+                      </span>
+                    </button>
+                  </Popover.Trigger>
+                  <Popover.Portal>
+                    <Popover.Content
+                      className="z-50 w-auto rounded-lg border bg-white p-2 shadow-xl"
+                      align="end"
+                      sideOffset={8}
+                    >
+                      <DayPicker {...dayPickerProps} />
+                      <div className="px-2 pb-2 pt-1">{clearBtn}</div>
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
+              )}
+
+              {/* MOBILE : bouton qui ouvre un drawer depuis le bas */}
+              {isMobile && (
+                <>
+                  <button type="button" className={controlStyles} onClick={() => setCalendarOpen(true)}>
                     <span className="flex items-center gap-2 text-gray-700">
                       <CalendarIcon className="h-4 w-4 text-gray-400" />
                       {t.chooseDates}
                     </span>
                   </button>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content className="z-50 w-auto rounded-lg border bg-white p-2 shadow-xl" align="end">
-                    <DayPicker
-                      mode="range"
-                      selected={date}
-                      onSelect={handleSelect}
-                      defaultMonth={date?.from}
-                      numberOfMonths={2}
-                      disabled={disabledDates}
-                      min={MIN_NIGHTS}
-                      modifiersClassNames={{
-                        booked: "line-through text-gray-400",
-                        departureOnly: "text-gray-400",
-                        ruleBlocked: "text-gray-400",
-                        preview: "bg-blue-100 text-blue-900",
-                      }}
-                      modifiers={{
-                        booked: bookedDateObjects.filter((d) => !reservationStartDays.some((s) => toDayKey(s) === toDayKey(d))),
-                        departureOnly: fromDate ? [] : reservationStartDays,
-                        ruleBlocked: fromDate ? [] : blockedBeforeBookedDates,
-                        preview: [...requiredMinStayDays, ...previewRange].filter(Boolean) as Date[],
-                      }}
-                      onDayMouseEnter={handleDayMouseEnter}
-                      onDayMouseLeave={handleDayMouseLeave}
-                    />
-                    <div className="px-2 pb-2 pt-1">
-                      <button
-                        className="text-xs text-gray-500 underline transition-colors hover:text-black"
-                        type="button"
-                        onClick={() => setDate(undefined)}
+                  {calendarOpen && ReactDOM.createPortal(
+                    <>
+                      <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setCalendarOpen(false)} />
+                      <div
+                        className="fixed bottom-0 left-0 right-0 z-50 rounded-t-2xl bg-white shadow-2xl"
+                        style={{ maxHeight: "90dvh", overflowY: "auto" }}
                       >
-                        {t.clear} les dates
-                      </button>
-                    </div>
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
+                        <div className="flex justify-center pt-3 pb-1">
+                          <div className="h-1 w-10 rounded-full bg-gray-300" />
+                        </div>
+                        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-100">
+                          <span className="text-sm font-semibold text-gray-900">{t.dates}</span>
+                          <button type="button" className="text-sm text-gray-500 underline" onClick={() => setCalendarOpen(false)}>✕</button>
+                        </div>
+                        <div className="px-2 py-3" style={{ overflowX: "hidden" }} data-calendar="mobile">
+                          <DayPicker {...dayPickerProps} />
+                        </div>
+                        <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100">
+                          {clearBtn}
+                          <button
+                            className="rounded-md bg-black px-5 py-2 text-sm font-medium text-white"
+                            type="button"
+                            onClick={() => setCalendarOpen(false)}
+                          >
+                            Confirmer
+                          </button>
+                        </div>
+                      </div>
+                    </>,
+                    document.body
+                  )}
+                </>
+              )}
+
             </div>
           </div>
           {loading && <p className="mt-2 text-sm text-gray-500">{t.loading}</p>}
@@ -503,8 +573,8 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
           <h3 className="mb-4 text-lg font-semibold text-gray-900">{t.bedding}</h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.suite}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={suiteBed} onChange={(e) => setSuiteBed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option></select></div>
-            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room2}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room2Bed} onChange={(e) => setRoom2Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option><option value="double">{t.oneDoubleBed}</option></select></div>
-            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room3}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room3Bed} onChange={(e) => setRoom3Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option><option value="double">{t.oneDoubleBed}</option></select></div>
+            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room2}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room2Bed} onChange={(e) => setRoom2Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option></select></div>
+            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room3}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room3Bed} onChange={(e) => setRoom3Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option></select></div>
           </div>
         </div>
 
@@ -610,7 +680,12 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         </div>
         <div className="mt-4">
           <label className="mb-1 block text-xs font-medium text-gray-700">{t.postalAddress}</label>
-          <textarea className="min-h-[100px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-black focus:outline-none focus:ring-1 focus:ring-black" value={postalAddress} onChange={(e) => setPostalAddress(e.target.value)} />
+          <textarea
+            className="min-h-[100px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+            placeholder={t.postalAddressPlaceholder}
+            value={postalAddress}
+            onChange={(e) => setPostalAddress(e.target.value)}
+          />
         </div>
       </div>
 
