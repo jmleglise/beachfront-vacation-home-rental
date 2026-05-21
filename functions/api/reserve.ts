@@ -1,31 +1,16 @@
-export const onRequestPost: PagesFunction<{
-  TURNSTILE_SECRET_KEY: string;
-  RESEND_API_KEY: string;
-}> = async (context) => {
-  try {
-    const data = await context.request.json() as any;
+import { CLEANING_FEE, DOUBLE_BED_RATE, SEASON_PRICING, SINGLE_BED_RATE, TOWEL_RATE } from "../../src/config/bookingConstants";
 
-    // 1. Validation du jeton Cloudflare Turnstile
+export const onRequestPost: PagesFunction<{ TURNSTILE_SECRET_KEY: string; RESEND_API_KEY: string }> = async (context) => {
+  try {
+    const data = (await context.request.json()) as any;
+
     const formData = new FormData();
     formData.append("secret", context.env.TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA");
     formData.append("response", data.turnstileToken);
 
-    const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      body: formData,
-      method: "POST",
-    });
-
-    const outcome = await result.json() as any;
-    if (!outcome.success) {
-      return new Response(JSON.stringify({ error: "Invalid captcha response" }), { status: 400 });
-    }
-
-    // --- LOGIQUE BACKEND : DÉCOMPOSITION ET CORRECTION DES DATES ---
-    const HIGH_SEASON_MONTHS = [4, 5, 6, 7, 8];
-    const HIGH_SHORT_RATE = 260;
-    const HIGH_LONG_RATE = 225;
-    const LOW_SHORT_RATE = 160;
-    const LOW_LONG_RATE = 142;
+    const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { body: formData, method: "POST" });
+    const outcome = (await result.json()) as any;
+    if (!outcome.success) return new Response(JSON.stringify({ error: "Invalid captcha response" }), { status: 400 });
 
     let highNightsCount = 0;
     let lowNightsCount = 0;
@@ -37,101 +22,49 @@ export const onRequestPost: PagesFunction<{
       for (let i = 0; i < nightsCount; i++) {
         const d = new Date(start);
         d.setDate(start.getDate() + i);
-        if (HIGH_SEASON_MONTHS.includes(d.getMonth())) {
-          highNightsCount++;
-        } else {
-          lowNightsCount++;
-        }
+        if (SEASON_PRICING.HIGH_SEASON_MONTHS.includes(d.getMonth())) highNightsCount++;
+        else lowNightsCount++;
       }
     }
 
-    const currentHRate = isLongStay ? HIGH_LONG_RATE : HIGH_SHORT_RATE;
-    const currentLRate = isLongStay ? LOW_LONG_RATE : LOW_SHORT_RATE;
+    const currentHRate = isLongStay ? SEASON_PRICING.HIGH_LONG_RATE : SEASON_PRICING.HIGH_SHORT_RATE;
+    const currentLRate = isLongStay ? SEASON_PRICING.LOW_LONG_RATE : SEASON_PRICING.LOW_SHORT_RATE;
+    const totalNightsPrice = highNightsCount * currentHRate + lowNightsCount * currentLRate;
 
-    let nightsBreakdownText = "";
-    if (highNightsCount > 0 && lowNightsCount > 0) {
-      nightsBreakdownText = `${highNightsCount} x ${currentHRate}€ (Haute Saison) + ${lowNightsCount} x ${currentLRate}€ (Basse Saison)`;
-    } else if (highNightsCount > 0) {
-      nightsBreakdownText = `${nightsCount} x ${currentHRate}€ (Haute Saison)`;
-    } else {
-      nightsBreakdownText = `${nightsCount} x ${currentLRate}€ (Basse Saison)`;
-    }
+    const nightsBreakdownText =
+      highNightsCount > 0 && lowNightsCount > 0
+        ? `${highNightsCount} x ${currentHRate}€ (Haute Saison) + ${lowNightsCount} x ${currentLRate}€ (Basse Saison)`
+        : highNightsCount > 0
+          ? `${nightsCount} x ${currentHRate}€ (Haute Saison)`
+          : `${nightsCount} x ${currentLRate}€ (Basse Saison)`;
 
-    // Formatage des dates forcé sur le fuseau de Paris pour éliminer le bug du décalage d'1 jour
-    const dateFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' } as const;
-    const arrivalFormatted = data.fromDate ? new Date(data.fromDate).toLocaleDateString('fr-FR', dateFormatOptions) : '-';
-    const departureFormatted = data.toDate ? new Date(data.toDate).toLocaleDateString('fr-FR', dateFormatOptions) : '-';
+    const beddingPrice = data.linens ? data.doubleBeds * DOUBLE_BED_RATE + data.singleBeds * SINGLE_BED_RATE : 0;
+    const towelsPrice = data.towels ? data.guests * TOWEL_RATE : 0;
 
-    // 2. Construction du mail HTML
-    // Remplace la partie emailHtml dans reserve.ts par ceci :
-const emailHtml = `
+    const emailHtml = `
 <div style="font-family: sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <h2 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Nouvelle Réservation</h2>
-  
-  <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-    <thead>
-      <tr style="background: #f9f9f9; text-align: left;">
-        <th style="padding: 10px; border-bottom: 2px solid #eee;">Désignation</th>
-        <th style="padding: 10px; border-bottom: 2px solid #eee; text-align: right;">Détail</th>
-        <th style="padding: 10px; border-bottom: 2px solid #eee; text-align: right;">Prix</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #eee;">Nuitées (${data.nights} nuits)</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666; font-size: 0.9em;">${nightsBreakdownText}</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${pricingDetail.totalNightsPrice}€</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #eee;">Ménage</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">Inclus</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">120€</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #eee;">Lits (${data.doubleBeds}xDB + ${data.singleBeds}xSB)</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666; font-size: 0.8em;">(Tapis Sdb/Torchons inclus)</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${data.linens ? (data.doubleBeds * 20 + data.singleBeds * 10) : 0}€</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #eee;">Serviettes</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">${data.towels ? data.guests + " x 10€" : "-"}</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${data.towels ? data.guests * 10 : 0}€</td>
-      </tr>
-      <tr style="font-weight: bold; font-size: 1.1em;">
-        <td colspan="2" style="padding: 10px;">TOTAL</td>
-        <td style="padding: 10px; text-align: right;">${data.totalPrice}€</td>
-      </tr>
-    </tbody>
-  </table>
+  <p><strong>Nom:</strong> ${data.firstName} ${data.lastName}<br><strong>Email:</strong> ${data.email}<br><strong>Téléphone:</strong> ${data.phone}<br><strong>Adresse Postale:</strong><br>${(data.postalAddress || "-").replace(/\n/g, "<br>")}</p>
+  <p><strong>Configuration des chambres:</strong><br>Suite: ${data.suiteBed}<br>Chambre 2: ${data.room2Bed}<br>Chambre 3: ${data.room3Bed}<br>Total: ${data.doubleBeds} lit(s) double(s), ${data.singleBeds} lit(s) simple(s)</p>
+  <table style="width: 100%; border-collapse: collapse; margin: 20px 0;"><tbody>
+      <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Nuitées (${data.nights} nuits)</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">${nightsBreakdownText}</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${totalNightsPrice}€</td></tr>
+      <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Ménage</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">Inclus</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${CLEANING_FEE}€</td></tr>
+      <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Lits</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">${data.doubleBeds}xDB + ${data.singleBeds}xSB</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${beddingPrice}€</td></tr>
+      <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Serviettes</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; color: #666;">${data.towels ? data.guests + " x " + TOWEL_RATE + "€" : "-"}</td><td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${towelsPrice}€</td></tr>
+      <tr style="font-weight: bold;"><td colspan="2" style="padding: 10px;">TOTAL</td><td style="padding: 10px; text-align: right;">${data.totalPrice}€</td></tr>
+  </tbody></table>
+  <p><strong>Message:</strong><br>${(data.message || "-").replace(/\n/g, "<br>")}</p>
+</div>`;
 
-  <p style="font-size: 0.8em; color: #888; border-top: 1px solid #eee; pt: 10px;">
-    Le prix inclut toutes les taxes, les charges pour un usage normal, et l'usage du matériel (Barbecue Gaz, Velo...).<br>
-    Haute Saison: Mai à Septembre. Basse saison: Octobre à Avril.
-  </p>
-</div>
-`;
-
-    // 3. Envoi via Resend
     const sendEmailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: {
-        "Authorization": `Bearer ${context.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "onboarding@resend.dev",
-        to: "jmleglise@gmail.com",
-        subject: `✨ Nouvelle Réservation - ${data.firstName} ${data.lastName}`,
-        html: emailHtml,
-      }),
+      headers: { Authorization: `Bearer ${context.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ from: "onboarding@resend.dev", to: "jmleglise@gmail.com", subject: `✨ Nouvelle Réservation - ${data.firstName} ${data.lastName}`, html: emailHtml }),
     });
 
-    if (!sendEmailResponse.ok) {
-      throw new Error("Failed to dispatch email via Resend");
-    }
-
+    if (!sendEmailResponse.ok) throw new Error("Failed to dispatch email via Resend");
     return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (error) {
+  } catch {
     return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 };

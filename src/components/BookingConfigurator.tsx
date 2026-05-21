@@ -2,31 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { Calendar as CalendarIcon } from "lucide-react";
 import * as Popover from "@radix-ui/react-popover";
 import { DayPicker } from "react-day-picker";
-import type { DateRange } from "react-day-picker";
+import type { DateRange, DayContentProps } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { CLEANING_FEE, DOUBLE_BED_RATE, LEAD_DAYS, MAX_TRAVELERS, MIN_NIGHTS, SEASON_PRICING, SINGLE_BED_RATE, TOWEL_RATE } from "../config/bookingConstants";
 
 type Props = {
   lang: string;
   apiKey?: string;
   calendarId?: string;
   turnstileSiteKey?: string;
-};
-
-// --- CONFIGURATION DES TARIFS ---
-const CLEANING_FEE = 120;
-const DOUBLE_BED_RATE = 25;
-const SINGLE_BED_RATE = 15;
-const TOWEL_RATE = 8;
-const MIN_NIGHTS = 2;
-const LEAD_DAYS = 2;
-const MAX_TRAVELERS = 6;
-
-const SEASON_PRICING = {
-  HIGH_SEASON_MONTHS: [4, 5, 6, 7, 8], // Mai à Septembre (Index JS : 4 à 8)
-  HIGH_SHORT_RATE: 260,
-  HIGH_LONG_RATE: 225,
-  LOW_SHORT_RATE: 160,
-  LOW_LONG_RATE: 142,
 };
 
 const copy = {
@@ -39,8 +23,13 @@ const copy = {
     travelersHint: "Adulte et Enfant occupant un lit.",
     people: "personnes",
     bedding: "Configuration des lits",
-    doubleBeds: "Lits doubles",
-    singleBeds: "Lits simples",
+    suite: "Suite",
+    room2: "Chambre 2",
+    room3: "Chambre 3",
+    noBed: "non",
+    oneDoubleBed: "1 lit double",
+    oneSingleBed: "1 lit simple",
+    twoSingleBeds: "2 lits simples",
     options: "Options",
     linens: "Linge de maison et lits faits",
     towels: "Serviettes de toilette",
@@ -50,6 +39,7 @@ const copy = {
     email: "Adresse email",
     phone: "Téléphone",
     messageTitle: "Message",
+    postalAddress: "Adresse Postale",
     messagePlaceholder: "Un commentaire, une question ou une demande particulière ?",
     price: "Détail du prix",
     nightsLine: "Nuitées",
@@ -81,8 +71,13 @@ const copy = {
     travelersHint: "Adults and children occupying a bed.",
     people: "guests",
     bedding: "Bed configuration",
-    doubleBeds: "Double beds",
-    singleBeds: "Single beds",
+    suite: "Suite",
+    room2: "Bedroom 2",
+    room3: "Bedroom 3",
+    noBed: "none",
+    oneDoubleBed: "1 double bed",
+    oneSingleBed: "1 single bed",
+    twoSingleBeds: "2 single beds",
     options: "Options",
     linens: "Bed linen and prepared beds",
     towels: "Bath towels",
@@ -92,6 +87,7 @@ const copy = {
     email: "Email address",
     phone: "Phone number",
     messageTitle: "Message",
+    postalAddress: "Postal address",
     messagePlaceholder: "Any comments, questions or special requests?",
     price: "Price summary",
     nightsLine: "Nights",
@@ -145,8 +141,9 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
 
   const [date, setDate] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(1);
-  const [doubleBeds, setDoubleBeds] = useState(1);
-  const [singleBeds, setSingleBeds] = useState(1);
+  const [suiteBed, setSuiteBed] = useState("double");
+  const [room2Bed, setRoom2Bed] = useState("single");
+  const [room3Bed, setRoom3Bed] = useState("single");
   const [linens, setLinens] = useState(false);
   const [towels, setTowels] = useState(false);
 
@@ -155,6 +152,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [postalAddress, setPostalAddress] = useState("");
 
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -226,6 +224,23 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
   const fromDate = date?.from ? startOfDay(date.from) : undefined;
   const toDate = date?.to ? startOfDay(date.to) : undefined;
   const nights = fromDate && toDate ? Math.max(0, Math.round((toDate.getTime() - fromDate.getTime()) / 86400000)) : 0;
+
+
+  const bedConfig = useMemo(() => {
+    const map = {
+      none: { doubleBeds: 0, singleBeds: 0 },
+      double: { doubleBeds: 1, singleBeds: 0 },
+      single: { doubleBeds: 0, singleBeds: 1 },
+      single2: { doubleBeds: 0, singleBeds: 2 },
+    } as const;
+    const suite = map[suiteBed as keyof typeof map];
+    const r2 = map[room2Bed as keyof typeof map];
+    const r3 = map[room3Bed as keyof typeof map];
+    return { doubleBeds: suite.doubleBeds + r2.doubleBeds + r3.doubleBeds, singleBeds: suite.singleBeds + r2.singleBeds + r3.singleBeds };
+  }, [suiteBed, room2Bed, room3Bed]);
+
+  const doubleBeds = bedConfig.doubleBeds;
+  const singleBeds = bedConfig.singleBeds;
 
   // --- CALCUL DÉTAILLÉ DE LA SAISONNALITÉ ---
   const pricingDetail = useMemo(() => {
@@ -382,12 +397,16 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
           email,
           phone,
           message,
+          postalAddress,
           fromDate: fromDate?.toISOString(),
           toDate: toDate?.toISOString(),
           nights,
           guests,
           doubleBeds,
           singleBeds,
+          suiteBed,
+          room2Bed,
+          room3Bed,
           linens,
           towels,
           totalPrice: total,
@@ -472,6 +491,13 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                           setHoverHint("");
                         }
                       }}
+                      components={{
+                        DayContent: (props: DayContentProps) => {
+                          const key = toDayKey(props.date);
+                          const hint = !fromDate && reservationStartDays.some((d) => toDayKey(d) === key) ? t.departureOnlyHint : (!fromDate && blockedBeforeBookedDates.some((d) => toDayKey(d) === key) ? t.blockedBeforeHint : "");
+                          return (<div className="group relative"><span>{props.date.getDate()}</span>{hint ? <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1 hidden w-max -translate-x-1/2 rounded-md border border-gray-400 bg-gray-500/70 px-2 py-1 text-[11px] text-white group-hover:block">{hint}</span> : null}</div>);
+                        },
+                      }}
                       onDayMouseLeave={() => {
                         setHoveredDay(undefined);
                         setHoverHint("");
@@ -486,7 +512,6 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                         {t.clear} les dates
                       </button>
                     </div>
-                    {hoverHint && <p className="px-2 pb-2 text-xs text-gray-500">{hoverHint}</p>}
                   </Popover.Content>
                 </Popover.Portal>
               </Popover.Root>
@@ -519,34 +544,9 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
         <div className="mb-6">
           <h3 className="mb-4 text-lg font-semibold text-gray-900">{t.bedding}</h3>
           <div className="space-y-4">
-            <div className="flex items-center justify-between gap-4">
-              <span className="text-sm text-gray-700">{t.doubleBeds}</span>
-              <select
-                className={`${controlStyles} max-w-[120px] sm:w-32`}
-                value={doubleBeds}
-                onChange={(e) => setDoubleBeds(Number(e.target.value))}
-              >
-                {[1, 2, 3].map((n) => (
-                  <option key={n} value={n}>
-                    {n}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="flex items-center justify-between gap-4">
-              <span className="text-sm text-gray-700">{t.singleBeds}</span>
-              <select
-                className={`${controlStyles} max-w-[120px] sm:w-32`}
-                value={singleBeds}
-                onChange={(e) => setSingleBeds(Number(e.target.value))}
-              >
-                {[1, 2, 3, 4].map((n) => (
-                  <option key={n} value={n}>
-                    {n}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.suite}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={suiteBed} onChange={(e) => setSuiteBed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option></select></div>
+            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room2}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room2Bed} onChange={(e) => setRoom2Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option><option value="double">{t.oneDoubleBed}</option></select></div>
+            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room3}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room3Bed} onChange={(e) => setRoom3Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option><option value="double">{t.oneDoubleBed}</option></select></div>
           </div>
         </div>
 
@@ -683,6 +683,10 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
             <label className="mb-1 block text-xs font-medium text-gray-700">{t.phone} *</label>
             <input type="tel" className={inputStyles} value={phone} onChange={(e) => setPhone(e.target.value)} required />
           </div>
+        </div>
+        <div className="mt-4">
+          <label className="mb-1 block text-xs font-medium text-gray-700">{t.postalAddress}</label>
+          <textarea className="min-h-[100px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-black focus:outline-none focus:ring-1 focus:ring-black" value={postalAddress} onChange={(e) => setPostalAddress(e.target.value)} />
         </div>
       </div>
 
