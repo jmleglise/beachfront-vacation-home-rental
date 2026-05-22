@@ -143,7 +143,12 @@ const formatDate = (d: Date, lang: string) => {
 
 // Tooltip global rendu dans le body via portail, positionné en fixed
 function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | null }) {
+  const [mounted, setMounted] = useState(false);
   const [style, setStyle] = useState<React.CSSProperties>({ display: "none" });
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!anchorEl || !text) {
@@ -171,13 +176,10 @@ function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | n
     });
   }, [anchorEl, text]);
 
-  if (typeof document === "undefined") return null;
+  if (!mounted) return null;
 
-  return ReactDOM.createPortal(
-    <div style={style}>{text}</div>,
-    document.body
-  );
-}
+    return ReactDOM.createPortal(<div style={style}>{text}</div>, document.body);
+  }
 
 export default function BookingConfigurator({ lang, apiKey, calendarId, turnstileSiteKey }: Props) {
   const t = txtFor(lang);
