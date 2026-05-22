@@ -41,9 +41,28 @@ export const onRequestPost: PagesFunction<{ TURNSTILE_SECRET_KEY: string; RESEND
     const beddingPrice = data.linens ? data.doubleBeds * DOUBLE_BED_RATE + data.singleBeds * SINGLE_BED_RATE : 0;
     const towelsPrice = data.towels ? data.guests * TOWEL_RATE : 0;
 
+    // Formatage des dates identique à l'affichage du formulaire
+    const formatDateFr = (isoStr: string) => {
+      const d = new Date(isoStr);
+      const year = d.getFullYear();
+      const month = d.getMonth();
+      const day = d.getDate();
+      const fixedDate = new Date(year, month, day, 12, 0, 0);
+      return new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).format(fixedDate);
+    };
+    const datesText = data.fromDate && data.toDate
+      ? `Du ${formatDateFr(data.fromDate)} au ${formatDateFr(data.toDate)} (${nightsCount} nuits)`
+      : "-";
+
     const emailHtml = `
 <div style="font-family: sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
   <h2 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Nouvelle Réservation</h2>
+  <p><strong>Dates du séjour:</strong> ${datesText}</p>
   <p><strong>Nom:</strong> ${data.firstName} ${data.lastName}<br><strong>Email:</strong> ${data.email}<br><strong>Téléphone:</strong> ${data.phone}<br><strong>Adresse Postale:</strong><br>${(data.postalAddress || "-").replace(/\n/g, "<br>")}</p>
   <p><strong>Configuration des chambres:</strong><br>Suite: ${data.suiteBed}<br>Chambre 2: ${data.room2Bed}<br>Chambre 3: ${data.room3Bed}<br>Total: ${data.doubleBeds} lit(s) double(s), ${data.singleBeds} lit(s) simple(s)</p>
   <table style="width: 100%; border-collapse: collapse; margin: 20px 0;"><tbody>
