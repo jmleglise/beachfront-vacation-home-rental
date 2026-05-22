@@ -216,6 +216,15 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Bloquer le scroll de la page quand le calendrier mobile est ouvert
+  useEffect(() => {
+    if (isMobile && calendarOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => { document.body.style.overflow = prev; };
+    }
+  }, [isMobile, calendarOpen]);
+
   useEffect(() => {
     const container = document.getElementById("turnstile-container");
     if (!container || !turnstileSiteKey) return;
@@ -517,14 +526,14 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                       <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setCalendarOpen(false)} />
                       <div
                         className="fixed bottom-0 left-0 right-0 z-50 rounded-t-2xl bg-white shadow-2xl"
-                        style={{ maxHeight: "90dvh", overflowY: "auto" }}
+                        style={{ maxHeight: "62dvh", overflowY: "auto" }}
                       >
                         <div className="flex justify-center pt-3 pb-1">
                           <div className="h-1 w-10 rounded-full bg-gray-300" />
                         </div>
                         <div className="flex items-center justify-between px-4 py-2 border-b border-gray-100">
                           <span className="text-sm font-semibold text-gray-900">{t.dates}</span>
-                          <button type="button" className="text-sm text-gray-500 underline" onClick={() => setCalendarOpen(false)}>✕</button>
+                          <button type="button" className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-xl font-bold text-gray-600 hover:bg-gray-200" onClick={() => setCalendarOpen(false)}>✕</button>
                         </div>
                         <div className="px-2 py-3" style={{ overflowX: "hidden" }} data-calendar="mobile">
                           <DayPicker {...dayPickerProps} />
@@ -675,7 +684,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
           </div>
           <div>
             <label className="mb-1 block text-xs font-medium text-gray-700">{t.phone} *</label>
-            <input type="tel" className={inputStyles} value={phone} onChange={(e) => setPhone(e.target.value)} required />
+            <input type="text" inputMode="tel" className={inputStyles} value={phone} onChange={(e) => setPhone(e.target.value)} required />
           </div>
         </div>
         <div className="mt-4">
