@@ -4,23 +4,23 @@ const similarItems = (currentItem: any, allItems: any[]) => {
   let tags: string[] = [];
 
   // set categories
-  if (currentItem.data.categories.length > 0) {
+  if (Array.isArray(currentItem?.data?.categories) && currentItem.data.categories.length > 0) {
     categories = currentItem.data.categories;
   }
 
   // set tags
-  if (currentItem.data.tags.length > 0) {
+  if (Array.isArray(currentItem?.data?.tags) && currentItem.data.tags.length > 0) {
     tags = currentItem.data.tags;
   }
 
   // filter by categories
   const filterByCategories = allItems.filter((item: any) =>
-    categories.find((category) => item.data.categories.includes(category)),
+    categories.find((category) => Array.isArray(item?.data?.categories) && item.data.categories.includes(category)),
   );
 
   // filter by tags
   const filterByTags = allItems.filter((item: any) =>
-    tags.find((tag) => item.data.tags.includes(tag)),
+    tags.find((tag) => Array.isArray(item?.data?.tags) && item.data.tags.includes(tag)),
   );
 
   // merged after filter
@@ -28,7 +28,7 @@ const similarItems = (currentItem: any, allItems: any[]) => {
 
   // filter by slug
   const filterBySlug = mergedItems.filter(
-    (product) => product.slug !== currentItem.slug,
+    (product) => product.id !== currentItem.id,
   );
 
   return filterBySlug;
