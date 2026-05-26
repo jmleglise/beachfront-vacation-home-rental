@@ -1,5 +1,5 @@
 ---
-meta_title: "Maison de vacances bord de mer à Ouistreham / Normandie Calvados | 8pers"
+meta_title: "Maison de vacances bord de mer à Ouistreham / Normandie Calvados | 6pers"
 description: "Location saisonnière en Normandie : superbe maison de vacances à Ouistreham, en front de mer, avec vue mer. Séjournez dans le Calvados, les pieds dans l’eau. 3 chambres, 6 personnes. à 2h de Paris. Pour votre location en famille ou escapade d'un wk."
 schemaVacationRental: |
   <script type="application/ld+json">

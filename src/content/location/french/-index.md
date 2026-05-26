@@ -1,7 +1,7 @@
 ---
 title: "Localisation de la villa Tamaris"
 meta_title: "Localisation de la maison de vacances à Ouistreham"
-description: "A 2h de Paris, Maison de vacance à Ouistreham Calvados Normandie, 8 personnes. Vue  mer exceptionnelle."
+description: "A 2h de Paris, Maison de vacance à Ouistreham Calvados Normandie, 6 personnes. Vue  mer exceptionnelle."
 image: "/images/horizon.jpg"
 draft: false
 ---

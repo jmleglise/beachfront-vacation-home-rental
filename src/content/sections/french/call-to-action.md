@@ -12,7 +12,7 @@ keywords:
   - "location saisonnière bord de mer."
   - "location de vacances bord de mer."
 
-description: " 4 chambres, 8 personnes. à 2h de Paris. Pour vous retrouver en famille ou pour une escapade d'un wk."
+description: " 4 chambres, 6 personnes. à 2h de Paris. Pour vous retrouver en famille ou pour une escapade d'un wk."
 button:
   enable: true
   label: "Découvrir"

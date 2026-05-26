@@ -1,7 +1,7 @@
 ---
 title: "Descriptif de la villa Tamaris"
 meta_title: "Descriptif de la location saisonnière - villa Tamaris"
-description: "La Villa Tamaris offre des prestations haut de gamme. Pour 8 personnes, 4 Chambres, tout équipement, tout confort."
+description: "La Villa Tamaris offre des prestations haut de gamme. Pour 6 personnes, 4 Chambres, tout équipement, tout confort."
 image: "/images/villa_rue.jpg"
 draft: false
 

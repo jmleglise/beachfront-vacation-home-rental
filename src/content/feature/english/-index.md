@@ -1,7 +1,7 @@
 ---
 title: "Description of Villa Tamaris"
 meta_title: "Vacation Rental Description - Villa Tamaris"
-description: "Villa Tamaris offers high-end amenities. For 8 guests, 4 bedrooms, fully equipped, maximum comfort."
+description: "Villa Tamaris offers high-end amenities. For 6 guests, 4 bedrooms, fully equipped, maximum comfort."
 image: "/images/villa_rue.jpg"
 draft: false
 

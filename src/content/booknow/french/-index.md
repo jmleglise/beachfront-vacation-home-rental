@@ -1,7 +1,7 @@
 ---
 title: "Réservation"
 meta_title: "Réservez la Villa Tamaris à ouistreham"
-description: "Pour 8 personnes, 4 Chambres, tout équipement, tout confort, prestation haut de gamme."
+description: "Pour 6 personnes, 4 Chambres, tout équipement, tout confort, prestation haut de gamme."
 image: "/images/villa_rue.jpg"
 draft: false
 ---
