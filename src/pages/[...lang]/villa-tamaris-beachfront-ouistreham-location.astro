@@ -16,7 +16,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const readcontent = await getListPage("location", lang as keyof ContentEntryMap);
 
-const { Content } = await readcontent[0].render();
+const { Content } = await (readcontent[0] as any).render();
 const { title, description, meta_title, image } = readcontent[0].data;
 ---
 

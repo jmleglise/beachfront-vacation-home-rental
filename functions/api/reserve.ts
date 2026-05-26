@@ -1,6 +1,11 @@
 import { CLEANING_FEE, DOUBLE_BED_RATE, SEASON_PRICING, SINGLE_BED_RATE, TOWEL_RATE } from "../../src/config/bookingConstants";
 
-export const onRequestPost: PagesFunction<{ TURNSTILE_SECRET_KEY: string; RESEND_API_KEY: string }> = async (context) => {
+type CFContext = {
+  request: Request;
+  env: { TURNSTILE_SECRET_KEY: string; RESEND_API_KEY: string };
+};
+
+export const onRequestPost = async (context: CFContext) => {
   try {
     const data = (await context.request.json()) as any;
 

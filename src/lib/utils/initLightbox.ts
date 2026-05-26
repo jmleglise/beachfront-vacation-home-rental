@@ -13,25 +13,32 @@ export function initGallery() {
   });
 
   lightbox.on('uiRegister', function() {
-    lightbox.pswp.ui.registerElement({
+    const pswp = lightbox.pswp;
+    if (!pswp?.ui) return;
+
+    pswp.ui.registerElement({
       name: 'custom-caption',
       order: 9,
       isButton: false,
       appendTo: 'root',
       html: 'Caption text',
-      onInit: (el, pswp) => {
-        lightbox.pswp.on('change', () => {
-          const currSlideElement = lightbox.pswp.currSlide.data.element;
+      onInit: (el) => {
+        const pswp = lightbox.pswp;
+        if (!pswp) return;
+
+        pswp.on('change', () => {
+          const currSlideElement = pswp.currSlide?.data?.element as Element | undefined;
           let captionHTML = '';
           if (currSlideElement) {
             const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content');
-            if (hiddenCaption) {
+            if (hiddenCaption instanceof HTMLElement) {
               captionHTML = hiddenCaption.innerHTML;
             } else {
-              captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
+              const img = currSlideElement.querySelector('img');
+              captionHTML = img?.getAttribute('alt') ?? '';
             }
           }
-          el.innerHTML = captionHTML || '';
+          el.innerHTML = captionHTML;
         });
       },
     });

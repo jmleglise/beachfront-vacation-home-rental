@@ -18,7 +18,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const readcontent = await getListPage("feature", lang as keyof ContentEntryMap);
 
-const { Content } = await readcontent[0].render();
+const { Content } = await (readcontent[0] as any).render();
 const { title, description, meta_title, image, detail } = readcontent[0].data;
 ---
 
@@ -46,7 +46,7 @@ const { title, description, meta_title, image, detail } = readcontent[0].data;
           }
           <h1 set:html={markdownify(title)} class="h1 mb-6" />
 
-          {detail.map((item) => (
+          {detail.map((item: any) => (
             <>
               <h2 set:html={markdownify(item.level)} class="h2 mb-6" />
               <div class="content" set:html={markdownify(item.content)} />
