@@ -142,7 +142,7 @@ const formatDate = (d: Date, lang: string) => {
 };
 
 // Tooltip global rendu dans le body via portail, positionné en fixed
-function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | null }) {
+function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | null }): React.ReactNode {
   const [mounted, setMounted] = useState(false);
   const [style, setStyle] = useState<React.CSSProperties>({ display: "none" });
   

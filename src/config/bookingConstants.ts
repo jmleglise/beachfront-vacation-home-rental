@@ -7,7 +7,7 @@ export const LEAD_DAYS = 2;
 export const MAX_TRAVELERS = 6;
 
 export const SEASON_PRICING = {
-  HIGH_SEASON_MONTHS: [4, 5, 6, 7, 8],
+  HIGH_SEASON_MONTHS: [4, 5, 6, 7, 8] as number[],
   HIGH_SHORT_RATE: 260,
   HIGH_LONG_RATE: 225,
   LOW_SHORT_RATE: 160,
