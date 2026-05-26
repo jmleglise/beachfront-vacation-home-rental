@@ -2,12 +2,12 @@
 import BlogCard from "@/components/BlogCard.astro";
 import Share from "@/components/Share.astro";
 import config from "@/config/config.json";
-import { getSinglePage } from "@/lib/contentParser.astro";
+import { getSinglePage } from "@/lib/contentParser";
 import dateFormat from "@/lib/utils/dateFormat";
 import { slugSelector } from "@/lib/utils/languageParser";
 import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
-import type { ContentEntryMap } from "astro:content";
+import { render, type DataEntryMap } from "astro:content";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./components/ImageMod.astro";
 
@@ -25,15 +25,15 @@ if (!lang) {
 
 const posts = await getSinglePage(
   COLLECTION_FOLDER,
-  lang as keyof ContentEntryMap,
+  lang as keyof DataEntryMap,
 );
 const similarPosts = similarItems(post, posts);
-const { Content } = await post.render();
+const { Content } = await render(post as any);
 const { title, description, author, categories, image, date, tags } = post.data;
 
 const call_to_action = await getSinglePage(
   "sections",
-  lang as keyof ContentEntryMap,
+  lang as keyof DataEntryMap,
   "call-to-action",
 );
 ---
@@ -117,7 +117,7 @@ const call_to_action = await getSinglePage(
               className="social-icons"
               title={title}
               description={description}
-              slug={post.slug}
+              slug={post.id}
             />
           </div>
         </div>
