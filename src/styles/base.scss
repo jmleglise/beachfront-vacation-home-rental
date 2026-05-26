@@ -1,9 +1,24 @@
 html {
-  @apply text-base-sm md:text-base;
+  @apply overflow-x-clip text-base-sm md:text-base;
 }
 
 body {
-  @apply bg-body  font-primary font-normal leading-relaxed text-text;
+  @apply overflow-x-clip bg-body font-primary font-normal leading-relaxed text-text;
+}
+
+main,
+section,
+.container,
+.row {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
 }
 
 h1,
