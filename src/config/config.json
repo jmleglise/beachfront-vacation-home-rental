@@ -34,12 +34,6 @@
     "label": "Book Now",
     "link": "/villa-tamaris-beachfront-ouistreham-book-now/"
   },
-
-  "disqus": {
-    "enable": false,
-    "shortname": "themefisher-template",
-    "settings": {}
-  },
   "metadata": {
     "meta_author": "Jean-Marc LEGLISE",
     "meta_image": "/images/villa_rue.jpg",
