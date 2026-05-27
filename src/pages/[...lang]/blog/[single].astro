@@ -1,9 +1,9 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PostSingle from "@/layouts/PostSingle.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
+import { getSinglePage } from "@/lib/contentParser";
 import { supportedLang } from "@/lib/utils/languageParser";
-import type { ContentEntryMap } from "astro:content";
+import type { DataEntryMap } from "astro:content";
 
 
 
@@ -14,13 +14,13 @@ export async function getStaticPaths() {
     supportedLang.map(async (lang) => {
       const posts = await getSinglePage(
         BLOG_FOLDER,
-        lang as keyof ContentEntryMap,
+        lang as keyof DataEntryMap,
       );
 
       return posts.map((post) => ({
         params: {
           lang: lang || undefined,
-          single: post.slug.split("/").pop(),
+          single: post.id.split("/").pop(),
         },
         props: {
           post,
