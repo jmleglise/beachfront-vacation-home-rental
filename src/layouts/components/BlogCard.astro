@@ -20,8 +20,13 @@ const lang = getLangFromUrl(Astro.url);
 const { read_more } = await getTranslations(lang as keyof DataEntryMap);
 
 const sourceSlug = data.slug ?? data.id ?? "";
-const slugParts = sourceSlug.split("/");
-if (slugParts.length > 0) slugParts[0] = "blog";
+const slugParts = sourceSlug.split("/").filter(Boolean);
+if (slugParts[0] !== "blog") {
+  slugParts.unshift("blog");
+}
+if (slugParts[1] === "english" || slugParts[1] === "french") {
+  slugParts.splice(1, 1);
+}
 const modifiedSlug = slugParts.join("/");
 ---
 
