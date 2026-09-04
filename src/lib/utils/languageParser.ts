@@ -65,7 +65,7 @@ export const getTranslations = async (lang: string) => {
   return { ...menu.default, ...dictionary.default, contentDir };
 };
 
-const supportedLang = ["", ...languagesJSON.map((lang) => lang.languageCode)];
+const supportedLang = languagesJSON.map((lang) => lang.languageCode);
 const disabledLanguages = config.settings.disable_languages as string[];
 
 // Filter out disabled languages from supportedLang

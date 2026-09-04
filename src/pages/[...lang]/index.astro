@@ -1,12 +1,12 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
-import Accordion from "@/layouts/shortcodes/Accordion";
+import AccordionItem from "@/components/AccordionItem.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
 
 import { supportedLang } from "@/lib/utils/languageParser";
-import { markdownify } from "@/lib/utils/textConverter";
+import { markdownify, plainify } from "@/lib/utils/textConverter";
 
 import Testimonial from "@/partials/Testimonial.astro";
 import BannerSlider from "@/partials/BannerSlider.astro";
@@ -40,15 +40,32 @@ const testimonial = await getSinglePage(
 );
 
 const banners = banner.images;
+
+// Les 6 questions/reponses etaient deja redigees et rendues en HTML, mais
+// sans balisage : invisibles pour l'affichage FAQ de Google.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqContent.map(({ title, content }: { title: string; content: string }) => ({
+    "@type": "Question",
+    name: plainify(title),
+    acceptedAnswer: { "@type": "Answer", text: plainify(content) },
+  })),
+};
 const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER, lang as keyof ContentEntryMap);
-const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
+const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 2);
 ---
 <Base
   meta_title={meta_title}
   description={description}
   schemaVacationRental={schemaVacationRental}
 >
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(faqSchema)}
+    slot="head"
+  />
   <!-- Banner -->
   <div class="container">
     <!-- Carrousel avec titre superposé -->
@@ -67,16 +84,16 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
     <div class="flex justify-center space-x-14 text-h2-sm md:text-h2">
     
       <div class="flex items-center space-x-2">
-        <span>6</span><img src="/images/icon_pax.svg" alt="8 Guests" class="w-10 h-10" />
+        <span>6</span><img src="/images/icon_pax.svg" alt="6 voyageurs" width="40" height="40" class="w-10 h-10" />
       </div>
       <div class="flex items-center space-x-2">
-        <span>3</span><img src="/images/icon_room.svg" alt="4 Bedrooms" class="w-10 h-10" />
+        <span>3</span><img src="/images/icon_room.svg" alt="3 chambres" width="40" height="40" class="w-10 h-10" />
       </div>
       <div class="flex items-center space-x-2">
-        <span>3</span><img src="/images/icon_shower.svg" alt="3 Showers" class="w-6 h-9" />
+        <span>3</span><img src="/images/icon_shower.svg" alt="3 salles d'eau" width="24" height="36" class="w-6 h-9" />
       </div>
       <div class="flex items-center space-x-2">
-        <span></span><img src="/images/icon_beach.svg" alt="beachfront sur la Plage" class="w-12 h-14" />
+        <span></span><img src="/images/icon_beach.svg" alt="Acces direct a la plage" width="48" height="56" class="w-12 h-14" />
       </div>
 
     </div>
@@ -171,9 +188,9 @@ const shuffledPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 2);
         <h2 class="mb-4 text-h1-sm md:text-h1" > FAQ </h2>
         <div class="space-y-4">
           {faqContent.map(({ title, content }) => (
-          <Accordion client:load title={title}>
+          <AccordionItem title={title}>
             <p>{content}</p>
-          </Accordion>
+          </AccordionItem>
         ))}
         </div>
       </div>

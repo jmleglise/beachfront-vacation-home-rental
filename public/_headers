@@ -1,0 +1,13 @@
+# Les fichiers de /_astro/ portent un hash de contenu dans leur nom : toute
+# modification produit une nouvelle URL. Ils peuvent donc etre caches
+# indefiniment, ce que Cloudflare Pages ne devine pas tout seul.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Les images de /public ne sont pas hashees : cache court, revalidation rapide.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

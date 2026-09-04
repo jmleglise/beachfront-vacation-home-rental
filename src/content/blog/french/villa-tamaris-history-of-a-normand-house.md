@@ -1,7 +1,7 @@
 ---
 title: "Histoire et rénovation d'une maison de vacances en bord de mer à Ouistreham."
 meta_title: "Maison de vacances bord de mer : Histoire d'une villa Normande"
-description: "Découvrez la Villa Tamaris, une maison de vacances en bord de mer typiquement normande à Ouistreham, restaurée avec soin et proposée en location de maison de vacances en bord de mer."
+description: "L'histoire de la Villa Tamaris à Ouistreham : d'une maison de pêcheur à une maison de vacances en bord de mer typiquement normande, restaurée avec soin."
 date: 2025-05-04T05:00:00Z
 image: "/images/villa_rue.jpg"
 categories: ["Visite"]

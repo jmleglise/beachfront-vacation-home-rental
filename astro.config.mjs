@@ -1,7 +1,6 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import customSitemap from "./scripts/custom-sitemap.js";
-import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
@@ -34,6 +33,11 @@ export default defineConfig({
       prefixDefaultLocale: true //default_language_in_subdir
     }
   },
+  build: {
+    // Inline les feuilles de style dans le <head> : supprime une requete
+    // bloquante sur le chemin critique (Base.css ~10 KiB transferes).
+    inlineStylesheets: "always",
+  },
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
@@ -46,9 +50,6 @@ export default defineConfig({
   integrations: [
     react(),
     customSitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     AutoImport({
       imports: [
         "@/shortcodes/Button",

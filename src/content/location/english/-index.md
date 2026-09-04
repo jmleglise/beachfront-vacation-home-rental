@@ -1,8 +1,7 @@
 ---
 title: "Location of the Tamaris villa"
 meta_title: "Location of the Tamaris villa in Ouistreham"
-description: "Villa Tamaris in Ouistreham, with an exceptional sea view, enjoys an outstanding location. Peaceful and only 10 minutes from the vibrant heart of Ouistreham. 2 hours and 15 minutes from Paris."
-
+description: "Villa Tamaris enjoys an outstanding location in Ouistreham: exceptional sea view, quiet street, 10 minutes from the town centre, 2h15 from Paris."
 image: "/images/horizon.jpg"
 draft: false
 ---

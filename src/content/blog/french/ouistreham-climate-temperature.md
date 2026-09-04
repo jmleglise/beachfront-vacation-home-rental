@@ -1,7 +1,7 @@
 ---
 title: "Quand partir à Ouistreham ? La météo mois par mois pour choisir votre séjour en bord de mer" 
 meta_title: "Quand partir à Ouistreham ? Météo, Climat, température par mois." 
-description: "Découvrez la météo mois par mois de votre location de maison de vacances à Ouistreham : températures, ambiance en bord de mer, floraisons du jardin et saisons des produits de la mer." 
+description: "La météo de Ouistreham mois par mois : températures, ambiance en bord de mer et saisons des produits de la mer, pour choisir la date de votre séjour."
 date: 2026-05-20T05:00:00Z 
 image: "/images/placeholder.jpg" 
 categories: ["Guide"] 

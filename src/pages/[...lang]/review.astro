@@ -8,15 +8,13 @@ export function getStaticPaths() {
   return paths;
 }
 
-const botToken = import.meta.env.PUBLIC_BOT_TOKEN;
-const chatId = import.meta.env.PUBLIC_CHAT_ID;
-
 ---
 
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
     <title>Villa Tamaris</title>
 
     <style>
@@ -101,7 +99,7 @@ const chatId = import.meta.env.PUBLIC_CHAT_ID;
     </style>
 
   </head>
-  <body data-bot={botToken} data-chat={chatId}>
+  <body>
     <h1>Villa Tamaris</h1>
     <div id="stars-container">
       <span class="stars" data-value="1">&#9733;</span>

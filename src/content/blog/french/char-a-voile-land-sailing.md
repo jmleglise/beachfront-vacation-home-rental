@@ -1,7 +1,7 @@
 ---
 title: "Le char à voile sur les plages de la côte de nacre."
 meta_title: "Le char à voile, lors de votre location de vacance à Ouistreham."
-description: "Découvrez le char à voile lors de votre séjour dans notre maison de vacances ! Accessible dès 8 ans, cette activité fun et riche en sensations est à ne pas manquer."
+description: "Le char à voile à Ouistreham : accessible dès 8 ans, une activité pleine de sensations à faire pendant votre séjour en maison de vacances."
 date: 2023-07-04T05:00:00Z
 image: "/images/char.jpg"
 categories: ["Sport"]

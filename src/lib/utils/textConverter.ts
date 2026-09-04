@@ -37,7 +37,9 @@ export const plainify = (content: string) => {
   const filterBrackets = parseMarkdown.replace(/<\/?[^>]+(>|$)/gm, "");
   const filterSpaces = filterBrackets.replace(/[\r\n]\s*[\r\n]/gm, "");
   const stripHTML = htmlEntityDecoder(filterSpaces);
-  return stripHTML;
+  // marked.parse() enveloppe dans <p>...</p>\n : sans normalisation, les
+  // <title> et meta description se retrouvaient avec un retour a la ligne.
+  return stripHTML.replace(/\s+/g, " ").trim();
 };
 
 // strip entities for plainify
