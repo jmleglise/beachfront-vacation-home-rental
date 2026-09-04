@@ -2,18 +2,19 @@
 import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 import config from "@/config/config.json";
 import languagesJSON from "@/config/language.json";
-import theme from "@/config/theme.json";
 import { plainify } from "@/lib/utils/textConverter";
 import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
 import "@/styles/main.scss";
+// Polices auto-hebergees (@fontsource) : supprime les 2 requetes bloquantes
+// vers fonts.googleapis.com + les 2 handshakes TLS vers fonts.gstatic.com.
+import "@fontsource/heebo/latin-400.css";
+import "@fontsource/heebo/latin-600.css";
+import "@fontsource/signika/latin-500.css";
+import "@fontsource/signika/latin-700.css";
 import { ClientRouter } from "astro:transitions";
 
 import { getLangFromUrl } from "@/lib/utils/languageParser";
-
-// font families
-const pf = theme.fonts.font_family.primary;
-const sf = theme.fonts.font_family.secondary;
 
 export interface Props {
   villa_title?: string;
@@ -55,7 +56,14 @@ const supportedLocales = languagesJSON
 const localePattern = new RegExp(`^/(?:${supportedLocales.join("|")})(?=/|$)`);
 const pathWithoutLocale = pathname.replace(localePattern, "") || "/";
 
-const isExcludedPath = pathname.includes("/categories/") || pathname.includes("/tags/");
+// Pas d'alternates pour les taxonomies (slugs differents par langue), ni pour
+// les pages noindex (404, /review/) qui n'ont pas d'equivalent indexable.
+const isLocalised = localePattern.test(pathname);
+const isExcludedPath =
+  !isLocalised ||
+  noindex ||
+  pathname.includes("/categories/") ||
+  pathname.includes("/tags/");
 const hreflangLinks = !isExcludedPath
   ? supportedLocales.map((locale) => ({
       lang: locale,
@@ -87,7 +95,7 @@ const seoDescription = plainify(description ? description : config.metadata.meta
       <link rel="alternate" hreflang="x-default" href={absoluteUrl(`/${config.settings.default_language}${pathWithoutLocale === "/" ? "/" : pathWithoutLocale}`)} />
     )}
 
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {noindex && <meta name="robots" content="noindex,follow" />}
 
     <title>{seoTitle}</title>
     <meta name="description" content={seoDescription} />
@@ -104,13 +112,9 @@ const seoDescription = plainify(description ? description : config.metadata.meta
     <meta name="twitter:card" content="summary_large_image" />
 
     {schemaVacationRental && <Fragment set:html={schemaVacationRental} />}
+    <slot name="head" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="stylesheet" href={`https://fonts.googleapis.com/css2?family=${pf}&display=swap`} />
-    <link rel="stylesheet" href={`https://fonts.googleapis.com/css2?family=${sf}&display=swap`} />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 

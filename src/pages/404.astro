@@ -4,17 +4,9 @@ import Base from "@/layouts/Base.astro";
 import {
   getLangFromUrl,
   getTranslations,
-  supportedLang,
   slugSelector,
 } from "@/lib/utils/languageParser";
 import type { ContentEntryMap } from "astro:content";
-
-export function getStaticPaths() {
-  const paths = supportedLang.map((lang) => ({
-    params: { lang: lang || undefined },
-  }));
-  return paths;
-}
 
 let lang = getLangFromUrl(Astro.url);
 
@@ -27,7 +19,7 @@ const { page_not_found_content, page_not_found, back_to_home } =
   await getTranslations(lang as keyof ContentEntryMap);
 ---
 
-<Base title="Page Not Found">
+<Base title="Page Not Found" noindex={true}>
   <section class="section-sm text-center">
     <div class="container">
       <div class="row justify-center">

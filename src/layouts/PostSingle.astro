@@ -1,5 +1,6 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Share from "@/components/Share.astro";
 import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser";
@@ -42,6 +43,7 @@ const call_to_action = await getSinglePage(
   <div class="container">
     <div class="row justify-center">
       <article class="lg:col-10">
+        <Breadcrumbs className="mb-6 text-sm" />
         {
           image && (
             <div class="mb-10">

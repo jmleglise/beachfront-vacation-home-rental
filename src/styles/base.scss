@@ -1,3 +1,12 @@
+:root {
+  // Ces variables sont referencees par tailwind.config.js (font-primary /
+  // font-secondary). Sans elles, `font-family: var(--font-primary)` etait
+  // invalide et le site retombait sur la police sans-serif du navigateur :
+  // Heebo et Signika etaient telechargees puis jamais appliquees.
+  --font-primary: "Heebo";
+  --font-secondary: "Signika";
+}
+
 html {
   @apply overflow-x-clip text-base-sm md:text-base;
 }

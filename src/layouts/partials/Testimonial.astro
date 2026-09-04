@@ -14,8 +14,7 @@ const { testimonial } = Astro.props;
             <p set:html={markdownify(testimonial.data.description)} />
           </div>
           <div class="col-12">
-            <div class="swiper testimonial-slider">
-              <div class="swiper-wrapper">
+            <ul class="testimonial-slider">
                 {testimonial.data.testimonials.map(
                   (item: {
                     avatar: string;
@@ -23,8 +22,8 @@ const { testimonial } = Astro.props;
                     name: string;
                     designation: string;
                   }) => (
-                    <div class="swiper-slide">
-                      <div class="rounded-lg bg-theme-light px-7 py-10 ">
+                    <li class="testimonial-slider__item">
+                      <div class="h-full rounded-lg bg-theme-light px-7 py-10">
                         <div class="text-dark ">
                           <svg
                             width="33"
@@ -63,12 +62,10 @@ const { testimonial } = Astro.props;
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </li>
                   ),
                 )}
-              </div>
-              <div class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center" />
-            </div>
+            </ul>
           </div>
         </div>
       </div>
@@ -76,36 +73,31 @@ const { testimonial } = Astro.props;
   )
 }
 
-<script>
-  import { Swiper } from "swiper";
-  import "swiper/css";
-  import "swiper/css/pagination";
-  import { Autoplay, Pagination } from "swiper/modules";
-
-  // astro:page-load event is fired when the page is loaded
-  document.addEventListener("astro:page-load", () => {
-    new Swiper(".testimonial-slider", {
-      modules: [Pagination, Autoplay],
-      spaceBetween: 24,
-      loop: true,
-      centeredSlides: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".testimonial-slider-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-      },
-    });
-  });
-</script>
+<style>
+  /* Defilement horizontal en CSS pur (scroll-snap), comme BannerSlider :
+     evite de reintroduire Swiper pour un carrousel d'avis. */
+  .testimonial-slider {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0 0 1rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+  .testimonial-slider__item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+  @media (min-width: 768px) {
+    .testimonial-slider__item {
+      flex-basis: calc((100% - 1.5rem) / 2);
+    }
+  }
+  @media (min-width: 992px) {
+    .testimonial-slider__item {
+      flex-basis: calc((100% - 3rem) / 3);
+    }
+  }
+</style>

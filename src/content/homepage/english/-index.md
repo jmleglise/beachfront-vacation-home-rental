@@ -1,8 +1,6 @@
 ---
 meta_title: "Beachfront Villa Rental in Ouistreham - Sleeps 6, Stunning Views"
-description: "Stay at Villa Tamaris, a luxury beachfront rental in Ouistreham. Sleeps 6, with stunning sea views and direct beach access. Perfect for families or seaside getaways!"
-
-
+description: "Villa Tamaris, a beachfront holiday home in Ouistreham: 3 bedrooms, sleeps 6, sea views and direct beach access. Two hours from Paris."
 schemaVacationRental: |  
   <script type="application/ld+json">
   {

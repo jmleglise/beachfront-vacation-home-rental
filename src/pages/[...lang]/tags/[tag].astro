@@ -1,6 +1,5 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser";
 
@@ -17,8 +16,6 @@ import type { ContentEntryMap } from "astro:content";
 
 // get all static paths for tags
 export async function getStaticPaths() {
-  const { default_language } = config.settings;
-
   const paths = await Promise.all(
     supportedLang.map(async (lang) => {
       const tags = await getTaxonomy(lang as keyof ContentEntryMap, "tags");
@@ -35,22 +32,7 @@ export async function getStaticPaths() {
     }),
   );
 
-  // Handle default path (no lang)
-  const defaultCategories = await getTaxonomy(
-    default_language as keyof ContentEntryMap,
-    "tags",
-  );
-  const defaultPaths = defaultCategories.map((tag) => ({
-    params: {
-      lang: undefined,
-      tag: tag,
-    },
-    props: {
-      tag,
-    },
-  }));
-
-  return [...paths.flat(), ...defaultPaths];
+  return paths.flat();
 }
 
 const { tag, lang } = Astro.params;
@@ -68,7 +50,7 @@ const tags = await getTaxonomy(langCollection, "tags");
 ---
 
 
-<Base title={tag}>
+<Base title={tag} noindex={true}>
   <PageHeader title={tag} />
   <section class="section">
     <div class="container">

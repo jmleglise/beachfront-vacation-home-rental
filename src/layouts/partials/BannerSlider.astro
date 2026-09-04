@@ -1,119 +1,250 @@
 ---
-const { banners } = Astro.props;
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Banner {
+  src: string;
+  alt?: string;
+}
+
+const { banners } = Astro.props as { banners: Banner[] };
+
+// Meme convention que ImageMod : les visuels vivent dans /public/images.
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/public/images/**/*.{jpeg,jpg,png,gif}",
+);
+
+const slides = banners
+  .map((banner, index) => {
+    const key = `/public${banner.src}`;
+    if (!images[key]) {
+      console.error(
+        `\x1b[31mImage not found - ${key}.\x1b[0m Make sure the image is in the /public/images folder.`,
+      );
+      return null;
+    }
+    return {
+      loader: images[key],
+      alt: banner.alt || `Banner ${index + 1}`,
+    };
+  })
+  .filter((slide): slide is NonNullable<typeof slide> => slide !== null);
 ---
-<!-- import ImageMod from "@/components/ImageMod.astro"; -->
-<style>
-.relative-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-.hp-slider {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.hp-slider .swiper-wrapper {
-  align-items: center;
-}
-.hp-slider img {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.hp-slider img.loaded {
-  opacity: 1;
-}
-</style>
-<div class="relative-container">
-  <div class="swiper hp-slider">
-    <div class="swiper-wrapper">
-      {banners.map((banner: any, index: number) => (
-        <div class="swiper-slide">
-<!-- <ImageMod src={banner.src} class="swiper-lazy" height={1200} width={675} alt={banner.alt || Banner ${index + 1}} class="w-full h-full object-cover" format="webp" /> -->
 
+<div class="hp-slider" data-hp-slider>
+  <ul class="hp-slider__track" data-hp-track>
+    {
+      slides.map((slide, index) => (
+        <li class="hp-slider__slide" data-hp-slide>
+          <Image
+            src={slide.loader()}
+            alt={slide.alt}
+            widths={[480, 768, 1024, 1472]}
+            width={1472}
+            height={828}
+            sizes="(min-width: 1536px) 1472px, (min-width: 640px) calc(100vw - 4rem), 100vw"
+            format="webp"
+            quality={68}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding={index === 0 ? "sync" : "async"}
+            fetchpriority={index === 0 ? "high" : "auto"}
+            class="hp-slider__img"
+          />
+        </li>
+      ))
+    }
+  </ul>
 
-          {index === 0 ? (
-            <img 
-              src={banner.src}
-              alt={banner.alt || `Banner ${index + 1}`}
-              height="1200"
-              width="675"
-              class="w-full h-full object-cover loaded"
-            />
-          ) : (
-            <img 
-              data-src={banner.src}
-              alt={banner.alt || `Banner ${index + 1}`}
-              height="1200"
-              width="675"
-              class="w-full h-full object-cover"
-            />
-          )}
-        </div>
-      ))}
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+  <button
+    type="button"
+    class="hp-slider__nav hp-slider__nav--prev"
+    data-hp-prev
+    aria-label="Image précédente"
+    hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8" /></svg></button
+  >
+  <button
+    type="button"
+    class="hp-slider__nav hp-slider__nav--next"
+    data-hp-next
+    aria-label="Image suivante"
+    hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" /></svg></button
+  >
+
+  <div class="hp-slider__dots" role="tablist" aria-label="Photos de la villa" data-hp-dots hidden>
+    {
+      slides.map((_, index) => (
+        <button
+          type="button"
+          role="tab"
+          class="hp-slider__dot"
+          data-hp-dot={index}
+          aria-label={`Image ${index + 1}`}
+          aria-selected={index === 0 ? "true" : "false"}
+        />
+      ))
+    }
   </div>
-</div>  
+</div>
+
+<style>
+  /* Carrousel 100 % CSS (scroll-snap) : fonctionne sans JavaScript.
+     Remplace Swiper (86,7 Ko de JS + une feuille de style bloquante). */
+  .hp-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .hp-slider__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .hp-slider__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hp-slider__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+
+  .hp-slider__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hp-slider__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    background: rgb(0 0 0 / 45%);
+    color: #fff;
+    transition: background 0.2s;
+  }
+  .hp-slider__nav:hover {
+    background: rgb(0 0 0 / 70%);
+  }
+  .hp-slider__nav svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .hp-slider__nav--prev {
+    left: 0.75rem;
+  }
+  .hp-slider__nav--next {
+    right: 0.75rem;
+  }
+
+  .hp-slider__dots {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+  }
+  .hp-slider__dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 55%);
+    transition: background 0.2s;
+  }
+  .hp-slider__dot[aria-selected="true"] {
+    background: #fff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hp-slider__track {
+      scroll-behavior: auto;
+    }
+  }
+</style>
 
 <script>
-import Swiper from "swiper";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
+  // ~40 lignes de JS natif la ou Swiper en pesait 86,7 Ko : defilement auto,
+  // fleches et puces. Le carrousel reste utilisable si ce script ne charge pas.
+  const AUTOPLAY_DELAY = 5000;
 
-document.addEventListener("astro:page-load", () => {
-  const swiper = new Swiper(".hp-slider", {
-    modules: [Autoplay, EffectFade, Navigation, Pagination],
-    effect: "fade",
-    loop: false, // ne pas utiliser le loop car swiper clone les slide et crée pleins de problème de chargement d'image. Le carrousel boucle quand même !
-    spaceBetween: 30,
-    
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-    
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    
-    on: {
-      slideChange: function(this: any) {
-        // Charger l'image active
-        const activeSlide = this.slides[this.activeIndex];
-        const activeImg = activeSlide?.querySelector('img[data-src]');
-        if (activeImg && !activeImg.src) {
-          activeImg.src = activeImg.dataset.src;
-          activeImg.onload = () => activeImg.classList.add('loaded');
-          activeImg.removeAttribute('data-src');
-        }
-        
-        // Précharger la suivante après 800ms
-        setTimeout(() => {
-          const nextSlide = this.slides[this.activeIndex + 1];
-          const nextImg = nextSlide?.querySelector('img[data-src]');
-          if (nextImg && !nextImg.src) {
-            nextImg.src = nextImg.dataset.src;
-            nextImg.onload = () => nextImg.classList.add('loaded');
-            nextImg.removeAttribute('data-src');
-          }
-        }, 800);
-      }
+  function initSlider(root: HTMLElement) {
+    const track = root.querySelector<HTMLElement>("[data-hp-track]");
+    const slides = [...root.querySelectorAll<HTMLElement>("[data-hp-slide]")];
+    const dots = [...root.querySelectorAll<HTMLElement>("[data-hp-dot]")];
+    const prev = root.querySelector<HTMLElement>("[data-hp-prev]");
+    const next = root.querySelector<HTMLElement>("[data-hp-next]");
+    const dotsBar = root.querySelector<HTMLElement>("[data-hp-dots]");
+    if (!track || slides.length < 2) return;
+
+    // Les controles sont masques par defaut : sans JS ils ne feraient rien.
+    for (const el of [prev, next, dotsBar]) el?.removeAttribute("hidden");
+
+    let index = 0;
+    let paused = false;
+
+    const goTo = (i: number) => {
+      index = (i + slides.length) % slides.length;
+      track.scrollTo({ left: slides[index].offsetLeft - track.offsetLeft });
+    };
+
+    const syncDots = () => {
+      const current = Math.round(track.scrollLeft / track.clientWidth);
+      if (current === index) return;
+      index = current;
+      dots.forEach((dot, i) =>
+        dot.setAttribute("aria-selected", String(i === index)),
+      );
+    };
+
+    track.addEventListener("scroll", syncDots, { passive: true });
+    prev?.addEventListener("click", () => goTo(index - 1));
+    next?.addEventListener("click", () => goTo(index + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+
+    for (const event of ["pointerenter", "focusin"]) {
+      root.addEventListener(event, () => (paused = true));
     }
-  });
-});
+    for (const event of ["pointerleave", "focusout"]) {
+      root.addEventListener(event, () => (paused = false));
+    }
+
+    const timer = setInterval(() => {
+      if (!paused && !document.hidden) goTo(index + 1);
+    }, AUTOPLAY_DELAY);
+
+    // ClientRouter reutilise le document : sans ca les timers s'empilent.
+    document.addEventListener("astro:before-swap", () => clearInterval(timer), {
+      once: true,
+    });
+  }
+
+  function initAll() {
+    document
+      .querySelectorAll<HTMLElement>("[data-hp-slider]")
+      .forEach(initSlider);
+  }
+
+  document.addEventListener("astro:page-load", initAll);
 </script>

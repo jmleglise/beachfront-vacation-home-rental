@@ -1,7 +1,7 @@
 ---
 title: "Discover the specialties of Calvados during your home rental stay in Ouistreham."
 meta_title: "Gourmet Holiday Rental in Ouistreham - Explore Culinary Calvados"
-description: "Discover Calvados, a food lover’s paradise! Stay in a cozy holiday home in Ouistreham, perfect for exploring Normandy’s specialties: seafood, cheeses, ciders, and local delights."
+description: "Calvados, a food lover's paradise: seafood, cheeses, ciders and local delights to cook in your holiday home in Ouistreham, Normandy."
 date: 2024-11-23T05:00:00Z
 image: "/images/placeholder.jpg"
 categories: ["Gastronomy"]

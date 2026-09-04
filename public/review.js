@@ -1,6 +1,3 @@
-const botToken = document.body.dataset.bot;
-const chatId = document.body.dataset.chat;
-
 const stars = document.querySelectorAll(".stars");
 const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
@@ -60,13 +57,11 @@ form.addEventListener("submit", async (e) => {
   const month = document.getElementById("month").value;
   const year = document.getElementById("year").value;
 
-  const msg = `⭐ ${selectedRating}/5\nDate: ${month} ${year}\n\n${text}`;
-
   try {
-    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    const res = await fetch("/api/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: msg }),
+      body: JSON.stringify({ rating: selectedRating, text, month, year }),
     });
 
     form.remove();
