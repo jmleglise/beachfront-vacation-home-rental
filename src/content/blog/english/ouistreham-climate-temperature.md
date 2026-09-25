@@ -3,9 +3,9 @@ title: "Ouistreham climate, temperatures and weather through the seasons"
 meta_title: "When to visit Ouistreham? Weather, climate and temperatures by month."
 description: "Discover the month-by-month weather for your holiday home rental in Ouistreham: temperatures, seaside atmosphere, garden flowers and local seafood seasons."
 date: 2026-05-20T05:00:00Z
-image: "/images/placeholder.jpg"
+image: "/images/plage.jpg"
 categories: ["Guide"]
-author: "jml"
+author: "Jean-Marc"
 tags: ["Ouistreham", "Weather", "Rain"]
 draft: false
 ---
@@ -16,6 +16,8 @@ The real answer is very Norman in spirit: it depends on what you are looking for
 By the seaside, the weather changes very quickly. A day forecast as “rainy” may simply mean a 30-minute shower… sometimes even only at night, without any impact on your day.
 
 This is also part of Ouistreham’s charm: a changeable, generally mild climate, with that very special light of the Norman coast.
+
+<h2>Ouistreham weather, month by month</h2>
 
 <h3>January: wild sea and a cocooning atmosphere</h3>
 

@@ -4,9 +4,9 @@ meta_title: "Land Sailing, an activity during your vacation rental in Ouistreham
 description: "Land sailing in Ouistreham: open to ages 8 and up, a thrilling activity to try during your stay in our beachfront holiday home."
 date: 2024-07-04T05:00:00Z
 image: "/images/char.jpg"
-categories: ["sport"]
-author: "JmL"
-tags: ["land sailing", "sport", "beach"]
+categories: ["Sport"]
+author: "Jean-Marc"
+tags: ["Land sailing", "Sport", "Beach"]
 ---
 
 Our first land sailing experience was very enjoyable and an immediate success. It’s an activity that’s very easy and accessible to everyone (starting from age 8, as kids do just as well as adults). Although we probably weren’t going very fast at first, we quickly began to feel the thrill.

@@ -8,6 +8,7 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 import PostSidebar from "@/partials/PostSidebar.astro";
 import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import PageHeader from "@/partials/PageHeader.astro";
+import { humanize } from "@/lib/utils/textConverter";
 import type { ContentEntryMap } from "astro:content";
 
 // get all static paths for categories
@@ -49,19 +50,19 @@ const tags = await getTaxonomy(langCollection, "tags");
 
 ---
 
-<Base title={category} noindex={true}>
-  <PageHeader title={category} />
+<Base title={humanize(category!)} noindex={true}>
+  <PageHeader title={humanize(category!)} />
   
-  <section class="section">
+  <section class="page-body">
     <div class="container">
-      <div class="row gx-5">
+      <div class="row">
         <!-- blog posts -->
         <div class="lg:col-8">
           <div class="row">
             {
               sortedPosts.map((post) => (
-                <div class="mb-14 md:col-6 lg:col-4">
-                  <BlogCard data={post} />
+                <div class="mb-12 md:col-6">
+                  <BlogCard data={post} headingLevel="h2" />
                 </div>
               ))
             }

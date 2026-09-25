@@ -2,7 +2,7 @@
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
-import { slugSelector, supportedLang } from "@/lib/utils/languageParser";
+import { getTranslations, slugSelector, supportedLang } from "@/lib/utils/languageParser";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader.astro";
 import type { ContentEntryMap } from "astro:content";
@@ -21,26 +21,27 @@ if (!lang) {
 }
 
 const langCollection: keyof ContentEntryMap = lang as keyof ContentEntryMap;
+const t = await getTranslations(lang as string);
 const categories = await getTaxonomy(langCollection, "categories");
 const allCategories = await getAllTaxonomy(langCollection, "categories");
 ---
 
-<Base title={"Categories"} noindex={true}>
-  <PageHeader title={"Categories"} />
-  <section class="section">
-    <div class="container text-center">
-      <ul>
-        {
+<Base title={t.categories} noindex={true}>
+  <PageHeader title={t.categories} />
+  <section class="page-body">
+    <div class="container">
+      <ul class="flex flex-wrap gap-3">
+{
           categories.map((category: string) => {
             const count = allCategories.filter((c) => c === category).length;
             return (
-              <li class="m-3 inline-block">
+              <li>
                 <a
                   href={slugSelector(`/categories/${category}`, lang)}
-                  class="block rounded bg-theme-light px-4 py-2 text-xl text-dark"
+                  class="tag inline-flex min-h-[44px] items-center gap-2 px-4 text-base"
                 >
                   {humanize(category)}{" "}
-                  <span class="ml-2 rounded bg-body px-2">
+                  <span class="rounded bg-body px-2 text-sm text-light">
                     {count}
                   </span>
                 </a>

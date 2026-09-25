@@ -3,10 +3,10 @@ title: "The Best Culinary Spots to Discover During Your Vacation Rental Stay in 
 meta_title: "Must-Try Restaurants and Dining Near Ouistreham | Gourmet Guide"
 description: "Michelin-starred restaurants and the best tables around Ouistreham: our guide to dining well during your holiday rental stay in Normandy."
 date: 2024-11-30T05:00:00Z
-image: "/images/placeholder.jpg"
+image: "/images/d_terrasse_apero.jpg"
 categories: ["Gastronomy"]
-author: "jml"
-tags: ["restaurant", "seafood"]
+author: "Jean-Marc"
+tags: ["Restaurant", "Seafood"]
 draft: false
 ---
 

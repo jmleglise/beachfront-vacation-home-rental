@@ -7,10 +7,11 @@
     "trailing_slash": true,
     "favicon32": "/images/favicon32.png",
     "favicon96": "/images/favicon96.png",
-    "logo": "/images/camelia_cabochon_97.png",
-    "logo_width": "90",
-    "logo_height": "90",
-    "logo_text": "Les céramiques de la villa Tamaris à Ouistreham sont de Martine Brossier Genevois"
+    "logo": "/images/camelia_cabochon_280.png",
+    "logo_width": "44",
+    "logo_height": "44",
+    "logo_text": "Villa Tamaris",
+    "logo_alt": "Camélia en céramique de Martine Brossier Genevois, emblème de la villa Tamaris"
   },
   "settings": {
     "sticky_header": true,
@@ -24,11 +25,11 @@
   },
   "params": {
     "contact_form_action": "#",
-    "copyright": "<i><a href='https://astro.build' target='_blank' rel='noopener noreferrer'>  made with Astro.js & Astroplate</a></i>"
+    "copyright": "Villa Tamaris, Ouistreham"
   },
   "book_now_button": {
     "enable": true,
-    "label": "Book Now",
+    "label": "Réserver",
     "link": "/villa-tamaris-beachfront-ouistreham-book-now/"
   },
   "metadata": {

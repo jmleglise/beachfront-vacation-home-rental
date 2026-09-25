@@ -7,8 +7,8 @@ export function initGallery() {
     zoom: false,
     gallery: '.gallery',
     children: 'a',
-    initialZoomLevel: 'fill',
-    secondaryZoomLevel: 'fill',
+    initialZoomLevel: 'fit',
+    secondaryZoomLevel: 'fit',
     pswpModule: () => import('photoswipe'),
   });
 

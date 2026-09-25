@@ -1,17 +1,36 @@
 ---
+// En-tete de page unique : fil d'Ariane, H1, chapo et visuel optionnels.
+// Utilise par toutes les pages sauf l'accueil (carrousel).
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import { humanize } from "@/lib/utils/textConverter";
+import ImageMod from "@/components/ImageMod.astro";
+import { markdownify, plainify } from "@/lib/utils/textConverter";
 
-const { title = "" }: { title?: string } = Astro.props;
+const {
+  title = "",
+  lead,
+  image,
+  imageAlt,
+}: { title?: string; lead?: string; image?: string; imageAlt?: string } = Astro.props;
 ---
 
-<section>
-  <div class="container text-center">
-    <div
-      class="rounded-2xl bg-gradient-to-b from-body to-theme-light px-8 py-14"
-    >
-      <h1 set:text={humanize(title)} />
-      <Breadcrumbs className="mt-6" />
-    </div>
+<section class="pt-6 md:pt-10">
+  <div class="container">
+    <Breadcrumbs title={title} className="mb-4" />
+    <h1 set:html={markdownify(title)} class="max-w-4xl" />
+    {lead && <p class="mt-4 max-w-measure text-lg" set:html={markdownify(lead)} />}
+    <slot />
+    {
+      image && (
+        <ImageMod
+          class="mt-8 aspect-[16/9] w-full rounded-lg object-cover"
+          src={image}
+          width={1200}
+          height={675}
+          alt={imageAlt ?? plainify(title)}
+          loading="eager"
+          format="webp"
+        />
+      )
+    }
   </div>
 </section>

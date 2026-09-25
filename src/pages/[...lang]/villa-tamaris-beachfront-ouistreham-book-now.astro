@@ -1,11 +1,11 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser";
 import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import { render, type DataEntryMap } from "astro:content";
 import BookingConfigurator from "@/components/BookingConfigurator";
+import PageHeader from "@/partials/PageHeader.astro";
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -18,7 +18,7 @@ const { lang } = Astro.params;
 const readcontent = await getListPage("booknow", lang as keyof DataEntryMap);
 
 const { Content } = await render(readcontent[0] as any);
-const { title, description, meta_title, image } = readcontent[0].data;
+const { title, description, meta_title, image, lead, form_title } = readcontent[0].data;
 ---
 
 <Base
@@ -27,35 +27,28 @@ const { title, description, meta_title, image } = readcontent[0].data;
   description={description}
   image={image}
 >
- 
+  <PageHeader title={title} lead={lead} />
+
+  <div class="page-body">
     <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-12 md:col-10 mb-8 text-left">
-          {
-            image && (
-              <ImageMod
-                class="mx-auto col-12"
-                src={image}
-                width={1200}
-                height={675}
-                alt={title}
-                format="webp"
-              />
-            )
-          }
-          <h1 set:html={markdownify(title)} class="h1 mb-6" />
+      <div class="row">
+        <!-- Le formulaire vient en premier : c'est l'action principale de la page. -->
+        <section class="mb-12 lg:col-7 lg:mb-0">
+          {form_title && <h2 set:html={markdownify(form_title)} class="mb-6" />}
+          <BookingConfigurator
+            client:load
+            lang={lang || "fr"}
+            apiKey={import.meta.env.PUBLIC_GGCALENDAR_API_KEY}
+            calendarId={import.meta.env.PUBLIC_GGCALENDAR_ID}
+            turnstileSiteKey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+          />
+        </section>
+        <aside class="lg:col-5">
           <div class="content">
             <Content />
           </div>
-          <BookingConfigurator
-          client:load
-          lang={lang || "fr"}
-          apiKey={import.meta.env.PUBLIC_GGCALENDAR_API_KEY}
-          calendarId={import.meta.env.PUBLIC_GGCALENDAR_ID}
-          turnstileSiteKey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
-        />
-        </div>
+        </aside>
       </div>
     </div>
-
+  </div>
 </Base>

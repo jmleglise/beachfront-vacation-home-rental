@@ -3,47 +3,37 @@ title: "Location of the Tamaris villa"
 meta_title: "Location of the Tamaris villa in Ouistreham"
 description: "Villa Tamaris enjoys an outstanding location in Ouistreham: exceptional sea view, quiet street, 10 minutes from the town centre, 2h15 from Paris."
 image: "/images/horizon.jpg"
+lead: "117 boulevard Aristide Briand, 14150 Ouistreham, opposite the Malo slipway."
+map:
+  src: "/images/ouistreham_map.jpg"
+  alt: "Map of Ouistreham showing Villa Tamaris on the seafront"
+cta:
+  label: "Discover the villa's amenities"
+  link: "/en/villa-tamaris-beachfront-ouistreham-feature/"
 draft: false
 ---
 
-At 117 Boulevard Aristide Briand 14150 Ouistreham.
-Opposite the Malo ramp.
+## Access
 
-<h2> Access: </h2>
+- 2 h 15 from Paris via the A13 motorway.
+- 20 minutes from Caen.
+- Caen SNCF train station.
+- Ferry: 3 daily departures to Portsmouth (England), in 6 or 8 hours.
 
-- 2 hours and 15 minutes from Paris via the A13 Normandy motorway
-- 20 minutes from Caen
-- Caen SNCF train station
-- Ferry: 3 daily departures to Portsmouth, England, in 6 or 8 hours.
- 
-<h2>Close to all amenities:</h2>
+## Shops and services
 
-- Bakery (700m)
-
-- Auchan (1 km) with Hairdresser, Florist, Shoemaker, Laundromat, Pizzeria...
-
-- Rue de la Mer (1.2 km - a lively, famous shopping street: newsstand, bookstore, restaurants, etc.)
-
-- An exceptional fish and seafood market every day (2.4 km). The fishermen of Ouistreham sell their night’s catch.
-
+- Bakery 700 m away.
+- Auchan 1 km away, with hairdresser, florist, cobbler, launderette and pizzeria.
+- Rue de la Mer, 1.2 km away: a lively shopping street (newsagent, bookshop, restaurants).
+- A fish and seafood market every day, 2.4 km away. Ouistreham fishermen sell their night's catch there.
 - Two local farmers' markets.
-
 - Numerous restaurants and shops.
 
-<img src="/images/ouistreham_map.jpg" alt="Location Villa Tamaris by the sea" />
+## Things to do
 
-<h2>Things to Do:</h2>
-
-- The beach right in front of the gate, with a boat launch, children’s playground, and pétanque courts (50m). You can enjoy a sunset stroll or sip a cocktail at the beach bar "La Paillotte" just 80m away.
-
-- Many walks (seawall, marshes, woods...) or by bike on the bike path along the seawall in front of the house, stretching 15km to Courseulles-sur-Mer on one side and along the Orne canal to Caen on the other side.
-
-- Sailing school and equipment rental 100m away: windsurfing, paddleboarding, jet-skiing, land sailing, kitesurfing.
-
-- Other activities within 1km: aquatic center/swimming pool, thalassotherapy center, arcade, cinema, Barrière casino, nightclub, equestrian center with beach rides, go-kart track, skatepark, tennis.
-
-- And in the region: a golf course 15 minutes away, mini-golf, amusement parks, zoos, museums, D-Day beaches, etc.
-
-- CAEN (20 min), BAYEUX (30 min), MONT-ST-MICHEL (1h20), CABOURG (28 min), DEAUVILLE (40 min), PONT L’EVEQUE (40 min).
-
-<a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-feature/" target="_self"> Discover the villa's premium amenities</a>
+- The beach right outside the gate, with a slipway, children's playground and pétanque courts (50 m). At sunset, the "La Paillotte" beach bar is 80 m away.
+- Many walks (seawall, marshes, woods) or bike rides: the cycle path along the seawall, in front of the house, runs 15 km to Courseulles-sur-Mer on one side, and along the Orne canal to Caen on the other.
+- Sailing school and equipment rental 100 m away: windsurfing, paddleboarding, jet-ski, land sailing, kitesurfing.
+- Within 1 km: aquatic centre, thalassotherapy, arcade, cinema, Barrière casino, nightclub, riding centre with beach rides, go-karting, skatepark, tennis.
+- In the region: golf course 15 minutes away, mini-golf, amusement parks, zoos, museums, D-Day beaches.
+- Caen (20 min), Bayeux (30 min), Cabourg (28 min), Deauville (40 min), Pont-l'Évêque (40 min), Mont-Saint-Michel (1 h 20).

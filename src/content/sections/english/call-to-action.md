@@ -12,9 +12,9 @@ keywords :
 - "Seaside seasonal rental."
 - "Seaside vacation rental."
 
-description: " Sleeps 6, with stunning sea views and direct beach access. Perfect for families or seaside getaways!"
+description: "Sleeps 6, with sea views and direct beach access. For a family holiday or a seaside weekend."
 button:
   enable: true
-  label: "Learn more"
+  label: "Discover the villa"
   link: "/en/"
 ---

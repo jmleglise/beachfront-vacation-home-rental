@@ -3,16 +3,20 @@ title: "Description of Villa Tamaris"
 meta_title: "Vacation Rental Description - Villa Tamaris"
 description: "Villa Tamaris offers high-end amenities. For 6 guests, 4 bedrooms, fully equipped, maximum comfort."
 image: "/images/villa_rue.jpg"
+lead: "The villa has 5 bedrooms. Depending on the time we have to prepare the house, 3 or 4 of them are available for rent. Get in touch and tell us about your plans."
+cta:
+  label: "Discover the villa's location"
+  link: "/en/villa-tamaris-beachfront-ouistreham-location/"
 draft: false
 
 # DETAIL
 detail:
-  - level: ""
-    content: "The villa has 5 bedrooms, but frequently only 3 or 4 are accessible depending on the time we have to prepare the house for rental. Get in touch and tell us about your plans!<br><br>"
   - level: "Exterior"
-    content: "The villa is located on a 300m2 plot, fenced, secure, and landscaped.<br>
-- A 70m2 private courtyard/terrace allows you to enjoy 3 sun loungers, a gas barbecue, an outdoor table and 6 chairs.<br>
-- A driveway secured by a gate can accommodate one or two cars in a row."
+    content: |
+      The villa stands on a 300 m² plot, fenced, secure and landscaped.
+
+      - A 70 m² private courtyard terrace with 3 sun loungers, a gas barbecue, an outdoor table and 6 chairs.
+      - A gated driveway fits one or two cars in a row.
     images:
       - full: "/images/villa_vue_portail.jpg"
         alt: "The villa"
@@ -30,22 +34,25 @@ detail:
         alt: "The beach in front of the house"
         title: "The beach in front of the house"              
 
-  - level: "Ground Floor:"
-    content: "- 2 bedrooms, each with two 80cm beds that can be joined together.<br>
-    -1 Shower room,<br>
-    -1 WC<br>"
+  - level: "Ground floor"
+    content: |
+      - 2 bedrooms, each with two 80 cm beds that can be joined together.
+      - 1 shower room.
+      - 1 WC.
     images:
       - full: "/images/plan_r0.jpg"
         alt: "Ground floor layout"
         title: "Ground floor layout"
 
-  - level: "First Floor:"
-    content: "A large open space, triple exposure and beautiful sea view. <br>
-    - The fully equipped kitchen (dishwasher, induction stove, oven and microwave) opens directly onto the dining area. Its bar and high stools allow you to keep the cook company. <br>
-- Dining room with extendable table for 10 people,<br>
-- Living room,<br>
-- A private office to work in peace,<br>
-- WC<br>"
+  - level: "First floor"
+    content: |
+      A large open-plan space facing three directions, with a beautiful sea view.
+
+      - The fully equipped kitchen (dishwasher, induction hob, oven and microwave) opens onto the dining area. Its bar and high stools let you keep the cook company.
+      - Dining room with an extendable table for 10 people.
+      - Living room.
+      - A separate office to work in peace.
+      - WC.
     images:
       - full: "/images/plan_r1.jpg"
         alt: "First floor layout"
@@ -69,11 +76,12 @@ detail:
         alt: "Office"
         title: "Office"
 
-  - level: "Second Floor:"
-    content: "- Master bedroom with a 160cm doublebed, its own shower room and private terrace. Exceptional view from the bed.<br>
-- 2 bedrooms, each with two 80cm beds that can be joined together. Sea view.<br>
-- Shower room<br>
-- WC"
+  - level: "Second floor"
+    content: |
+      - Master suite with a 160 cm double bed, its own shower room and private terrace. Sea view from the bed.
+      - 2 bedrooms, each with two 80 cm beds that can be joined together. Sea view.
+      - Shower room.
+      - WC.
     images:
       - full: "/images/plan_r2.jpg"
         alt: "Second floor layout"
@@ -110,22 +118,15 @@ detail:
         title: "View from bedroom 4"
 
       - full: "/images/d_sde1.jpg"
-        alt: "Independant Shower "
-        title: "Independant Shower"
+        alt: "Separate shower room"
+        title: "Separate shower room"
 
 ---
-<!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris by the sea" />
--->
+## Equipment
 
-<h2>Equipment</h2>
-
-- High-speed fiber internet & Wi-Fi.  
-- 5 bicycles: 3 adult, 1 small adult/teen, 1 child (6 years old).  
-- All bedding is brand new.  
-- A few beach games.  
-- A smoke detector, a fire extinguisher.  
-
-- BUT NO TV, which we happily replace with a few books and board games.  
-
-<a class="btn btn-outline-primary mt-5" href="/en/villa-tamaris-beachfront-ouistreham-location/" 
-target="_self"> Learn more about the villa’s amazing location </a>
+- High-speed fibre internet and Wi-Fi.
+- 5 bicycles: 3 adult, 1 teen, 1 child (6 years old).
+- All bedding is brand new.
+- A few beach games.
+- A smoke detector and a fire extinguisher.
+- No TV: books and board games instead.

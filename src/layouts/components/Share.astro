@@ -1,61 +1,39 @@
 ---
 import config from "@/config/config.json";
-import {
-  IoLogoFacebook,
-  IoLogoLinkedin,
-  IoLogoPinterest,
-  IoLogoTwitter,
-} from "react-icons/io5";
+// Logos de marque : absents de lucide, d'ou react-icons/fa6 pour ce seul usage.
+import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaXTwitter } from "react-icons/fa6";
 
 const { base_url }: { base_url: string } = config.site;
 const {
-  title,
-  description,
-  slug,
+  title = "",
+  description = "",
+  url = "/",
   className,
-}: { title?: string; description?: string; slug?: string; className?: string } =
+}: { title?: string; description?: string; url?: string; className?: string } =
   Astro.props;
+
+// URL canonique de la page : l'ancien calcul (`post.id`) produisait
+// "blog/french/..." qui n'existe pas.
+const pageUrl = encodeURIComponent(`${base_url}${url}`);
+const text = encodeURIComponent(title);
+const summary = encodeURIComponent(description);
+
+const links = [
+  { label: "Facebook", icon: FaFacebookF, href: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}` },
+  { label: "X", icon: FaXTwitter, href: `https://x.com/intent/post?text=${text}&url=${pageUrl}` },
+  { label: "LinkedIn", icon: FaLinkedinIn, href: `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}` },
+  { label: "Pinterest", icon: FaPinterestP, href: `https://pinterest.com/pin/create/button/?url=${pageUrl}&description=${summary}` },
+];
 ---
 
-<ul class={`${className}`}>
-  <li class="inline-block">
-    <a
-      aria-label="facebook share button"
-      href={`https://facebook.com/sharer/sharer.php?u=${base_url}/${slug}`}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      <IoLogoFacebook />
-    </a>
-  </li>
-  <li class="inline-block">
-    <a
-      aria-label="twitter share button"
-      href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${base_url}/${slug}`}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      <IoLogoTwitter />
-    </a>
-  </li>
-  <li class="inline-block">
-    <a
-      aria-label="linkedin share button"
-      href={`https://www.linkedin.com/shareArticle?mini=true&url=${base_url}/${slug}&title=${title}&summary=${description}&source=${base_url}`}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      <IoLogoLinkedin />
-    </a>
-  </li>
-  <li class="inline-block">
-    <a
-      aria-label="pinterest share button"
-      href={`https://pinterest.com/pin/create/button/?url=${base_url}/${slug}&media=&description=${description}`}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      <IoLogoPinterest />
-    </a>
-  </li>
+<ul class={className}>
+  {
+    links.map(({ label, icon: Icon, href }) => (
+      <li>
+        <a aria-label={label} href={href} target="_blank" rel="noreferrer noopener">
+          <Icon aria-hidden="true" />
+        </a>
+      </li>
+    ))
+  }
 </ul>

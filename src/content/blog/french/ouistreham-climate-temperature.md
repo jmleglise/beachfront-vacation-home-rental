@@ -3,9 +3,9 @@ title: "Quand venir à Ouistreham ? La météo mois par mois pour choisir votre 
 meta_title: "Quand venir à Ouistreham ? Météo, Climat, température par mois." 
 description: "La météo de Ouistreham mois par mois : températures, ambiance en bord de mer et saisons des produits de la mer, pour choisir la date de votre séjour."
 date: 2026-05-20T05:00:00Z 
-image: "/images/placeholder.jpg" 
+image: "/images/plage.jpg"
 categories: ["Guide"] 
-author: "jml" 
+author: "Jean-Marc"
 tags: ["Ouistreham", "Météo", "Pluie"] 
 draft: false
 ---
@@ -13,6 +13,8 @@ draft: false
 Lorsque nos voyageurs réservent notre maison en bord de mer à Ouistreham, une question revient souvent : “Quelle est la meilleure période pour venir ?”  La vraie réponse est très normande : cela dépend de ce que vous recherchez… et la météo réserve souvent de bonnes surprises. En bord de mer, le temps change très vite. Une journée annoncée comme “pluvieuse” peut simplement correspondre à une averse de 30 minutes… parfois même seulement en pleine nuit, sans impact sur votre journée. 
 
 C’est aussi ce qui fait le charme de Ouistreham : une météo changeante, plutôt douce, avec cette lumière si particulière de la côte normande.
+
+<h2>La météo à Ouistreham, mois par mois</h2>
 
 <h3>Janvier : la mer sauvage et l’ambiance cocooning</h3>
 

@@ -17,7 +17,7 @@ export const humanize = (content: string) => {
     .replace(/^[\s_]+|[\s_]+$/g, "")
     .replace(/[_\s]+/g, " ")
     .replace(/[-\s]+/g, " ")
-    .replace(/^[a-z]/, function (m) {
+    .replace(/^\p{Ll}/u, function (m) {
       return m.toUpperCase();
     });
 };

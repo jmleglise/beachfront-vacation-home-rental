@@ -1,36 +1,43 @@
 ---
-title: "Discover the specialties of Calvados during your home rental stay in Ouistreham."
+title: "Discover the specialties of Calvados during your home rental stay in Ouistreham"
 meta_title: "Gourmet Holiday Rental in Ouistreham - Explore Culinary Calvados"
 description: "Calvados, a food lover's paradise: seafood, cheeses, ciders and local delights to cook in your holiday home in Ouistreham, Normandy."
 date: 2024-11-23T05:00:00Z
-image: "/images/placeholder.jpg"
+image: "/images/d_cuisine.jpg"
 categories: ["Gastronomy"]
-author: "jml"
-tags: ["dining", "seafood"]
+author: "Jean-Marc"
+tags: ["Dining", "Seafood"]
 draft: false
 ---
 
 Are you looking for a gourmet destination for your next vacation? Calvados, in Normandy, is a true paradise for food lovers. By renting a holiday home in Ouistreham, you’ll be ideally situated to explore the culinary riches of the region. Here’s an overview of the must-try specialties.
 
-Teurgoule: A Comforting Tradition
+## Teurgoule: A Comforting Tradition
+
 A simple and comforting dish, teurgoule is a sweet rice pudding slowly baked in the oven and infused with cinnamon. This dessert, typical of the region, is a must for lovers of traditional sweets.
 
-Traditional Dishes: Andouille de Vire and Tripes à la Mode de Caen
+## Traditional Dishes: Andouille de Vire and Tripes à la Mode de Caen
+
 Andouille de Vire, a strongly flavored charcuterie, is perfect as an appetizer or starter. Tripes à la mode de Caen, carefully simmered, will appeal to fans of rustic and authentic dishes.
 
-Salt Meadow Lamb
+## Salt Meadow Lamb
+
 For meat lovers, try salt meadow lamb, a local specialty that is tender and flavorful. Nearby restaurants offer traditional recipes that highlight this exceptional dish.
 
-The Must-Haves from the Sea
+## The Must-Haves from the Sea
+
 Ouistreham, with its active fishing community, abounds in fresh seafood and fish. Enjoy oysters from open sea, bouchot mussels, or pink prawns paired with local cider. The fish market, just steps from the holiday rental, is a must-visit experience for food enthusiasts.
 
-Camembert and Other Normandy Cheeses
+## Camembert and Other Normandy Cheeses
+
 Camembert, Livarot, Pont-l’Évêque… Normandy is a land of exceptional cheeses. During your stay, visit an artisanal cheesemaker and bring back some treasures to enjoy on the terrace of your rental. With a garden view, it’s pure bliss!
 
-Norman Sweets: Caramels and Norman Tart
+## Norman Sweets: Caramels and Norman Tart
+
 Isigny caramels offer a sweet, melt-in-your-mouth touch that everyone will love. As for pastries, the apple Norman tart is an invitation to indulge. Nothing beats a slice of tart enjoyed in peace at your rental after a busy day.
 
-Apples in All Their Forms
+## Apples in All Their Forms
+
 Calvados is not just a department; it’s also an iconic apple-based brandy. Treat yourself to a tour of a distillery to uncover its secrets.
 Discover Pommeau as well, a soft and fruity aperitif.
 For dessert, don’t miss the Norman tart or the famous apple fritters.

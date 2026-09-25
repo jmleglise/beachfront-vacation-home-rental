@@ -3,16 +3,20 @@ title: "Descriptif de la villa Tamaris"
 meta_title: "Descriptif de la location saisonnière - villa Tamaris"
 description: "La Villa Tamaris offre des prestations haut de gamme. Pour 6 personnes, 4 Chambres, tout équipement, tout confort."
 image: "/images/villa_rue.jpg"
+lead: "La villa dispose de 5 chambres. Selon le temps dont nous disposons pour préparer la maison, 3 ou 4 sont ouvertes à la location. Contactez-nous pour nous faire part de votre projet."
+cta:
+  label: "Découvrir la localisation de la villa"
+  link: "/fr/villa-tamaris-beachfront-ouistreham-location/"
 draft: false
 
 # DETAIL
 detail:
-  - level: ""
-    content: "La villa dispose de 5 chambres mais fréquemment seules 3 ou 4 sont accessibles selon le temps dont nous disposons pour préparer la maison pour la location. Rentrez en contact et faites nous part de votre projet !<br><br>"
   - level: "Extérieur"
-    content: "La villa est située sur un terrain de 300m2, clôt, sécurisé et fleuri.<br>
-- Une cours/terrasse de 70m2 à l'abris des regards vous permet de profiter de 3 transats, barbecue gaz, table extérieure et 6 chaises.<br>
-- Une allée sécurisée par un portail accueille une ou deux voitures en enfilade."
+    content: |
+      La villa est située sur un terrain de 300 m², clos, sécurisé et fleuri.
+
+      - Une cour-terrasse de 70 m² à l'abri des regards, avec 3 transats, un barbecue au gaz, une table extérieure et 6 chaises.
+      - Une allée fermée par un portail accueille une ou deux voitures en enfilade.
     images:
       - full: "/images/villa_vue_portail.jpg"
         alt: "La villa"
@@ -21,67 +25,71 @@ detail:
         alt: "La terrasse"
         title: "La terrasse"
       - full: "/images/d_cour.jpg"
-        alt: "La cour abritée"
-        title: "La terrasse abritée"        
+        alt: "La cour-terrasse abritée"
+        title: "La cour-terrasse abritée"        
       - full: "/images/plage.jpg"
         alt: "La plage devant la maison"
         title: "La plage devant la maison"
       - full: "/images/zodiac.jpg"
-        alt: "La plage devant la maison"
-        title: "La plage devant la maison"              
+        alt: "La plage et la mer devant la maison"
+        title: "La mer devant la maison"              
 
-  - level: "Au Rez de Chaussée:"
-    content: "- 2 chambres, avec chacune 2 lits en 80 pouvant être réunis.<br>
-    -1 Salle de douche, <br>
-    -1 WC<br>"
+  - level: "Rez-de-chaussée"
+    content: |
+      - 2 chambres, chacune avec 2 lits de 80 pouvant être réunis.
+      - 1 salle de douche.
+      - 1 WC.
     images:
       - full: "/images/plan_r0.jpg"
-        alt: "Le plan du Rdc"
-        title: "Le plan du Rdc"
+        alt: "Plan du rez-de-chaussée"
+        title: "Plan du rez-de-chaussée"
 
-  - level: "Au 1er étage :"
-    content: "Un grand plateau, triple exposition et belle vue mer. <br>
-    - La cuisine toute équipée (lave vaisselle, induction, four et micro-onde) est directement ouverte sur la salle à manger. Son bar et tabourets de bar hauts permettent de tenir compagnie au/la cuisinier.e. <br>
-- Salle à manger avec table extensible pour 10 personnes,<br>
-- Salon,<br>
-- Un Bureau fermé pour travailler au calme,<br>
-- WC<br>"
+  - level: "1er étage"
+    content: |
+      Un grand plateau à triple exposition, avec une belle vue mer.
+
+      - La cuisine tout équipée (lave-vaisselle, plaque à induction, four et micro-ondes) est ouverte sur la salle à manger. Son bar et ses tabourets hauts permettent de tenir compagnie au cuisinier ou à la cuisinière.
+      - Salle à manger avec table extensible pour 10 personnes.
+      - Salon.
+      - Bureau fermé pour travailler au calme.
+      - WC.
     images:
       - full: "/images/plan_r1.jpg"
-        alt: "Le plan du R+1"
-        title: "Le plan du R+1"
+        alt: "Plan du 1er étage"
+        title: "Plan du 1er étage"
       - full: "/images/d_cuisine.jpg"
         alt: "La cuisine"
         title: "La cuisine"
       - full: "/images/d_sallemanger.jpg"
-        alt: "La salle à Manger - Table extensible 10 personnes"
-        title: "La salle à Manger - Table extensible 10 personnes"
+        alt: "La salle à manger, table extensible pour 10 personnes"
+        title: "La salle à manger"
 
       - full: "/images/d_coinapero.jpg"
-        alt: "Un coin Apéro"
-        title: "Un coin Apéro"
+        alt: "Le coin apéritif"
+        title: "Le coin apéritif"
       - full: "/images/d_salon.jpg"
         alt: "Le salon"
         title: "Le salon"
       - full: "/images/d_salon2.jpg"
-        alt: "Le salon"
-        title: "Le salon"
+        alt: "Le salon, vue vers la mer"
+        title: "Le salon, côté mer"
       - full: "/images/d_bureau2.jpg"
         alt: "Le bureau"
         title: "Le bureau"
 
-  - level: "Au 2ème étage :"
-    content: "- Chambre parentale avec 1 lit en 160, sa Salle de douche et sa terrasse privative. Vue exceptionnelle du lit.<br>
-- 2 chambres avec chacune 2 lits en 80 pouvant être réunis. Vue mer.<br>
-- Salle de douche<br>
-- WC"
+  - level: "2e étage"
+    content: |
+      - Suite parentale avec un lit de 160, sa salle de douche et sa terrasse privative. Vue mer depuis le lit.
+      - 2 chambres, chacune avec 2 lits de 80 pouvant être réunis. Vue mer.
+      - Salle de douche.
+      - WC.
     images:
       - full: "/images/plan_r2.jpg"
-        alt: "Le plan du R+2"
-        title: "Le plan du R+2"
+        alt: "Plan du 2e étage"
+        title: "Plan du 2e étage"
 
       - full: "/images/d_ch5.jpg"
-        alt: "La suite parental"
+        alt: "La suite parentale"
         title: "La suite parentale"
       - full: "/images/d_ch5_vue.jpg"
         alt: "La vue du lit de la suite"
@@ -100,8 +108,8 @@ detail:
         alt: "La vue de la chambre 3"
         title: "La vue de la chambre 3"
       - full: "/images/d_ch3_vue1.jpg"
-        alt: "La vue de la chambre 3"
-        title: "La vue de la chambre 3"
+        alt: "La vue sur la plage depuis la chambre 3"
+        title: "La vue de la chambre 3, côté plage"
 
       - full: "/images/d_ch4.jpg"
         alt: "La chambre 4"
@@ -117,14 +125,11 @@ detail:
 ---
 <!--img src="images/villa_tamaris_ouistreham_map.png" alt="Villa Tamaris en bord de mer" />
 -->
-<h2>Equipement</h2>
+## Équipement
 
-- Internet haut débit fibre & Wifi.
-- 5 vélos : 3 adultes, 1 ado, 1 enfant 6 ans. 
-- Toute la literie est neuve. 
-- Quelques jeux de plage. 
-- Un détecteur de fumées, un extincteur. 
-
-- Mais PAS DE TV que nous remplaçons avantageusement par quelques livres et jeux de sociétés. 
-
-<a class="btn btn-outline-primary mt-5" href="/fr/villa-tamaris-beachfront-ouistreham-location/" target="_self"> Découvrez la localisation de la location saisonnière à Ouistreham Calvados</a>
+- Internet haut débit par la fibre et Wi-Fi.
+- 5 vélos : 3 adultes, 1 adolescent, 1 enfant de 6 ans.
+- Literie entièrement neuve.
+- Quelques jeux de plage.
+- Un détecteur de fumée, un extincteur.
+- Pas de télévision : à la place, des livres et des jeux de société.

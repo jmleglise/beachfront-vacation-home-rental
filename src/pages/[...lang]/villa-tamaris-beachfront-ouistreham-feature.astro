@@ -1,12 +1,11 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser";
 import { supportedLang } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import { render, type DataEntryMap } from "astro:content";
 import Gallery from "@/components/Gallery.astro";
-
+import PageHeader from "@/partials/PageHeader.astro";
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -19,7 +18,7 @@ const { lang } = Astro.params;
 const readcontent = await getListPage("feature", lang as keyof DataEntryMap);
 
 const { Content } = await render(readcontent[0] as any);
-const { title, description, meta_title, image, detail } = readcontent[0].data;
+const { title, description, meta_title, image, lead, detail, cta } = readcontent[0].data;
 ---
 
 <Base
@@ -28,40 +27,25 @@ const { title, description, meta_title, image, detail } = readcontent[0].data;
   description={description}
   image={image}
 >
+  <PageHeader title={title} lead={lead} image={image} />
 
+  <div class="page-body">
     <div class="container">
-      <div class="row justify-center">
-        <div class="text-left md:col-10 lg:col-12">
-          {
-            image && (
-              <ImageMod
-                class="mx-auto col-12"
-                src={image}
-                width={1200}
-                height={675}
-                alt={title}
-                format="webp"
-              />
-            )
-          }
-          <h1 set:html={markdownify(title)} class="h1 mb-6" />
-
-          {detail.map((item: any) => (
-            <>
-              <h2 set:html={markdownify(item.level)} class="h2 mb-6" />
-              <div class="content" set:html={markdownify(item.content)} />
-              {item.images && item.images.length > 0 && (
-                <Gallery images={item.images} />
-              )}
-            </>
-          ))}
-          <div class="content">
-            <Content />
+      {detail.map((item: any) => (
+        <section class="mb-12 md:mb-16">
+          <div class="max-w-measure">
+            {item.level && <h2 set:html={markdownify(item.level)} class="mb-4" />}
+            <div class="content" set:html={markdownify(item.content, true)} />
           </div>
-
-        </div>
+          {item.images && item.images.length > 0 && (
+            <Gallery images={item.images} />
+          )}
+        </section>
+      ))}
+      <div class="content max-w-measure">
+        <Content />
       </div>
+      {cta && <a class="btn btn-outline-primary mt-10" href={cta.link}>{cta.label}</a>}
     </div>
-
-
+  </div>
 </Base>

@@ -1,58 +1,66 @@
 ---
-// src/components/Gallery.astro
+import type { ImageMetadata } from "astro";
 import ImageMod from "@/components/ImageMod.astro";
 import GalleryLightboxInit from "../../components/GalleryLightboxInit";
 
 const { images } = Astro.props;
+
+// Dimensions reelles transmises a PhotoSwipe : des valeurs fixes
+// (1200x700) deformaient ou recadraient les plans et les photos portrait.
+const sources = import.meta.glob<{ default: ImageMetadata }>(
+  "/public/images/**/*.{jpeg,jpg,png,gif}",
+);
+const items = await Promise.all(
+  images.map(async (img: any) => {
+    const loader = sources[`/public${img.full}`];
+    const meta = loader ? (await loader()).default : undefined;
+    return { ...img, width: meta?.width ?? 1200, height: meta?.height ?? 800 };
+  }),
+);
 ---
 
-<style>
-  .pswp__custom-caption {
-    background: rgba(0, 0, 0, 0.5);
-    font-size: 16px;
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-  }
-
-  .hidden-caption-content {
-    display: none;
-  }
-</style>
- 
-<div class="gallery grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+<div class="gallery mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
   {
-    images.map((img: any) => (
+    items.map((img: any) => (
       <figure>
         <a
           href={img.full}
-          data-pswp-width="1200"
-          data-pswp-height="700"
+          data-pswp-width={img.width}
+          data-pswp-height={img.height}
           target="_blank"
           rel="noreferrer"
+          class="block overflow-hidden rounded-lg"
         >
-        <ImageMod
-          class="w-full aspect-video object-cover rounded shadow hover:opacity-80 transition"
-          src={img.full}
-          width={575}
-          height={335}
-          alt={img.alt}
-          format="webp"
-          loading="lazy"
-        />
-
-        <span class="hidden-caption-content">{img.title}</span>
+          <ImageMod
+            class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-[1.03]"
+            src={img.full}
+            width={600}
+            height={450}
+            alt={img.alt}
+            format="webp"
+            loading="lazy"
+          />
+          <span class="hidden-caption-content hidden">{img.title}</span>
         </a>
-        <figcaption class="mt-2 text-center text-sm text-gray-700">
-          {img.title}
-        </figcaption>
+        <figcaption class="mt-2 text-sm text-light">{img.title}</figcaption>
       </figure>
     ))
   }
 </div>
 
 <GalleryLightboxInit client:load />
+
+<style is:global>
+  /* Legende PhotoSwipe : element cree hors du composant, d'ou is:global. */
+  .pswp__custom-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgb(4 4 4 / 60%);
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+  }
+</style>

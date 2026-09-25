@@ -1,7 +1,13 @@
 ---
-import { getLangFromUrl, slugSelector } from "@/lib/utils/languageParser";
+import {
+  getLangFromUrl,
+  getTranslations,
+  slugSelector,
+} from "@/lib/utils/languageParser";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const lang = getLangFromUrl(Astro.url);
+const t = await getTranslations(lang as string);
 
 type Pagination = {
   section?: string;
@@ -10,134 +16,51 @@ type Pagination = {
 };
 const { section, currentPage = 1, totalPages = 1 }: Pagination = Astro.props;
 
-const indexPageLink = currentPage === 2;
-const hasPrevPage = currentPage > 1;
-const hasNextPage = totalPages > currentPage!;
+const base = `/${section ? section : ""}`;
+const pageHref = (page: number) =>
+  slugSelector(page === 1 ? base : `${base}/page/${page}`, lang);
 
-let pageList: number[] = [];
-for (let i = 1; i <= totalPages; i++) {
-  pageList.push(i);
-}
+const hasPrevPage = currentPage > 1;
+const hasNextPage = totalPages > currentPage;
+const pageList = Array.from({ length: totalPages }, (_, i) => i + 1);
+const itemClass =
+  "inline-flex h-11 min-w-[44px] items-center justify-center rounded px-3 font-semibold";
 ---
 
 {
   totalPages > 1 && (
-    <nav
-      class="flex items-center justify-center space-x-3"
-      aria-label="Pagination"
-    >
-      {/* previous */}
+    <nav class="mt-4 flex items-center gap-2" aria-label={t.pagination}>
       {hasPrevPage ? (
-        <a
-          href={
-            indexPageLink
-              ? slugSelector(`/${section ? section : ""}`, lang)
-              : slugSelector(
-                  `/${section ? section : ""}/page/${currentPage - 1}`,
-                  lang,
-                )
-          }
-          class="rounded px-2 py-1.5 text-dark hover:bg-theme-light  "
-        >
-          <span class="sr-only">Previous</span>
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            height="30"
-            width="30"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <a href={pageHref(currentPage - 1)} class={`${itemClass} text-dark hover:bg-surface`}>
+          <span class="sr-only">{t.previous}</span>
+          <ChevronLeft className="h-5 w-5" aria-hidden="true" />
         </a>
       ) : (
-        <span class="rounded px-2 py-1.5 text-light">
-          <span class="sr-only">Previous</span>
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            height="30"
-            width="30"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <span class={`${itemClass} text-border`} aria-hidden="true">
+          <ChevronLeft className="h-5 w-5" />
         </span>
       )}
 
-      {/* page index */}
-      {pageList.map((pagination, i) =>
-        pagination === currentPage ? (
-          <span
-            aria-current="page"
-            class="rounded bg-primary px-4 py-2 text-white  "
-          >
-            {pagination}
+      {pageList.map((page) =>
+        page === currentPage ? (
+          <span aria-current="page" class={`${itemClass} bg-primary text-white`}>
+            {page}
           </span>
         ) : (
-          <a
-            href={slugSelector(
-              i === 0
-                ? `/${section ? section : ""}`
-                : `/${section ? section : ""}/page/${pagination}`,
-              lang,
-            )}
-            aria-current="page"
-            class="rounded px-4 py-2 text-dark hover:bg-theme-light  "
-          >
-            {pagination}
+          <a href={pageHref(page)} class={`${itemClass} text-dark hover:bg-surface`}>
+            {page}
           </a>
         ),
       )}
 
-      {/* next page */}
       {hasNextPage ? (
-        <a
-          href={slugSelector(
-            `/${section ? section : ""}/page/${currentPage + 1}`,
-            lang,
-          )}
-          class="rounded px-2 py-1.5 text-dark hover:bg-theme-light  "
-        >
-          <span class="sr-only">Next</span>
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            height="30"
-            width="30"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <a href={pageHref(currentPage + 1)} class={`${itemClass} text-dark hover:bg-surface`}>
+          <span class="sr-only">{t.next}</span>
+          <ChevronRight className="h-5 w-5" aria-hidden="true" />
         </a>
       ) : (
-        <span class="rounded px-2 py-1.5 text-light">
-          <span class="sr-only">Next</span>
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-            height="30"
-            width="30"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <span class={`${itemClass} text-border`} aria-hidden="true">
+          <ChevronRight className="h-5 w-5" />
         </span>
       )}
     </nav>

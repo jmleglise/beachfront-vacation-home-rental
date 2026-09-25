@@ -37,3 +37,15 @@
     width: 100%;
   }
 }
+
+/* react-day-picker v10 — couleurs de la charte.
+   Double classe pour passer devant react-day-picker/style.css quel que soit
+   l'ordre de chargement des feuilles. */
+.rdp-root.rdp-root {
+  --rdp-accent-color: theme("colors.primary.DEFAULT");
+  --rdp-accent-background-color: theme("colors.surface");
+  --rdp-today-color: theme("colors.accent.strong");
+  --rdp-range_middle-background-color: theme("colors.surface");
+  --rdp-range_middle-color: theme("colors.dark");
+  font-family: theme("fontFamily.primary");
+}

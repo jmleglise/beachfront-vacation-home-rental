@@ -1,11 +1,11 @@
 ---
-title: "Histoire et rénovation d'une maison de vacances en bord de mer à Ouistreham."
+title: "Histoire et rénovation d'une maison de vacances en bord de mer à Ouistreham"
 meta_title: "Maison de vacances bord de mer : Histoire d'une villa Normande"
 description: "L'histoire de la Villa Tamaris à Ouistreham : d'une maison de pêcheur à une maison de vacances en bord de mer typiquement normande, restaurée avec soin."
 date: 2025-05-04T05:00:00Z
 image: "/images/villa_rue.jpg"
 categories: ["Visite"]
-author: "JmL"
+author: "Jean-Marc"
 tags: ["Patrimoine"]
 draft: false
 ---
@@ -18,14 +18,14 @@ En acquérant la Villa Tamaris, notre maison de vacances à Ouistreham en bord d
 À l’origine, la Villa Tamaris n’était qu’une dépendance — probablement un petit garage — rattachée à une grande propriété aujourd’hui divisée. Dans les années 1950, cette petite habitation de plain-pied restait très modeste, mais possédait déjà un charme singulier.
 
 Une loggia ouverte soutenue par des bois de colombage, quelques murs en pierres apparentes et une implantation tournée vers la mer lui donnaient déjà l’esprit des anciennes maisons de vacances de bord de mer normandes. Les photographies retrouvées montrent d’ailleurs que l’intérieur a été transformé plusieurs fois au fil des décennies, au gré des besoins changeants de ses occupants et de l'adaptabilité de la structure. Il est dit qu'elle était à cette époque une maison de pêcheur.
-   <img src="/images/triptique1960.png" alt="Maison Villa Tamaris 1960" style="display: block; margin: auto;">
+   <img src="/images/triptique1960.png" alt="Maison Villa Tamaris 1960" width="763" height="441" loading="lazy" class="mx-auto h-auto">
 <h2> 1965 : La Villa Tamaris</h2>
 
 Le nom "Villa Tamaris" apparaît dans un acte notarial de 1965. Et effectivement un tamaris est encore présent sur le terrain.
 
 <h2> 1999 : Une Transformation radicale </h2>
 
-   <img src="/images/triptique2000.png" alt="Maison Villa Tamaris 1999" style="display: block; margin: auto;">
+   <img src="/images/triptique2000.png" alt="Maison Villa Tamaris 1999" width="837" height="807" loading="lazy" class="mx-auto h-auto">
 
 En 1999, la Villa Tamaris connaît une métamorphose complète et devient une maison de vacances contemporaine sur trois niveaux. Les permis de construire refusés à l'époque donnent quelques informations intéressantes :  Le propriétaire étudia plusieurs projets architecturaux d'inspiration Normands avec une orientation Ouest et une avancée de toit typiquement normande. Mais après plusieurs refus de la mairie, c'est finalement un projet surprenant qui  vit le jour. La construction resta orientée Nord et s'éleva de deux étages côté Est seulement, avec une pente de toit plongeante jusqu'au rez-de-chaussée côté Ouest. Le résultat tranche avec les villas environnantes : plus proche d’un chalet contemporain que d’une maison balnéaire. Etait-ce une volonté de se protéger des intempéries ou plus probablement pour concilier les contraintes imposées par la mairie ? Avec cette transformation les éléments d'architecture normande disparurent à l'exception d'un fragment de colombage conservé comme un discret souvenir du passé.
 
@@ -33,7 +33,7 @@ Quelques années plus tard, la surélévation de la maison voisine viendra malhe
 
 <h2>2022 : Notre acquisition</h2>
 
-   <img src="/images/triptique2025.png" alt="Maison Villa Tamaris en 2025" style="display: block; margin: auto;">
+   <img src="/images/triptique2025.png" alt="Maison Villa Tamaris en 2025" width="763" height="788" loading="lazy" class="mx-auto h-auto">
 
 En 2022, nous avons acquis la Villa Tamaris avec le projet de redonner à la maison sa vue mer imprenable , de renouer avec l’esprit des villas balnéaires normandes du 18e siècle et de la proposer occasionnellement en location de maison de vacances. 
 Nous nous sommes inspirés à la fois de son style de 1950 et des grandes demeures de bord de mer de Ouistreham, notamment documentées dans le livre "Villas et architecture de bord de mer - Ouistreham" de Florent Herouard.
