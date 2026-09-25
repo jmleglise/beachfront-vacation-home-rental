@@ -15,7 +15,7 @@ const { image, title, description, button } = call_to_action.data;
 
 {
   call_to_action.data.enable && (
-    <div class="card overflow-hidden p-0">
+    <div class="card overflow-hidden rounded-none p-0">
       <a href={button.link} class="block" tabindex="-1" aria-hidden="true">
         <ImageMod
           src={image}

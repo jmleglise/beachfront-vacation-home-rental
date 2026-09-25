@@ -1,20 +1,40 @@
-// Boutons : une action principale (btn-primary), une action secondaire
-// (btn-outline-primary). Hauteur minimale 44px (cible tactile), casse de
-// phrase : pas de text-transform.
+// Boutons : rectangulaires, libelle en capitales espacees.
+// - btn-primary : action principale (bleu nuit).
+// - btn-accent : action principale sur fond sombre (sable).
+// - btn-outline-primary : action secondaire.
+// - btn-link : lien d'action souligne avec fleche.
 .btn {
-  @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded border-2 border-transparent px-6 py-2.5 text-center font-primary font-semibold leading-tight no-underline transition-colors duration-200;
+  @apply inline-flex min-h-[52px] items-center justify-center gap-3 border border-transparent px-8 text-center font-primary text-xs font-medium uppercase leading-tight tracking-label no-underline transition-colors duration-200;
 }
 
 .btn-sm {
-  @apply min-h-[40px] px-4 py-2 text-sm;
+  @apply min-h-[44px] px-5;
 }
 
 .btn-primary {
   @apply border-primary bg-primary text-white hover:border-primary-dark hover:bg-primary-dark hover:text-white;
 }
 
+.btn-accent {
+  @apply border-accent bg-accent text-dark hover:border-white hover:bg-white hover:text-dark;
+}
+
 .btn-outline-primary {
-  @apply border-primary bg-transparent text-primary hover:bg-primary hover:text-white;
+  @apply border-dark bg-transparent text-dark hover:bg-dark hover:text-white;
+}
+
+.btn-outline-light {
+  @apply border-white bg-transparent text-white hover:bg-white hover:text-dark;
+}
+
+.btn-link {
+  @apply inline-flex min-h-[44px] items-center gap-3 border-b border-current pb-1 font-primary text-xs font-medium uppercase tracking-label text-dark no-underline transition-colors hover:text-accent-strong;
+  svg {
+    @apply h-2.5 w-[18px] transition-transform;
+  }
+  &:hover svg {
+    @apply translate-x-1;
+  }
 }
 
 .btn:disabled,

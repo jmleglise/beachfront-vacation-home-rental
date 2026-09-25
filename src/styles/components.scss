@@ -1,61 +1,92 @@
 // Rythme vertical : deux tailles de section seulement.
 .section {
-  @apply py-16 md:py-24;
+  @apply py-20 md:py-32;
   &-sm {
-    @apply py-12 md:py-16;
+    @apply py-14 md:py-20;
   }
 }
 
 // Corps de page place sous un PageHeader.
 .page-body {
-  @apply pb-16 pt-10 md:pb-24 md:pt-12;
+  @apply pb-20 pt-12 md:pb-32 md:pt-16;
 }
 
 // Conteneur unique (le plugin container de Tailwind est desactive).
 .container {
-  @apply mx-auto max-w-[1320px] px-4 md:px-6;
+  @apply mx-auto max-w-[1320px] px-5 md:px-6;
 }
 
-// Titre de section avec filet d'accent.
+// Titre integre a une grande image (accueil et en-tetes de page).
+// Mobile : sous l'image. A partir de md : en surimpression sur un degrade.
+.hero-caption {
+  @apply pointer-events-none mt-8 md:absolute md:inset-x-0 md:bottom-0 md:z-10 md:mt-0 md:bg-gradient-to-t md:from-primary-dark/80 md:via-primary-dark/25 md:to-transparent md:px-10 md:pb-12 md:pt-32 lg:px-16;
+}
+
+.hero-title {
+  @apply max-w-5xl md:text-white;
+}
+
+// Petit intitule en capitales espacees, au-dessus des titres.
+.eyebrow {
+  @apply mb-5 block font-primary text-xs font-medium uppercase tracking-eyebrow text-accent-strong;
+}
+
+// Titre de section.
 .section-title {
-  @apply mb-8;
-  &::after {
-    content: "";
-    @apply mt-3 block h-[3px] w-12 rounded-full bg-accent;
-  }
+  @apply mb-10;
 }
 
-// Carte / panneau : fond surface, rayon 12px.
+// Chapo / texte d'introduction.
+.lead {
+  @apply text-lg font-light leading-[1.8] md:text-[1.1875rem];
+}
+
+// Panneau : fond sable clair, sans arrondi ni ombre.
 .card {
-  @apply rounded-lg bg-surface p-6;
+  @apply bg-surface p-8;
 }
 
-// Pastille de tag / categorie.
+// Etiquette (tag / categorie) : filet fin, capitales espacees.
 .tag {
-  @apply inline-block rounded bg-surface px-3 py-1.5 text-sm text-dark transition-colors hover:bg-primary hover:text-white;
+  @apply inline-flex min-h-[36px] items-center border border-border px-3 text-[11px] font-medium uppercase tracking-label text-dark transition-colors hover:border-dark;
 }
 
-// Ligne de metadonnees (auteur, categorie, date).
+// Ligne de metadonnees (categorie · date), capitales espacees.
 .meta {
-  @apply flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-light;
-  li {
-    @apply inline-flex items-center gap-1.5;
+  @apply flex flex-wrap items-center text-[11px] font-medium uppercase tracking-label text-light;
+  li + li::before {
+    content: "·";
+    @apply mx-2;
   }
   a {
-    @apply text-light underline-offset-2 hover:text-primary hover:underline;
-  }
-  svg {
-    @apply h-4 w-4 shrink-0;
+    @apply text-light hover:text-accent-strong;
   }
 }
 
-// Liste a coches (accueil).
-.check-list {
+// Liste a filets (accueil, descriptifs).
+.rule-list {
+  @apply border-b border-border;
   li {
-    @apply relative mb-3 pl-7;
+    @apply border-t border-border py-4 leading-relaxed;
   }
-  svg {
-    @apply absolute left-0 top-1 h-4 w-4 text-accent-strong;
+}
+
+// Chiffres cles (accueil).
+.key-figures {
+  @apply grid grid-cols-2 border-b border-border md:grid-cols-4;
+  li {
+    @apply flex flex-col gap-2 py-7 md:py-10;
+  }
+  li:nth-child(even) {
+    @apply border-l border-border pl-6;
+  }
+  li:nth-child(-n + 2) {
+    @apply border-b border-border md:border-b-0;
+  }
+  @screen md {
+    li:nth-child(n + 2) {
+      @apply border-l border-border pl-10;
+    }
   }
 }
 
@@ -65,56 +96,58 @@
   li {
     @apply inline-block;
     a {
-      @apply flex h-11 w-11 items-center justify-center rounded bg-primary text-white transition-colors hover:bg-primary-dark;
+      @apply flex h-11 w-11 items-center justify-center border border-border text-dark transition-colors hover:border-dark hover:bg-dark hover:text-white;
       svg {
-        @apply h-5 w-5;
+        @apply h-4 w-4;
       }
     }
   }
 }
 
-// accordion : <details> natif (AccordionItem.astro)
+// accordion : <details> natif (AccordionItem.astro), separe par des filets.
 .accordion {
-  @apply overflow-hidden rounded-lg border border-border bg-surface;
+  @apply border-t border-border;
+  &:last-child {
+    @apply border-b;
+  }
   &-header {
-    @apply flex min-h-[44px] w-full cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-semibold text-dark;
+    @apply flex min-h-[44px] w-full cursor-pointer list-none items-center justify-between gap-6 py-6 font-secondary text-[1.375rem] font-medium leading-snug text-dark md:text-2xl;
     &::-webkit-details-marker {
       @apply hidden;
     }
   }
   &-icon {
-    @apply ml-auto h-5 w-5 shrink-0 text-primary transition-transform duration-200;
+    @apply ml-auto h-4 w-4 shrink-0 text-dark transition-transform duration-200;
   }
   &-content {
-    @apply px-6 pb-5 pt-0;
+    @apply pb-6 pr-10 pt-0 font-light leading-[1.8];
   }
   &[open] > .accordion-header .accordion-icon {
-    @apply rotate-180;
+    @apply rotate-45;
   }
 }
 
 // content style (Markdown rendu)
 .content {
   @apply prose max-w-none text-base;
-  @apply prose-headings:mb-[.5em] prose-headings:mt-[1.4em] prose-headings:font-secondary prose-headings:text-dark;
-  @apply prose-h1:text-h1-sm prose-h1:font-bold md:prose-h1:text-h1;
-  @apply prose-h2:text-h2-sm prose-h2:font-bold md:prose-h2:text-h2;
-  @apply prose-h3:text-h3-sm prose-h3:font-semibold md:prose-h3:text-h3;
-  @apply prose-h4:text-h4-sm prose-h4:font-semibold md:prose-h4:text-h4;
-  @apply prose-img:max-w-full prose-img:rounded-lg;
+  @apply prose-headings:mb-[.5em] prose-headings:mt-[1.4em] prose-headings:font-secondary prose-headings:font-medium prose-headings:text-dark;
+  @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
+  @apply prose-h2:text-h3-sm md:prose-h2:text-h3;
+  @apply prose-h3:text-h4-sm md:prose-h3:text-h4;
+  @apply prose-h4:text-h5;
+  @apply prose-img:max-w-full prose-img:rounded-none;
   @apply prose-hr:border-border;
-  @apply prose-p:text-text;
-  @apply prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:bg-surface prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:font-secondary prose-blockquote:text-xl prose-blockquote:not-italic prose-blockquote:text-dark;
-  @apply prose-pre:rounded-lg prose-pre:bg-surface;
+  @apply prose-p:leading-[1.8] prose-p:text-text;
+  @apply prose-blockquote:border-l prose-blockquote:border-accent prose-blockquote:pl-8 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:font-medium prose-blockquote:italic prose-blockquote:text-dark;
+  @apply prose-pre:bg-surface;
   @apply prose-code:px-1 prose-code:text-primary;
-  @apply prose-strong:text-dark;
-  @apply prose-a:font-medium prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-primary-dark;
+  @apply prose-strong:font-medium prose-strong:text-dark;
+  @apply prose-a:font-normal prose-a:text-dark prose-a:underline prose-a:decoration-accent prose-a:underline-offset-4 hover:prose-a:text-accent-strong;
   @apply prose-li:text-text;
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:content-[""];
-  @apply prose-thead:border-border prose-thead:bg-surface;
-  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px] prose-th:text-dark;
+  @apply prose-thead:border-border;
+  @apply prose-th:px-4 prose-th:py-4 prose-th:text-dark;
   @apply prose-tr:border-border;
-  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
+  @apply prose-td:px-3 prose-td:py-4;
 
   > :first-child {
     @apply mt-0;
@@ -132,11 +165,11 @@
     @apply text-white hover:text-white;
   }
   a.btn-outline-primary {
-    @apply text-primary hover:text-white;
+    @apply text-dark hover:text-white;
   }
 
   iframe {
-    @apply w-full rounded-lg border-0;
+    @apply w-full border-0;
   }
 }
 

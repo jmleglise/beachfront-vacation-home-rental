@@ -21,24 +21,23 @@ module.exports = {
       xl: "1280px",
       "2xl": "1536px",
     },
-    // Deux rayons : 6px (controles, boutons, tags), 12px (cartes, images,
-    // panneaux). Les alias md/xl/2xl pointent sur ces deux valeurs.
+    // Charte « luxe » : aucun arrondi (sauf pastilles rondes), aucune ombre
+    // hors surcouches (calendrier, menus).
     borderRadius: {
       none: "0",
-      sm: "4px",
-      DEFAULT: "6px",
-      md: "6px",
-      lg: "12px",
-      xl: "12px",
-      "2xl": "12px",
+      sm: "0",
+      DEFAULT: "0",
+      md: "0",
+      lg: "0",
+      xl: "0",
+      "2xl": "0",
       full: "9999px",
     },
-    // Trois niveaux : sm (champs), DEFAULT (cartes), lg (surcouches).
     boxShadow: {
       none: "none",
-      sm: "0 1px 2px rgba(4, 4, 4, 0.05)",
-      DEFAULT: "0 4px 24px rgba(4, 4, 4, 0.06)",
-      lg: "0 12px 40px rgba(4, 4, 4, 0.14)",
+      sm: "none",
+      DEFAULT: "none",
+      lg: "0 12px 40px rgba(28, 28, 28, 0.14)",
     },
     extend: {
       colors: {
@@ -79,11 +78,15 @@ module.exports = {
         h6: font_size.h6,
       },
       fontFamily: {
-        primary: [font_family.primary, font_family.primary_type],
-        secondary: [font_family.secondary, font_family.secondary_type],
+        primary: [`"${font_family.primary}"`, font_family.primary_type],
+        secondary: [`"${font_family.secondary}"`, font_family.secondary_type],
       },
       maxWidth: {
         measure: "70ch",
+      },
+      letterSpacing: {
+        label: "0.2em",
+        eyebrow: "0.24em",
       },
     },
   },

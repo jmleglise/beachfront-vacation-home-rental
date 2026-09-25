@@ -132,58 +132,57 @@ const slides = banners
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 9999px;
-    background: rgb(4 4 4 / 45%);
+    width: 3rem;
+    height: 3rem;
     z-index: 20;
+    background: rgb(22 32 41 / 35%);
     color: #fff;
     transition: background 0.2s;
   }
   .hp-slider__nav:hover {
-    background: rgb(4 4 4 / 70%);
+    background: rgb(22 32 41 / 65%);
   }
   .hp-slider__nav svg {
     width: 1.5rem;
     height: 1.5rem;
     fill: none;
     stroke: currentColor;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    stroke-width: 1.25;
   }
   .hp-slider__nav--prev {
-    left: 0.75rem;
+    left: 0;
   }
   .hp-slider__nav--next {
-    right: 0.75rem;
+    right: 0;
   }
 
+  /* Indicateurs en traits fins ; zone cliquable de 36 x 24 px. */
   .hp-slider__dots {
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.75rem;
     left: 50%;
     z-index: 20;
     transform: translateX(-50%);
     display: flex;
     gap: 0;
   }
-  /* Zone cliquable de 24px, pastille visible de 10px. */
   .hp-slider__dot {
     position: relative;
-    width: 1.5rem;
+    width: 2.25rem;
     height: 1.5rem;
-    border-radius: 9999px;
   }
   .hp-slider__dot::before {
     content: "";
     position: absolute;
-    inset: 0.4375rem;
-    border-radius: 9999px;
-    background: rgb(255 255 255 / 55%);
+    left: 0.25rem;
+    right: 0.25rem;
+    top: 50%;
+    height: 1px;
+    background: rgb(255 255 255 / 45%);
     transition: background 0.2s;
   }
   .hp-slider__dot[aria-selected="true"]::before {
+    height: 2px;
     background: #fff;
   }
 

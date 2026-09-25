@@ -1,6 +1,5 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
-import ImageMod from "@/components/ImageMod.astro";
 import Share from "@/components/Share.astro";
 import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser";
@@ -11,7 +10,6 @@ import { humanize, slugify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { render, type DataEntryMap } from "astro:content";
-import { CalendarDays, Folder, UserRound } from "lucide-react";
 
 const { default_language } = config.settings;
 
@@ -39,92 +37,73 @@ const call_to_action = await getSinglePage(
 );
 ---
 
-<PageHeader title={title}>
-  <ul class="meta mt-4">
-    {
-      author && (
-        <li>
-          <UserRound aria-hidden="true" />
-          <span class="sr-only">{t.author_label} :</span>
-          {author}
-        </li>
-      )
-    }
-    <li>
-      <Folder aria-hidden="true" />
-      <span class="sr-only">{t.category_label} :</span>
-      {
-        categories.map((category: string, index: number) => (
-          <a href={slugSelector(`/categories/${slugify(category)}`, lang)}>
-            {humanize(category)}
-            {index !== categories.length - 1 && ","}
-          </a>
-        ))
-      }
-    </li>
-    <li>
-      <CalendarDays aria-hidden="true" />
-      <span class="sr-only">{t.date_label} :</span>
-      <time datetime={new Date(date).toISOString()}>{dateFormat(date, lang)}</time>
-    </li>
-  </ul>
-</PageHeader>
+<PageHeader title={title} image={image} />
 
-<div class="page-body">
+<div class="page-body pt-6 md:pt-8">
   <div class="container">
-    <div class="row justify-between">
-      <article class="lg:col-8 xl:col-7">
+    <div class="row justify-center">
+    <article class="lg:col-10">
+      <ul class="meta mb-8">
         {
-          image && (
-            <ImageMod
-              src={image}
-              width={1200}
-              height={675}
-              alt=""
-              class="mb-10 aspect-[16/9] w-full rounded-lg object-cover"
-              loading="eager"
-              format="webp"
-            />
+          author && (
+            <li>
+              <span class="sr-only">{t.author_label} :</span>
+              {author}
+            </li>
           )
         }
-        <div class="content">
-          <Content />
-        </div>
-
-        <div class="mt-12 space-y-6 border-t border-border pt-8">
+        <li>
+          <span class="sr-only">{t.category_label} :</span>
           {
-            tags.length > 0 && (
-              <div class="flex flex-wrap items-center gap-3">
-                <h2 class="h6 m-0">{t.tags}</h2>
-                <ul class="flex flex-wrap gap-2">
-                  {tags.map((tag: string) => (
-                    <li>
-                      <a class="tag" href={slugSelector(`/tags/${slugify(tag)}`, lang)}>
-                        {humanize(tag)}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )
+            categories.map((category: string, index: number) => (
+              <a href={slugSelector(`/categories/${slugify(category)}`, lang)}>
+                {humanize(category)}
+                {index !== categories.length - 1 && ","}
+              </a>
+            ))
           }
-          <div class="flex flex-wrap items-center gap-3">
-            <h2 class="h6 m-0">{t.share}</h2>
-            <Share
-              className="social-icons"
-              title={title}
-              description={description}
-              url={Astro.url.pathname}
-            />
-          </div>
-        </div>
-      </article>
-
-      <aside class="mt-12 lg:col-4 lg:mt-0">
-        <div class="lg:sticky lg:top-28">
+        </li>
+        <li>
+          <span class="sr-only">{t.date_label} :</span>
+          <time datetime={new Date(date).toISOString()}>{dateFormat(date, lang)}</time>
+        </li>
+      </ul>
+      <div class="content">
+        <!-- Encart flottant : le texte de l'article l'englobe. -->
+        <aside class="not-prose mb-6 sm:float-right sm:mb-4 sm:ml-8 sm:w-72">
           <CallToAction call_to_action={call_to_action[0]} />
+        </aside>
+        <Content />
+      </div>
+
+      <div class="clear-both mt-12 space-y-6 border-t border-border pt-8">
+        {
+          tags.length > 0 && (
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="h6 m-0">{t.tags}</h2>
+              <ul class="flex flex-wrap gap-2">
+                {tags.map((tag: string) => (
+                  <li>
+                    <a class="tag" href={slugSelector(`/tags/${slugify(tag)}`, lang)}>
+                      {humanize(tag)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+        <div class="flex flex-wrap items-center gap-3">
+          <h2 class="h6 m-0">{t.share}</h2>
+          <Share
+            className="social-icons"
+            title={title}
+            description={description}
+            url={Astro.url.pathname}
+          />
         </div>
-      </aside>
+      </div>
+    </article>
     </div>
 
     {

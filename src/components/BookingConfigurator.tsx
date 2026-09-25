@@ -689,12 +689,12 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                     </div>
                   ) : "-"}
                 </td>
-                <td className="py-2.5 text-right font-semibold text-dark">{pricingDetail.totalNightsPrice}€</td>
+                <td className="py-2.5 text-right font-medium text-dark">{pricingDetail.totalNightsPrice}€</td>
               </tr>
               <tr className="border-b border-border">
                 <td className="py-2.5 pr-3">{t.cleaningLine}</td>
                 <td className="py-2.5 pr-3 text-sm text-light">{t.cleaningIncluded}</td>
-                <td className="py-2.5 text-right font-semibold text-dark">{CLEANING_FEE}€</td>
+                <td className="py-2.5 text-right font-medium text-dark">{CLEANING_FEE}€</td>
               </tr>
               <tr className="border-b border-border">
                 <td className="py-2.5 pr-3">{t.bedsLine}</td>
@@ -706,14 +706,14 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                     </div>
                   ) : "-"}
                 </td>
-                <td className="py-2.5 text-right font-semibold text-dark">{beddingPrice}€</td>
+                <td className="py-2.5 text-right font-medium text-dark">{beddingPrice}€</td>
               </tr>
               <tr className="border-b border-border">
                 <td className="py-2.5 pr-3">{t.towelsLine}</td>
                 <td className="py-2.5 pr-3 text-sm text-light">{towels ? `${guests} x ${TOWEL_RATE}€` : "-"}</td>
-                <td className="py-2.5 text-right font-semibold text-dark">{towelsPrice}€</td>
+                <td className="py-2.5 text-right font-medium text-dark">{towelsPrice}€</td>
               </tr>
-              <tr className="font-secondary text-h5 font-bold text-dark">
+              <tr className="font-secondary text-h5 font-medium text-dark">
                 <td className="pt-4">{t.total}</td>
                 <td className="pt-4"></td>
                 <td className="pt-4 text-right">{total}€</td>

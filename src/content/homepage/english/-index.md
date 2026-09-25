@@ -11,7 +11,7 @@ schemaVacationRental: |
   "url": "https://www.location-maison-mer.fr/en/",
   "identifier": "villa-tamaris-ouistreham",
   "availableLanguage": ["en-US", "fr-FR"],
-  "priceRange": "€142 - €260",
+  "priceRange": "€142 - €250",
 
   "image": [
     "https://www.location-maison-mer.fr/images/villa_front.jpg",
@@ -155,7 +155,7 @@ schemaVacationRental: |
     "priceSpecification": {
       "@type": "PriceSpecification",
       "minPrice": 142,
-      "maxPrice": 260,
+      "maxPrice": 250,
       "priceCurrency": "EUR"
     },
 
@@ -202,6 +202,7 @@ banner:
 # Features
 features:
   - title: "Luxury Accommodation"
+    eyebrow: "The house"
     image: "/images/villa_front.jpg"
     content: "Facing the sea, enjoy a beautiful sea view from the living room and 2 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
@@ -218,6 +219,7 @@ features:
 
 # Location
   - title: "Location"
+    eyebrow: "Location"
     image: "/images/view_scene.jpg"
     content: "An ideal location, this quiet rental house is just a 10-minute retreat from the vibrant heart of Ouistreham. Simply cross the street to be at Riva Bella, the finest beach on the Côte de Nacre with its 3 km of fine sand, perfect for evening strolls or enjoying a cocktail at the beach bar 'La Paillotte' just 50 meters."
     bulletpoints:
@@ -232,6 +234,7 @@ features:
 
 # Explore
   - title: "The Region and Activities"
+    eyebrow: "The region"
     image: "/images/post_card.jpg"
     content: "Whether you seek contemplative relaxation with distant horizons, nautical & sports activities, or dives into a rich past, there's something for everyone:"
     bulletpoints:

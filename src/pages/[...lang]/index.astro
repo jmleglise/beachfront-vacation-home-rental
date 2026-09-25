@@ -3,6 +3,8 @@ import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import AccordionItem from "@/components/AccordionItem.astro";
 import Base from "@/layouts/Base.astro";
+import { SEASON_PRICING } from "@/config/bookingConstants";
+import config from "@/config/config.json";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
 
 import {
@@ -15,7 +17,6 @@ import { markdownify, plainify } from "@/lib/utils/textConverter";
 import BannerSlider from "@/partials/BannerSlider.astro";
 import type { Feature } from "@/types";
 import type { ContentEntryMap } from "astro:content";
-import { BedDouble, Check, ShowerHead, Users, Waves } from "lucide-react";
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -47,13 +48,19 @@ const paragraphs = (text: string) =>
     .map((part) => part.trim())
     .filter(Boolean);
 
-// Chiffres cles : libelles textuels plutot que pictos seuls.
+// Chiffres cles : valeur en Cormorant, libelle en capitales espacees.
 const keyFigures = [
-  { icon: Users, value: "6", label: t.key_guests },
-  { icon: BedDouble, value: "3", label: t.key_bedrooms },
-  { icon: ShowerHead, value: "3", label: t.key_bathrooms },
-  { icon: Waves, value: "", label: t.key_beach },
+  { value: "6", label: t.key_guests },
+  { value: "3", label: t.key_bedrooms },
+  { value: "3", label: t.key_bathrooms },
+  { value: t.key_beach_value, label: t.key_beach },
 ];
+
+// Prix d'appel du bandeau de reservation : tarif le plus bas configure.
+const lowestRate = Math.min(
+  ...(Object.values(SEASON_PRICING).filter((v) => typeof v === "number") as number[]),
+);
+const bookUrl = slugSelector(config.book_now_button.link, lang as string);
 
 // Les 6 questions/reponses etaient deja redigees et rendues en HTML, mais
 // sans balisage : invisibles pour l'affichage FAQ de Google.
@@ -69,6 +76,8 @@ const faqSchema = {
 const BLOG_FOLDER = "blog";
 const posts = await getSinglePage(BLOG_FOLDER, lang as keyof ContentEntryMap);
 const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
+
+const arrow = `<svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 5h17M13 1l4 4-4 4"/></svg>`;
 ---
 <Base
   meta_title={meta_title}
@@ -81,77 +90,67 @@ const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
     slot="head"
   />
 
-  <!-- Banner -->
+  <!-- Carrousel, titre integre -->
   <section class="pt-4 md:pt-6">
     <div class="container">
       <div class="relative">
-        <div class="overflow-hidden rounded-lg">
+        <div class="overflow-hidden">
           <BannerSlider banners={banners} />
         </div>
-        <!-- H1 sous le carrousel en mobile, en surimpression a partir de md. -->
-        <div
-          class="pointer-events-none mt-6 md:absolute md:inset-x-0 md:bottom-0 md:z-10 md:mt-0 md:rounded-b-lg md:bg-gradient-to-t md:from-dark/75 md:via-dark/30 md:to-transparent md:px-8 md:pb-14 md:pt-24 lg:px-12"
-        >
-          <h1
-            set:html={markdownify(banner.title)}
-            class="max-w-3xl md:text-white md:[text-shadow:0_1px_12px_rgb(0_0_0/35%)]"
-          />
+        <div class="hero-caption md:pb-16">
+          <h1 set:html={markdownify(banner.title)} class="hero-title md:max-w-none" />
         </div>
       </div>
 
       <!-- Chiffres cles -->
       <h2 class="sr-only">{t.key_figures}</h2>
-      <ul class="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 border-y border-border py-6 md:mt-8 md:grid-cols-4">
+      <ul class="key-figures">
         {
-          keyFigures.map(({ icon: Icon, value, label }) => (
-            <li class="flex items-center gap-3">
-              <Icon className="h-7 w-7 shrink-0 text-accent-strong" strokeWidth={1.5} aria-hidden="true" />
-              <span class="leading-tight">
-                {value && <span class="block font-secondary text-h3-sm font-bold text-dark md:text-h3">{value}</span>}
-                <span class="text-sm text-text">{label}</span>
-              </span>
+          keyFigures.map(({ value, label }) => (
+            <li>
+              <span class="font-secondary text-[2.5rem] font-medium leading-none text-dark [font-variant-numeric:lining-nums] md:text-[3.25rem]">{value}</span>
+              <span class="text-[11px] font-medium uppercase tracking-label text-light md:text-xs">{label}</span>
             </li>
           ))
         }
       </ul>
 
-      <div class="mt-8 max-w-measure space-y-4 text-lg md:mt-10">
+      <!-- Introduction, pleine largeur -->
+      <div class="lead space-y-5 py-20 md:py-32">
         {paragraphs(banner.content).map((para) => <p set:html={markdownify(para)} />)}
       </div>
     </div>
   </section>
 
-  <!-- Villa, localisation, activites -->
-  <div class="mt-16 md:mt-24">
+  <!-- Villa, localisation, region -->
   {
     features.map((feature: Feature, index: number) => (
-      <section class={`section ${index % 2 === 0 ? "bg-surface" : ""}`}>
+      <section class={index % 2 === 1 ? "section bg-surface" : index === 0 ? "pb-20 md:pb-32" : "section"}>
         <div class="container">
-          <div class="row items-start justify-between">
-            <div class={`mb-8 md:col-5 md:mb-0 ${index % 2 !== 0 ? "md:order-2" : ""}`}>
+          <div class="row items-center justify-between">
+            <div class={`mb-12 md:col-6 md:mb-0 ${index % 2 !== 0 ? "md:order-2" : ""}`}>
               <ImageMod
                 src={feature.image}
-                width={640}
-                height={560}
-                alt={feature.title}
-                class="aspect-[8/7] w-full rounded-lg object-cover"
+                width={720}
+                height={880}
+                alt={plainify(feature.title)}
+                class="aspect-[4/5] w-full object-cover"
                 format="webp"
               />
             </div>
-            <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 ? "md:order-1" : ""}`}>
-              <h2 set:html={markdownify(feature.title)} class="section-title" />
-              <p set:html={markdownify(feature.content)} class="mb-6 text-lg" />
-              <ul class="check-list">
+            <div class={`md:col-6 lg:col-5 ${index % 2 !== 0 ? "md:order-1" : ""}`}>
+              {feature.eyebrow && <span class="eyebrow">{feature.eyebrow}</span>}
+              <h2 set:html={markdownify(feature.title)} class="mb-8" />
+              <p set:html={markdownify(feature.content)} class="lead mb-8" />
+              <ul class="rule-list">
                 {feature.bulletpoints.map((bullet: string) => (
-                  <li>
-                    <Check aria-hidden="true" />
-                    <span set:html={markdownify(bullet)} />
-                  </li>
+                  <li set:html={markdownify(bullet)} />
                 ))}
               </ul>
               {feature.button.enable && (
-                <a class="btn btn-primary mt-6" href={feature.button.link}>
+                <a class="btn-link mt-10" href={feature.button.link}>
                   {feature.button.label}
+                  <Fragment set:html={arrow} />
                 </a>
               )}
             </div>
@@ -160,22 +159,22 @@ const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
       </section>
     ))
   }
-  </div>
 
-  <!-- Qui nous sommes + FAQ -->
+  <!-- Vos hotes + FAQ -->
   <section class="section">
     <div class="container">
       <div class="row justify-between">
-        <div class="mb-12 lg:col-6 lg:mb-0">
-          <h2 set:html={markdownify(nous.title)} class="section-title" />
-          <div class="space-y-4">
+        <div class="mb-16 lg:col-5 lg:mb-0">
+          <span class="eyebrow">{t.eyebrow_hosts}</span>
+          <h2 set:html={markdownify(nous.title)} class="mb-8" />
+          <div class="lead space-y-5">
             {paragraphs(nous.content).map((para) => <p set:html={markdownify(para)} />)}
           </div>
         </div>
 
-        <div class="lg:col-6 xl:col-5">
-          <h2 class="section-title">{t.faq_title}</h2>
-          <div class="space-y-3">
+        <div class="lg:col-6">
+          <h2 class="eyebrow">{t.eyebrow_faq}</h2>
+          <div>
             {faqContent.map(({ title, content }: { title: string; content: string }) => (
               <AccordionItem title={title}>
                 <p set:html={markdownify(content)} />
@@ -187,24 +186,43 @@ const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
     </div>
   </section>
 
-  <!-- Articles -->
-  <section class="section bg-surface">
+  <!-- Carnet -->
+  <section class="pb-20 md:pb-32">
     <div class="container">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <h2 class="section-title">{t.latest_posts}</h2>
-        <a class="mb-8 font-semibold text-primary underline-offset-4 hover:underline" href={slugSelector("/blog", lang as string)}>
-          {t.see_all_posts}
-        </a>
+      <div class="flex flex-wrap items-end justify-between gap-6 border-t border-border pt-20 md:pt-28">
+        <div>
+          <span class="eyebrow">{t.eyebrow_blog}</span>
+          <h2>{t.latest_posts}</h2>
+        </div>
+        <a class="btn-link" href={slugSelector("/blog", lang as string)}>{t.see_all_posts}</a>
       </div>
-      <div class="row">
+      <div class="row mt-12 md:mt-16">
         {
           shuffledPosts.map((post) => (
-            <div class="mb-10 md:col-6 lg:col-4 lg:mb-0">
+            <div class="mb-12 md:col-6 lg:col-4 lg:mb-0">
               <BlogCard data={post} />
             </div>
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <!-- Bandeau de reservation -->
+  <section class="relative overflow-hidden bg-primary">
+    <ImageMod
+      src="/images/d_ch5_vue.jpg"
+      width={1600}
+      height={900}
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover opacity-40"
+      format="webp"
+    />
+    <div class="container relative flex flex-col items-center gap-6 py-28 text-center text-white md:py-36">
+      <span class="eyebrow mb-0 text-accent">{t.eyebrow_booking}</span>
+      <h2 class="text-white">{t.cta_title}</h2>
+      <p class="lead text-white/90">{t.cta_text.replace("{price}", String(lowestRate))}</p>
+      <a class="btn btn-accent mt-2" href={bookUrl}>{t.cta_button}</a>
     </div>
   </section>
 </Base>

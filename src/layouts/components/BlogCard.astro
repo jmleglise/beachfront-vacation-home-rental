@@ -1,18 +1,13 @@
 ---
-import config from "@/config/config.json";
 import dateFormat from "@/lib/utils/dateFormat";
 import {
   getLangFromUrl,
   getTranslations,
   slugSelector,
 } from "@/lib/utils/languageParser";
-import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
-import type { DataEntryMap } from "astro:content";
-import { CalendarDays, Folder } from "lucide-react";
+import { humanize } from "@/lib/utils/textConverter";
 import ImageMod from "./ImageMod.astro";
 
-const { summary_length }: { summary_length: number; blog_folder: string } =
-  config.settings;
 // headingLevel : niveau semantique du titre selon la page (h2 sous un H1
 // de liste, h3 sous un titre de section). Le style visuel reste h4.
 const { data, headingLevel = "h3" } = Astro.props;
@@ -34,50 +29,33 @@ const href = slugSelector(`/${modifiedSlug}`, lang);
 const Heading = headingLevel;
 ---
 
-<article class="flex h-full flex-col">
+<article class="group relative flex h-full flex-col">
   {
     image && (
-      <a href={href} class="mb-5 block overflow-hidden rounded-lg" tabindex="-1" aria-hidden="true">
+      <div class="mb-6 overflow-hidden">
         <ImageMod
-          class="aspect-[16/10] w-full object-cover transition-transform duration-300 hover:scale-[1.03]"
+          class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           src={image}
           alt=""
           width={640}
-          height={400}
+          height={480}
           format="webp"
         />
-      </a>
+      </div>
     )
   }
-  <Heading class="h4 mb-2">
-    <a href={href} class="hover:text-primary">
+  <ul class="meta mb-3">
+    {categories.map((category: string) => <li>{humanize(category)}</li>)}
+    {date && (
+      <li>
+        <time datetime={new Date(date).toISOString()}>{dateFormat(date, lang)}</time>
+      </li>
+    )}
+  </ul>
+  <Heading class="h4">
+    <!-- Lien etire : toute la carte est cliquable. -->
+    <a href={href} class="transition-colors after:absolute after:inset-0 group-hover:text-accent-strong">
       {title}
     </a>
   </Heading>
-  <ul class="meta mb-3">
-    <li>
-      <Folder aria-hidden="true" />
-      <span class="sr-only">{t.category_label} :</span>
-      {
-        categories.map((category: string, index: number) => (
-          <a href={slugSelector(`/categories/${slugify(category)}`, lang)}>
-            {humanize(category)}
-            {index !== categories.length - 1 && ","}
-          </a>
-        ))
-      }
-    </li>
-    {
-      date && (
-        <li>
-          <CalendarDays aria-hidden="true" />
-          <time datetime={new Date(date).toISOString()}>{dateFormat(date, lang)}</time>
-        </li>
-      )
-    }
-  </ul>
-  <p class="mb-5 line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
-  <a class="btn btn-outline-primary btn-sm mt-auto self-start" href={href}>
-    {t.read_more}<span class="sr-only"> : {title}</span>
-  </a>
 </article>

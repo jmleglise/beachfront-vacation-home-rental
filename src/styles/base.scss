@@ -1,11 +1,11 @@
-// Racine a 16px sur toutes les largeurs : la reduction a 80 % sous 768px
-// donnait un corps de texte a 12,8px et des mentions a 9,6px sur mobile.
+// Charte « luxe » : Cormorant Garamond (titres, citations) + Jost (texte,
+// interface). Racine a 16px ; corps de texte a 17px.
 html {
-  @apply overflow-x-clip text-base;
+  @apply overflow-x-clip bg-body;
 }
 
 body {
-  @apply overflow-x-clip bg-body font-primary font-normal leading-relaxed text-text;
+  @apply overflow-x-clip bg-body font-primary text-base font-normal leading-relaxed text-text antialiased;
 }
 
 main,
@@ -25,54 +25,55 @@ iframe {
 
 // Focus visible commun a tous les elements interactifs.
 :focus-visible {
-  outline: 2px solid theme("colors.primary.DEFAULT");
-  outline-offset: 2px;
+  outline: 1px solid theme("colors.primary.DEFAULT");
+  outline-offset: 3px;
 }
 
-// Echelle typographique (ratio ~1,25, valeurs dans theme.json).
-// Graisses chargees : Signika 600/700 (titres), Heebo 400/500/600 (texte).
+// Titres : Cormorant Garamond 500, casse de phrase, sans gras.
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply font-secondary leading-tight text-dark;
+  @apply font-secondary font-medium leading-[1.08] tracking-[-0.005em] text-dark;
+  // Chiffres alignes : Cormorant utilise par defaut des chiffres elzeviriens.
+  font-variant-numeric: lining-nums;
 }
 
 h1,
 .h1 {
-  @apply font-secondary text-h1-sm font-bold leading-[1.15] md:text-h1;
+  @apply font-secondary text-h1-sm font-medium leading-[1.04] md:text-h1;
 }
 
 h2,
 .h2 {
-  @apply font-secondary text-h2-sm font-bold leading-tight md:text-h2;
+  @apply font-secondary text-h2-sm font-medium leading-[1.08] md:text-h2;
 }
 
 h3,
 .h3 {
-  @apply font-secondary text-h3-sm font-semibold leading-tight md:text-h3;
+  @apply font-secondary text-h3-sm font-medium leading-[1.12] md:text-h3;
 }
 
 h4,
 .h4 {
-  @apply font-secondary text-h4-sm font-semibold leading-snug md:text-h4;
+  @apply font-secondary text-h4-sm font-medium leading-[1.15] md:text-h4;
 }
 
 h5,
 .h5 {
-  @apply font-secondary text-h5 font-semibold leading-snug;
+  @apply font-secondary text-h5 font-medium leading-snug;
 }
 
 h6,
 .h6 {
-  @apply font-secondary text-h6 font-semibold leading-snug;
+  @apply font-secondary text-h6 font-medium leading-snug;
 }
 
 b,
 strong {
-  @apply font-semibold;
+  @apply font-medium text-dark;
 }
 
 a {

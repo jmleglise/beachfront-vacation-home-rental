@@ -8,12 +8,13 @@ import Header from "@/partials/Header.astro";
 import "@/styles/main.scss";
 // Polices auto-hebergees (@fontsource) : supprime les 2 requetes bloquantes
 // vers fonts.googleapis.com + les 2 handshakes TLS vers fonts.gstatic.com.
-// Graisses chargees = graisses utilisees par la charte (voir base.scss).
-import "@fontsource/heebo/latin-400.css";
-import "@fontsource/heebo/latin-500.css";
-import "@fontsource/heebo/latin-600.css";
-import "@fontsource/signika/latin-600.css";
-import "@fontsource/signika/latin-700.css";
+// Graisses chargees = graisses utilisees par la charte (voir base.scss) :
+// Cormorant Garamond (titres, citations) et Jost (texte, interface).
+import "@fontsource/cormorant-garamond/latin-500.css";
+import "@fontsource/cormorant-garamond/latin-500-italic.css";
+import "@fontsource/jost/latin-300.css";
+import "@fontsource/jost/latin-400.css";
+import "@fontsource/jost/latin-500.css";
 import { ClientRouter } from "astro:transitions";
 
 import { getLangFromUrl } from "@/lib/utils/languageParser";
@@ -88,6 +89,7 @@ const seoDescription = plainify(description ? description : config.metadata.meta
     <link rel="shortcut icon" href={config.site.favicon32} />
     <link rel="icon" type="image/png" sizes="32x32" href={config.site.favicon32} />
     <link rel="icon" type="image/png" sizes="96x96" href={config.site.favicon96} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
     <link rel="canonical" href={canonicalUrl} item-prop="url" />
     {hreflangLinks.map((link) => (
@@ -135,17 +137,5 @@ const seoDescription = plainify(description ? description : config.metadata.meta
       <slot />
     </main>
     <Footer />
-    <script>
-      // Adresses e-mail assemblees cote client : le HTML statique ne contient
-      // pas l'adresse complete (protection contre la collecte automatique).
-      function revealEmails() {
-        document.querySelectorAll<HTMLAnchorElement>("a[data-mail-user]").forEach((el) => {
-          const address = `${el.dataset.mailUser}@${el.dataset.mailDomain}`;
-          el.href = `mailto:${address}`;
-          el.textContent = address;
-        });
-      }
-      document.addEventListener("astro:page-load", revealEmails);
-    </script>
   </body>
 </html>
