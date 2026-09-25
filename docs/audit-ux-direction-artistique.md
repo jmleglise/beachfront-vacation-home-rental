@@ -420,3 +420,33 @@ Ordre proposé. Chaque lot est livrable seul.
 - Netteté du logo camélia sur écran 2×.
 - Écarts exacts entre items de la FAQ.
 - Conflit effectif entre `container` de `tailwind.config.cjs` et `.container` de `components.scss`.
+
+---
+
+## 6. Mise en œuvre (même PR)
+
+Tous les lots du §4 sont appliqués. Les écarts par rapport au rapport sont listés ci-dessous.
+
+| Point | Décision |
+|---|---|
+| Filigrane « www.location-maison-mer.fr » (§3.5.1) | Conservé, à la demande du propriétaire. |
+| Couleur `primary` | `#1F3A5F` (bleu des colombages), comme proposé au §2.1. |
+| Pictos de l'accueil | Les 4 SVG sable sont remplacés par des icônes lucide (`Users`, `BedDouble`, `ShowerHead`, `Waves`) en `accent-strong`, avec libellé texte. Le SVG de la douche était un tracé bitmap vectorisé (20 Ko) impossible à recolorer proprement. |
+| Icônes | lucide-react pour toute l'interface. react-icons/fa6 reste uniquement pour les logos de réseaux sociaux (absents de lucide). |
+| Couvertures d'articles | Les 5 placeholders sont remplacés par des photos existantes du dossier `public/images` (`d_salon2`, `villa_vue_portail`, `plage`, `d_terrasse_apero`, `d_cuisine`). À remplacer par des visuels dédiés si disponibles. |
+| Logo | Camélia `camelia_cabochon_280.png` (net en 2×) + « Villa Tamaris », en header et footer. « - 6 pers » retiré du logo. |
+| Footer | Fond `primary`, 3 colonnes (identité, navigation, contact), crédit Astroplate supprimé. Pas de lien « Mentions légales » : aucune page n'existe. |
+| Page Réservation | Formulaire en premier (colonne gauche), conditions, planning et contact en colonne droite. Le visuel héro, identique à celui du Descriptif, est retiré. |
+| Adresse e-mail | Texte `mailto:` reconstruit en JavaScript (`data-mail-user` / `data-mail-domain`) : l'adresse complète n'apparaît pas dans le HTML statique. |
+| Page `/review/` | Sur `Base.astro`. La logique de `public/review.js` est intégrée à la page (contrat `/api/review` inchangé). Balise robots : `noindex,follow` (au lieu de `noindex,nofollow`). |
+| Contenus | Listes Markdown réelles, titres sans point final, typographie française (espaces, accents, majuscules), auteur unifié « Jean-Marc », étiquettes normalisées. Le texte éditorial n'a pas été réécrit au-delà des coquilles. |
+
+Vérifications :
+- `astro build` : 81 pages, sans erreur.
+- `astro check` : 45 erreurs, contre 53 sur `main`. Toutes préexistantes (types `ContentEntryMap` / `unknown` du template).
+- H1 mesuré : 40 px desktop, 30 px mobile, sur toutes les pages capturées.
+- Corps de texte mobile : 16 px.
+- Aucun débordement horizontal à 390 px (`/fr/`, `/en/`, `/fr/blog/`, `/en/…book-now/`).
+- Menu mobile, étoiles de `/review/` et e-mail testés dans Chromium.
+
+Point restant, hors code : la vignette « Salle de douche indépendante » (`d_sde1.jpg`) contient des bandes blanches dans le fichier source.

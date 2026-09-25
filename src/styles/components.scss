@@ -1,33 +1,71 @@
-// section style
+// Rythme vertical : deux tailles de section seulement.
 .section {
-  @apply py-24 xl:py-28;
+  @apply py-16 md:py-24;
   &-sm {
-    @apply py-16 xl:py-20;
+    @apply py-12 md:py-16;
   }
 }
 
+// Corps de page place sous un PageHeader.
+.page-body {
+  @apply pb-16 pt-10 md:pb-24 md:pt-12;
+}
 
-// container
+// Conteneur unique (le plugin container de Tailwind est desactive).
 .container {
-  @apply mx-auto max-w-[1320px] px-4;
+  @apply mx-auto max-w-[1320px] px-4 md:px-6;
 }
 
-// form style
-.form-input {
-  @apply w-full rounded border-transparent bg-theme-light px-6 py-4 text-dark placeholder:text-light focus:border-primary focus:ring-transparent;
+// Titre de section avec filet d'accent.
+.section-title {
+  @apply mb-8;
+  &::after {
+    content: "";
+    @apply mt-3 block h-[3px] w-12 rounded-full bg-accent;
+  }
 }
 
-.form-label {
-  @apply mb-4 block font-secondary text-xl font-normal text-dark;
+// Carte / panneau : fond surface, rayon 12px.
+.card {
+  @apply rounded-lg bg-surface p-6;
 }
 
-// social icons
+// Pastille de tag / categorie.
+.tag {
+  @apply inline-block rounded bg-surface px-3 py-1.5 text-sm text-dark transition-colors hover:bg-primary hover:text-white;
+}
+
+// Ligne de metadonnees (auteur, categorie, date).
+.meta {
+  @apply flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-light;
+  li {
+    @apply inline-flex items-center gap-1.5;
+  }
+  a {
+    @apply text-light underline-offset-2 hover:text-primary hover:underline;
+  }
+  svg {
+    @apply h-4 w-4 shrink-0;
+  }
+}
+
+// Liste a coches (accueil).
+.check-list {
+  li {
+    @apply relative mb-3 pl-7;
+  }
+  svg {
+    @apply absolute left-0 top-1 h-4 w-4 text-accent-strong;
+  }
+}
+
+// social icons (partage d'article)
 .social-icons {
-  @apply space-x-4;
+  @apply flex flex-wrap gap-2;
   li {
     @apply inline-block;
     a {
-      @apply flex h-9 w-9 items-center justify-center rounded bg-primary text-center leading-9 text-white;
+      @apply flex h-11 w-11 items-center justify-center rounded bg-primary text-white transition-colors hover:bg-primary-dark;
       svg {
         @apply h-5 w-5;
       }
@@ -35,147 +73,75 @@
   }
 }
 
-// notice
-.notice {
-  @apply mb-6 rounded-lg border px-8 py-6;
-  &-head {
-    @apply flex items-center;
-    svg {
-      @apply mr-3;
-    }
-    p {
-      @apply font-secondary text-xl font-semibold text-dark;
-    }
-  }
-  .notice-body {
-    @apply mt-3;
-    p {
-      @apply my-0;
-    }
-  }
-
-  &.note {
-    @apply text-[#1B83E2];
-    @apply border-current;
-  }
-
-  &.tip {
-    @apply text-[#40D294];
-    @apply border-current;
-  }
-
-  &.info {
-    @apply text-[#E3A72C];
-    @apply border-current;
-  }
-
-  &.warning {
-    @apply text-[#DB2C23];
-    @apply border-current;
-  }
-}
-
-// tab
-.tab {
-  @apply overflow-hidden rounded-lg border border-border;
-  &-nav {
-    @apply flex border-b border-border bg-theme-light;
-    @apply m-0 #{!important};
-    @apply list-none #{!important};
-
-    &-item {
-      @apply cursor-pointer border-b-[3px] border-border py-2 text-lg text-dark opacity-80;
-      @apply my-0 #{!important};
-      @apply px-8 #{!important};
-
-      &.active {
-        @apply border-b-[3px] border-dark opacity-100;
-      }
-    }
-  }
-  &-content {
-    &-panel {
-      @apply p-8;
-      p {
-        @apply mb-0;
-      }
-      &.active {
-        @apply block;
-      }
-    }
-  }
-}
-
-// accordion
-// Supporte les deux implementations : <details> natif (AccordionItem.astro,
-// utilise sur la home) et le shortcode React `.accordion.active` (MDX).
+// accordion : <details> natif (AccordionItem.astro)
 .accordion {
-  @apply mb-6 overflow-hidden rounded-lg border border-border bg-theme-light;
+  @apply overflow-hidden rounded-lg border border-border bg-surface;
   &-header {
-    @apply flex w-full cursor-pointer list-none items-center justify-between px-8 py-4 text-lg text-dark;
+    @apply flex min-h-[44px] w-full cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-semibold text-dark;
     &::-webkit-details-marker {
       @apply hidden;
     }
   }
   &-icon {
-    @apply ml-auto h-[.8em] w-[.8em] shrink-0 rotate-[-90deg] transition-transform duration-200;
+    @apply ml-auto h-5 w-5 shrink-0 text-primary transition-transform duration-200;
   }
   &-content {
-    @apply overflow-hidden px-8 pb-4 pt-0;
+    @apply px-6 pb-5 pt-0;
   }
   &[open] > .accordion-header .accordion-icon {
-    @apply rotate-0;
-  }
-
-  // Variante React : l'ouverture passe par une classe et une hauteur animee.
-  &:not([open]) {
-    .accordion-content {
-      @apply max-h-0 py-0;
-    }
-  }
-  &.active {
-    .accordion-icon {
-      @apply rotate-0;
-    }
-    .accordion-content {
-      @apply max-h-screen pb-4;
-    }
+    @apply rotate-180;
   }
 }
 
-// modal
-.modal {
-  @apply fixed inset-0 z-40 hidden h-full w-full overflow-auto;
-  &-overlay {
-    @apply fixed inset-0 z-40 hidden h-full w-full bg-black bg-opacity-40;
-  }
-  &-content {
-    @apply relative top-1/2 z-50 mx-auto max-w-[90%] -translate-y-1/2 rounded-lg bg-body p-8;
-  }
-  &-close {
-    @apply absolute right-3 top-3 h-8 w-8 rounded-full bg-theme-light text-center leading-8 text-dark;
-  }
-}
-
-// content style
+// content style (Markdown rendu)
 .content {
-  @apply prose max-w-none;
-  @apply prose-headings:mb-[.3em] prose-headings:mt-[.6em] prose-headings:text-dark;
-  @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
-  @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
-  @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
-  @apply prose-img:max-w-full prose-img:rounded;
+  @apply prose max-w-none text-base;
+  @apply prose-headings:mb-[.5em] prose-headings:mt-[1.4em] prose-headings:font-secondary prose-headings:text-dark;
+  @apply prose-h1:text-h1-sm prose-h1:font-bold md:prose-h1:text-h1;
+  @apply prose-h2:text-h2-sm prose-h2:font-bold md:prose-h2:text-h2;
+  @apply prose-h3:text-h3-sm prose-h3:font-semibold md:prose-h3:text-h3;
+  @apply prose-h4:text-h4-sm prose-h4:font-semibold md:prose-h4:text-h4;
+  @apply prose-img:max-w-full prose-img:rounded-lg;
   @apply prose-hr:border-border;
-  @apply prose-p:text-base prose-p:text-text;
-  @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-[10px] prose-blockquote:border-primary prose-blockquote:bg-theme-light prose-blockquote:px-8 prose-blockquote:py-10 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:text-dark;
-  @apply prose-pre:rounded-lg prose-pre:bg-theme-light;
+  @apply prose-p:text-text;
+  @apply prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:bg-surface prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:font-secondary prose-blockquote:text-xl prose-blockquote:not-italic prose-blockquote:text-dark;
+  @apply prose-pre:rounded-lg prose-pre:bg-surface;
   @apply prose-code:px-1 prose-code:text-primary;
   @apply prose-strong:text-dark;
-  @apply prose-a:text-text prose-a:underline hover:prose-a:text-primary;
+  @apply prose-a:font-medium prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-primary-dark;
   @apply prose-li:text-text;
   @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:content-[""];
-  @apply prose-thead:border-border prose-thead:bg-theme-light;
+  @apply prose-thead:border-border prose-thead:bg-surface;
   @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px] prose-th:text-dark;
   @apply prose-tr:border-border;
   @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
+
+  > :first-child {
+    @apply mt-0;
+  }
+
+  ul > li::marker {
+    color: theme("colors.accent.strong");
+  }
+
+  // Les boutons inseres dans le Markdown ne prennent pas le style des liens.
+  a.btn {
+    @apply no-underline;
+  }
+  a.btn-primary {
+    @apply text-white hover:text-white;
+  }
+  a.btn-outline-primary {
+    @apply text-primary hover:text-white;
+  }
+
+  iframe {
+    @apply w-full rounded-lg border-0;
+  }
+}
+
+@screen md {
+  .content {
+    font-size: 1.0625rem;
+  }
 }

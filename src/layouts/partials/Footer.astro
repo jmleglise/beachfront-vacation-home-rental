@@ -1,61 +1,69 @@
 ---
 import Logo from "@/components/Logo.astro";
-import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
-import social from "@/config/social.json";
 import {
   getLangFromUrl,
   getTranslations,
   slugSelector,
 } from "@/lib/utils/languageParser";
-import { markdownify } from "@/lib/utils/textConverter";
-import type { ContentEntryMap } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
-const menu = await getTranslations(lang as keyof ContentEntryMap);
-let footer: any = [];
-if (menu) {
-  footer = menu.footer;
-}
-const { seo_footer } = await getTranslations(lang as keyof ContentEntryMap);
+const t = await getTranslations(lang as string);
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-theme-light">
+<footer class="bg-primary text-white/85">
   <div class="container">
-    <div class="row items-center py-10">
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
-        <Logo />
+    <div class="row py-12 md:py-16">
+      <div class="mb-10 lg:col-5 lg:mb-0">
+        <Logo class="text-white" />
+        <p class="mt-4 max-w-measure text-sm leading-relaxed text-white/85">{t.seo_footer}</p>
       </div>
 
-      
-      <div class="mb-8 text-center lg:col-8 lg:mb-0">
-      
-        {seo_footer}
-      
-     
-        <ul>
+      <div class="mb-10 sm:col-6 lg:col-3 lg:mb-0">
+        <h2 class="h6 mb-4 uppercase tracking-wide text-accent">{t.footer_nav}</h2>
+        <ul class="space-y-1">
           {
-            footer.map((menu: any) => (
-              <li class="m-3 inline-block">
-                <a href={menu.url}>{menu.name}</a>   <!-- ={slugSelector(menu.url, lang)}>{menu.name}</a> -->
+            t.main.map((item: any) => (
+              <li>
+                <a class="inline-block py-1 text-white/85 hover:text-white hover:underline underline-offset-4" href={slugSelector(item.url, lang)}>
+                  {item.name}
+                </a>
               </li>
             ))
           }
+          <li>
+            <a class="inline-block py-1 text-white/85 hover:text-white hover:underline underline-offset-4" href={t.alternativeLang[0].url} hreflang={t.alternativeLang[0].url.replace(/\//g, "")}>
+              {t.lang_switch_label}
+            </a>
+          </li>
         </ul>
-   
-
- <!--
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-        <Social source={social.main} className="social-icons" />
-      </div>
--->
       </div>
 
+      <div class="sm:col-6 lg:col-4">
+        <h2 class="h6 mb-4 uppercase tracking-wide text-accent">{t.footer_contact}</h2>
+        <address class="not-italic">
+          <p class="mb-2">{t.address}</p>
+          <p class="mb-5">
+            <a
+              class="text-white underline underline-offset-2 hover:text-accent"
+              data-mail-user="villatamaris"
+              data-mail-domain="location-maison-mer.fr"
+              href={slugSelector(config.book_now_button.link, lang)}
+            >
+              {t.email_label}
+            </a>
+          </p>
+        </address>
+        <a class="btn border-white bg-white text-primary hover:border-accent hover:bg-accent hover:text-dark" href={slugSelector(config.book_now_button.link, lang)}>
+          {t.book_now}
+        </a>
+      </div>
     </div>
   </div>
-  <div class="border-t border-border py-7">
-    <div class="container text-center text-light">
-      <p set:html={markdownify(config.params.copyright)} />
+  <div class="border-t border-white/15 py-6">
+    <div class="container text-sm text-white/70">
+      <p>© {year} {config.params.copyright}. {t.footer_rights}</p>
     </div>
   </div>
 </footer>

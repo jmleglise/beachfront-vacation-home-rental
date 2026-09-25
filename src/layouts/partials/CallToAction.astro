@@ -3,7 +3,6 @@ import ImageMod from "@/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 const { call_to_action } = Astro.props;
 
-
 // Fonction pour obtenir un keyword aléatoire
 const getRandomKeyword = (keywords: string[]) => {
   const randomIndex = Math.floor(Math.random() * keywords.length);
@@ -11,36 +10,33 @@ const getRandomKeyword = (keywords: string[]) => {
 };
 
 const randomKeyword = getRandomKeyword(call_to_action.data.keywords);
+const { image, title, description, button } = call_to_action.data;
 ---
 
 {
   call_to_action.data.enable && (
-    <div class="row items-center justify-between ">
-      <a href={call_to_action.data.button.link} class="block no-underline">
+    <div class="card overflow-hidden p-0">
+      <a href={button.link} class="block" tabindex="-1" aria-hidden="true">
         <ImageMod
-          src={call_to_action.data.image}
-          width={250}
-          height={350}
-          alt="Villa Tamaris"
+          src={image}
+          width={640}
+          height={480}
+          alt=""
+          class="aspect-[4/3] w-full object-cover"
           format="webp"
         />
       </a>
-
-      <h2 set:html={markdownify(call_to_action.data.title)} class="mb-2" />
-      <p class="mb-6">
-        <a href={call_to_action.data.button.link} class="no-underline">
-          {randomKeyword}
-        </a>
-        {call_to_action.data.description}
-      </p>
-
-      <a href={call_to_action.data.button.link} class="no-underline">
-        {call_to_action.data.button.enable && (
-          <div class="flex justify-center w-full btn btn-primary">
-            {call_to_action.data.button.label}
-          </div>
+      <div class="p-6">
+        <p set:html={markdownify(title)} class="h4 mb-2" />
+        <p class="mb-5 text-sm">
+          <strong class="text-dark">{randomKeyword}</strong>{" "}{description}
+        </p>
+        {button.enable && (
+          <a href={button.link} class="btn btn-primary w-full">
+            {button.label}
+          </a>
         )}
-      </a>
+      </div>
     </div>
   )
 }

@@ -1,60 +1,43 @@
 ---
 title: "Réservation"
-meta_title: "Réservez la Villa Tamaris à ouistreham"
-description: "Pour 6 personnes, 4 Chambres, tout équipement, tout confort, prestation haut de gamme."
+meta_title: "Réservez la Villa Tamaris à Ouistreham"
+description: "Pour 6 personnes, 3 chambres, tout équipement, tout confort, prestation haut de gamme."
 image: "/images/villa_rue.jpg"
+lead: "Choisissez vos dates et votre configuration : le prix s'affiche immédiatement. Réservez maintenant, payez plus tard."
+form_title: "Votre séjour"
 draft: false
 ---
-N'hésitez pas à nous joindre pour discuter de votre projet. Nous serons ravis de pouvoir répondre à vos attentes.
-<!-- 
-<h2> Tarif TTC</h2>
+
+<!--
+## Tarif TTC
 Le prix inclut toutes les taxes, les charges courantes et l'usage du matériel mis à disposition (Barbecue Gaz, Velo...).
 
-- Haute Saison  Mai, Juin, Juillet, Août, Septembre : <br/>
-    - 1700€ la semaine incluant le ménage de fin de séjour. <br/>
+- Haute Saison  Mai, Juin, Juillet, Août, Septembre :
+    - 1700€ la semaine incluant le ménage de fin de séjour.
     - 260€ la nuité + 120€ le ménage.
-- Basse Saison de Octobre à Avril  : <br/>
-    - 1120€ la semaine incluant le ménage de fin de séjour.<br/>
+- Basse Saison de Octobre à Avril  :
+    - 1120€ la semaine incluant le ménage de fin de séjour.
     - 160€ la nuité + 120€ le ménage.
-<br/>
-Le linge de maison est en option supplémentaire. Tarif au plus juste selon votre configuration.<br/>
-<br/>
--->
-<h2> Les conditions : </h2>
-- La maison est non-fumeur/vapoteur. Les animaux et les grandes fêtes bruyantes ne sont pas autorisées. <br/>
-- Arrhes : 30% à la réservation puis 100% à j-30 <br/>
-- Caution : 1000€ par chèque à la remise des clefs. <br/>
-- Signature de notre contrat de location. <br/>
-- Checkin/checkOut avec notre conciergerie.<br/>
-<h2>Planning des réservations : </h2> 
 
-<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
-<br/>
-<h2>Nous contacter  :</h2>
-
-<br/>
-  Par email, directement à : 
-  <span class="text-lg md:text-xl font-semibold" style="display: inline-block; white-space: nowrap;">
-    <span style="margin-right: -0.1em;">villatamaris</span>
-    <img
-      src="/images/contact.png"
-      alt="contactez-nous"
-      class="inline align-middle w-auto h-6"
-      style="margin-left: -0.1em;"
-    />
-  </span>
-
-
-<!-- 
-<br/>ou grâce à ce formulaire : 
-
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-af01e587-b07e-4113-bfb9-298c937d72b2 text-center" data-elfsight-app-lazy></div>
-
-
-<div style="width:100%;height:500px;" data-fillout-id="1s56dizCvrus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
+Le linge de maison est en option supplémentaire. Tarif au plus juste selon votre configuration.
 -->
 
-<br/>
-<h2>Réserver maintenant, payez plus tard :</h2>
+## Conditions
+
+- La maison est non-fumeur et non-vapoteur. Les animaux et les fêtes bruyantes ne sont pas autorisés.
+- Arrhes : 30 % à la réservation, puis solde à J-30.
+- Caution : 1 000 € par chèque à la remise des clés.
+- Signature de notre contrat de location.
+- Arrivée et départ avec notre conciergerie.
+
+## Planning des réservations
+
+<div class="not-prose aspect-[4/3] w-full overflow-hidden rounded-lg border border-border md:aspect-[16/10]">
+<iframe title="Calendrier des disponibilités de la Villa Tamaris" src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%231F3A5F" class="h-full w-full" loading="lazy"></iframe>
+</div>
+
+## Nous contacter
+
+Une question ou une demande particulière ? Nous serons ravis d'en discuter avec vous.
+
+Par e-mail : <a data-mail-user="villatamaris" data-mail-domain="location-maison-mer.fr" href="#">villatamaris [at] location-maison-mer.fr</a>

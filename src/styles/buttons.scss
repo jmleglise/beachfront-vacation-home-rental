@@ -1,15 +1,23 @@
+// Boutons : une action principale (btn-primary), une action secondaire
+// (btn-outline-primary). Hauteur minimale 44px (cible tactile), casse de
+// phrase : pas de text-transform.
 .btn {
-  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold capitalize transition;
+  @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded border-2 border-transparent px-6 py-2.5 text-center font-primary font-semibold leading-tight no-underline transition-colors duration-200;
 }
 
 .btn-sm {
-  @apply rounded-sm px-4 py-1.5 text-sm;
+  @apply min-h-[40px] px-4 py-2 text-sm;
 }
 
 .btn-primary {
-  @apply border-primary bg-primary   text-white hover:text-white;
+  @apply border-primary bg-primary text-white hover:border-primary-dark hover:bg-primary-dark hover:text-white;
 }
 
 .btn-outline-primary {
-  @apply border-dark text-dark hover:bg-dark  bg-transparent hover:text-white;
+  @apply border-primary bg-transparent text-primary hover:bg-primary hover:text-white;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  @apply pointer-events-none opacity-50;
 }

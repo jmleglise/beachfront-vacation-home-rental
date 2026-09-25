@@ -8,16 +8,18 @@ import {
 } from "@/lib/utils/languageParser";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import type { DataEntryMap } from "astro:content";
-import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
+import { CalendarDays, Folder } from "lucide-react";
 import ImageMod from "./ImageMod.astro";
 
 const { summary_length }: { summary_length: number; blog_folder: string } =
   config.settings;
-const { data } = Astro.props;
-const { title, image, date, author, categories } = data.data;
+// headingLevel : niveau semantique du titre selon la page (h2 sous un H1
+// de liste, h3 sous un titre de section). Le style visuel reste h4.
+const { data, headingLevel = "h3" } = Astro.props;
+const { title, image, date, categories } = data.data;
 
 const lang = getLangFromUrl(Astro.url);
-const { read_more } = await getTranslations(lang as keyof DataEntryMap);
+const t = await getTranslations(lang as string);
 
 const sourceSlug = data.slug ?? data.id ?? "";
 const slugParts = sourceSlug.split("/").filter(Boolean);
@@ -28,38 +30,34 @@ if (slugParts[1] === "english" || slugParts[1] === "french") {
   slugParts.splice(1, 1);
 }
 const modifiedSlug = slugParts.join("/");
+const href = slugSelector(`/${modifiedSlug}`, lang);
+const Heading = headingLevel;
 ---
 
-<div class="bg-body">
+<article class="flex h-full flex-col">
   {
-    image && ( 
-    <a href={slugSelector(`/${modifiedSlug}`, lang)}>
-      <ImageMod
-        class="mb-6 w-full rounded"
-        src={image}
-        alt={title}
-        width={445}
-        height={230}
-        format="webp"
-      />
-    </a>  
+    image && (
+      <a href={href} class="mb-5 block overflow-hidden rounded-lg" tabindex="-1" aria-hidden="true">
+        <ImageMod
+          class="aspect-[16/10] w-full object-cover transition-transform duration-300 hover:scale-[1.03]"
+          src={image}
+          alt=""
+          width={640}
+          height={400}
+          format="webp"
+        />
+      </a>
     )
   }
-  <h4 class="mb-3">
-    <a href={slugSelector(`/${modifiedSlug}`, lang)}>
+  <Heading class="h4 mb-2">
+    <a href={href} class="hover:text-primary">
       {title}
     </a>
-  </h4>
-  <ul class="mb-4">
-    <li class="mr-4 inline-block">
-
-        <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
-        {humanize(author)}
-
-    </li>
-
-    <li class="mr-4 inline-block">
-      <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+  </Heading>
+  <ul class="meta mb-3">
+    <li>
+      <Folder aria-hidden="true" />
+      <span class="sr-only">{t.category_label} :</span>
       {
         categories.map((category: string, index: number) => (
           <a href={slugSelector(`/categories/${slugify(category)}`, lang)}>
@@ -69,13 +67,17 @@ const modifiedSlug = slugParts.join("/");
         ))
       }
     </li>
-    {date && <li class="inline-block">{dateFormat(date)}</li>}
+    {
+      date && (
+        <li>
+          <CalendarDays aria-hidden="true" />
+          <time datetime={new Date(date).toISOString()}>{dateFormat(date, lang)}</time>
+        </li>
+      )
+    }
   </ul>
-  <p class="mb-6">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
-  <a
-    class="btn btn-outline-primary btn-sm"
-    href={slugSelector(`/${modifiedSlug}`, lang)}
-  >
-    {read_more}
+  <p class="mb-5 line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
+  <a class="btn btn-outline-primary btn-sm mt-auto self-start" href={href}>
+    {t.read_more}<span class="sr-only"> : {title}</span>
   </a>
-</div>
+</article>

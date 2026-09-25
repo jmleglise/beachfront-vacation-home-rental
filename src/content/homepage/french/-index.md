@@ -172,10 +172,12 @@ schemaVacationRental: |
 # Banner
 banner:
   title: "Location de vacances en bord de mer <br/>Ouistreham / Calvados"
-  content: "Pour votre location de vacances à Ouistreham en normandie, nous vous proposons notre charmante maison pour 6 personnes, en front de mer avec tout le confort et l'équipement d'une véritable maison d'habitation. <br>
-  Imaginez votre réveil avec une vue mer imprenable depuis votre lit et la chance d'aller à la plage au bout du jardin.  A vous les plaisirs de la baignade, du barbecue dans le jardin, de l'apéro sous le coucher du soleil. Un point de chute idéal pour le farneante ou rayonner dans cette région riche en activités.<br> 
-  La maison est également parfaitement équipée pour le télétravail.<br>
-  Le vrai luxe, c'est le cadre privilégié de votre maison de vacances les pieds dans l'eau, le temps d'un week-end ou d'une semaine.<br>"
+  content: |
+    Pour votre location de vacances à Ouistreham, en Normandie, nous vous proposons notre maison pour 6 personnes, en front de mer, avec tout le confort et l'équipement d'une véritable maison d'habitation.
+
+    Imaginez votre réveil avec une vue mer depuis votre lit, et la plage au bout du jardin. À vous la baignade, le barbecue dans le jardin, l'apéritif au coucher du soleil. Un point de chute idéal pour le farniente ou pour rayonner dans une région riche en activités. La maison est également équipée pour le télétravail.
+
+    Le vrai luxe : une maison de vacances les pieds dans l'eau, le temps d'un week-end ou d'une semaine.
   images:
     - src: "/images/compo_accueil.jpg"
       alt: "Villa Tamaris, maison de vacances en Normandie Calvados. Vue mer exceptionnelle"
@@ -207,28 +209,28 @@ features:
     content: "Face à la mer, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
-      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 3 Salles de douche, 3 WC séparés."
-      - "Suite parentale, vue mer exceptionnelle, avec sa grande salle de douche et sa terrasse privative."
-      - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger et le bowwindow devant la mer."
+      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 3 salles de douche, 3 WC séparés."
+      - "Suite parentale avec vue mer, avec sa grande salle de douche et sa terrasse privative."
+      - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger et le bow-window face à la mer."
       - "Bureau isolé et Internet++ pour travailler dans un cadre exceptionnel."
-      - "Sur un terrain de 300m2, un extérieur fleuri, barbecue, plancha et transats à l'abri."
+      - "Sur un terrain de 300 m², un extérieur fleuri, barbecue, plancha et transats à l'abri."
       - "Tout l'équipement souhaitable dont plusieurs vélos."
     button:
       enable: true
-      label: "Découvrez la maison"
+      label: "Découvrir la maison"
       link: "villa-tamaris-beachfront-ouistreham-feature/"
 
 # Location
-  - title: "Localisation de la maison de vacance à Ouistreham Calvados"
+  - title: "Localisation de la maison de vacances à Ouistreham, Calvados"
     image: "/images/view_scene.jpg"
     content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil et siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
-      - "Ouistreham est une station balnéaire très vivante offrant une grande diversité : son bourg médiéval et son église du 13e siècel, son port animé, sa vie maritime. Son phare, unique dans le Calvados et sa grande roue offrent un point de vue exceptionnel sur les environs."
-      - "A 2h15 de Paris par l'autoroute. C'est aussi un point de chute pour rayonner sur la Normandie"
+      - "Ouistreham est une station balnéaire très vivante offrant une grande diversité : son bourg médiéval et son église du XIIIe siècle, son port animé, sa vie maritime. Son phare, unique dans le Calvados et sa grande roue offrent un point de vue exceptionnel sur les environs."
+      - "À 2 h 15 de Paris par l'autoroute. Un point de chute pour rayonner sur la Normandie."
       - "Toutes commodités immédiatement accessibles. Du petit commerce jusqu'à la grande surface (à 3 min) en passant par les marchés."
     button:
       enable: true
-      label: "Découvrez la localisation"
+      label: "Découvrir la localisation"
       link: "villa-tamaris-beachfront-ouistreham-location/"
 
 # Explore
@@ -237,39 +239,41 @@ features:
     content: "Repos contemplatif d'horizon lointain, activités nautiques & sportives, explorer le passé chargé. Tout le monde trouvera son compte lors de votre séjour :"
     bulletpoints:
       - "Ouistreham est la ville cotière la plus animée de la région avec de nombreuses activités et animations : Thalassothérapie, Casino, nombreux commerces,  marché de poissons, nombreux restaurants ..."
-      - "Des activités nautiques : Ecole de voile, char à voile, kitesurf, pêche en mer ... La côte offre un vent favorable."
+      - "Des activités nautiques : école de voile, char à voile, kitesurf, pêche en mer ... La côte offre un vent favorable."
       - "Et sportives : équitation (sur la plage), karting, mini-golf, tennis, vélo..."
-      - "Un patrimoine riche d'histoires : Riva Bella est aussi sword beach, l'une des 5 plages du débarquement. Et plus ancien, une région exposée aux visites viking. "
-      - "et sa riche région avec Cabourg, Caen ..."
+      - "Un patrimoine riche d'histoires : Riva Bella est aussi Sword Beach, l'une des 5 plages du débarquement. Et plus ancien, une région exposée aux visites viking. "
+      - "Et toute la région : Cabourg, Caen…"
     button:
       enable: true
-      label: "Suivez nous pour découvrir la région"
+      label: "Découvrir la région"
       link: "blog/"
 
 # Nous
 nous:
   title: "Qui nous sommes"
   # image: "/images/hp_explore_post_card.jpg"
-  content: "Nous sommes Isabelle, Justine, Marion et Jean-Marc et nous sommes heureux de vous accueillir dans notre maison de vacances à Ouistreham.  Nous vous accueillons en confiance, et pour votre confort pendant votre séjour, nous vous laissons la plupart de nos équipements : Vélos, barbecue, livres, musique ...  Nous avons découvert la région récemment et avons décidé de nous y fixer après avoir nous même beaucoup loué des maisons de vacances, en Bretagne, en Charente-Maritime, dans le sud ... Nous apprécions chaque jour davantage cette région au contact des éléments et du grand air. Nous prenons plaisir également à découvrir les nombreuses activités environnantes. Nous vous faisons partager quelques unes de nos découvertes dans le blog. <br>
-  Cette maison est issue de plusieurs transformations. Initialement petite maison de pécheur, elle fut transformée une première fois en 2000 puis de nouveau totalement rénovée et transformée en 2024 lors de notre acquisition. Nous avons eu à coeur de conserver quelques traits architecturaux des maison normandes et de la côte afin de perpétuer la tradition locale. Nous vous invitons d'ailleurs à découvrir la diversités de l'architecture locale où se cotoient villas huppées de la naissance du tourisme balnéaire de 1860, et maisonnettes des travailleurs de la mer."
+  content: "Nous sommes Isabelle, Justine, Marion et Jean-Marc et nous sommes heureux de vous accueillir dans notre maison de vacances à Ouistreham.  Nous vous accueillons en confiance, et pour votre confort pendant votre séjour, nous vous laissons la plupart de nos équipements : Vélos, barbecue, livres, musique ...  Nous avons découvert la région récemment et avons décidé de nous y fixer après avoir nous même beaucoup loué des maisons de vacances, en Bretagne, en Charente-Maritime, dans le sud ... Nous apprécions chaque jour davantage cette région au contact des éléments et du grand air. Nous prenons plaisir également à découvrir les nombreuses activités environnantes. Nous vous faisons partager quelques-unes de nos découvertes dans le blog.
+
+
+  Cette maison est issue de plusieurs transformations. Initialement petite maison de pêcheur, elle fut transformée une première fois en 2000 puis de nouveau totalement rénovée et transformée en 2024 lors de notre acquisition. Nous avons eu à cœur de conserver quelques traits architecturaux des maisons normandes et de la côte afin de perpétuer la tradition locale. Nous vous invitons d'ailleurs à découvrir la diversité de l'architecture locale où se côtoient villas huppées de la naissance du tourisme balnéaire de 1860, et maisonnettes des travailleurs de la mer."
   button:
     enable: true
-    label: "Suivez nous pour découvrir la région"
+    label: "Découvrir la région"
     link: "blog/"
 
 # FAQ
 faqContent:
-  - title: "La maison de vacance peut-elle être louée pour un week-end ?"
+  - title: "La maison peut-elle être louée pour un week-end ?"
     content: "Louer la maison nécessite de tout mettre en ordre pour que vous vous sentiez chez vous. Cela demande beaucoup de travail ! Donc pendant les vacances scolaires, nous privilégions les séjours d'une semaine et en basse saison, un forfait de 3 nuits."
   - title: "Un parking est disponible ?"
     content: "Oui, sur la propriété, 2 véhicules peuvent être garés en enfilade."
-  - title: "Cette location saisonnière dispose-t-elle d'une piscine ? "
+  - title: "La location dispose-t-elle d'une piscine ?"
     content: "La plage est au bout du jardin ! Et le complexe aquatique Aquabella de Ouistreham est à 4 minutes de vélo. (Toboggan de 70m, splashpad et un solarium pour se relaxer les pieds dans le sable. Diverses activités aquatiques sont programmées toute l'année : cours d'aquabike, d'aquafitness, bébés nageurs, etc. Env 6€ la journée par pers.)"
   - title: "Est-ce que la location est adaptée aux bébés ou aux personnes à mobilité réduite ?"
-    content: "Malheusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres, WC  et salle de douche au rez de chaussé, mais la cuisine et le salon sont à l'étage."
+    content: "Malheureusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres, WC  et salle de douche au rez-de-chaussée, mais la cuisine et le salon sont à l'étage."
   - title: "Quels sont les équipements de la maison ?"
     content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine très équipée (lave vaisselle, cafetière nespresso, grille pain, four, microonde...), Internet - Wifi, barbecue gaz et plancha gaz dans le jardin, vélos, Lave linge, sèche linge,  ...  MAIS pas de TV." 
-  - title: "A quelle distance de la plage est la maison de vacances ? "
+  - title: "À quelle distance de la plage est la maison ?"
     content: "10m très précisément du portail. Par contre selon le coefficient de marée, il faudra peut-être aller chercher la mer un peu plus loin :-) La maison est située sur une parcelle en première ligne donnant directement sur la plage Riva Bella. La maison est plutôt à l'arrière de la parcelle ce qui lui confère une légère protection appréciable lors de grands coups de vent."   
 
 ---

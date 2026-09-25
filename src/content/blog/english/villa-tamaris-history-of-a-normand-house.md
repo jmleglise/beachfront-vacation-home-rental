@@ -1,12 +1,12 @@
 ---
-title: "The Villa Tamaris: History of a Norman House."
+title: "The Villa Tamaris: History of a Norman House"
 meta_title: "Renovation of Villa Tamaris: History of a Norman House."
 description: "Discover the transformation of Villa Tamaris, from its humble origins to a renovation inspired by Norman seaside architecture."
 date: 2025-05-04T05:00:00Z
 image: "/images/villa_rue.jpg"
-categories: ["visit"]
-author: "JmL"
-tags: ["Patrimoine"]
+categories: ["Visit"]
+author: "Jean-Marc"
+tags: ["Heritage"]
 draft: false
 ---
 
@@ -18,7 +18,7 @@ Originally, Villa Tamaris was merely an outbuilding — probably a small garage 
 
 An open loggia supported by timber framing, a few exposed stone walls, and an orientation facing the sea already gave it the spirit of traditional Norman seaside holiday homes. Old photographs also show that the interior was modified several times over the decades, adapting to the changing needs of its occupants and the flexibility of the structure itself. It is said that, at the time, it served as a fisherman’s house.
 
-<img src="/images/triptique1960.png" alt="Villa Tamaris House 1960" style="display: block; margin: auto;">
+<img src="/images/triptique1960.png" alt="Villa Tamaris House 1960" width="763" height="441" loading="lazy" class="mx-auto h-auto">
 
 <h2> 1965 : Villa Tamaris</h2>
 
@@ -26,7 +26,7 @@ The name "Villa Tamaris" appears in a notarial deed dating from 1965. And indeed
 
 <h2> 1999 : A Radical Transformation </h2>
 
-<img src="/images/triptique2000.png" alt="Villa Tamaris House 1999" style="display: block; margin: auto;">
+<img src="/images/triptique2000.png" alt="Villa Tamaris House 1999" width="837" height="807" loading="lazy" class="mx-auto h-auto">
 
 In 1999, Villa Tamaris underwent a complete metamorphosis and became a contemporary three-storey holiday home. The building permits that were rejected at the time reveal some interesting details: the owner explored several architectural projects inspired by Norman style, featuring a west-facing orientation and a typically Norman extended roofline. But after several refusals from the local authorities, it was ultimately a surprising design that came to life.
 
@@ -38,7 +38,7 @@ A few years later, the neighbouring house was also raised in height, unfortunate
 
 <h2>2022 : Our Acquisition</h2>
 
-<img src="/images/triptique2025.png" alt="Villa Tamaris House in 2025" style="display: block; margin: auto;">
+<img src="/images/triptique2025.png" alt="Villa Tamaris House in 2025" width="763" height="788" loading="lazy" class="mx-auto h-auto">
 
 In 2022, we acquired Villa Tamaris with the ambition of restoring its stunning sea view, reconnecting with the spirit of 18th-century Norman seaside villas, and occasionally offering it as a holiday rental home.
 

@@ -1,14 +1,7 @@
-:root {
-  // Ces variables sont referencees par tailwind.config.js (font-primary /
-  // font-secondary). Sans elles, `font-family: var(--font-primary)` etait
-  // invalide et le site retombait sur la police sans-serif du navigateur :
-  // Heebo et Signika etaient telechargees puis jamais appliquees.
-  --font-primary: "Heebo";
-  --font-secondary: "Signika";
-}
-
+// Racine a 16px sur toutes les largeurs : la reduction a 80 % sous 768px
+// donnait un corps de texte a 12,8px et des mentions a 9,6px sur mobile.
 html {
-  @apply overflow-x-clip text-base-sm md:text-base;
+  @apply overflow-x-clip text-base;
 }
 
 body {
@@ -30,48 +23,60 @@ iframe {
   max-width: 100%;
 }
 
+// Focus visible commun a tous les elements interactifs.
+:focus-visible {
+  outline: 2px solid theme("colors.primary.DEFAULT");
+  outline-offset: 2px;
+}
+
+// Echelle typographique (ratio ~1,25, valeurs dans theme.json).
+// Graisses chargees : Signika 600/700 (titres), Heebo 400/500/600 (texte).
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply font-secondary font-bold leading-tight text-dark;
+  @apply font-secondary leading-tight text-dark;
 }
 
 h1,
 .h1 {
-  @apply text-h1-sm md:text-h1;
+  @apply font-secondary text-h1-sm font-bold leading-[1.15] md:text-h1;
 }
 
 h2,
 .h2 {
-  @apply text-h2-sm md:text-h2;
+  @apply font-secondary text-h2-sm font-bold leading-tight md:text-h2;
 }
 
 h3,
 .h3 {
-  @apply text-h3-sm md:text-h3;
+  @apply font-secondary text-h3-sm font-semibold leading-tight md:text-h3;
 }
 
 h4,
 .h4 {
-  @apply text-h4;
+  @apply font-secondary text-h4-sm font-semibold leading-snug md:text-h4;
 }
 
 h5,
 .h5 {
-  @apply text-h5;
+  @apply font-secondary text-h5 font-semibold leading-snug;
 }
 
 h6,
 .h6 {
-  @apply text-h6;
+  @apply font-secondary text-h6 font-semibold leading-snug;
 }
 
 b,
 strong {
   @apply font-semibold;
+}
+
+a {
+  @apply transition-colors;
 }
 
 code {

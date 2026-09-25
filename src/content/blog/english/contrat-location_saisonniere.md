@@ -1,12 +1,12 @@
 ---
-title: "Legal Rules for Vacation Rentals: All You Need to Know."
+title: "Legal Rules for Vacation Rentals: All You Need to Know"
 meta_title: "Vacation Rental Agreement: Obligations, Deposit, Down Payment, Insurance"
 description: "Holiday rentals: mandatory agreement, security deposit, down payment and insurance. The questions to ask before you book."
 date: 2024-12-07T05:00:00Z
-image: "/images/placeholder.jpg"
+image: "/images/villa_vue_portail.jpg"
 categories: ["Rules"]
-author: "jml"
-tags: ["Contrat", "Arrhes", "Deposit"]
+author: "Jean-Marc"
+tags: ["Contract", "Deposit"]
 draft: false
 ---
 

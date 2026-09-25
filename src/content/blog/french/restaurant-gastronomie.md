@@ -1,12 +1,12 @@
 ---
-title: "Les restaurants gastronomiques à découvrir pendant vos vacances à Ouistreham."
+title: "Les restaurants gastronomiques à découvrir pendant vos vacances à Ouistreham"
 meta_title: "Restaurants Étoilés et Incontournables près de Ouistreham | Guide Gourmand"
 description: "Restaurants étoilés et meilleures tables autour de Ouistreham : notre guide pour sublimer votre séjour en location de vacances en Normandie."
 date: 2024-11-30T05:00:00Z
-image: "/images/placeholder.jpg"
+image: "/images/d_terrasse_apero.jpg"
 categories: ["Gastronomie"]
-author: "jml"
-tags: ["Restaurant", "Fruis de mer"]
+author: "Jean-Marc"
+tags: ["Restaurant", "Fruits de mer"]
 draft: false
 ---
 

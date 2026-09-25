@@ -76,17 +76,17 @@ export async function getStaticPaths() {
   image={postIndex[0].data.image}
   description={postIndex[0].data.description}
 >
-  <PageHeader title={postIndex[0].data.title} />
-  <section class="section">
+  <PageHeader title={postIndex[0].data.title} lead={postIndex[0].data.description} />
+  <section class="page-body">
     <div class="container">
-      <div class="row gx-5">
+      <div class="row">
         <!-- blog posts -->
         <div class="lg:col-8">
           <div class="row">
             {
               currentPosts.map((post) => (
-                <div class="mb-14 md:col-6">
-                  <BlogCard data={post} />
+                <div class="mb-12 md:col-6">
+                  <BlogCard data={post} headingLevel="h2" />
                 </div>
               ))
             }

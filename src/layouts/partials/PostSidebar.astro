@@ -1,57 +1,53 @@
 ---
-import { getLangFromUrl, slugSelector } from "@/lib/utils/languageParser";
+import {
+  getLangFromUrl,
+  getTranslations,
+  slugSelector,
+} from "@/lib/utils/languageParser";
 import { humanize } from "@/lib/utils/textConverter";
 
 const { tags, categories, allCategories } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const t = await getTranslations(lang as string);
+const { pathname } = Astro.url;
 ---
 
-<div class="lg:col-4">
-  <!-- categories -->
-  <div class="mb-8">
-    <h5 class="mb-6">Categories</h5>
-    <div class="rounded bg-theme-light p-8">
-      <ul class="space-y-4">
-        {
-          categories.map((category: any) => {
-            const count = allCategories.filter(
-              (c: any) => c === category,
-            ).length;
-            return (
-              <li>
-                <a
-                  class="flex justify-between hover:text-primary "
-                  href={slugSelector(`/categories/${category}`, lang)}
-                >
-                  {humanize(category)} <span>({count})</span>
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
+<aside class="mt-4 lg:col-4 lg:mt-0">
+  <div class="card mb-6">
+    <h2 class="h5 mb-4">{t.categories}</h2>
+    <ul class="space-y-1">
+      {
+        categories.map((category: any) => {
+          const count = allCategories.filter((c: any) => c === category).length;
+          const href = slugSelector(`/categories/${category}`, lang);
+          return (
+            <li>
+              <a
+                class={`flex min-h-[40px] items-center justify-between rounded px-3 transition-colors hover:bg-body hover:text-primary ${pathname === href ? "bg-body font-semibold text-primary" : ""}`}
+                href={href}
+                aria-current={pathname === href ? "page" : undefined}
+              >
+                {humanize(category)}
+                <span class="text-sm text-light">{count}</span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
   </div>
-  <!-- tags -->
-  <div class="mb-8">
-    <h5 class="mb-6">Tags</h5>
-    <div class="rounded bg-theme-light p-6">
-      <ul>
-        {
-          tags.map((tag: any) => {
-            return (
-              <li class="inline-block">
-                <a
-                  class="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white   "
-                  href={slugSelector(`/tags/${tag}`, lang)}
-                >
-                  {humanize(tag)}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
+  <div class="card">
+    <h2 class="h5 mb-4">{t.tags}</h2>
+    <ul class="flex flex-wrap gap-2">
+      {
+        tags.map((tag: any) => (
+          <li>
+            <a class="tag bg-body" href={slugSelector(`/tags/${tag}`, lang)}>
+              {humanize(tag)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
-</div>
+</aside>

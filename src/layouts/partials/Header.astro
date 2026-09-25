@@ -9,29 +9,22 @@ import {
   slugSelector,
   supportedLang,
 } from "@/lib/utils/languageParser";
-import type { ContentEntryMap } from "astro:content";
 
 let lang = getLangFromUrl(Astro.url);
-const menu = await getTranslations(lang as keyof ContentEntryMap);
+const t = await getTranslations(lang as string);
 
 const { book_now_button, settings } = config;
 const { default_language } = config.settings;
 const { pathname } = Astro.url;
-const { book_now } = await getTranslations(lang as keyof ContentEntryMap);
-const { header_title } = await getTranslations(lang as keyof ContentEntryMap);
 
 const disabledLanguages = config.settings.disable_languages as string[];
 if (disabledLanguages.includes(lang)) {
   lang = default_language;
 }
 
-// Le lien du titre pointait sur "/" : sur chaque page il provoquait un 301
-// vers /fr/, et renvoyait les visiteurs anglophones sur la home francaise.
-const homeUrl = slugSelector("/", lang);
-
-// Le drapeau renvoyait toujours vers la home de l'autre langue. On conserve
-// la page courante, en coherence avec les hreflang declares dans Base.astro.
-const alternate = menu.alternativeLang[0];
+// Le lien vers l'autre langue conserve la page courante, en coherence avec
+// les hreflang declares dans Base.astro.
+const alternate = t.alternativeLang[0];
 const alternateLang = alternate.url.replace(/\//g, "");
 const localePattern = new RegExp(`^/(?:${supportedLang.join("|")})(?=/|$)`);
 const pathWithoutLocale = pathname.replace(localePattern, "") || "/";
@@ -45,87 +38,82 @@ const alternateUrl = hasLocalisedTwin
   ? `/${alternateLang}${pathWithoutLocale === "/" ? "/" : pathWithoutLocale}`
   : alternate.url;
 
+const bookUrl = slugSelector(book_now_button.link, lang);
+
+// Entree active : correspondance exacte pour l'accueil, par prefixe sinon
+// (les articles activent "Decouvertes").
+const isActive = (url: string) => {
+  const href = slugSelector(url, lang);
+  return url === "/" ? pathname === href : pathname.startsWith(href);
+};
 ---
-<header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
-  <nav class="navbar container">
-    {/* Titre */}
-    <div class="font-secondary font-bold leading-tight text-dark order-0 text-h1-sm md:text-h1">
-      <a href={homeUrl}>
-        { header_title }
-      </a>
-    </div>
-    
-    {/* navbar toggler */}
-    <input id="nav-toggle" type="checkbox" class="hidden" />
+
+<header class={`header z-30 ${settings.sticky_header ? "sticky top-0" : ""}`}>
+  <nav class="navbar container" aria-label={t.main_nav}>
+    <Logo class="order-0" />
+
+    {/* navbar toggler : case a cocher masquee visuellement mais focusable */}
+    <input
+      id="nav-toggle"
+      type="checkbox"
+      class="peer sr-only"
+      aria-controls="nav-menu"
+      aria-label={t.menu_open}
+    />
     <label
       for="nav-toggle"
-      class="order-3 cursor-pointer flex items-center lg:hidden text-dark ml-4"
+      class="order-3 ml-2 flex h-11 w-11 cursor-pointer items-center justify-center rounded text-dark lg:hidden"
     >
-      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      <svg id="show-button" class="block h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
+      <svg id="hide-button" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"></path>
       </svg>
     </label>
-    
+
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 xl:text-xl"
+      class="navbar-nav order-3 hidden w-full pb-4 pt-2 lg:order-1 lg:flex lg:w-auto lg:gap-2 lg:pb-0 lg:pt-0 xl:gap-6"
     >
       {
-        menu?.main.map((menu: any) => (
+        t.main.map((item: any) => (
           <li class="nav-item">
             <a
-              href={slugSelector(menu.url, lang)}
-              class={`nav-link block ${
-                pathname === slugSelector(menu.url, lang) && "active"
-              }`}
+              href={slugSelector(item.url, lang)}
+              class={`nav-link ${isActive(item.url) ? "active" : ""}`}
+              aria-current={isActive(item.url) ? "page" : undefined}
             >
-              {menu.name}
+              {item.name}
             </a>
           </li>
         ))
       }
-      {/* ✅ AJOUT : bouton Book_now visible uniquement en mobile */}
-      {
-        book_now_button.enable && (
-          <li class="block lg:hidden mt-4">
-            <a
-              href={slugSelector(book_now_button.link, lang)}
-              class="btn btn-outline-primary btn-sm w-full text-center"
-            >
-              {book_now}
-            </a>
-          </li>
-        )
-      }
+      <li class="mt-2 border-t border-border pt-2 lg:hidden">
+        <a href={alternateUrl} hreflang={alternateLang} lang={alternateLang} class="nav-link">
+          {t.lang_switch_label}
+        </a>
+      </li>
     </ul>
-    
-    {/* Les boutons à droites */}
-    <div class="order-1 ml-auto flex items-center gap-4 md:order-2 lg:ml-0">
+
+    {/* Actions : reservation (action principale) et changement de langue */}
+    <div class="order-1 ml-auto flex items-center gap-2 md:order-2 md:gap-3 lg:ml-0">
       {
         book_now_button.enable && (
-          <a
-            class="btn btn-outline-primary btn-sm hidden lg:inline-block"
-            href={slugSelector(book_now_button.link, lang)}
-          >
-            {book_now}
+          <a class="btn btn-primary btn-sm" href={bookUrl}>
+            {t.book_now}
           </a>
         )
       }
-      <a href={alternateUrl} hreflang={alternateLang}>
-        <img
-          src={alternate.urlFlag}
-          alt={alternate.alt}
-          width="40"
-          height="40"
-          class="h-10 w-auto"
-        />
+      <a
+        href={alternateUrl}
+        hreflang={alternateLang}
+        lang={alternateLang}
+        class="lang-switch hidden lg:inline-flex"
+        aria-label={t.lang_switch_label}
+        title={t.lang_switch_label}
+      >
+        {t.lang_switch}
       </a>
     </div>
   </nav>

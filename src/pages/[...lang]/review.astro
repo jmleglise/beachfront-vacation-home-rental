@@ -1,4 +1,6 @@
 ---
+import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
 import { supportedLang } from "@/lib/utils/languageParser";
 
 export function getStaticPaths() {
@@ -8,129 +10,222 @@ export function getStaticPaths() {
   return paths;
 }
 
+const lang = Astro.params.lang || config.settings.default_language;
+const isFr = lang === "fr";
+
+const GOOGLE_REVIEW_URL = "https://g.page/r/CTOZ9gJDprgQEAE/review";
+
+const t = isFr
+  ? {
+      metaTitle: "Votre avis – Villa Tamaris",
+      title: "Villa Tamaris",
+      prompt: "Comment s'est passé votre séjour ?",
+      star: (n: number) => (n > 1 ? `${n} étoiles` : `${n} étoile`),
+      starGoogle: "5 étoiles – laisser un avis sur Google (nouvel onglet)",
+      reviewLabel: "Votre avis",
+      reviewPlaceholder: "Partagez votre expérience concernant ce lieu",
+      visitDate: "Date de la visite",
+      year: "Année",
+      submit: "Publier",
+      success: "Merci pour votre avis !",
+      error: "Erreur d'envoi. Veuillez vérifier votre connexion.",
+    }
+  : {
+      metaTitle: "Your review – Villa Tamaris",
+      title: "Villa Tamaris",
+      prompt: "How was your stay?",
+      star: (n: number) => (n > 1 ? `${n} stars` : `${n} star`),
+      starGoogle: "5 stars – leave a review on Google (new tab)",
+      reviewLabel: "Your review",
+      reviewPlaceholder: "Share your experience of this place",
+      visitDate: "Date of visit",
+      year: "Year",
+      submit: "Publish",
+      success: "Thank you for your review!",
+      error: "Sending failed. Please check your connection.",
+    };
+
+// La valeur envoyee a /api/review reste le nom du mois en francais
+// (message Telegram inchange) ; seul le libelle affiche est traduit.
+const monthValues = [
+  "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+  "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre",
+];
+const monthLabels = isFr
+  ? monthValues
+  : [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December",
+    ];
+const years = ["2026", "2027", "2028"];
+
+const fieldFocus = "focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+const selectClass = `h-11 rounded border border-border bg-body pl-3 pr-10 text-base text-dark shadow-sm ${fieldFocus}`;
+const textareaClass = `min-h-[140px] w-full rounded border border-border bg-body px-3 py-2 text-base text-dark shadow-sm placeholder:text-light ${fieldFocus}`;
+const starClass =
+  "stars group inline-flex h-11 w-11 items-center justify-center rounded text-border transition-colors data-[lit=true]:text-accent-strong";
+const starSvgClass = "h-9 w-9 fill-current stroke-light group-data-[lit=true]:stroke-accent-strong";
+const starPath =
+  "M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.49l-5.87 3.09 1.12-6.54L2.5 9.41l6.56-.95L12 2.5z";
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>Villa Tamaris</title>
+<Base title={t.metaTitle} noindex={true} lang={lang}>
+  <section class="page-body">
+    <div class="container">
+      <div class="max-w-xl">
+        <h1 class="mb-4">{t.title}</h1>
 
-    <style>
-      body {
-        font-family: 'Helvetica Neue', sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 1rem 1rem;
-        background: #fff;
-        color: #333;
-      }
-      h1 {
-        font-weight: 300;
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-      }
-      #stars-container {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-      }
-      .stars {
-        font-size: 2.5rem;
-        cursor: pointer;
-        color: transparent;
-        -webkit-text-stroke: 1px #999;
-        transition: all 0.2s ease-in-out;
-      }
-      .stars.hovered,
-      .stars.selected {
-        color: gold;
-        -webkit-text-stroke: 1px gold;
-      }
-      #form {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-        align-items: center;
-      }
-      textarea {
-        width: 90%;
-        max-width: 400px;
-        height: 100px;
-        font-size: 1rem;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        resize: vertical;
-      }
-      select {
-        font-size: 1rem;
-        padding: 0.5rem;
-        margin: 0 0.25rem;
-      }
-      #submit {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        border: none;
-        background-color: #eef2ff;
-        color: #888;
-        border-radius: 5px;
-        cursor: not-allowed;
-      }
-      #submit.enabled {
-        background-color: #4f46e5;
-        color: white;
-        cursor: pointer;
-      }
-      #message {
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        display: none;
-      }
-      a.stars,
-      a.stars:hover,
-      a.stars:visited,
-      a.stars:active,
-      a.stars:focus       {
-        text-decoration : none;    
-      }
-    </style>
+        <div id="stars-container" role="group" aria-labelledby="stars-label">
+          <p id="stars-label" class="mb-3 text-base text-text">{t.prompt}</p>
+          <div class="flex gap-1">
+            {
+              [1, 2, 3, 4].map((n) => (
+                <button
+                  type="button"
+                  class={starClass}
+                  data-value={n}
+                  aria-label={t.star(n)}
+                  aria-pressed="false"
+                >
+                  <svg class={starSvgClass} viewBox="0 0 24 24" stroke-width="1.25" stroke-linejoin="round" aria-hidden="true">
+                    <path d={starPath} />
+                  </svg>
+                </button>
+              ))
+            }
+            <a
+              class={starClass}
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener"
+              data-value="5"
+              aria-label={t.starGoogle}
+            >
+              <svg class={starSvgClass} viewBox="0 0 24 24" stroke-width="1.25" stroke-linejoin="round" aria-hidden="true">
+                <path d={starPath} />
+              </svg>
+            </a>
+          </div>
+        </div>
 
-  </head>
-  <body>
-    <h1>Villa Tamaris</h1>
-    <div id="stars-container">
-      <span class="stars" data-value="1">&#9733;</span>
-      <span class="stars" data-value="2">&#9733;</span>
-      <span class="stars" data-value="3">&#9733;</span>
-      <span class="stars" data-value="4">&#9733;</span>
-      <a class="stars" href="https://g.page/r/CTOZ9gJDprgQEAE/review" target="_blank" data-value="5">&#9733;</a>
-    </div>
+        <form id="form" class="mt-6 hidden flex-col gap-5">
+          <div>
+            <label for="reviewText" class="mb-1 block text-sm font-medium text-text">{t.reviewLabel}</label>
+            <textarea
+              id="reviewText"
+              class={textareaClass}
+              placeholder={t.reviewPlaceholder}
+              maxlength="4000"
+              required></textarea>
+          </div>
+          <div>
+            <label for="month" class="mb-1 block text-sm font-medium text-text">{t.visitDate}</label>
+            <div class="flex flex-wrap gap-3">
+              <select id="month" class={selectClass}>
+                {monthValues.map((value, i) => (
+                  <option value={value} selected={i === 0}>{monthLabels[i]}</option>
+                ))}
+              </select>
+              <select id="year" class={selectClass} aria-label={t.year}>
+                {years.map((y, i) => <option value={y} selected={i === 0}>{y}</option>)}
+              </select>
+            </div>
+          </div>
+          <div>
+            <button id="submit" type="submit" class="btn btn-primary" disabled>{t.submit}</button>
+          </div>
+        </form>
 
-    <form id="form" style="display:none">
-      <textarea id="reviewText" placeholder="Partagez votre expérience concernant ce lieu" required></textarea>
-      <div>
-        <label for="month">Date de la visite</label><br />
-        <select id="month">
-          <option selected>Janvier</option><option>Février</option><option>Mars</option>
-          <option>Avril</option><option>Mai</option><option>Juin</option>
-          <option>Juillet</option><option>Août</option>
-          <option>Septembre</option><option>Octobre</option>
-          <option>Novembre</option><option>Décembre</option>
-        </select>
-        <select id="year">
-          <option selected>2026</option>
-          <option>2027</option>
-          <option>2028</option>
-        </select>
+        <p
+          id="message"
+          class="mt-6 hidden text-h5 font-secondary font-semibold text-dark"
+          role="status"
+          data-success={t.success}
+          data-error={t.error}
+        >
+        </p>
       </div>
-      <button id="submit" disabled>Publier</button>
-    </form>
+    </div>
+  </section>
+</Base>
 
-    <div id="message"></div>
+<script>
+  // Logique reprise de public/review.js (meme contrat avec /api/review :
+  // { rating, text, month, year }). Executee a chaque astro:page-load pour
+  // fonctionner aussi apres une navigation ClientRouter.
+  function initReview() {
+    const starsContainer = document.getElementById("stars-container");
+    const form = document.getElementById("form") as HTMLFormElement | null;
+    const submitBtn = document.getElementById("submit") as HTMLButtonElement | null;
+    const message = document.getElementById("message");
+    const textarea = document.getElementById("reviewText") as HTMLTextAreaElement | null;
+    if (!starsContainer || !form || !submitBtn || !message || !textarea) return;
 
-    <script src="/review.js" type="module"></script>
-  </body>
-</html>
+    const stars = Array.from(starsContainer.querySelectorAll<HTMLElement>(".stars"));
+    let selectedRating = 0;
+
+    const light = (count: number) => {
+      stars.forEach((s, i) => (s.dataset.lit = String(i < count)));
+    };
+
+    const syncSubmit = () => {
+      submitBtn.disabled = textarea.value.trim().length === 0;
+    };
+
+    // Etat initial : bouton desactive
+    submitBtn.disabled = true;
+    textarea.addEventListener("input", syncSubmit);
+
+    stars.forEach((star, index) => {
+      const preview = () => light(index + 1);
+      const reset = () => light(selectedRating);
+      star.addEventListener("mouseenter", preview);
+      star.addEventListener("mouseleave", reset);
+      star.addEventListener("focus", preview);
+      star.addEventListener("blur", reset);
+
+      // La 5e etoile est un lien direct vers l'avis Google.
+      if (index < 4) {
+        star.addEventListener("click", () => {
+          selectedRating = index + 1;
+          light(selectedRating);
+          stars.forEach((s, i) => {
+            if (i < 4) s.setAttribute("aria-pressed", String(i === index));
+          });
+          form.classList.remove("hidden");
+          form.classList.add("flex");
+          syncSubmit();
+        });
+      }
+    });
+
+    const showMessage = (text: string) => {
+      message.textContent = text;
+      message.classList.remove("hidden");
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const text = textarea.value;
+      const month = (document.getElementById("month") as HTMLSelectElement).value;
+      const year = (document.getElementById("year") as HTMLSelectElement).value;
+
+      try {
+        const res = await fetch("/api/review", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ rating: selectedRating, text, month, year }),
+        });
+
+        form.remove();
+        starsContainer.remove();
+        showMessage((res.ok ? message.dataset.success : message.dataset.error) ?? "");
+      } catch {
+        showMessage(message.dataset.error ?? "");
+      }
+    });
+  }
+
+  document.addEventListener("astro:page-load", initReview);
+</script>

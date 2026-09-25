@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import ReactDOM from "react-dom";
-import { Calendar as CalendarIcon } from "lucide-react";
+import { Calendar as CalendarIcon, X } from "lucide-react";
 import * as Popover from "@radix-ui/react-popover";
 import { DayPicker } from "react-day-picker";
 import type { DateRange } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import theme from "../config/theme.json";
 import { CLEANING_FEE, DOUBLE_BED_RATE, LEAD_DAYS, MAX_TRAVELERS, MIN_NIGHTS, SEASON_PRICING, SINGLE_BED_RATE, TOWEL_RATE } from "../config/bookingConstants";
 
 type Props = {
@@ -19,10 +20,13 @@ const copy = {
     dates: "Dates du séjour",
     datesPlaceholder: "(2 nuits minimum, arrivée à partir de J+2)",
     chooseDates: "Choisir vos dates",
-    clear: "Effacer",
+    clearDates: "Effacer les dates",
+    rangeLabel: (a: string, b: string, n: number) => `Du ${a} au ${b} (${n} ${n > 1 ? "nuits" : "nuit"})`,
+    confirm: "Confirmer",
+    close: "Fermer",
     travelers: "Voyageurs",
     travelersHint: "Adulte et Enfant occupant un lit.",
-    people: "personnes",
+    people: (n: number) => (n > 1 ? "personnes" : "personne"),
     bedding: "Configuration des lits",
     suite: "Suite",
     room2: "Chambre 2",
@@ -48,8 +52,11 @@ const copy = {
     cleaningLine: "Ménage",
     cleaningIncluded: "Inclus",
     towelsLine: "Serviettes",
+    bedsLine: "Lits",
+    bedsNote: "(tapis de sol Sdb et torchons inclus)",
     total: "Total",
     reserve: "Réserver",
+    submitting: "Envoi en cours…",
     reserveDisabled: "Sélectionnez une plage valide, remplissez vos informations et validez le captcha.",
     loading: "Chargement des disponibilités…",
     apiError: "Impossible de récupérer les disponibilités en temps réel.",
@@ -68,15 +75,18 @@ const copy = {
     dates: "Stay dates",
     datesPlaceholder: "(2-night minimum, arrival from D+2)",
     chooseDates: "Choose your dates",
-    clear: "Clear",
+    clearDates: "Clear dates",
+    rangeLabel: (a: string, b: string, n: number) => `From ${a} to ${b} (${n} ${n > 1 ? "nights" : "night"})`,
+    confirm: "Confirm",
+    close: "Close",
     travelers: "Travelers",
     travelersHint: "Adults and children occupying a bed.",
-    people: "guests",
+    people: (n: number) => (n > 1 ? "guests" : "guest"),
     bedding: "Bed configuration",
     suite: "Suite",
     room2: "Bedroom 2",
     room3: "Bedroom 3",
-    noBed: "none",
+    noBed: "None",
     oneDoubleBed: "1 double bed",
     oneSingleBed: "1 single bed",
     twoSingleBeds: "2 single beds",
@@ -97,8 +107,11 @@ const copy = {
     cleaningLine: "Cleaning",
     cleaningIncluded: "Included",
     towelsLine: "Towels",
+    bedsLine: "Beds",
+    bedsNote: "(bath mats and tea towels included)",
     total: "Total",
     reserve: "Book",
+    submitting: "Sending…",
     reserveDisabled: "Select a valid range, fill your details and complete the captcha.",
     loading: "Loading availability…",
     apiError: "Could not load real-time availability.",
@@ -107,7 +120,7 @@ const copy = {
     blockedBeforeHint: `Arrival not possible. ${MIN_NIGHTS} nights minimum`,
     weekDiscount: "stay of a week or more",
     disclaimer:
-      "The price includes all taxes, utilities for normal use, and use of equipment provided (Gas BBQ, Bikes...).High season runs from May to September. Low season from October to April.Preferential rate for 7 nights or more.",
+      "The price includes all taxes, utilities for normal use, and use of equipment provided (Gas BBQ, Bikes...). High season runs from May to September. Low season from October to April. Preferential rate for 7 nights or more.",
     successMessage:
       "Thank you for your booking. I am blocking the dates and you will receive payment instructions within 12 hours.",
     errorMessage:
@@ -162,17 +175,16 @@ function GlobalTooltip({ text, anchorEl }: { text: string; anchorEl: Element | n
       top: rect.top - 6,
       left: rect.left + rect.width / 2,
       transform: "translate(-50%, -100%)",
-      backgroundColor: "rgba(55, 55, 55, 0.93)",
+      backgroundColor: theme.colors.default.text_color.dark,
       color: "#fff",
-      border: "1px solid rgba(180,180,180,0.4)",
       borderRadius: "6px",
       padding: "4px 10px",
-      fontSize: "11px",
+      fontSize: "13px",
       lineHeight: "1.5",
       whiteSpace: "nowrap",
       pointerEvents: "none",
-      zIndex: 99999,
-      boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+      zIndex: 60,
+      boxShadow: "0 12px 40px rgba(4, 4, 4, 0.14)",
     });
   }, [anchorEl, text]);
 
@@ -433,8 +445,18 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     setTooltipAnchor(null);
   };
 
-  const controlStyles = "h-10 w-full max-w-xs sm:w-48 inline-flex items-center justify-between gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors";
-  const inputStyles = "h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors placeholder:text-gray-400";
+  // Charte : champs h-11 (44px), rayon 6px, bordure token, focus primary.
+  const focusStyles = "focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+  const controlStyles = `h-11 w-full inline-flex items-center justify-between gap-2 rounded border border-border bg-body px-3 text-base text-dark shadow-sm transition-colors ${focusStyles}`;
+  // pr-10 : laisse la place a la fleche du select (@tailwindcss/forms)
+  const selectStyles = `${controlStyles} pr-10`;
+  const inputStyles = `h-11 w-full rounded border border-border bg-body px-3 text-base text-dark shadow-sm transition-colors placeholder:text-light ${focusStyles}`;
+  const textareaStyles = `min-h-[100px] w-full rounded border border-border bg-body px-3 py-2 text-base text-dark shadow-sm transition-colors placeholder:text-light ${focusStyles}`;
+  const checkboxStyles = "h-5 w-5 shrink-0 rounded-sm border-border text-primary focus:ring-primary";
+  const labelStyles = "mb-1 block text-sm font-medium text-text";
+  // Ligne libelle / controle : colonne controle de largeur fixe pour aligner tous les champs
+  const rowStyles = "grid grid-cols-[minmax(0,1fr)_minmax(0,11rem)] items-center gap-4 sm:grid-cols-[minmax(0,1fr)_12rem]";
+  const panelStyles = "mb-4 rounded-lg bg-surface p-5";
 
   // DayPicker props partagés desktop et mobile
   const dayPickerProps = {
@@ -446,10 +468,10 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
     disabled: disabledDates,
     min: MIN_NIGHTS,
     modifiersClassNames: {
-      booked: "line-through text-gray-400",
-      departureOnly: "text-gray-400",
-      ruleBlocked: "text-gray-400",
-      preview: "bg-blue-100 text-blue-900",
+      booked: "line-through text-light",
+      departureOnly: "text-light",
+      ruleBlocked: "text-light",
+      preview: "bg-accent/30 text-dark",
     },
     modifiers: {
       booked: bookedDateObjects.filter((d) => !reservationStartDays.some((s) => toDayKey(s) === toDayKey(d))),
@@ -463,46 +485,51 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
 
   const clearBtn = (
     <button
-      className="text-xs text-gray-500 underline transition-colors hover:text-black"
+      className="text-sm text-light underline transition-colors hover:text-primary"
       type="button"
       onClick={() => setDate(undefined)}
     >
-      {t.clear} les dates
+      {t.clearDates}
     </button>
   );
 
+  const dateTriggerContent = (
+    <span className="flex min-w-0 items-center gap-2 text-text">
+      <CalendarIcon className="h-4 w-4 shrink-0 text-light" aria-hidden="true" />
+      <span className="truncate">{t.chooseDates}</span>
+    </span>
+  );
+
+  const bedOptions = (
+    <>
+      <option value="none">{t.noBed}</option>
+      <option value="double">{t.oneDoubleBed}</option>
+      <option value="single">{t.oneSingleBed}</option>
+      <option value="single2">{t.twoSingleBeds}</option>
+    </>
+  );
+
   return (
-    <section className="mt-10 mx-auto max-w-3xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+    <section className="max-w-3xl rounded-lg border border-border bg-body p-4 sm:p-6">
       <GlobalTooltip text={tooltipText} anchorEl={tooltipAnchor} />
 
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
+      <div className={panelStyles}>
         {/* BLOC DATES */}
         <div className="mb-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-            <div className="space-y-1">
-              <h3 className="m-0 text-lg font-semibold text-gray-900">{t.dates}</h3>
-              <p className="m-0 text-sm text-gray-500">
-                {fromDate && toDate
-                  ? `Du ${formatDate(fromDate, lang)} au ${formatDate(toDate, lang)} (${nights} nuits)`
-                  : t.datesPlaceholder}
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-2 sm:items-end">
-
+          <div className={rowStyles}>
+            <h3 className="h5 m-0">{t.dates}</h3>
+            <div>
               {/* DESKTOP : Radix Popover — rendu dans document.body, aucune contrainte de largeur parente */}
               {!isMobile && (
                 <Popover.Root>
                   <Popover.Trigger asChild>
                     <button type="button" className={controlStyles}>
-                      <span className="flex items-center gap-2 text-gray-700">
-                        <CalendarIcon className="h-4 w-4 text-gray-400" />
-                        {t.chooseDates}
-                      </span>
+                      {dateTriggerContent}
                     </button>
                   </Popover.Trigger>
                   <Popover.Portal>
                     <Popover.Content
-                      className="z-50 w-auto rounded-lg border bg-white p-2 shadow-xl"
+                      className="z-50 w-auto rounded-lg border border-border bg-body p-2 shadow-lg"
                       align="end"
                       sideOffset={8}
                     >
@@ -517,36 +544,40 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
               {isMobile && (
                 <>
                   <button type="button" className={controlStyles} onClick={() => setCalendarOpen(true)}>
-                    <span className="flex items-center gap-2 text-gray-700">
-                      <CalendarIcon className="h-4 w-4 text-gray-400" />
-                      {t.chooseDates}
-                    </span>
+                    {dateTriggerContent}
                   </button>
                   {calendarOpen && ReactDOM.createPortal(
                     <>
-                      <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setCalendarOpen(false)} />
+                      <div className="fixed inset-0 z-40 bg-dark/40" onClick={() => setCalendarOpen(false)} />
                       <div
-                        className="fixed bottom-0 left-0 right-0 z-50 rounded-t-2xl bg-white shadow-2xl"
+                        className="fixed bottom-0 left-0 right-0 z-50 rounded-t-lg bg-body shadow-lg"
                         style={{ maxHeight: "62dvh", overflowY: "auto" }}
                       >
-                        <div className="flex justify-center pt-3 pb-1">
-                          <div className="h-1 w-10 rounded-full bg-gray-300" />
+                        <div className="flex justify-center pb-1 pt-3">
+                          <div className="h-1 w-10 rounded-full bg-border" />
                         </div>
-                        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-100">
-                          <span className="text-sm font-semibold text-gray-900">{t.dates}</span>
-                          <button type="button" className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-xl font-bold text-gray-600 hover:bg-gray-200" onClick={() => setCalendarOpen(false)}>✕</button>
+                        <div className="flex items-center justify-between border-b border-border px-4 py-2">
+                          <span className="h5 m-0">{t.dates}</span>
+                          <button
+                            type="button"
+                            aria-label={t.close}
+                            className="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-dark transition-colors hover:bg-border"
+                            onClick={() => setCalendarOpen(false)}
+                          >
+                            <X className="h-5 w-5" aria-hidden="true" />
+                          </button>
                         </div>
                         <div className="px-2 py-3" style={{ overflowX: "hidden" }} data-calendar="mobile">
                           <DayPicker {...dayPickerProps} />
                         </div>
-                        <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100">
+                        <div className="flex items-center justify-between border-t border-border px-4 py-3">
                           {clearBtn}
                           <button
-                            className="rounded-md bg-black px-5 py-2 text-sm font-medium text-white"
+                            className="btn btn-primary"
                             type="button"
                             onClick={() => setCalendarOpen(false)}
                           >
-                            Confirmer
+                            {t.confirm}
                           </button>
                         </div>
                       </div>
@@ -555,62 +586,88 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                   )}
                 </>
               )}
-
             </div>
           </div>
-          {loading && <p className="mt-2 text-sm text-gray-500">{t.loading}</p>}
-          {calendarError && <p className="mt-2 text-sm text-red-600">{t.apiError}</p>}
-          {exceedsNextBlockedDate && <p className="mt-2 text-sm text-red-600">{t.blockedRangeError}</p>}
+          <p className="mb-0 mt-2 text-sm text-light">
+            {fromDate && toDate
+              ? t.rangeLabel(formatDate(fromDate, lang), formatDate(toDate, lang), nights)
+              : t.datesPlaceholder}
+          </p>
+          {loading && <p className="mb-0 mt-2 text-sm text-light">{t.loading}</p>}
+          {calendarError && <p className="mb-0 mt-2 text-sm text-error">{t.apiError}</p>}
+          {exceedsNextBlockedDate && <p className="mb-0 mt-2 text-sm text-error">{t.blockedRangeError}</p>}
         </div>
 
         {/* BLOC VOYAGEURS */}
         <div className="mb-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="space-y-1">
-              <h3 className="m-0 text-lg font-semibold text-gray-900">{t.travelers}</h3>
-              <span className="block text-sm text-gray-500">{t.travelersHint}</span>
-            </div>
-            <select className={controlStyles} value={guests} onChange={(e) => setGuests(Number(e.target.value))}>
+          <div className={rowStyles}>
+            <h3 className="h5 m-0">
+              <label htmlFor="booking-guests">{t.travelers}</label>
+            </h3>
+            <select
+              id="booking-guests"
+              className={selectStyles}
+              value={guests}
+              onChange={(e) => setGuests(Number(e.target.value))}
+              aria-describedby="booking-guests-hint"
+            >
               {Array.from({ length: MAX_TRAVELERS }, (_, i) => i + 1).map((n) => (
-                <option key={n} value={n}>{n} {t.people}</option>
+                <option key={n} value={n}>{n} {t.people(n)}</option>
               ))}
             </select>
           </div>
+          <p id="booking-guests-hint" className="mb-0 mt-2 text-sm text-light">{t.travelersHint}</p>
         </div>
 
         {/* CONFIGURATION LITS */}
         <div className="mb-6">
-          <h3 className="mb-4 text-lg font-semibold text-gray-900">{t.bedding}</h3>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.suite}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={suiteBed} onChange={(e) => setSuiteBed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option></select></div>
-            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room2}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room2Bed} onChange={(e) => setRoom2Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option></select></div>
-            <div className="flex items-center justify-between gap-4"><span className="text-sm text-gray-700">{t.room3}</span><select className={`${controlStyles} max-w-[180px] sm:w-48`} value={room3Bed} onChange={(e) => setRoom3Bed(e.target.value)}><option value="none">{t.noBed}</option><option value="double">{t.oneDoubleBed}</option><option value="single">{t.oneSingleBed}</option><option value="single2">{t.twoSingleBeds}</option></select></div>
+          <h3 className="h5 mb-4 mt-0">{t.bedding}</h3>
+          <div className="space-y-3">
+            <div className={rowStyles}>
+              <label htmlFor="booking-suite-bed" className="text-base text-text">{t.suite}</label>
+              <select id="booking-suite-bed" className={selectStyles} value={suiteBed} onChange={(e) => setSuiteBed(e.target.value)}>
+                <option value="none">{t.noBed}</option>
+                <option value="double">{t.oneDoubleBed}</option>
+              </select>
+            </div>
+            <div className={rowStyles}>
+              <label htmlFor="booking-room2-bed" className="text-base text-text">{t.room2}</label>
+              <select id="booking-room2-bed" className={selectStyles} value={room2Bed} onChange={(e) => setRoom2Bed(e.target.value)}>
+                {bedOptions}
+              </select>
+            </div>
+            <div className={rowStyles}>
+              <label htmlFor="booking-room3-bed" className="text-base text-text">{t.room3}</label>
+              <select id="booking-room3-bed" className={selectStyles} value={room3Bed} onChange={(e) => setRoom3Bed(e.target.value)}>
+                {bedOptions}
+              </select>
+            </div>
           </div>
         </div>
 
         {/* OPTIONS */}
-        <h3 className="mb-3 text-lg font-semibold text-gray-900">{t.options}</h3>
+        <h3 className="h5 mb-3 mt-0">{t.options}</h3>
         <div className="space-y-3">
-          <label className="flex cursor-pointer items-center gap-3 text-sm text-gray-700">
-            <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black" checked={linens} onChange={(e) => setLinens(e.target.checked)} />
+          <label className="flex cursor-pointer items-center gap-3 text-base text-text">
+            <input type="checkbox" className={checkboxStyles} checked={linens} onChange={(e) => setLinens(e.target.checked)} />
             <span>{t.linens}</span>
           </label>
-          <label className="flex cursor-pointer items-center gap-3 text-sm text-gray-700">
-            <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black" checked={towels} onChange={(e) => setTowels(e.target.checked)} />
+          <label className="flex cursor-pointer items-center gap-3 text-base text-text">
+            <input type="checkbox" className={checkboxStyles} checked={towels} onChange={(e) => setTowels(e.target.checked)} />
             <span>{t.towels}</span>
           </label>
         </div>
       </div>
 
       {/* RÉSUMÉ DU PRIX */}
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
-        <h3 className="mb-4 text-lg font-semibold text-gray-900">{t.price}</h3>
+      <div className={panelStyles}>
+        <h3 className="h5 mb-4 mt-0">{t.price}</h3>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm text-gray-600">
+          <table className="w-full text-left text-base text-text">
             <tbody>
-              <tr className="border-b border-gray-100">
-                <td className="py-2.5">{t.nightsLine}</td>
-                <td className="py-2.5 text-gray-400">
+              <tr className="border-b border-border">
+                <td className="py-2.5 pr-3">{t.nightsLine}</td>
+                <td className="py-2.5 pr-3 text-sm text-light">
                   {nights > 0 ? (
                     <div className="flex flex-col gap-0.5">
                       {pricingDetail.highNights > 0 && pricingDetail.lowNights > 0 ? (
@@ -621,7 +678,7 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                         <span>{nights} x {pricingDetail.lRate}€</span>
                       )}
                       {nights >= 7 && (
-                        <span className="text-xs font-normal text-gray-400">
+                        <span className="text-[13px] font-normal text-light">
                           [<span className="line-through">
                             {pricingDetail.highNights > 0 && pricingDetail.lowNights > 0
                               ? `${pricingDetail.highNights}x${pricingDetail.hBase}€ + ${pricingDetail.lowNights}x${pricingDetail.lBase}€`
@@ -632,66 +689,68 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
                     </div>
                   ) : "-"}
                 </td>
-                <td className="py-2.5 text-right font-medium text-gray-900">{pricingDetail.totalNightsPrice}€</td>
+                <td className="py-2.5 text-right font-semibold text-dark">{pricingDetail.totalNightsPrice}€</td>
               </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-2.5">{t.cleaningLine}</td>
-                <td className="py-2.5 text-gray-400">{t.cleaningIncluded}</td>
-                <td className="py-2.5 text-right font-medium text-gray-900">{CLEANING_FEE}€</td>
+              <tr className="border-b border-border">
+                <td className="py-2.5 pr-3">{t.cleaningLine}</td>
+                <td className="py-2.5 pr-3 text-sm text-light">{t.cleaningIncluded}</td>
+                <td className="py-2.5 text-right font-semibold text-dark">{CLEANING_FEE}€</td>
               </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-2.5">Lits</td>
-                <td className="py-2.5 text-gray-400">
+              <tr className="border-b border-border">
+                <td className="py-2.5 pr-3">{t.bedsLine}</td>
+                <td className="py-2.5 pr-3 text-sm text-light">
                   {linens ? (
                     <div className="flex flex-col">
                       <span>{doubleBeds} x {DOUBLE_BED_RATE}€ + {singleBeds} x {SINGLE_BED_RATE}€</span>
-                      <span className="mt-0.5 text-xs text-gray-400">(tapis de sol Sdb et torchons inclus)</span>
+                      <span className="mt-0.5 text-[13px] text-light">{t.bedsNote}</span>
                     </div>
                   ) : "-"}
                 </td>
-                <td className="py-2.5 text-right font-medium text-gray-900">{beddingPrice}€</td>
+                <td className="py-2.5 text-right font-semibold text-dark">{beddingPrice}€</td>
               </tr>
-              <tr className="border-b border-gray-200">
-                <td className="py-2.5">{t.towelsLine}</td>
-                <td className="py-2.5 text-gray-400">{towels ? `${guests} x ${TOWEL_RATE}€` : "-"}</td>
-                <td className="py-2.5 text-right font-medium text-gray-900">{towelsPrice}€</td>
+              <tr className="border-b border-border">
+                <td className="py-2.5 pr-3">{t.towelsLine}</td>
+                <td className="py-2.5 pr-3 text-sm text-light">{towels ? `${guests} x ${TOWEL_RATE}€` : "-"}</td>
+                <td className="py-2.5 text-right font-semibold text-dark">{towelsPrice}€</td>
               </tr>
-              <tr className="text-base font-semibold text-gray-900">
+              <tr className="font-secondary text-h5 font-bold text-dark">
                 <td className="pt-4">{t.total}</td>
                 <td className="pt-4"></td>
-                <td className="pt-4 text-right text-lg font-bold">{total}€</td>
+                <td className="pt-4 text-right">{total}€</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="mt-5 whitespace-pre-line border-t border-gray-100 pt-3 text-xs leading-relaxed text-gray-400">{t.disclaimer}</p>
+        <p className="mb-0 mt-5 whitespace-pre-line border-t border-border pt-3 text-[13px] leading-relaxed text-light">{t.disclaimer}</p>
       </div>
 
       {/* INFORMATIONS PERSONNELLES */}
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
-        <h3 className="mb-4 text-lg font-semibold text-gray-900">{t.personalInfo}</h3>
+      <div className={panelStyles}>
+        <h3 className="h5 mb-4 mt-0">{t.personalInfo}</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <label className="mb-1 block text-xs font-medium text-gray-700">{t.firstName} *</label>
-            <input type="text" className={inputStyles} value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+            <label htmlFor="booking-first-name" className={labelStyles}>{t.firstName} *</label>
+            <input id="booking-first-name" type="text" autoComplete="given-name" className={inputStyles} value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium text-gray-700">{t.lastName} *</label>
-            <input type="text" className={inputStyles} value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+            <label htmlFor="booking-last-name" className={labelStyles}>{t.lastName} *</label>
+            <input id="booking-last-name" type="text" autoComplete="family-name" className={inputStyles} value={lastName} onChange={(e) => setLastName(e.target.value)} required />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium text-gray-700">{t.email} *</label>
-            <input type="email" className={inputStyles} value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <label htmlFor="booking-email" className={labelStyles}>{t.email} *</label>
+            <input id="booking-email" type="email" autoComplete="email" className={inputStyles} value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium text-gray-700">{t.phone} *</label>
-            <input type="text" inputMode="tel" className={inputStyles} value={phone} onChange={(e) => setPhone(e.target.value)} required />
+            <label htmlFor="booking-phone" className={labelStyles}>{t.phone} *</label>
+            <input id="booking-phone" type="tel" inputMode="tel" autoComplete="tel" className={inputStyles} value={phone} onChange={(e) => setPhone(e.target.value)} required />
           </div>
         </div>
         <div className="mt-4">
-          <label className="mb-1 block text-xs font-medium text-gray-700">{t.postalAddress}</label>
+          <label htmlFor="booking-postal-address" className={labelStyles}>{t.postalAddress}</label>
           <textarea
-            className="min-h-[100px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+            id="booking-postal-address"
+            autoComplete="street-address"
+            className={textareaStyles}
             placeholder={t.postalAddressPlaceholder}
             value={postalAddress}
             onChange={(e) => setPostalAddress(e.target.value)}
@@ -700,10 +759,13 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
       </div>
 
       {/* MESSAGE */}
-      <div className="mb-5 rounded-lg border border-gray-100 bg-gray-50/50 p-5">
-        <h3 className="mb-3 text-lg font-semibold text-gray-900">{t.messageTitle}</h3>
+      <div className={panelStyles}>
+        <h3 className="h5 mb-3 mt-0">
+          <label htmlFor="booking-message">{t.messageTitle}</label>
+        </h3>
         <textarea
-          className="min-h-[100px] w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+          id="booking-message"
+          className={textareaStyles}
           placeholder={t.messagePlaceholder}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -711,26 +773,29 @@ export default function BookingConfigurator({ lang, apiKey, calendarId, turnstil
       </div>
 
       {/* CLOUDFLARE TURNSTILE CAPTCHA */}
-      <div className="mb-5 flex justify-center sm:justify-start">
+      <div className="mb-4 flex justify-center sm:justify-start">
         <div id="turnstile-container"></div>
       </div>
 
       {/* BOUTON DE RÉSERVATION */}
       <button
-        className="inline-flex h-11 w-full items-center justify-center rounded-md bg-black px-8 text-sm font-medium text-white shadow transition-colors hover:bg-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-40 sm:w-auto"
+        className="btn btn-primary w-full sm:w-auto"
         type="button"
         disabled={!canReserve}
         onClick={handleBookingSubmit}
-        title={!canReserve ? t.reserveDisabled : ""}
+        aria-describedby={!canReserve && submitStatus !== "submitting" ? "booking-submit-hint" : undefined}
       >
-        {submitStatus === "submitting" ? "Envoi en cours..." : t.reserve}
+        {submitStatus === "submitting" ? t.submitting : t.reserve}
       </button>
+      {!canReserve && submitStatus !== "submitting" && (
+        <p id="booking-submit-hint" className="mb-0 mt-2 text-sm text-light">{t.reserveDisabled}</p>
+      )}
 
       {submitStatus === "success" && (
-        <div className="mt-4 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800">{t.successMessage}</div>
+        <div role="status" className="mt-4 rounded-lg bg-success-light p-4 text-base text-success">{t.successMessage}</div>
       )}
       {submitStatus === "error" && (
-        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">{t.errorMessage}</div>
+        <div role="alert" className="mt-4 rounded-lg bg-error-light p-4 text-base text-error">{t.errorMessage}</div>
       )}
     </section>
   );

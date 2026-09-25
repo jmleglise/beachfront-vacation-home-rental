@@ -1,8 +1,8 @@
 {
-  "name": "astroplate",
+  "name": "villa-tamaris",
   "version": "4.0.1",
-  "description": "Astro and Tailwindcss boilerplate",
-  "author": "zeon.studio",
+  "description": "Site de location de la Villa Tamaris à Ouistreham",
+  "author": "Jean-Marc LEGLISE",
   "license": "MIT",
   "packageManager": "yarn@1.22.19",
   "engines": {
