@@ -11,7 +11,7 @@ schemaVacationRental: |
   "url": "https://www.location-maison-mer.fr/en/",
   "identifier": "villa-tamaris-ouistreham",
   "availableLanguage": ["en-US", "fr-FR"],
-  "priceRange": "€142 - €260",
+  "priceRange": "€142 - €250",
 
   "image": [
     "https://www.location-maison-mer.fr/images/villa_front.jpg",
@@ -155,7 +155,7 @@ schemaVacationRental: |
     "priceSpecification": {
       "@type": "PriceSpecification",
       "minPrice": 142,
-      "maxPrice": 260,
+      "maxPrice": 250,
       "priceCurrency": "EUR"
     },
 

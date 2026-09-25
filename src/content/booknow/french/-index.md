@@ -14,7 +14,7 @@ Le prix inclut toutes les taxes, les charges courantes et l'usage du matériel m
 
 - Haute Saison  Mai, Juin, Juillet, Août, Septembre :
     - 1700€ la semaine incluant le ménage de fin de séjour.
-    - 260€ la nuité + 120€ le ménage.
+    - 250€ la nuité + 120€ le ménage.
 - Basse Saison de Octobre à Avril  :
     - 1120€ la semaine incluant le ménage de fin de séjour.
     - 160€ la nuité + 120€ le ménage.

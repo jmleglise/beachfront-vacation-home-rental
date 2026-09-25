@@ -13,7 +13,7 @@ draft: false
 
 - High Season - May, June, July, August, September:
     - €1700 per week including cleaning fee
-    - €260 per night plus 120€ for Cleaning fee
+    - €250 per night plus 120€ for Cleaning fee
 - Low Season - October to April :
     - €1120 per week including cleaning fee
     - €160 per night plus 120€ for Cleaning fee
