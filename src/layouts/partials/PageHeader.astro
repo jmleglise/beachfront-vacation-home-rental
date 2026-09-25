@@ -35,7 +35,7 @@ const {
         <h1 set:html={markdownify(title)} class="max-w-4xl pt-6 md:pt-10" />
       )
     }
-    {lead && <p class="mt-6 text-lg" set:html={markdownify(lead)} />}
+    {lead && <p class="lead mt-8" set:html={markdownify(lead)} />}
     <slot />
   </div>
 </section>

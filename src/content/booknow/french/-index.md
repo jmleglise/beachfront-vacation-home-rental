@@ -40,4 +40,4 @@ Le linge de maison est en option supplémentaire. Tarif au plus juste selon votr
 
 Une question ou une demande particulière ? Nous serons ravis d'en discuter avec vous.
 
-Par e-mail : <span class="whitespace-nowrap text-dark">villatamaris<img src="/images/contact.png" alt="@ location-maison-mer point fr" width="528" height="72" class="not-prose m-0 inline h-[1.5em] w-auto align-[-0.4375em]"></span>
+Par e-mail : <span class="whitespace-nowrap text-dark">villatamaris<img src="/images/contact.png" alt="@ location-maison-mer point fr" width="482" height="70" class="not-prose m-0 inline h-[1.458em] w-auto align-[-0.375em]"></span>

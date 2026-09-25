@@ -26,7 +26,7 @@
   "share": "Share",
   "related_posts": "Related articles",
   "latest_posts": "From the blog",
-  "see_all_posts": "See all articles",
+  "see_all_posts": "All articles",
   "faq_title": "Frequently asked questions",
   "previous": "Previous page",
   "next": "Next page",
@@ -37,7 +37,7 @@
   "key_guests": "guests",
   "key_bedrooms": "bedrooms",
   "key_bathrooms": "bathrooms",
-  "key_beach": "Direct beach access",
+  "key_beach": "the beach",
   "key_figures": "The villa at a glance",
   "footer_nav": "Navigation",
   "footer_contact": "Contact",
@@ -49,5 +49,14 @@
   "date_locale": "en-GB",
   "author_label": "Author",
   "category_label": "Category",
-  "date_label": "Published on"
+  "date_label": "Published on",
+  "key_beach_value": "Right on",
+  "eyebrow_hosts": "Your hosts",
+  "eyebrow_faq": "Frequently asked questions",
+  "eyebrow_blog": "Journal",
+  "eyebrow_booking": "Booking",
+  "eyebrow_place": "Ouistreham · Calvados · Normandy",
+  "cta_title": "The sea from your bed",
+  "cta_text": "From €{price} per night in low season, for stays of 7 nights or more.",
+  "cta_button": "Choose my dates"
 }

@@ -38,7 +38,7 @@ const allCategories = await getAllTaxonomy(langCollection, "categories");
               <li>
                 <a
                   href={slugSelector(`/categories/${category}`, lang)}
-                  class="tag inline-flex min-h-[44px] items-center gap-2 px-4 text-base"
+                  class="tag gap-3 px-4"
                 >
                   {humanize(category)}{" "}
                   <span class="rounded bg-body px-2 text-sm text-light">

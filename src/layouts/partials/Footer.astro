@@ -10,30 +10,31 @@ import {
 const lang = getLangFromUrl(Astro.url);
 const t = await getTranslations(lang as string);
 const year = new Date().getFullYear();
+const linkClass = "inline-block py-1 text-white transition-colors hover:text-accent";
 ---
 
-<footer class="bg-primary text-white/85">
+<footer class="bg-primary-dark text-white/70">
   <div class="container">
-    <div class="row py-12 md:py-16">
-      <div class="mb-10 lg:col-5 lg:mb-0">
+    <div class="row py-16 md:py-24">
+      <div class="mb-12 lg:col-5 lg:mb-0">
         <Logo class="text-white" />
-        <p class="mt-4 max-w-measure text-sm leading-relaxed text-white/85">{t.seo_footer}</p>
+        <p class="mt-6 max-w-md text-[15px] font-light leading-[1.8]">{t.seo_footer}</p>
       </div>
 
-      <div class="mb-10 sm:col-6 lg:col-3 lg:mb-0">
-        <h2 class="h6 mb-4 uppercase tracking-wide text-accent">{t.footer_nav}</h2>
-        <ul class="space-y-1">
+      <div class="mb-12 sm:col-6 lg:col-3 lg:mb-0">
+        <h2 class="eyebrow text-accent">{t.footer_nav}</h2>
+        <ul class="space-y-2 text-[15px]">
           {
             t.main.map((item: any) => (
               <li>
-                <a class="inline-block py-1 text-white/85 hover:text-white hover:underline underline-offset-4" href={slugSelector(item.url, lang)}>
+                <a class={linkClass} href={slugSelector(item.url, lang)}>
                   {item.name}
                 </a>
               </li>
             ))
           }
           <li>
-            <a class="inline-block py-1 text-white/85 hover:text-white hover:underline underline-offset-4" href={t.alternativeLang[0].url} hreflang={t.alternativeLang[0].url.replace(/\//g, "")}>
+            <a class={linkClass} href={t.alternativeLang[0].url} hreflang={t.alternativeLang[0].url.replace(/\//g, "")}>
               {t.lang_switch_label}
             </a>
           </li>
@@ -41,28 +42,28 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="sm:col-6 lg:col-4">
-        <h2 class="h6 mb-4 uppercase tracking-wide text-accent">{t.footer_contact}</h2>
-        <address class="not-italic">
-          <p class="mb-2">{t.address}</p>
-          <p class="mb-5">
+        <h2 class="eyebrow text-accent">{t.footer_contact}</h2>
+        <address class="space-y-2 text-[15px] not-italic text-white">
+          <p>{t.address}</p>
+          <p>
             <!-- Adresse volontairement scindee (texte + image) contre la collecte automatique. -->
-            <span class="whitespace-nowrap text-white">villatamaris<img
+            <span class="whitespace-nowrap">villatamaris<img
                 src="/images/contact.png"
                 alt={lang === "fr" ? "@ location-maison-mer point fr" : "@ location-maison-mer dot fr"}
-                width="528"
-                height="72"
-                class="inline h-[1.5em] w-auto align-[-0.4375em] invert"
+                width="482"
+                height="70"
+                class="inline h-[1.458em] w-auto align-[-0.375em] invert"
               /></span>
           </p>
         </address>
-        <a class="btn border-white bg-white text-primary hover:border-accent hover:bg-accent hover:text-dark" href={slugSelector(config.book_now_button.link, lang)}>
+        <a class="btn btn-outline-light mt-8" href={slugSelector(config.book_now_button.link, lang)}>
           {t.book_now}
         </a>
       </div>
     </div>
   </div>
-  <div class="border-t border-white/15 py-6">
-    <div class="container text-sm text-white/70">
+  <div class="border-t border-white/15 py-7">
+    <div class="container text-[13px]">
       <p>© {year} {config.params.copyright}. {t.footer_rights}</p>
     </div>
   </div>

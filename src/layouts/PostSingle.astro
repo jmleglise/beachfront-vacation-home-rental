@@ -10,7 +10,6 @@ import { humanize, slugify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { render, type DataEntryMap } from "astro:content";
-import { CalendarDays, Folder, UserRound } from "lucide-react";
 
 const { default_language } = config.settings;
 
@@ -48,14 +47,12 @@ const call_to_action = await getSinglePage(
         {
           author && (
             <li>
-              <UserRound aria-hidden="true" />
               <span class="sr-only">{t.author_label} :</span>
               {author}
             </li>
           )
         }
         <li>
-          <Folder aria-hidden="true" />
           <span class="sr-only">{t.category_label} :</span>
           {
             categories.map((category: string, index: number) => (
@@ -67,7 +64,6 @@ const call_to_action = await getSinglePage(
           }
         </li>
         <li>
-          <CalendarDays aria-hidden="true" />
           <span class="sr-only">{t.date_label} :</span>
           <time datetime={new Date(date).toISOString()}>{dateFormat(date, lang)}</time>
         </li>

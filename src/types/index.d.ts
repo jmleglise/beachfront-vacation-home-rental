@@ -6,6 +6,7 @@ export type Feature = {
   bulletpoints: string[];
   content: string;
   title: string;
+  eyebrow?: string;
 };
 
 export type Button = {

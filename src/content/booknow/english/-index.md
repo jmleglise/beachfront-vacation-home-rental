@@ -40,4 +40,4 @@ The rate includes charges for normal usage, and all equipment ( barbecue gaz, by
 
 Any question or special request? We will be happy to discuss it with you.
 
-By e-mail: <span class="whitespace-nowrap text-dark">villatamaris<img src="/images/contact.png" alt="@ location-maison-mer dot fr" width="528" height="72" class="not-prose m-0 inline h-[1.5em] w-auto align-[-0.4375em]"></span>
+By e-mail: <span class="whitespace-nowrap text-dark">villatamaris<img src="/images/contact.png" alt="@ location-maison-mer dot fr" width="482" height="70" class="not-prose m-0 inline h-[1.458em] w-auto align-[-0.375em]"></span>

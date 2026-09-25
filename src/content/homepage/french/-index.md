@@ -205,6 +205,7 @@ banner:
 # Features
 features:
   - title: "Maison de vacances d'exception"
+    eyebrow: "La maison"
     image: "/images/villa_front.jpg"
     content: "Face à la mer, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
@@ -222,6 +223,7 @@ features:
 
 # Location
   - title: "Localisation de la maison de vacances à Ouistreham, Calvados"
+    eyebrow: "Localisation"
     image: "/images/view_scene.jpg"
     content: "Situation idéale, pour cette maison de vacances au calme et en retrait de seulement 10 minutes à pied du coeur animé de Ouistreham. Vous n'avez qu'à traverser la rue pour être sur Riva Bella, la plus belle plage de la côte de Nacre avec ses 3km de sable fin où vous aimerez flâner au coucher du soleil et siroter un cocktail au bar de plage 'la paillotte' à 50m."
     bulletpoints:
@@ -235,6 +237,7 @@ features:
 
 # Explore
   - title: "De nombreuses activités à Ouistreham"
+    eyebrow: "La région"
     image: "/images/post_card.jpg"
     content: "Repos contemplatif d'horizon lointain, activités nautiques & sportives, explorer le passé chargé. Tout le monde trouvera son compte lors de votre séjour :"
     bulletpoints:

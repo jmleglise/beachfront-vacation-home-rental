@@ -450,3 +450,19 @@ Vérifications :
 - Menu mobile, étoiles de `/review/` et e-mail testés dans Chromium.
 
 Point restant, hors code : la vignette « Salle de douche indépendante » (`d_sde1.jpg`) contient des bandes blanches dans le fichier source.
+
+---
+
+## 7. Charte « luxe » (validée, appliquée)
+
+Remplace les valeurs du §2 et du §6.
+
+| Élément | Valeur |
+|---|---|
+| Titres | Cormorant Garamond 500 (+ italique), chiffres alignés. H1 72/40 px, H2 52/36 px, H3 32/28 px |
+| Texte et interface | Jost 300 (chapô), 400 (corps 17 px, interlignage 1,8), 500 (intitulés, boutons) |
+| Intitulés | Jost 500, 11-12 px, capitales, interlettrage 0,2-0,24 em |
+| Couleurs | ivoire `#FAF7F2` (fond), sable clair `#F1EBE1` (sections), sable `#E5BF7C` (accent), bronze `#8A6220` (intitulés), encre `#1C1C1C` (titres), texte `#4A4540`, bleu nuit `#1E2A38` (boutons), `#162029` (pied de page) |
+| Formes | rayon 0 partout, aucune ombre (sauf calendrier et menus flottants), filets de 1 px |
+| Boutons | bleu nuit plein (principal), sable plein sur fond sombre, contour (secondaire), lien souligné avec flèche |
+| Grande image | carrousel et images d'en-tête dans la largeur du site, titre intégré sur dégradé ; menu toujours sur fond clair |

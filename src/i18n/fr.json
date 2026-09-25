@@ -26,7 +26,7 @@
   "share": "Partager",
   "related_posts": "À lire aussi",
   "latest_posts": "Nos découvertes",
-  "see_all_posts": "Voir tous les articles",
+  "see_all_posts": "Tous les articles",
   "faq_title": "Questions fréquentes",
   "previous": "Page précédente",
   "next": "Page suivante",
@@ -37,7 +37,7 @@
   "key_guests": "voyageurs",
   "key_bedrooms": "chambres",
   "key_bathrooms": "salles d'eau",
-  "key_beach": "Accès direct à la plage",
+  "key_beach": "de plage",
   "key_figures": "La villa en bref",
   "footer_nav": "Navigation",
   "footer_contact": "Contact",
@@ -49,5 +49,14 @@
   "date_locale": "fr-FR",
   "author_label": "Auteur",
   "category_label": "Catégorie",
-  "date_label": "Date de publication"
+  "date_label": "Date de publication",
+  "key_beach_value": "En front",
+  "eyebrow_hosts": "Vos hôtes",
+  "eyebrow_faq": "Questions fréquentes",
+  "eyebrow_blog": "Carnet",
+  "eyebrow_booking": "Réservation",
+  "eyebrow_place": "Ouistreham · Calvados · Normandie",
+  "cta_title": "La mer depuis votre lit",
+  "cta_text": "À partir de {price} € la nuit en basse saison, pour 7 nuits et plus.",
+  "cta_button": "Choisir mes dates"
 }

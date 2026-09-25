@@ -23,9 +23,9 @@ const { page_not_found_content, page_not_found, back_to_home } =
   <section class="section">
     <div class="container">
       <div class="max-w-measure">
-        <p class="font-secondary text-[5rem] font-bold leading-none text-accent-strong md:text-[7rem]">404</p>
+        <p class="font-secondary text-[6rem] font-medium italic leading-none text-accent-strong md:text-[9rem]">404</p>
         <h1 class="mt-4">{page_not_found}</h1>
-        <p class="mt-4 text-lg">{page_not_found_content}</p>
+        <p class="lead mt-6">{page_not_found_content}</p>
         <a href={slugSelector("/", lang)} class="btn btn-primary mt-8">{back_to_home}</a>
       </div>
     </div>
