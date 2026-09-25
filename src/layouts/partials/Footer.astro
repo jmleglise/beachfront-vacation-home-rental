@@ -45,14 +45,14 @@ const year = new Date().getFullYear();
         <address class="not-italic">
           <p class="mb-2">{t.address}</p>
           <p class="mb-5">
-            <a
-              class="text-white underline underline-offset-2 hover:text-accent"
-              data-mail-user="villatamaris"
-              data-mail-domain="location-maison-mer.fr"
-              href={slugSelector(config.book_now_button.link, lang)}
-            >
-              {t.email_label}
-            </a>
+            <!-- Adresse volontairement scindee (texte + image) contre la collecte automatique. -->
+            <span class="whitespace-nowrap text-white">villatamaris<img
+                src="/images/contact.png"
+                alt={lang === "fr" ? "@ location-maison-mer point fr" : "@ location-maison-mer dot fr"}
+                width="528"
+                height="72"
+                class="inline h-[1.5em] w-auto align-[-0.4375em] invert"
+              /></span>
           </p>
         </address>
         <a class="btn border-white bg-white text-primary hover:border-accent hover:bg-accent hover:text-dark" href={slugSelector(config.book_now_button.link, lang)}>

@@ -33,7 +33,7 @@ const { title, description, meta_title, image, lead, detail, cta } = readcontent
     <div class="container">
       {detail.map((item: any) => (
         <section class="mb-12 md:mb-16">
-          <div class="max-w-measure">
+          <div>
             {item.level && <h2 set:html={markdownify(item.level)} class="mb-4" />}
             <div class="content" set:html={markdownify(item.content, true)} />
           </div>
@@ -42,7 +42,7 @@ const { title, description, meta_title, image, lead, detail, cta } = readcontent
           )}
         </section>
       ))}
-      <div class="content max-w-measure">
+      <div class="content">
         <Content />
       </div>
       {cta && <a class="btn btn-outline-primary mt-10" href={cta.link}>{cta.label}</a>}

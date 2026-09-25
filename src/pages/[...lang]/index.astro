@@ -85,17 +85,12 @@ const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
   <section class="pt-4 md:pt-6">
     <div class="container">
       <div class="relative">
-        <div class="overflow-hidden rounded-lg">
+        <div class="overflow-hidden">
           <BannerSlider banners={banners} />
         </div>
         <!-- H1 sous le carrousel en mobile, en surimpression a partir de md. -->
-        <div
-          class="pointer-events-none mt-6 md:absolute md:inset-x-0 md:bottom-0 md:z-10 md:mt-0 md:rounded-b-lg md:bg-gradient-to-t md:from-dark/75 md:via-dark/30 md:to-transparent md:px-8 md:pb-14 md:pt-24 lg:px-12"
-        >
-          <h1
-            set:html={markdownify(banner.title)}
-            class="max-w-3xl md:text-white md:[text-shadow:0_1px_12px_rgb(0_0_0/35%)]"
-          />
+        <div class="hero-caption md:pb-14">
+          <h1 set:html={markdownify(banner.title)} class="hero-title" />
         </div>
       </div>
 
@@ -115,7 +110,7 @@ const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
         }
       </ul>
 
-      <div class="mt-8 max-w-measure space-y-4 text-lg md:mt-10">
+      <div class="mt-8 space-y-4 text-lg md:mt-10">
         {paragraphs(banner.content).map((para) => <p set:html={markdownify(para)} />)}
       </div>
     </div>
@@ -134,7 +129,7 @@ const shuffledPosts = [...posts].sort(() => 0.5 - Math.random()).slice(0, 3);
                 width={640}
                 height={560}
                 alt={feature.title}
-                class="aspect-[8/7] w-full rounded-lg object-cover"
+                class="aspect-[8/7] w-full object-cover"
                 format="webp"
               />
             </div>

@@ -16,6 +16,19 @@
   @apply mx-auto max-w-[1320px] px-4 md:px-6;
 }
 
+// Titre integre a une grande image (accueil et en-tetes de page).
+// Mobile : sous l'image. A partir de md : en surimpression sur un degrade.
+.hero-caption {
+  @apply pointer-events-none mt-6 md:absolute md:inset-x-0 md:bottom-0 md:z-10 md:mt-0 md:bg-gradient-to-t md:from-dark/75 md:via-dark/30 md:to-transparent md:px-8 md:pb-10 md:pt-24 lg:px-12;
+}
+
+.hero-title {
+  @apply max-w-3xl md:text-white;
+  @screen md {
+    text-shadow: 0 1px 12px rgb(0 0 0 / 35%);
+  }
+}
+
 // Titre de section avec filet d'accent.
 .section-title {
   @apply mb-8;
@@ -101,7 +114,7 @@
   @apply prose-h2:text-h2-sm prose-h2:font-bold md:prose-h2:text-h2;
   @apply prose-h3:text-h3-sm prose-h3:font-semibold md:prose-h3:text-h3;
   @apply prose-h4:text-h4-sm prose-h4:font-semibold md:prose-h4:text-h4;
-  @apply prose-img:max-w-full prose-img:rounded-lg;
+  @apply prose-img:max-w-full prose-img:rounded-none;
   @apply prose-hr:border-border;
   @apply prose-p:text-text;
   @apply prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:bg-surface prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:font-secondary prose-blockquote:text-xl prose-blockquote:not-italic prose-blockquote:text-dark;
@@ -136,7 +149,7 @@
   }
 
   iframe {
-    @apply w-full rounded-lg border-0;
+    @apply w-full rounded-none border-0;
   }
 }
 

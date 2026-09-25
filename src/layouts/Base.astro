@@ -88,6 +88,7 @@ const seoDescription = plainify(description ? description : config.metadata.meta
     <link rel="shortcut icon" href={config.site.favicon32} />
     <link rel="icon" type="image/png" sizes="32x32" href={config.site.favicon32} />
     <link rel="icon" type="image/png" sizes="96x96" href={config.site.favicon96} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
     <link rel="canonical" href={canonicalUrl} item-prop="url" />
     {hreflangLinks.map((link) => (
@@ -135,17 +136,5 @@ const seoDescription = plainify(description ? description : config.metadata.meta
       <slot />
     </main>
     <Footer />
-    <script>
-      // Adresses e-mail assemblees cote client : le HTML statique ne contient
-      // pas l'adresse complete (protection contre la collecte automatique).
-      function revealEmails() {
-        document.querySelectorAll<HTMLAnchorElement>("a[data-mail-user]").forEach((el) => {
-          const address = `${el.dataset.mailUser}@${el.dataset.mailDomain}`;
-          el.href = `mailto:${address}`;
-          el.textContent = address;
-        });
-      }
-      document.addEventListener("astro:page-load", revealEmails);
-    </script>
   </body>
 </html>

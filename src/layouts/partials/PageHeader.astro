@@ -1,7 +1,7 @@
 ---
-// En-tete de page unique : fil d'Ariane, H1, chapo et visuel optionnels.
-// Utilise par toutes les pages sauf l'accueil (carrousel).
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
+// En-tete de page : grande image en haut, titre integre a l'image (meme
+// traitement que le carrousel de l'accueil). En mobile, le titre passe sous
+// l'image pour ne pas la masquer. Sans image : titre seul.
 import ImageMod from "@/components/ImageMod.astro";
 import { markdownify, plainify } from "@/lib/utils/textConverter";
 
@@ -13,24 +13,29 @@ const {
 }: { title?: string; lead?: string; image?: string; imageAlt?: string } = Astro.props;
 ---
 
-<section class="pt-6 md:pt-10">
+<section class="pt-4 md:pt-6">
   <div class="container">
-    <Breadcrumbs title={title} className="mb-4" />
-    <h1 set:html={markdownify(title)} class="max-w-4xl" />
-    {lead && <p class="mt-4 max-w-measure text-lg" set:html={markdownify(lead)} />}
-    <slot />
     {
-      image && (
-        <ImageMod
-          class="mt-8 aspect-[16/9] w-full rounded-lg object-cover"
-          src={image}
-          width={1200}
-          height={675}
-          alt={imageAlt ?? plainify(title)}
-          loading="eager"
-          format="webp"
-        />
+      image ? (
+        <div class="relative">
+          <ImageMod
+            class="aspect-[16/9] w-full object-cover"
+            src={image}
+            width={1200}
+            height={675}
+            alt={imageAlt ?? plainify(title)}
+            loading="eager"
+            format="webp"
+          />
+          <div class="hero-caption">
+            <h1 set:html={markdownify(title)} class="hero-title" />
+          </div>
+        </div>
+      ) : (
+        <h1 set:html={markdownify(title)} class="max-w-4xl pt-6 md:pt-10" />
       )
     }
+    {lead && <p class="mt-6 text-lg" set:html={markdownify(lead)} />}
+    <slot />
   </div>
 </section>

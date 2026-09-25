@@ -32,7 +32,7 @@ Le linge de maison est en option supplémentaire. Tarif au plus juste selon votr
 
 ## Planning des réservations
 
-<div class="not-prose aspect-[4/3] w-full overflow-hidden rounded-lg border border-border md:aspect-[16/10]">
+<div class="not-prose aspect-[4/3] w-full overflow-hidden border border-border md:aspect-[16/10]">
 <iframe title="Calendrier des disponibilités de la Villa Tamaris" src="https://calendar.google.com/calendar/embed?height=600&wkst=7&ctz=Europe%2FParis&showPrint=0&showTz=0&showTabs=0&src=Y2Q1OTBhN2E4ZmU4YmViZmYzMzM4NjUyZTE3ZWE5YjMxMGNmZmMzNDdmZjg4ZjhkYTdmNTMxZmYzNWI0MTAzNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%231F3A5F" class="h-full w-full" loading="lazy"></iframe>
 </div>
 
@@ -40,4 +40,4 @@ Le linge de maison est en option supplémentaire. Tarif au plus juste selon votr
 
 Une question ou une demande particulière ? Nous serons ravis d'en discuter avec vous.
 
-Par e-mail : <a data-mail-user="villatamaris" data-mail-domain="location-maison-mer.fr" href="#">villatamaris [at] location-maison-mer.fr</a>
+Par e-mail : <span class="whitespace-nowrap text-dark">villatamaris<img src="/images/contact.png" alt="@ location-maison-mer point fr" width="528" height="72" class="not-prose m-0 inline h-[1.5em] w-auto align-[-0.4375em]"></span>

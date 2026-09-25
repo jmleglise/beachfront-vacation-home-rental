@@ -2,7 +2,12 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
+// Une seule instance par page : chaque <Gallery> hydrate ce module, et
+// plusieurs instances liees aux memes vignettes se concurrencaient.
+let current: PhotoSwipeLightbox | null = null;
+
 export function initGallery() {
+  current?.destroy();
   const lightbox = new PhotoSwipeLightbox({
     zoom: false,
     gallery: '.gallery',
@@ -45,4 +50,5 @@ export function initGallery() {
   });
 
   lightbox.init();
+  current = lightbox;
 }
