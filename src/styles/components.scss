@@ -19,7 +19,7 @@
 // Titre integre a une grande image (accueil et en-tetes de page).
 // Mobile : sous l'image. A partir de md : en surimpression sur un degrade.
 .hero-caption {
-  @apply pointer-events-none mt-8 md:absolute md:inset-x-0 md:bottom-0 md:z-10 md:mt-0 md:bg-gradient-to-t md:from-primary-dark/80 md:via-primary-dark/25 md:to-transparent md:px-10 md:pb-12 md:pt-32 lg:px-16;
+  @apply pointer-events-none mt-8 md:absolute md:inset-x-0 md:bottom-0 md:z-10 md:mt-0 md:bg-gradient-to-t md:from-primary-dark/80 md:via-primary-dark/25 md:to-transparent md:px-7 md:pb-12 md:pt-32 lg:px-11;
 }
 
 .hero-title {
@@ -44,6 +44,12 @@
 // Panneau : fond sable clair, sans arrondi ni ombre.
 .card {
   @apply bg-surface p-8;
+}
+
+// Titre de carte d'article : Jost (texte de la charte), les titres longs
+// en forme de question restent lisibles sur 2-3 lignes.
+.card-title {
+  @apply font-primary text-lg font-normal leading-snug tracking-normal md:text-[1.1875rem];
 }
 
 // Etiquette (tag / categorie) : filet fin, capitales espacees.
@@ -87,6 +93,19 @@
     li:nth-child(n + 2) {
       @apply border-l border-border pl-10;
     }
+  }
+}
+
+// Picto au trait : au-dessus du chiffre en mobile, a sa droite a partir de md.
+.key-icon {
+  @apply block text-accent md:mb-1;
+  svg {
+    @apply h-7 w-auto md:h-9;
+  }
+  // Epaisseur de trait identique quel que soit le viewBox du picto.
+  svg * {
+    vector-effect: non-scaling-stroke;
+    stroke-width: 1.5px;
   }
 }
 

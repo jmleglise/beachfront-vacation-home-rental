@@ -37,8 +37,6 @@ detail:
   - level: "Rez-de-chaussée"
     content: |
       - 2 chambres, chacune avec 2 lits de 80 pouvant être réunis.
-      - 1 salle de douche.
-      - 1 WC.
     images:
       - full: "/images/plan_r0.jpg"
         alt: "Plan du rez-de-chaussée"

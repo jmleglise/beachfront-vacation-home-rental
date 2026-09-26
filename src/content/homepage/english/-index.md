@@ -58,7 +58,7 @@ schemaVacationRental: |
     "additionalType": "EntirePlace", 
     "numberOfRooms": 10,
     "numberOfBedrooms": 3,
-    "numberOfBathroomsTotal": 3,
+    "numberOfBathroomsTotal": 2,
     "floorSize": {
       "@type": "QuantitativeValue",
       "value": 190,
@@ -207,7 +207,7 @@ features:
     content: "Facing the sea, enjoy a beautiful sea view from the living room and 2 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
       - "Master bedroom opens onto its exceptional terrace with an en-suite bathroom."
-      - "6 people, 3 bedrooms, 3 bathrooms, 3 WCs."
+      - "6 people, 3 bedrooms, 2 shower rooms, 2 separate WCs."
       - "Living room with fully equipped kitchen."
       - "Office and high-speed Internet for working in an exceptional setting."
       - "On a 300m² plot, landscaped garden, barbecue, plancha."
@@ -273,7 +273,7 @@ faqContent:
   - title: "Does this vacation rental have a pool ?"
     content: "The beach is in front of the garden! And the Aquabella aquatic complex in Ouistreham is just a 4-minute bike ride away. (70m water slide, splashpad, and a solarium to relax with your feet in the sand. Various aquatic activities are scheduled throughout the year: aquabike classes, aquafitness, baby swimming, etc. Around €6 per day per person.)"
   - title: "Is the rental suitable for babies or people with reduced mobility ?"
-    content: "Unfortunately, neither. We do not have baby equipment. The stairs are currently not secured. For people with reduced mobility, there are 2 bedrooms, a toilet, and shower room at ground-floor, but the kitchen and living room are upstairs."
+    content: "Unfortunately, neither. We do not have baby equipment. The stairs are currently not secured. For people with reduced mobility, there are 2 bedrooms on the ground floor, but the shower rooms, WCs, kitchen and living room are upstairs."
   - title: "What are the amenities of the house ?"
     content: "The house is fully equipped, as it is our primary residence. Fully equipped kitchen, garden with gas barbecue and gas plancha, washing machine, dryer, dishwasher, Nespresso coffee maker, toaster... powerfull Internet, But no TV."
   - title: "How far is the vacation home from the beach ?"

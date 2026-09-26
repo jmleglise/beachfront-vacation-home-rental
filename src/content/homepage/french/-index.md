@@ -58,7 +58,7 @@ schemaVacationRental: |
     "additionalType": "EntirePlace", 
     "numberOfRooms": 10,
     "numberOfBedrooms": 3,
-    "numberOfBathroomsTotal": 3,
+    "numberOfBathroomsTotal": 2,
     "floorSize": {
       "@type": "QuantitativeValue",
       "value": 190,
@@ -210,7 +210,7 @@ features:
     content: "Face à la mer, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
-      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 3 salles de douche, 3 WC séparés."
+      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 2 salles de douche, 2 WC séparés."
       - "Suite parentale avec vue mer, avec sa grande salle de douche et sa terrasse privative."
       - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger et le bow-window face à la mer."
       - "Bureau isolé et Internet++ pour travailler dans un cadre exceptionnel."
@@ -273,7 +273,7 @@ faqContent:
   - title: "La location dispose-t-elle d'une piscine ?"
     content: "La plage est au bout du jardin ! Et le complexe aquatique Aquabella de Ouistreham est à 4 minutes de vélo. (Toboggan de 70m, splashpad et un solarium pour se relaxer les pieds dans le sable. Diverses activités aquatiques sont programmées toute l'année : cours d'aquabike, d'aquafitness, bébés nageurs, etc. Env 6€ la journée par pers.)"
   - title: "Est-ce que la location est adaptée aux bébés ou aux personnes à mobilité réduite ?"
-    content: "Malheureusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres, WC  et salle de douche au rez-de-chaussée, mais la cuisine et le salon sont à l'étage."
+    content: "Malheureusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres au rez-de-chaussée, mais les salles de douche, les WC, la cuisine et le salon sont à l'étage."
   - title: "Quels sont les équipements de la maison ?"
     content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine très équipée (lave vaisselle, cafetière nespresso, grille pain, four, microonde...), Internet - Wifi, barbecue gaz et plancha gaz dans le jardin, vélos, Lave linge, sèche linge,  ...  MAIS pas de TV." 
   - title: "À quelle distance de la plage est la maison ?"

@@ -7,7 +7,8 @@ interface Props {
   src: string;
   alt: string;
   width: number;
-  height: number;
+  // Hauteur omise : deduite du ratio de l'original, sans recadrage.
+  height?: number;
   loading?: "eager" | "lazy" | null | undefined;
   decoding?: "async" | "auto" | "sync" | null | undefined;
   format?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
@@ -41,6 +42,12 @@ const isValidPath = images[src] ? true : false;
   console.error(
     `\x1b[31mImage not found - ${src}.\x1b[0m Make sure the image is in the /public/images folder.`,
   );
+
+// Avec largeur ET hauteur, Astro recadre le fichier genere (fit: cover).
+if (isValidPath && height === undefined) {
+  const meta = ((await images[src]()) as { default: ImageMetadata }).default;
+  height = Math.round((width * meta.height) / meta.width);
+}
 ---
 
 {

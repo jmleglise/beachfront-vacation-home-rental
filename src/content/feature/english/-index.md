@@ -37,8 +37,6 @@ detail:
   - level: "Ground floor"
     content: |
       - 2 bedrooms, each with two 80 cm beds that can be joined together.
-      - 1 shower room.
-      - 1 WC.
     images:
       - full: "/images/plan_r0.jpg"
         alt: "Ground floor layout"

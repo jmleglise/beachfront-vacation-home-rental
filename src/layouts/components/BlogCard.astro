@@ -9,7 +9,7 @@ import { humanize } from "@/lib/utils/textConverter";
 import ImageMod from "./ImageMod.astro";
 
 // headingLevel : niveau semantique du titre selon la page (h2 sous un H1
-// de liste, h3 sous un titre de section). Le style visuel reste h4.
+// de liste, h3 sous un titre de section). Le style visuel reste .card-title.
 const { data, headingLevel = "h3" } = Astro.props;
 const { title, image, date, categories } = data.data;
 
@@ -52,7 +52,7 @@ const Heading = headingLevel;
       </li>
     )}
   </ul>
-  <Heading class="h4">
+  <Heading class="card-title">
     <!-- Lien etire : toute la carte est cliquable. -->
     <a href={href} class="transition-colors after:absolute after:inset-0 group-hover:text-accent-strong">
       {title}
