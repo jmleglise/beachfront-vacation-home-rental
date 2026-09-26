@@ -58,7 +58,7 @@ schemaVacationRental: |
     "additionalType": "EntirePlace", 
     "numberOfRooms": 10,
     "numberOfBedrooms": 3,
-    "numberOfBathroomsTotal": 3,
+    "numberOfBathroomsTotal": 2,
     "floorSize": {
       "@type": "QuantitativeValue",
       "value": 190,
@@ -210,7 +210,7 @@ features:
     content: "Face à la mer, cette location saisonnière vous offre une vue imprenable sur la plage depuis le salon, la salle à manger et trois chambres. La propriété dispose d’un jardin privé à l’abri des regards, d’un parking réservé, et d’une grande terrasse dominant le front de mer.
     Entièrement rénovée en 2024, cette résidence combine charme néonormand et confort moderne. Elle est tout équipée et décorée avec soin pour un séjour haut de gamme."
     bulletpoints:
-      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 3 salles de douche, 3 WC séparés."
+      - "6 personnes, 3 chambres spatieuses dont 2 avec lits séparables, 2 salles de douche, 2 WC séparés."
       - "Suite parentale avec vue mer, avec sa grande salle de douche et sa terrasse privative."
       - "Grand plateau à vivre, salon, cuisine toute équipée ouverte sur la salle à manger et le bow-window face à la mer."
       - "Bureau isolé et Internet++ pour travailler dans un cadre exceptionnel."

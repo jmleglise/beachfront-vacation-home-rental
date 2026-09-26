@@ -58,7 +58,7 @@ schemaVacationRental: |
     "additionalType": "EntirePlace", 
     "numberOfRooms": 10,
     "numberOfBedrooms": 3,
-    "numberOfBathroomsTotal": 3,
+    "numberOfBathroomsTotal": 2,
     "floorSize": {
       "@type": "QuantitativeValue",
       "value": 190,
@@ -207,7 +207,7 @@ features:
     content: "Facing the sea, enjoy a beautiful sea view from the living room and 2 bedrooms. The house was fully renovated in 2024 and offers high-level amenities."
     bulletpoints:
       - "Master bedroom opens onto its exceptional terrace with an en-suite bathroom."
-      - "6 people, 3 bedrooms, 3 bathrooms, 3 WCs."
+      - "6 people, 3 bedrooms, 2 shower rooms, 2 separate WCs."
       - "Living room with fully equipped kitchen."
       - "Office and high-speed Internet for working in an exceptional setting."
       - "On a 300m² plot, landscaped garden, barbecue, plancha."
