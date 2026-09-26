@@ -273,7 +273,7 @@ faqContent:
   - title: "La location dispose-t-elle d'une piscine ?"
     content: "La plage est au bout du jardin ! Et le complexe aquatique Aquabella de Ouistreham est à 4 minutes de vélo. (Toboggan de 70m, splashpad et un solarium pour se relaxer les pieds dans le sable. Diverses activités aquatiques sont programmées toute l'année : cours d'aquabike, d'aquafitness, bébés nageurs, etc. Env 6€ la journée par pers.)"
   - title: "Est-ce que la location est adaptée aux bébés ou aux personnes à mobilité réduite ?"
-    content: "Malheureusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres, WC  et salle de douche au rez-de-chaussée, mais la cuisine et le salon sont à l'étage."
+    content: "Malheureusement, ni l'un ni l'autre. Nous n'avons pas l'équipement pour les bébés. Les escaliers ne sont pas sécurisés. Et pour les personnes à mobilité réduite, il y a 2 chambres au rez-de-chaussée, mais les salles de douche, les WC, la cuisine et le salon sont à l'étage."
   - title: "Quels sont les équipements de la maison ?"
     content: "La maison a un équipement complet, puisque c'est notre maison d'habitation. Cuisine très équipée (lave vaisselle, cafetière nespresso, grille pain, four, microonde...), Internet - Wifi, barbecue gaz et plancha gaz dans le jardin, vélos, Lave linge, sèche linge,  ...  MAIS pas de TV." 
   - title: "À quelle distance de la plage est la maison ?"
